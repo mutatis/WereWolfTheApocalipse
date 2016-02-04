@@ -8,6 +8,8 @@ public class PlayerController : MonoBehaviour
 
     public PlayerAnimation anim;
 
+    public Rigidbody rig;
+
     public Player player;
 
     [HideInInspector]
@@ -58,6 +60,10 @@ public class PlayerController : MonoBehaviour
                     {
                         SocoForte();
                     }
+                    else if(Input.GetKeyDown(KeyCode.Joystick1Button0))
+                    {
+                        rig.velocity = new Vector3(rig.velocity.x, 10, rig.velocity.z);
+                    }
                 }
                 break;
         }
@@ -68,6 +74,8 @@ public class PlayerController : MonoBehaviour
         isAttack = false;
         isRun = false;
         anim.anim.SetTrigger("SocoForte");
+
+        PlayCombo();
     }
 
     void SocoFraco()
