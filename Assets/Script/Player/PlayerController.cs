@@ -46,7 +46,14 @@ public class PlayerController : MonoBehaviour
                 if (isRun)
                 {
                     x = Input.GetAxis("HorizontalP1");
-                    z = Input.GetAxis("VerticalP1");
+                    if (!jump)
+                    {
+                        z = Input.GetAxis("VerticalP1");
+                    }
+                    else
+                    {
+                        z = 0;
+                    }
 
                     transform.Translate(x, 0, z);
                 }
