@@ -16,11 +16,13 @@ public class PlayerController : MonoBehaviour
     public float x;
     [HideInInspector]
     public float z;
-    
+
+    public bool jump;
+
     public int contador;
 
-    public bool isRun = true;
-    public bool isAttack = true;
+    bool isRun = true;
+    bool isAttack = true;
 
     void Awake()
     {
@@ -51,22 +53,39 @@ public class PlayerController : MonoBehaviour
 
                 if (isAttack)
                 {
-                    if (Input.GetKeyDown(KeyCode.Joystick1Button2))
+                    if (!jump)
                     {
-                        StopCombo();
-                        SocoFraco();
+                        if (Input.GetKeyDown(KeyCode.Joystick1Button2))
+                        {
+                            StopCombo();
+                            SocoFraco();
+                        }
+                        else if (Input.GetKeyDown(KeyCode.Joystick1Button3))
+                        {
+                            SocoForte();
+                        }
+                        else if (Input.GetKeyDown(KeyCode.Joystick1Button0))
+                        {
+                            Jump();
+                        }
                     }
-                    else if (Input.GetKeyDown(KeyCode.Joystick1Button3))
+                    else
                     {
-                        SocoForte();
-                    }
-                    else if(Input.GetKeyDown(KeyCode.Joystick1Button0))
-                    {
-                        rig.velocity = new Vector3(rig.velocity.x, 10, rig.velocity.z);
+                        if (Input.GetKeyDown(KeyCode.Joystick1Button2))
+                        {
+                            anim.anim.SetTrigger("JumpAttack");
+                        }
                     }
                 }
                 break;
         }
+    }
+
+    void Jump()
+    {
+        jump = true;
+        anim.anim.SetBool("Jump", jump);
+        rig.velocity = new Vector3(rig.velocity.x, 10, rig.velocity.z);
     }
 
     void SocoForte()
@@ -126,6 +145,8 @@ public class PlayerController : MonoBehaviour
     {
         isRun = true;
         isAttack = true;
+        jump = false;
+        anim.anim.SetBool("Jump", jump);
     }
 
     public void Ataca()

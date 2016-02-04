@@ -9,7 +9,7 @@ public class PlayerAnimation : MonoBehaviour
 
 	void Update ()
     {
-	    if((PlayerController.playerController.x != 0 || PlayerController.playerController.z != 0))
+	    if((PlayerController.playerController.x != 0 || PlayerController.playerController.z != 0) && !PlayerController.playerController.jump)
         {
             if (run)
             {
