@@ -24,6 +24,11 @@ public class PlayerAnimation : MonoBehaviour
         }
 	}
 
+    public void Stun()
+    {
+        PlayerController.playerController.stun = false;
+    }
+
     public void Liberated()
     {
         PlayerController.playerController.Liberated();

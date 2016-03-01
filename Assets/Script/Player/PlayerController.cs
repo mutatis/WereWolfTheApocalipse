@@ -18,8 +18,11 @@ public class PlayerController : MonoBehaviour
     public float z;
 
     public bool jump;
+    public bool stun;
 
     public int contador;
+
+    public int engage;
 
     bool isRun = true;
     bool isAttack = true;
@@ -31,60 +34,63 @@ public class PlayerController : MonoBehaviour
 
     void Update()
     {
-        if(x > 0 && transform.localScale.x < 0)
+        if (!stun)
         {
-            transform.localScale = new Vector3((transform.localScale.x * -1), transform.localScale.y, transform.localScale.z);
-        }
-        else if (x < 0 && transform.localScale.x > 0)
-        {
-            transform.localScale = new Vector3((transform.localScale.x * -1), transform.localScale.y, transform.localScale.z);
-        }
+            if (x > 0 && transform.localScale.x < 0)
+            {
+                transform.localScale = new Vector3((transform.localScale.x * -1), transform.localScale.y, transform.localScale.z);
+            }
+            else if (x < 0 && transform.localScale.x > 0)
+            {
+                transform.localScale = new Vector3((transform.localScale.x * -1), transform.localScale.y, transform.localScale.z);
+            }
 
-        switch (player)
-        {
-            case Player.Player1:
-                if (isRun)
-                {
-                    x = Input.GetAxis("HorizontalP1");
-                    if (!jump)
+            switch (player)
+            {
+                case Player.Player1:
+                    if (isRun)
                     {
-                        z = Input.GetAxis("VerticalP1");
-                    }
-                    else
-                    {
-                        z = 0;
+                        x = Input.GetAxis("HorizontalP1");
+                        if (!jump)
+                        {
+                            z = Input.GetAxis("VerticalP1");
+                        }
+                        else
+                        {
+                            z = 0;
+                        }
+
+                        transform.Translate(x, 0, z);
                     }
 
-                    transform.Translate(x, 0, z);
-                }
-
-                if (isAttack)
-                {
-                    if (!jump)
+                    if (isAttack)
                     {
-                        if (Input.GetKeyDown(KeyCode.Joystick1Button2))
+                        if (!jump)
                         {
-                            StopCombo();
-                            SocoFraco();
+                            if (Input.GetKeyDown(KeyCode.Joystick1Button2))
+                            {
+                                StopCombo();
+                                SocoFraco();
+                            }
+                            else if (Input.GetKeyDown(KeyCode.Joystick1Button3))
+                            {
+                                SocoForte();
+                            }
+                            else if (Input.GetKeyDown(KeyCode.Joystick1Button0))
+                            {
+                                Jump();
+                            }
                         }
-                        else if (Input.GetKeyDown(KeyCode.Joystick1Button3))
+                        else
                         {
-                            SocoForte();
-                        }
-                        else if (Input.GetKeyDown(KeyCode.Joystick1Button0))
-                        {
-                            Jump();
+                            if (Input.GetKeyDown(KeyCode.Joystick1Button2))
+                            {
+                                anim.anim.SetTrigger("JumpAttack");
+                            }
                         }
                     }
-                    else
-                    {
-                        if (Input.GetKeyDown(KeyCode.Joystick1Button2))
-                        {
-                            anim.anim.SetTrigger("JumpAttack");
-                        }
-                    }
-                }
-                break;
+                    break;
+            }
         }
     }
 
@@ -137,6 +143,12 @@ public class PlayerController : MonoBehaviour
     public void StopCombo()
     {
         StopCoroutine("GO");
+    }
+
+    public void Dano()
+    {
+        stun = true;
+        anim.anim.SetTrigger("Dano");
     }
 
     IEnumerator GO()

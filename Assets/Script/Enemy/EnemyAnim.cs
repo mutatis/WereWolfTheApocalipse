@@ -9,4 +9,11 @@ public class EnemyAnim : MonoBehaviour
     {
         controller.stun = false;
     }
+    void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.tag == "Player")
+        {
+            other.gameObject.GetComponent<PlayerController>().Dano();
+        }
+    }
 }
