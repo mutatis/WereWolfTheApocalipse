@@ -9,6 +9,8 @@ public class EnemyController : MonoBehaviour
 
     public bool stun;
 
+    public float tempoResposta;
+
     public string[] attack;
 
     public GameObject player;
@@ -27,7 +29,7 @@ public class EnemyController : MonoBehaviour
 
         if (dist > 2f && isWalk && player != null)
         {
-            direction = PlayerController.playerController.transform.position - transform.position;
+            /*direction = PlayerController.playerController.transform.position - transform.position;
             direction.Normalize();
             transform.Translate(direction / 8);
             if (direction.x > 0 && transform.localScale.x > 0)
@@ -38,7 +40,8 @@ public class EnemyController : MonoBehaviour
             {
                 transform.localScale = new Vector3((transform.localScale.x * -1), transform.localScale.y, transform.localScale.z);
             }
-            //Engage(); //Idle ou Roaming tb
+            //Engage(); //Idle ou Roaming tb*/
+            StartCoroutine("Engage");
         }
         else if(isWalk && player != null)
         {
@@ -122,7 +125,7 @@ public class EnemyController : MonoBehaviour
 
     IEnumerator Pode()
     {
-        yield return new WaitForSeconds(1.5f);
+        yield return new WaitForSeconds(tempoResposta);
         Combate();
     }
 
@@ -166,7 +169,7 @@ public class EnemyController : MonoBehaviour
         print("Soco");
     }
 
-    public void Engage()
+    IEnumerator Engage()
     {
         while (dist > 2f)
         {
@@ -185,7 +188,9 @@ public class EnemyController : MonoBehaviour
                 }
             }
             dist = Vector3.Distance(PlayerController.playerController.transform.position, transform.position);
+            yield return new WaitForEndOfFrame();
         }
+        StopCoroutine("Engage");
     }
 
     IEnumerator GO()
