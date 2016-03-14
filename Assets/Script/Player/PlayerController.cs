@@ -68,7 +68,7 @@ public class PlayerController : MonoBehaviour
                     {
                         if (!jump)
                         {
-                            if (Input.GetKeyDown(KeyCode.Joystick1Button2))
+                            if (Input.GetKeyDown(KeyCode.Joystick1Button2) || Input.GetKeyDown(KeyCode.Space))
                             {
                                 flooda++;
                                 StopCoroutine("Floodando");
