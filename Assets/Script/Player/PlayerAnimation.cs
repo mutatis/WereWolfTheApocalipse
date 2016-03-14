@@ -5,6 +5,12 @@ public class PlayerAnimation : MonoBehaviour
 {
     public Animator anim;
 
+    [FMODUnity.EventRef]
+    public string socoFraco;
+
+    [FMODUnity.EventRef]
+    public string socoForte;
+
     bool run;
 
 	void Update ()
@@ -45,10 +51,12 @@ public class PlayerAnimation : MonoBehaviour
         {
             if (PlayerController.playerController.contador <= 2)
             {
+                FMODUnity.RuntimeManager.PlayOneShot(socoFraco);
                 other.gameObject.GetComponent<EnemyController>().Dano();
             }
             else if (PlayerController.playerController.contador >= 3)
             {
+                FMODUnity.RuntimeManager.PlayOneShot(socoForte);
                 other.gameObject.GetComponent<EnemyController>().Slam();
             }
         }
