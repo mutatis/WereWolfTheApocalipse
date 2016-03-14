@@ -23,6 +23,7 @@ public class PlayerController : MonoBehaviour
     public int contador;
 
     public int engage;
+    public int flooda;
 
     bool isRun = true;
     bool isAttack = true;
@@ -60,7 +61,7 @@ public class PlayerController : MonoBehaviour
                             z = 0;
                         }
 
-                        transform.Translate(x, 0, z);
+                        transform.Translate(new Vector3(x, 0, z) * Time.deltaTime);
                     }
 
                     if (isAttack)
@@ -69,11 +70,17 @@ public class PlayerController : MonoBehaviour
                         {
                             if (Input.GetKeyDown(KeyCode.Joystick1Button2))
                             {
+                                flooda++;
+                                StopCoroutine("Floodando");
+                                StartCoroutine("Floodando");
                                 StopCombo();
                                 SocoFraco();
                             }
                             else if (Input.GetKeyDown(KeyCode.Joystick1Button3))
                             {
+                                flooda++;
+                                StopCoroutine("Floodando");
+                                StartCoroutine("Floodando");
                                 SocoForte();
                             }
                             else if (Input.GetKeyDown(KeyCode.Joystick1Button0))
@@ -92,6 +99,12 @@ public class PlayerController : MonoBehaviour
                     break;
             }
         }
+    }
+
+    IEnumerator Floodando()
+    {
+        yield return new WaitForSeconds(1.2f);
+        flooda = 0;
     }
 
     void Jump()

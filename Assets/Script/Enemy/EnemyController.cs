@@ -29,18 +29,6 @@ public class EnemyController : MonoBehaviour
 
         if (dist > 2f && isWalk && player != null)
         {
-            /*direction = PlayerController.playerController.transform.position - transform.position;
-            direction.Normalize();
-            transform.Translate(direction / 8);
-            if (direction.x > 0 && transform.localScale.x > 0)
-            {
-                transform.localScale = new Vector3((transform.localScale.x * -1), transform.localScale.y, transform.localScale.z);
-            }
-            else if (direction.x < 0 && transform.localScale.x < 0)
-            {
-                transform.localScale = new Vector3((transform.localScale.x * -1), transform.localScale.y, transform.localScale.z);
-            }
-            //Engage(); //Idle ou Roaming tb*/
             StartCoroutine("Engage");
         }
         else if(isWalk && player != null)
@@ -132,6 +120,7 @@ public class EnemyController : MonoBehaviour
     void Switch()
     {
         //escolhe outro player
+        player.GetComponent<PlayerController>().engage--;
         player = null;
         procura = true;
     }
@@ -177,7 +166,7 @@ public class EnemyController : MonoBehaviour
             {
                 direction = PlayerController.playerController.transform.position - transform.position;
                 direction.Normalize();
-                transform.Translate(direction / 80);
+                transform.Translate((direction / 80) * Time.deltaTime);
                 if (direction.x > 0 && transform.localScale.x > 0)
                 {
                     transform.localScale = new Vector3((transform.localScale.x * -1), transform.localScale.y, transform.localScale.z);
