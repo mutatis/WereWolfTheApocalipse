@@ -8,14 +8,16 @@ public class PlayerAnimation : MonoBehaviour
     [FMODUnity.EventRef]
     public string socoFraco;
 
-    [FMODUnity.EventRef]
+    FMOD.Studio.EventInstance heal;
+
+   [FMODUnity.EventRef]
     public string socoForte;
 
     bool run;
 
 	void Update ()
     {
-	    if((PlayerController.playerController.x != 0 || PlayerController.playerController.z != 0) && !PlayerController.playerController.jump)
+        if ((PlayerController.playerController.x != 0 || PlayerController.playerController.z != 0) && !PlayerController.playerController.jump)
         {
             if (run)
             {
@@ -51,12 +53,16 @@ public class PlayerAnimation : MonoBehaviour
         {
             if (PlayerController.playerController.contador <= 2)
             {
-                FMODUnity.RuntimeManager.PlayOneShot(socoFraco);
+                heal = FMODUnity.RuntimeManager.CreateInstance(socoFraco);
+                heal.setVolume(PlayerPrefs.GetFloat("VolumeFX"));
+                heal.start();
                 other.gameObject.GetComponent<EnemyController>().Dano();
             }
             else if (PlayerController.playerController.contador >= 3)
             {
-                FMODUnity.RuntimeManager.PlayOneShot(socoForte);
+                heal = FMODUnity.RuntimeManager.CreateInstance(socoForte);
+                heal.setVolume(PlayerPrefs.GetFloat("VolumeFX"));
+                heal.start();
                 other.gameObject.GetComponent<EnemyController>().Slam();
             }
         }
