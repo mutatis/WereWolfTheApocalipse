@@ -71,5 +71,10 @@ public class AtributosNavigat : MonoBehaviour
                 }
             }
         }
+
+        if(Input.GetKeyDown(KeyCode.Escape))
+        {
+            x = 0;
+        }
     }
 }
