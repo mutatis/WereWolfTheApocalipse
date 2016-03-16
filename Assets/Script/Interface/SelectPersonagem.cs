@@ -6,7 +6,11 @@ public class SelectPersonagem : MonoBehaviour
 {
     public Image[] player;
 
+    public GameObject[] atributos;
+
     int select;
+
+    bool pode = true;
 
     void Start()
     {
@@ -22,10 +26,39 @@ public class SelectPersonagem : MonoBehaviour
     {
         if (PlayerPrefs.GetInt("Players") == 1)
         {
-            if (Input.GetKeyDown(KeyCode.RightArrow) || Input.GetKeyDown(KeyCode.LeftArrow) || Input.GetKeyDown(KeyCode.Joystick1Button11) || Input.GetKeyDown(KeyCode.Joystick1Button10))
+            if (pode)
             {
-                Muda();
+                if (Input.GetKeyDown(KeyCode.RightArrow) || Input.GetKeyDown(KeyCode.LeftArrow) || Input.GetKeyDown(KeyCode.Joystick1Button11) || Input.GetKeyDown(KeyCode.Joystick1Button10))
+                {
+                    Muda();
+                }
+                else if (Input.GetKeyDown(KeyCode.Return) || Input.GetKeyDown(KeyCode.Joystick1Button0))
+                {
+                    Select();
+                }
             }
+            else if(Input.GetKeyDown(KeyCode.Escape) || Input.GetKeyDown(KeyCode.Joystick1Button1))
+            {
+                atributos[select].SetActive(false);
+                pode = true;
+            }
+
+        }
+    }
+
+    void Select()
+    {
+        if (select == 0)
+        {
+            atributos[select].SetActive(true);
+            pode = false;
+            return;
+        }
+        else if (select == 1)
+        {
+            atributos[select].SetActive(true);
+            pode = false;
+            return;
         }
     }
 
