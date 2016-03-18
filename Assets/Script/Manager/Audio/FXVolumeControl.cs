@@ -33,6 +33,6 @@ public class FXVolumeControl : MonoBehaviour
             PlayerPrefs.SetFloat("VolumeMusica", sli.value);
         }
 
-        text.text = sli.value.ToString();
+        text.text = sli.value.ToString("F1");
     }
 }
