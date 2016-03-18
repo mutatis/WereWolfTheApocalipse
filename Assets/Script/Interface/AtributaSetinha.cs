@@ -7,21 +7,31 @@ public class AtributaSetinha : MonoBehaviour
 
     public int tipo;
 
+    bool podeDpad = true;
+
 	void Update ()
     {
-	    if(tipo == 0)
+        if (podeDpad)
         {
-            if (Input.GetKeyDown(KeyCode.RightArrow) || Input.GetKeyDown(KeyCode.Joystick1Button11))
+            if (tipo == 0)
             {
-                anim.SetTrigger("Aperto");
+                if (Input.GetKeyDown(KeyCode.RightArrow) || Input.GetAxisRaw("DpadXP1") > 0)
+                {
+                    anim.SetTrigger("Aperto");
+                }
+            }
+            else if (tipo == 1)
+            {
+                if (Input.GetKeyDown(KeyCode.LeftArrow) || Input.GetAxisRaw("DpadXP1") < 0)
+                {
+                    anim.SetTrigger("Aperto");
+                }
             }
         }
-        else if (tipo == 1)
+
+        if (Input.GetAxisRaw("DpadXP1") == 0)
         {
-            if (Input.GetKeyDown(KeyCode.LeftArrow) || Input.GetKeyDown(KeyCode.Joystick1Button10))
-            {
-                anim.SetTrigger("Aperto");
-            }
+            podeDpad = true;
         }
     }
 }

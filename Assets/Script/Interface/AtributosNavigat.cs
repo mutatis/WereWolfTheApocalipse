@@ -10,69 +10,81 @@ public class AtributosNavigat : MonoBehaviour
 
     public SelectPersonagem select;
 
+    bool podeDpad = true;
+
     int x = 0;
 
-	void Update ()
+    void Update()
     {
-        if(Input.GetKeyDown(KeyCode.DownArrow) || Input.GetKeyDown(KeyCode.Joystick1Button9))
+        if (podeDpad)
         {
-            if(x < (img.Length - 1))
-                x++;
+            if (Input.GetKeyDown(KeyCode.DownArrow) || Input.GetAxisRaw("DpadYP1") < 0)
+            {
+                if (x < (img.Length - 1))
+                    x++;
 
-            for(int i = 0; i < img.Length; i++)
-            {
-                if(i == x)
+                for (int i = 0; i < img.Length; i++)
                 {
-                    img[i].SetActive(true);
+                    if (i == x)
+                    {
+                        img[i].SetActive(true);
+                    }
+                    else
+                    {
+                        img[i].SetActive(false);
+                    }
                 }
-                else
+                for (int i = 0; i < description.Length; i++)
                 {
-                    img[i].SetActive(false);
+                    if (i == x)
+                    {
+                        description[i].SetActive(true);
+                    }
+                    else
+                    {
+                        description[i].SetActive(false);
+                    }
                 }
+                podeDpad = false;
             }
-            for (int i = 0; i < description.Length; i++)
+
+            if (Input.GetKeyDown(KeyCode.UpArrow) || Input.GetAxisRaw("DpadYP1") > 0)
             {
-                if (i == x)
+                if (x > 0)
+                    x--;
+
+                for (int i = 0; i < img.Length; i++)
                 {
-                    description[i].SetActive(true);
+                    if (i == x)
+                    {
+                        img[i].SetActive(true);
+                    }
+                    else
+                    {
+                        img[i].SetActive(false);
+                    }
                 }
-                else
+                for (int i = 0; i < description.Length; i++)
                 {
-                    description[i].SetActive(false);
+                    if (i == x)
+                    {
+                        description[i].SetActive(true);
+                    }
+                    else
+                    {
+                        description[i].SetActive(false);
+                    }
                 }
+                podeDpad = false;                
             }
         }
 
-        if (Input.GetKeyDown(KeyCode.UpArrow) || Input.GetKeyDown(KeyCode.Joystick1Button8))
+        if (Input.GetAxisRaw("DpadYP1") == 0)
         {
-            if(x > 0)
-                x--;
-
-            for (int i = 0; i < img.Length; i++)
-            {
-                if (i == x)
-                {
-                    img[i].SetActive(true);
-                }
-                else
-                {
-                    img[i].SetActive(false);
-                }
-            }
-            for (int i = 0; i < description.Length; i++)
-            {
-                if (i == x)
-                {
-                    description[i].SetActive(true);
-                }
-                else
-                {
-                    description[i].SetActive(false);
-                }
-            }
+            podeDpad = true;
         }
 
-        if(Input.GetKeyDown(KeyCode.Escape))
+        if (Input.GetKeyDown(KeyCode.Escape))
         {
             x = 0;
         }

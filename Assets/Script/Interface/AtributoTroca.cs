@@ -8,17 +8,27 @@ public class AtributoTroca : MonoBehaviour
     public GameObject proximo;
     public GameObject anterior;
 
+    bool podeDpad = true;
+
 	void Update ()
     {
-	    if(Input.GetKeyDown(KeyCode.RightArrow) || Input.GetKeyDown(KeyCode.Joystick1Button11))
+        if (podeDpad)
         {
-            Proximo();
+            if (Input.GetKeyDown(KeyCode.RightArrow) || Input.GetAxisRaw("DpadXP1") > 0)
+            {
+                Proximo();
+            }
+            else if (Input.GetKeyDown(KeyCode.LeftArrow) || Input.GetAxisRaw("DpadXP1") < 0)
+            {
+                Anterior();
+            }
         }
-        else if(Input.GetKeyDown(KeyCode.LeftArrow) || Input.GetKeyDown(KeyCode.Joystick1Button10))
+
+        if (Input.GetAxisRaw("DpadXP1") == 0)
         {
-            Anterior();
+            podeDpad = true;
         }
-	}
+    }
 
     void Proximo()
     {
@@ -26,7 +36,7 @@ public class AtributoTroca : MonoBehaviour
         {
             desliga[i].SetActive(false);
         }
-
+        podeDpad = false;
         proximo.SetActive(true);
     }
 
@@ -36,7 +46,7 @@ public class AtributoTroca : MonoBehaviour
         {
             desliga[i].SetActive(false);
         }
-
+        podeDpad = false;
         anterior.SetActive(true);
     }
 }
