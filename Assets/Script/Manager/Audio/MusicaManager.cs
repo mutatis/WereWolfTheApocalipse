@@ -3,15 +3,25 @@ using System.Collections;
 
 public class MusicaManager : MonoBehaviour
 {
-    public AudioSource musica;
+    [FMODUnity.EventRef]
+    public string musica;
+
+    FMOD.Studio.EventInstance heal;
 
     void Awake()
     {
         DontDestroyOnLoad(gameObject);
     }
 
+    void Start()
+    {
+        heal = FMODUnity.RuntimeManager.CreateInstance(musica);
+        heal.setVolume(PlayerPrefs.GetFloat("VolumeFX"));
+        heal.start();
+    }
+
     void Update()
     {
-        musica.volume = PlayerPrefs.GetFloat("VolumeMusica");
+        heal.setVolume(PlayerPrefs.GetFloat("VolumeMusica"));
     }
 }
