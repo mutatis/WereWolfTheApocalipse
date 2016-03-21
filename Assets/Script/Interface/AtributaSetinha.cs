@@ -3,28 +3,54 @@ using System.Collections;
 
 public class AtributaSetinha : MonoBehaviour
 {
+    public PaiAtributosEdit meuNumero;
+
     public Animator anim;
 
     public int tipo;
 
     bool podeDpad = true;
+    bool podeDpad2 = true;
 
-	void Update ()
+    void Update ()
     {
-        if (podeDpad)
+        if (SelectPersonagem.personagem.select == meuNumero.meuNumero)
         {
-            if (tipo == 0)
+            if (podeDpad)
             {
-                if (Input.GetKeyDown(KeyCode.RightArrow) || Input.GetAxisRaw("DpadXP1") > 0)
+                if (tipo == 0)
                 {
-                    anim.SetTrigger("Aperto");
+                    if (Input.GetKeyDown(KeyCode.RightArrow) || Input.GetAxisRaw("DpadXP1") > 0)
+                    {
+                        anim.SetTrigger("Aperto");
+                    }
+                }
+                else if (tipo == 1)
+                {
+                    if (Input.GetKeyDown(KeyCode.LeftArrow) || Input.GetAxisRaw("DpadXP1") < 0)
+                    {
+                        anim.SetTrigger("Aperto");
+                    }
                 }
             }
-            else if (tipo == 1)
+        }
+        else if (SelectPersonagem.personagem.select2 == meuNumero.meuNumero)
+        {
+            if (podeDpad2)
             {
-                if (Input.GetKeyDown(KeyCode.LeftArrow) || Input.GetAxisRaw("DpadXP1") < 0)
+                if (tipo == 0)
                 {
-                    anim.SetTrigger("Aperto");
+                    if (Input.GetKeyDown(KeyCode.RightArrow) || Input.GetAxisRaw("DpadXP2") > 0)
+                    {
+                        anim.SetTrigger("Aperto");
+                    }
+                }
+                else if (tipo == 1)
+                {
+                    if (Input.GetKeyDown(KeyCode.LeftArrow) || Input.GetAxisRaw("DpadXP2") < 0)
+                    {
+                        anim.SetTrigger("Aperto");
+                    }
                 }
             }
         }
@@ -32,6 +58,10 @@ public class AtributaSetinha : MonoBehaviour
         if (Input.GetAxisRaw("DpadXP1") == 0)
         {
             podeDpad = true;
+        }
+        if (Input.GetAxisRaw("DpadXP2") == 0)
+        {
+            podeDpad2 = true;
         }
     }
 }
