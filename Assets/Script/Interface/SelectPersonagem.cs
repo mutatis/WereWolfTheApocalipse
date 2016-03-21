@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class SelectPersonagem : MonoBehaviour
 {
@@ -19,6 +20,8 @@ public class SelectPersonagem : MonoBehaviour
     bool podeP2 = true;
     bool podeDpad = true;
     bool podeDpad2 = true;
+    bool startP1 = false;
+    bool startP2 = false;
 
     void Awake()
     {
@@ -44,33 +47,31 @@ public class SelectPersonagem : MonoBehaviour
 
     void Update()
     {
-        if (PlayerPrefs.GetInt("Players") == 1)
+        if(PlayerPrefs.GetInt("Players") == 2)
+        {
+            if(startP1 && startP2)
+            {
+                SceneManager.LoadScene("Jogo");
+            }
+        }
+        else if(startP1)
+        {
+            SceneManager.LoadScene("Jogo");
+        }
+
+        if(Input.GetKeyDown(KeyCode.Joystick1Button7))
+        {
+            startP1 = true;
+        }
+        
+        if(Input.GetKeyDown(KeyCode.Joystick2Button7))
+        {
+            startP2 = true;
+        }
+
+        if (!startP1)
         {
             if (podeP1)
-            {
-                if (Input.GetKeyDown(KeyCode.RightArrow) || Input.GetAxisRaw("DpadXP1") > 0)
-                {
-                    Muda();
-                }
-                else if(Input.GetKeyDown(KeyCode.LeftArrow) || Input.GetAxisRaw("DpadXP1") < 0)
-                {
-                    Muda();
-                }
-                else if (Input.GetKeyDown(KeyCode.Return) || Input.GetKeyDown(KeyCode.Joystick1Button0))
-                {
-                    Select();
-                }
-            }
-            else if(Input.GetKeyDown(KeyCode.Escape) || Input.GetKeyDown(KeyCode.Joystick1Button1))
-            {
-                atributos[select].SetActive(false);
-                podeP1 = true;
-            }
-
-        }
-        else if(PlayerPrefs.GetInt("Players") == 2)
-        {
-            if(podeP1)
             {
                 if (Input.GetKeyDown(KeyCode.RightArrow) || Input.GetAxisRaw("DpadXP1") > 0)
                 {
@@ -90,26 +91,32 @@ public class SelectPersonagem : MonoBehaviour
                 atributos[select].SetActive(false);
                 podeP1 = true;
             }
+        }
 
-            if(podeP2)
+        if (!startP2)
+        {
+            if (PlayerPrefs.GetInt("Players") == 2)
             {
-                if (Input.GetKeyDown(KeyCode.RightArrow) || Input.GetAxisRaw("DpadXP2") > 0)
+                if (podeP2)
                 {
-                    Muda2();
+                    if (Input.GetKeyDown(KeyCode.RightArrow) || Input.GetAxisRaw("DpadXP2") > 0)
+                    {
+                        Muda2();
+                    }
+                    else if (Input.GetKeyDown(KeyCode.LeftArrow) || Input.GetAxisRaw("DpadXP2") < 0)
+                    {
+                        Muda2();
+                    }
+                    else if (Input.GetKeyDown(KeyCode.Return) || Input.GetKeyDown(KeyCode.Joystick2Button0))
+                    {
+                        Select2();
+                    }
                 }
-                else if (Input.GetKeyDown(KeyCode.LeftArrow) || Input.GetAxisRaw("DpadXP2") < 0)
+                else if (Input.GetKeyDown(KeyCode.Escape) || Input.GetKeyDown(KeyCode.Joystick2Button1))
                 {
-                    Muda2();
+                    atributos[select2].SetActive(false);
+                    podeP2 = true;
                 }
-                else if (Input.GetKeyDown(KeyCode.Return) || Input.GetKeyDown(KeyCode.Joystick2Button0))
-                {
-                    Select2();
-                }
-            }
-            else if (Input.GetKeyDown(KeyCode.Escape) || Input.GetKeyDown(KeyCode.Joystick2Button1))
-            {
-                atributos[select2].SetActive(false);
-                podeP2 = true;
             }
         }
 
