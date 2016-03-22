@@ -6,7 +6,7 @@ public class MusicaManager : MonoBehaviour
     [FMODUnity.EventRef]
     public string musica;
 
-    FMOD.Studio.EventInstance heal;
+    FMOD.Studio.EventInstance vol;
 
     void Awake()
     {
@@ -15,13 +15,13 @@ public class MusicaManager : MonoBehaviour
 
     void Start()
     {
-        heal = FMODUnity.RuntimeManager.CreateInstance(musica);
-        heal.setVolume(PlayerPrefs.GetFloat("VolumeFX"));
-        heal.start();
+        vol = FMODUnity.RuntimeManager.CreateInstance(musica);
+        vol.setVolume(PlayerPrefs.GetFloat("VolumeFX"));
+        vol.start();
     }
 
     void Update()
     {
-        heal.setVolume(PlayerPrefs.GetFloat("VolumeMusica"));
+        vol.setVolume(PlayerPrefs.GetFloat("VolumeMusica"));
     }
 }
