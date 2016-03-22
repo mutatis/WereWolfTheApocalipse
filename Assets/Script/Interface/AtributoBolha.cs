@@ -8,15 +8,36 @@ public class AtributoBolha : MonoBehaviour
 
     public Sprite spt;
 
-    public string nome;
+    public string nome = "Andarilho";
 
-    int x;
+    public int posNaLista;
+
+    public int x;
 
     void Update()
     {
-        x = PlayerPrefs.GetInt(nome);
+        if (posNaLista == 0)
+        {
+            x = ManagerPlayerPontos.managerPontos.GetStrength(nome);
+        }
+        else if (posNaLista == 1)
+        {
+            x = ManagerPlayerPontos.managerPontos.GetDexterity(nome);
+        }
+        else if (posNaLista == 2)
+        {
+            x = ManagerPlayerPontos.managerPontos.GetStamina(nome);
+        }
+        else if (posNaLista == 3)
+        {
+            x = ManagerPlayerPontos.managerPontos.GetCharisma(nome);
+        }
+        else if (posNaLista == 4)
+        {
+            x = ManagerPlayerPontos.managerPontos.GetIntelligence(nome);
+        }
 
-        for(int i = 0; i < x; i++)
+        for (int i = 0; i < x; i++)
         {
             img[i].sprite = spt;
         }
