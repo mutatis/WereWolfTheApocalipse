@@ -5,6 +5,8 @@ public class AtributoTroca : MonoBehaviour
 {
     public PaiAtributosEdit meuNumero;
 
+    public Animator anim;
+
     public GameObject[] desliga;
 
     public GameObject proximo;
@@ -12,6 +14,8 @@ public class AtributoTroca : MonoBehaviour
 
     bool podeDpad = true;
     bool podeDpad2 = true;
+
+    int qual;
 
     void Update ()
     {
@@ -55,12 +59,45 @@ public class AtributoTroca : MonoBehaviour
         }
     }
 
+    public void Passo()
+    {
+        if(qual == 1)
+        {
+            anterior.transform.SetAsLastSibling();
+            proximo.transform.SetAsLastSibling();
+            proximo.GetComponent<Animator>().SetTrigger("Comeco");
+            anterior.GetComponent<Animator>().SetTrigger("Comeco2");
+        }
+        else if(qual == 2)
+        {
+            proximo.transform.SetAsLastSibling();
+            anterior.transform.SetAsLastSibling();
+            anterior.GetComponent<Animator>().SetTrigger("Comeco");
+            proximo.GetComponent<Animator>().SetTrigger("Comeco2");
+        }
+    }
+
+    public void Fim()
+    {
+        if (qual == 1)
+        {
+            proximo.GetComponent<AtributoTroca>().enabled = true;
+            gameObject.GetComponent<AtributoTroca>().enabled = false;
+            anterior.GetComponent<AtributoTroca>().enabled = false;
+        }
+        else if (qual == 2)
+        {
+            anterior.GetComponent<AtributoTroca>().enabled = true;
+            gameObject.GetComponent<AtributoTroca>().enabled = false;
+            proximo.GetComponent<AtributoTroca>().enabled = false;
+        }
+    }
+
     void Proximo()
     {
-        for(int i = 0; i < desliga.Length; i++)
-        {
-            desliga[i].SetActive(false);
-        }
+        proximo.GetComponent<AtributoTroca>().enabled = false;
+        anim.SetTrigger("Passo");
+        qual = 1;
         podeDpad = false;
         podeDpad2 = false;
         proximo.SetActive(true);
@@ -68,10 +105,9 @@ public class AtributoTroca : MonoBehaviour
 
     void Anterior()
     {
-        for (int i = 0; i < desliga.Length; i++)
-        {
-            desliga[i].SetActive(false);
-        }
+        proximo.GetComponent<AtributoTroca>().enabled = false;
+        anim.SetTrigger("Passo");
+        qual = 2;
         podeDpad = false;
         podeDpad2 = false;
         anterior.SetActive(true);
