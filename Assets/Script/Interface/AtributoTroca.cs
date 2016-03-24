@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using UnityEngine.UI;
 
 public class AtributoTroca : MonoBehaviour
 {
@@ -8,6 +9,8 @@ public class AtributoTroca : MonoBehaviour
     public Animator anim;
 
     public GameObject[] desliga;
+    
+    public Image euImg;
 
     public GameObject proximo;
     public GameObject anterior;
@@ -57,6 +60,21 @@ public class AtributoTroca : MonoBehaviour
         {
             podeDpad2 = true;
         }
+    }
+
+    public void Frente()
+    {
+        euImg.color = Color.white;
+    }
+
+    public void Meio()
+    {
+        euImg.color = new Color(0.6f, 0.6f, 0.6f, 1);
+    }
+
+    public void Tras()
+    {
+        euImg.color = new Color(0.27f, 0.27f, 0.27f, 1);
     }
 
     public void Passo()
