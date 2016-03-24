@@ -63,7 +63,7 @@ public class AtributoTroca : MonoBehaviour
     {
         if(qual == 1)
         {
-            anterior.transform.SetAsLastSibling();
+            anterior.transform.SetAsLastSibling();  
             proximo.transform.SetAsLastSibling();
             proximo.GetComponent<Animator>().SetTrigger("Comeco");
             anterior.GetComponent<Animator>().SetTrigger("Comeco2");

@@ -6,6 +6,8 @@ public class AtributosNavigat : MonoBehaviour
 {
     public PaiAtributosEdit meuNumero;
 
+    public AtributoTroca troca;
+
     public GameObject[] img;
 
     public GameObject[] description;
@@ -19,7 +21,7 @@ public class AtributosNavigat : MonoBehaviour
 
     void Update()
     {
-        if (SelectPersonagem.personagem.select == meuNumero.meuNumero)
+        if (SelectPersonagem.personagem.select == meuNumero.meuNumero && troca.enabled == true)
         {
             if (podeDpad)
             {
@@ -84,7 +86,7 @@ public class AtributosNavigat : MonoBehaviour
                 }
             }
         }
-        else if(SelectPersonagem.personagem.select2 == meuNumero.meuNumero)
+        else if(SelectPersonagem.personagem.select2 == meuNumero.meuNumero && troca.enabled == true)
         {
             if (podeDpad2)
             {
