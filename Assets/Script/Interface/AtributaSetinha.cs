@@ -9,6 +9,11 @@ public class AtributaSetinha : MonoBehaviour
 
     public int tipo;
 
+    [FMODUnity.EventRef]
+    public string socoFraco;
+
+    FMOD.Studio.EventInstance heal;
+
     bool podeDpad = true;
     bool podeDpad2 = true;
 
@@ -23,6 +28,9 @@ public class AtributaSetinha : MonoBehaviour
                     if (Input.GetKeyDown(KeyCode.RightArrow) || Input.GetAxisRaw("DpadXP1") > 0)
                     {
                         anim.SetTrigger("Aperto");
+                        heal = FMODUnity.RuntimeManager.CreateInstance(socoFraco);
+                        heal.setVolume(PlayerPrefs.GetFloat("VolumeFX"));
+                        heal.start();
                     }
                 }
                 else if (tipo == 1)
@@ -30,6 +38,9 @@ public class AtributaSetinha : MonoBehaviour
                     if (Input.GetKeyDown(KeyCode.LeftArrow) || Input.GetAxisRaw("DpadXP1") < 0)
                     {
                         anim.SetTrigger("Aperto");
+                        heal = FMODUnity.RuntimeManager.CreateInstance(socoFraco);
+                        heal.setVolume(PlayerPrefs.GetFloat("VolumeFX"));
+                        heal.start();
                     }
                 }
             }
