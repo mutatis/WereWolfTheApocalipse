@@ -12,6 +12,10 @@ public class AtributosNavigat : MonoBehaviour
 
     public GameObject[] description;
 
+    public RectTransform content;
+
+    public float[] valor;
+
     public SelectPersonagem select;
 
     bool podeDpad = true;
@@ -52,6 +56,10 @@ public class AtributosNavigat : MonoBehaviour
                             description[i].SetActive(false);
                         }
                     }
+                    if (valor[x] > content.anchoredPosition.y)
+                    {
+                        content.anchoredPosition = new Vector2(content.anchoredPosition.x, valor[x]);
+                    }
                     podeDpad = false;
                 }
 
@@ -81,6 +89,10 @@ public class AtributosNavigat : MonoBehaviour
                         {
                             description[i].SetActive(false);
                         }
+                    }
+                    if (valor[x] < content.anchoredPosition.y)
+                    {
+                        content.anchoredPosition = new Vector2(content.anchoredPosition.x, valor[x]);
                     }
                     podeDpad = false;
                 }
@@ -117,6 +129,10 @@ public class AtributosNavigat : MonoBehaviour
                             description[i].SetActive(false);
                         }
                     }
+                    if (valor[x] > content.anchoredPosition.y)
+                    {
+                        content.anchoredPosition = new Vector2(content.anchoredPosition.x, valor[x]);
+                    }
                     podeDpad2 = false;
                 }
 
@@ -146,6 +162,10 @@ public class AtributosNavigat : MonoBehaviour
                         {
                             description[i].SetActive(false);
                         }
+                    }
+                    if (valor[x] < content.anchoredPosition.y)
+                    {
+                        content.anchoredPosition = new Vector2(content.anchoredPosition.x, valor[x]);
                     }
                     podeDpad2 = false;
                 }
