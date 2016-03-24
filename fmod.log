@@ -30,6 +30,34 @@
 [LOG] Profile::init                            : Profiler listening on port: 9264
 [LOG] Manager::readBank                        : fileversion = 68, compatVersion = 68 (oldest = 44, newest = 72)
 [LOG] Manager::readBank                        : fileversion = 68, compatVersion = 68 (oldest = 44, newest = 72)
+[LOG] SystemI::createSoundInternal             : filename =  : mode 0a000202
+[LOG] SystemI::createSoundInternal             : exinfo->cbsize             = 232
+[LOG] SystemI::createSoundInternal             : exinfo->length             = 3220800
+[LOG] SystemI::createSoundInternal             : exinfo->fileoffset         = 29632
+[LOG] SystemI::createSoundInternal             : exinfo->numsubsounds       = 1
+[LOG] SystemI::createSoundInternal             : exinfo->inclusionlist      = 000000003348FB28
+[LOG] SystemI::createSoundInternal             : exinfo->inclusionlistnum   = 1
+[LOG] SystemI::createSoundInternal             : exinfo->suggestedsoundtype = 5
+[LOG] SystemI::createSoundInternal             : exinfo->useropen           = 00007FFC17298650
+[LOG] SystemI::createSoundInternal             : exinfo->userclose          = 00007FFC172993C0
+[LOG] SystemI::createSoundInternal             : exinfo->userread           = 00007FFC17298730
+[LOG] SystemI::createSoundInternal             : exinfo->userseek           = 00007FFC172987E0
+[LOG] SystemI::createSoundInternal             : exinfo->fileuserdata       = 000000000FFB44D8
+[LOG] SystemI::createSoundInternal             : exinfo->initialseekpostype = 1
+[LOG] SystemI::createSoundInternal             : Format has 1 subsounds.
+[LOG] SystemI::createSoundInternal             : Create as FMOD_CREATESAMPLE
+[LOG] SystemI::createSoundInternal             : Multi-sample sound (1 subsounds), create a sample container.
+[LOG] SystemI::createSoundInternal             : creating subsound 0/1
+[LOG] SystemI::createSample                    : mode 0a000202 length 39168 samples, lengthbytes 7424
+[LOG] SystemI::createSample                    : channels = 1
+[LOG] SystemI::createSample                    : output = 000000000A04CD38
+[LOG] OutputSoftware::createSample             : lengthpcm 39168, lengthbytes 7424, channels 1, format 2, freq 48000, mode 0a00020a
+[LOG] SystemI::createSoundInternal             : done.  OpenState now = FMOD_OPENSTATE_READY.
+
+[LOG] SoundI::release                          : (null) (000000000FE99028)
+[LOG] SoundI::release                          : release subsounds. (000000000FE99028)
+[LOG] SoundI::release                          :     (null) (0000000034C07598)
+[LOG] SoundI::release                          : release codec. (000000000FE99028)
 [LOG] Thread::callback                         : * FMOD Studio update thread finished
 [LOG] Thread::close                            : FMOD Studio update thread thread destroyed
 [LOG] Thread::callback                         : * FMOD Studio bank load thread finished
