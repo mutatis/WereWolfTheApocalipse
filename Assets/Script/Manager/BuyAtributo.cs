@@ -7,6 +7,11 @@ public class BuyAtributo : MonoBehaviour
 
     public string nome = "Andarilho";
 
+    [FMODUnity.EventRef]
+    public string lapis;
+
+    FMOD.Studio.EventInstance lapisRef;
+
     public int posNaLista;
 
     public PaiAtributosEdit meuNumero;
@@ -86,6 +91,10 @@ public class BuyAtributo : MonoBehaviour
             }
             PlayerPrefs.SetFloat("XP", (value[x] * -1));
             x++;
+
+            lapisRef = FMODUnity.RuntimeManager.CreateInstance(lapis);
+            lapisRef.setVolume(PlayerPrefs.GetFloat("VolumeFX"));
+            lapisRef.start();
         }
     }
 }
