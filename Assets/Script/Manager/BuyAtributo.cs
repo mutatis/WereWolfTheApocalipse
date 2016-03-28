@@ -16,9 +16,6 @@ public class BuyAtributo : MonoBehaviour
 
     public PaiAtributosEdit meuNumero;
 
-    bool podeDpad = true;
-    bool podeDpad2 = true;
-
     int x;
 
     void Start()
@@ -66,7 +63,6 @@ public class BuyAtributo : MonoBehaviour
 
     void Upgrade()
     {
-        print("cu");
         if (value[x] <= PlayerPrefs.GetFloat("XP"))
         {
             if (posNaLista == 0)
