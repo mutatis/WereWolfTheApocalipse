@@ -61,7 +61,7 @@ public class PlayerController : MonoBehaviour
                             z = 0;
                         }
 
-                        transform.Translate(new Vector3(x, 0, z) * Time.deltaTime);
+                        transform.Translate(new Vector3(x, 0, z));
                     }
 
                     if (isAttack)
