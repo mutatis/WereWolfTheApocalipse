@@ -13,7 +13,7 @@ public class EnemyAnim : MonoBehaviour
     {
         if (other.gameObject.tag == "Player")
         {
-            other.gameObject.GetComponent<PlayerController>().Dano();
+            other.gameObject.GetComponent<PlayerController>().Dano(1);
         }
     }
 }

@@ -7,12 +7,14 @@ public class BuyAtributo : MonoBehaviour
 
     public string nome = "Andarilho";
 
+    [FMODUnity.EventRef]
+    public string lapis;
+
+    FMOD.Studio.EventInstance lapisRef;
+
     public int posNaLista;
 
     public PaiAtributosEdit meuNumero;
-
-    bool podeDpad = true;
-    bool podeDpad2 = true;
 
     int x;
 
@@ -38,6 +40,10 @@ public class BuyAtributo : MonoBehaviour
         {
             x = ManagerPlayerPontos.managerPontos.GetIntelligence(nome);
         }
+        else if (posNaLista == 5)
+        {
+            x = ManagerPlayerPontos.managerPontos.GetSpirit(nome);
+        }
     }
 
     void Update()
@@ -61,7 +67,6 @@ public class BuyAtributo : MonoBehaviour
 
     void Upgrade()
     {
-        print("cu");
         if (value[x] <= PlayerPrefs.GetFloat("XP"))
         {
             if (posNaLista == 0)
@@ -84,8 +89,16 @@ public class BuyAtributo : MonoBehaviour
             {
                 ManagerPlayerPontos.managerPontos.SetIntelligence(nome, 1);
             }
+            else if (posNaLista == 5)
+            {
+                ManagerPlayerPontos.managerPontos.SetSpirit(nome, 1);
+            }
             PlayerPrefs.SetFloat("XP", (value[x] * -1));
             x++;
+
+            lapisRef = FMODUnity.RuntimeManager.CreateInstance(lapis);
+            lapisRef.setVolume(PlayerPrefs.GetFloat("VolumeFX"));
+            lapisRef.start();
         }
     }
 }

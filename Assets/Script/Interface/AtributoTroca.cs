@@ -9,6 +9,8 @@ public class AtributoTroca : MonoBehaviour
     public Animator anim;
 
     public GameObject[] desliga;
+
+    public GameObject[] liga;
     
     public Image euImg;
 
@@ -65,16 +67,30 @@ public class AtributoTroca : MonoBehaviour
     public void Frente()
     {
         euImg.color = Color.white;
+        
+        for(int i = 0; i < liga.Length; i++)
+        {
+            liga[i].SetActive(true);
+        }
     }
 
     public void Meio()
     {
         euImg.color = new Color(0.6f, 0.6f, 0.6f, 1);
+
+        for (int i = 0; i < desliga.Length; i++)
+        {
+            desliga[i].SetActive(false);
+        }
     }
 
     public void Tras()
     {
         euImg.color = new Color(0.27f, 0.27f, 0.27f, 1);
+        for (int i = 0; i < desliga.Length; i++)
+        {
+            desliga[i].SetActive(false);
+        }
     }
 
     public void Passo()

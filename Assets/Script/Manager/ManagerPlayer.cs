@@ -29,7 +29,6 @@ public class ManagerPlayer : MonoBehaviour
 
     void Update()
     {
-        print(x);
         if (podeDpad)
         {
             if (Input.GetAxisRaw("DpadYP1") < 0)
@@ -115,8 +114,11 @@ public class ManagerPlayer : MonoBehaviour
 
     public void Dois()
     {
-        PlayerPrefs.SetInt("Players", 2);
-        SceneManager.LoadScene("SelecaoPersonagem");
+        if (Input.GetJoystickNames().Length > 1)
+        {
+            PlayerPrefs.SetInt("Players", 2);
+            SceneManager.LoadScene("SelecaoPersonagem");
+        }
     }
 
     public void Tres()

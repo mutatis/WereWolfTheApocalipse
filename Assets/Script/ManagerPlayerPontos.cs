@@ -10,6 +10,7 @@ public class ManagerPlayerPontos : MonoBehaviour
     string stamina = "Stamina";
     string charisma = "Charisma";
     string intelligence = "Intelligence";
+    string spirit = "Spirit";
 
     void Awake()
     {
@@ -65,5 +66,15 @@ public class ManagerPlayerPontos : MonoBehaviour
     public int GetIntelligence(string nome)
     {
         return PlayerPrefs.GetInt((nome + intelligence));
+    }
+
+    public void SetSpirit(string nome, int value)
+    {
+        PlayerPrefs.SetInt((nome + spirit), PlayerPrefs.GetInt((nome + spirit)) + value);
+    }
+
+    public int GetSpirit(string nome)
+    {
+        return PlayerPrefs.GetInt((nome + spirit));
     }
 }
