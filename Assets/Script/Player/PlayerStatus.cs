@@ -8,7 +8,7 @@ public class PlayerStatus : MonoBehaviour
     public string nome;
 
     [HideInInspector]
-    public float strength, dexterity, stamina, charisma, intelligence, spirit;
+    public float strength, dexterity, stamina, charisma, intelligence, spirit; //padrao
 
     public float critDamage, dmg, lift, blockEffect, hitStun, knockback; //strength
     
