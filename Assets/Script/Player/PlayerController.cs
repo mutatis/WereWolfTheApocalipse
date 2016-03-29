@@ -158,8 +158,9 @@ public class PlayerController : MonoBehaviour
         StopCoroutine("GO");
     }
 
-    public void Dano()
+    public void Dano(float dmg)
     {
+        PlayerStatus.playerStatus.life -= dmg;
         stun = true;
         anim.anim.SetTrigger("Dano");
     }

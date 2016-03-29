@@ -40,6 +40,10 @@ public class BuyAtributo : MonoBehaviour
         {
             x = ManagerPlayerPontos.managerPontos.GetIntelligence(nome);
         }
+        else if (posNaLista == 5)
+        {
+            x = ManagerPlayerPontos.managerPontos.GetSpirit(nome);
+        }
     }
 
     void Update()
@@ -84,6 +88,10 @@ public class BuyAtributo : MonoBehaviour
             else if (posNaLista == 4)
             {
                 ManagerPlayerPontos.managerPontos.SetIntelligence(nome, 1);
+            }
+            else if (posNaLista == 5)
+            {
+                ManagerPlayerPontos.managerPontos.SetSpirit(nome, 1);
             }
             PlayerPrefs.SetFloat("XP", (value[x] * -1));
             x++;
