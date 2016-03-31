@@ -8,6 +8,8 @@ public class EnemyController : MonoBehaviour
     public ProbabilidadeEnemy probabilidade;
 
     public bool stun;
+    [HideInInspector]
+    public bool dano = true;
 
     public float tempoResposta;
     public float life;
@@ -19,7 +21,6 @@ public class EnemyController : MonoBehaviour
     bool isWalk = true;
     bool isAttack = false;
     bool procura = true;
-    bool dano = true;
 
     Vector3 direction;
 
@@ -27,12 +28,16 @@ public class EnemyController : MonoBehaviour
     
     void Update()
     {
-        dist = Vector3.Distance(PlayerController.playerController.transform.position, transform.position);
+        if (player != null)
+        {
+            dist = Vector3.Distance(player.transform.position, transform.position);
+        }
 
         if(life <= 0)
         {
             anim.SetTrigger("Dead");
             player.GetComponent<PlayerController>().engage--;
+            dano = false;
             gameObject.GetComponent<EnemyController>().enabled = false;
         }
 
@@ -173,7 +178,7 @@ public class EnemyController : MonoBehaviour
         {
             if (isWalk)
             {
-                direction = PlayerController.playerController.transform.position - transform.position;
+                direction = player.transform.position - transform.position;
                 direction.Normalize();
                 transform.Translate((direction / 80) * Time.deltaTime);
                 if (direction.x > 0 && transform.localScale.x > 0)
@@ -185,7 +190,7 @@ public class EnemyController : MonoBehaviour
                     transform.localScale = new Vector3((transform.localScale.x * -1), transform.localScale.y, transform.localScale.z);
                 }
             }
-            dist = Vector3.Distance(PlayerController.playerController.transform.position, transform.position);
+            dist = Vector3.Distance(player.transform.position, transform.position);
             yield return new WaitForEndOfFrame();
         }
         StopCoroutine("Engage");
@@ -213,7 +218,7 @@ public class EnemyController : MonoBehaviour
             StopCoroutine("Pode");
             StopCoroutine("GO");
             StartCoroutine("GO");
-            if ((PlayerController.playerController.transform.localScale.x > 0 && transform.localScale.x < 0) || (PlayerController.playerController.transform.localScale.x < 0 && transform.localScale.x > 0))
+            if ((player.transform.localScale.x > 0 && transform.localScale.x < 0) || (player.transform.localScale.x < 0 && transform.localScale.x > 0))
             {
                 transform.localScale = new Vector3((transform.localScale.x * -1), transform.localScale.y, transform.localScale.z);
             }
@@ -224,6 +229,7 @@ public class EnemyController : MonoBehaviour
 
     public void Slam(float dmg)
     {
+        dano = false;
         life -= dmg;
         StopCoroutine("Pode");
         stun = true;
