@@ -51,6 +51,9 @@ public class SetGifts : MonoBehaviour
                     {
                         PlayerPrefs.SetInt(nome, 1);
                         PlayerPrefs.SetFloat("XP", (value * -1));
+                        lapisRef = FMODUnity.RuntimeManager.CreateInstance(lapis);
+                        lapisRef.setVolume(PlayerPrefs.GetFloat("VolumeFX"));
+                        lapisRef.start();
                     }
                 }
                 else if ((SelectPersonagem.personagem.select2 == meuNumero.meuNumero) && value <= PlayerPrefs.GetFloat("XP"))
@@ -59,6 +62,9 @@ public class SetGifts : MonoBehaviour
                     {
                         PlayerPrefs.SetInt(nome, 1);
                         PlayerPrefs.SetFloat("XP", (value * -1));
+                        lapisRef = FMODUnity.RuntimeManager.CreateInstance(lapis);
+                        lapisRef.setVolume(PlayerPrefs.GetFloat("VolumeFX"));
+                        lapisRef.start();
                     }
                 }
             }

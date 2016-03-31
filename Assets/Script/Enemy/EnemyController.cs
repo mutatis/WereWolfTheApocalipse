@@ -8,8 +8,13 @@ public class EnemyController : MonoBehaviour
     public ProbabilidadeEnemy probabilidade;
 
     public bool stun;
+    [HideInInspector]
+    public bool dano = true;
+
+    public TextMesh text;
 
     public float tempoResposta;
+    public float life;
 
     public string[] attack;
 
@@ -25,7 +30,18 @@ public class EnemyController : MonoBehaviour
     
     void Update()
     {
-        dist = Vector3.Distance(PlayerController.playerController.transform.position, transform.position);
+        if (player != null)
+        {
+            dist = Vector3.Distance(player.transform.position, transform.position);
+        }
+
+        if(life <= 0)
+        {
+            anim.SetTrigger("Dead");
+            player.GetComponent<PlayerController>().engage--;
+            dano = false;
+            gameObject.GetComponent<EnemyController>().enabled = false;
+        }
 
         if (dist > 2f && isWalk && player != null)
         {
@@ -164,7 +180,7 @@ public class EnemyController : MonoBehaviour
         {
             if (isWalk)
             {
-                direction = PlayerController.playerController.transform.position - transform.position;
+                direction = player.transform.position - transform.position;
                 direction.Normalize();
                 transform.Translate((direction / 80) * Time.deltaTime);
                 if (direction.x > 0 && transform.localScale.x > 0)
@@ -176,7 +192,7 @@ public class EnemyController : MonoBehaviour
                     transform.localScale = new Vector3((transform.localScale.x * -1), transform.localScale.y, transform.localScale.z);
                 }
             }
-            dist = Vector3.Distance(PlayerController.playerController.transform.position, transform.position);
+            dist = Vector3.Distance(player.transform.position, transform.position);
             yield return new WaitForEndOfFrame();
         }
         StopCoroutine("Engage");
@@ -188,22 +204,38 @@ public class EnemyController : MonoBehaviour
         isWalk = true;
     }
 
-    public void Dano()
+
+    public void DanoAgain()
     {
-        stun = true;
-        isWalk = false;
-        StopCoroutine("Pode");
-        StopCoroutine("GO");
-        StartCoroutine("GO");
-        if((PlayerController.playerController.transform.localScale.x > 0 && transform.localScale.x < 0) || (PlayerController.playerController.transform.localScale.x < 0 && transform.localScale.x > 0))
-        {
-            transform.localScale = new Vector3((transform.localScale.x * -1), transform.localScale.y, transform.localScale.z);
-        }
-        anim.SetTrigger("Dano");
+        dano = true;
+        text.text = "";
     }
 
-    public void Slam()
+    public void Dano(float dmg)
     {
+        if (dano)
+        {
+            life -= dmg;
+            text.text = dmg.ToString();
+            stun = true;
+            isWalk = false;
+            StopCoroutine("Pode");
+            StopCoroutine("GO");
+            StartCoroutine("GO");
+            if ((player.transform.localScale.x > 0 && transform.localScale.x < 0) || (player.transform.localScale.x < 0 && transform.localScale.x > 0))
+            {
+                transform.localScale = new Vector3((transform.localScale.x * -1), transform.localScale.y, transform.localScale.z);
+            }
+            anim.SetTrigger("Dano");
+            dano = false;
+        }
+    }
+
+    public void Slam(float dmg)
+    {
+        dano = false;
+        life -= dmg;
+        text.text = dmg.ToString();
         StopCoroutine("Pode");
         stun = true;
         anim.SetTrigger("Slam");

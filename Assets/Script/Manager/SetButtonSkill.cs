@@ -12,6 +12,11 @@ public class SetButtonSkill : MonoBehaviour
 
     public PaiAtributosEdit meuNumero;
 
+    [FMODUnity.EventRef]
+    public string lapis;
+
+    FMOD.Studio.EventInstance lapisRef;
+
     void Update()
     {
         if (SelectPersonagem.personagem.select == meuNumero.meuNumero)
@@ -72,6 +77,9 @@ public class SetButtonSkill : MonoBehaviour
 
     IEnumerator GO()
     {
+        lapisRef = FMODUnity.RuntimeManager.CreateInstance(lapis);
+        lapisRef.setVolume(PlayerPrefs.GetFloat("VolumeFX"));
+        lapisRef.start();
         yield return new WaitForSeconds(1);
         gift.atributo.enabled = true;
         gift.select.SetActive(false);

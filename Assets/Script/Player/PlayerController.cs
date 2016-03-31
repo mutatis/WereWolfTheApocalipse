@@ -4,6 +4,8 @@ using XInputDotNetPure;
 
 public class PlayerController : MonoBehaviour
 {
+    public PlayerStatus playerStatus;
+
     public static PlayerController playerController;
 
     public PlayerAnimation anim;
@@ -160,7 +162,7 @@ public class PlayerController : MonoBehaviour
 
     public void Dano(float dmg)
     {
-        PlayerStatus.playerStatus.life -= dmg;
+        playerStatus.life -= dmg;
         stun = true;
         anim.anim.SetTrigger("Dano");
     }
