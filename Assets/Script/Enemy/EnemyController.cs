@@ -11,6 +11,8 @@ public class EnemyController : MonoBehaviour
     [HideInInspector]
     public bool dano = true;
 
+    public TextMesh text;
+
     public float tempoResposta;
     public float life;
 
@@ -206,6 +208,7 @@ public class EnemyController : MonoBehaviour
     public void DanoAgain()
     {
         dano = true;
+        text.text = "";
     }
 
     public void Dano(float dmg)
@@ -213,6 +216,7 @@ public class EnemyController : MonoBehaviour
         if (dano)
         {
             life -= dmg;
+            text.text = dmg.ToString();
             stun = true;
             isWalk = false;
             StopCoroutine("Pode");
@@ -231,6 +235,7 @@ public class EnemyController : MonoBehaviour
     {
         dano = false;
         life -= dmg;
+        text.text = dmg.ToString();
         StopCoroutine("Pode");
         stun = true;
         anim.SetTrigger("Slam");
