@@ -19,6 +19,7 @@ public class EnemyController : MonoBehaviour
     bool isWalk = true;
     bool isAttack = false;
     bool procura = true;
+    bool dano = true;
 
     Vector3 direction;
 
@@ -196,19 +197,29 @@ public class EnemyController : MonoBehaviour
         isWalk = true;
     }
 
+
+    public void DanoAgain()
+    {
+        dano = true;
+    }
+
     public void Dano(float dmg)
     {
-        life -= dmg;
-        stun = true;
-        isWalk = false;
-        StopCoroutine("Pode");
-        StopCoroutine("GO");
-        StartCoroutine("GO");
-        if((PlayerController.playerController.transform.localScale.x > 0 && transform.localScale.x < 0) || (PlayerController.playerController.transform.localScale.x < 0 && transform.localScale.x > 0))
+        if (dano)
         {
-            transform.localScale = new Vector3((transform.localScale.x * -1), transform.localScale.y, transform.localScale.z);
+            life -= dmg;
+            stun = true;
+            isWalk = false;
+            StopCoroutine("Pode");
+            StopCoroutine("GO");
+            StartCoroutine("GO");
+            if ((PlayerController.playerController.transform.localScale.x > 0 && transform.localScale.x < 0) || (PlayerController.playerController.transform.localScale.x < 0 && transform.localScale.x > 0))
+            {
+                transform.localScale = new Vector3((transform.localScale.x * -1), transform.localScale.y, transform.localScale.z);
+            }
+            anim.SetTrigger("Dano");
+            dano = false;
         }
-        anim.SetTrigger("Dano");
     }
 
     public void Slam(float dmg)

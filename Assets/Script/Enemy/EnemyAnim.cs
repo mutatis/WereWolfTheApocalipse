@@ -12,6 +12,11 @@ public class EnemyAnim : MonoBehaviour
         controller.stun = false;
     }
 
+    public void DanoAgain()
+    {
+        controller.DanoAgain();
+    }
+
     public void Dead()
     {
         Destroy(obj);
