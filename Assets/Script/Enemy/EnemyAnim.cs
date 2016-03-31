@@ -5,10 +5,18 @@ public class EnemyAnim : MonoBehaviour
 {
     public EnemyController controller;
 
+    public GameObject obj;
+
     public void Return()
     {
         controller.stun = false;
     }
+
+    public void Dead()
+    {
+        Destroy(obj);
+    }
+
     void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.tag == "Player")

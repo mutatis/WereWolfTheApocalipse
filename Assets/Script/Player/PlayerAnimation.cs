@@ -3,6 +3,8 @@ using System.Collections;
 
 public class PlayerAnimation : MonoBehaviour
 {
+    public PlayerStatus playerStatus;
+
     public Animator anim;
 
     [FMODUnity.EventRef]
@@ -56,14 +58,14 @@ public class PlayerAnimation : MonoBehaviour
                 heal = FMODUnity.RuntimeManager.CreateInstance(socoFraco);
                 heal.setVolume(PlayerPrefs.GetFloat("VolumeFX"));
                 heal.start();
-                other.gameObject.GetComponent<EnemyController>().Dano();
+                other.gameObject.GetComponent<EnemyController>().Dano(playerStatus.dmg);
             }
             else if (PlayerController.playerController.contador >= 3)
             {
                 heal = FMODUnity.RuntimeManager.CreateInstance(socoForte);
                 heal.setVolume(PlayerPrefs.GetFloat("VolumeFX"));
                 heal.start();
-                other.gameObject.GetComponent<EnemyController>().Slam();
+                other.gameObject.GetComponent<EnemyController>().Slam(playerStatus.dmg);
             }
         }
     }

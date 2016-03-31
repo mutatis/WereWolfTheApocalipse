@@ -10,6 +10,7 @@ public class EnemyController : MonoBehaviour
     public bool stun;
 
     public float tempoResposta;
+    public float life;
 
     public string[] attack;
 
@@ -26,6 +27,13 @@ public class EnemyController : MonoBehaviour
     void Update()
     {
         dist = Vector3.Distance(PlayerController.playerController.transform.position, transform.position);
+
+        if(life <= 0)
+        {
+            anim.SetTrigger("Dead");
+            player.GetComponent<PlayerController>().engage--;
+            gameObject.GetComponent<EnemyController>().enabled = false;
+        }
 
         if (dist > 2f && isWalk && player != null)
         {
@@ -188,8 +196,9 @@ public class EnemyController : MonoBehaviour
         isWalk = true;
     }
 
-    public void Dano()
+    public void Dano(float dmg)
     {
+        life -= dmg;
         stun = true;
         isWalk = false;
         StopCoroutine("Pode");
@@ -202,8 +211,9 @@ public class EnemyController : MonoBehaviour
         anim.SetTrigger("Dano");
     }
 
-    public void Slam()
+    public void Slam(float dmg)
     {
+        life -= dmg;
         StopCoroutine("Pode");
         stun = true;
         anim.SetTrigger("Slam");
