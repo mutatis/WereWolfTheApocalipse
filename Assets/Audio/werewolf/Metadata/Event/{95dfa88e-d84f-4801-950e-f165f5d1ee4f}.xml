@@ -206,6 +206,9 @@
         </relationship>
     </object>
     <object class="EventMixerMaster" id="{2e0da8f2-077d-4e36-8101-05216047afe2}">
+        <property name="volume">
+            <value>-6.5</value>
+        </property>
         <relationship name="effectChain">
             <destination>{03b26609-bcc9-4d62-a400-b2471b481fa5}</destination>
         </relationship>
@@ -224,7 +227,7 @@
     <object class="MixerBusPanner" id="{e8a60b39-2de0-4cb8-89a4-3867d8f86392}"/>
     <object class="SingleSound" id="{9575f348-01bf-4a0a-8798-b673cd501d9e}">
         <property name="start">
-            <value>0</value>
+            <value>28.408383027196695</value>
         </property>
         <property name="length">
             <value>8.7329583333333325</value>
@@ -235,7 +238,7 @@
     </object>
     <object class="SingleSound" id="{684103d2-cf0e-4cc1-a732-1d7557befba4}">
         <property name="start">
-            <value>13.18364550208052</value>
+            <value>4.2320267547724288</value>
         </property>
         <property name="length">
             <value>1.6363541666666668</value>
@@ -252,7 +255,7 @@
     </object>
     <object class="SingleSound" id="{3e545c85-8ff8-42c0-bba9-3f7adbed69d4}">
         <property name="start">
-            <value>11.018208038290343</value>
+            <value>2.0665892909822521</value>
         </property>
         <property name="length">
             <value>1.0908958333333334</value>
@@ -272,7 +275,7 @@
     </object>
     <object class="SingleSound" id="{b3686ef4-445f-4991-8090-6c2be8c5bd16}">
         <property name="start">
-            <value>16.431854347343247</value>
+            <value>7.4802356000351562</value>
         </property>
         <property name="length">
             <value>1.0908958333333334</value>
@@ -292,7 +295,7 @@
     </object>
     <object class="SingleSound" id="{d402dad7-6d5f-4e94-8210-781d2aa4b7f1}">
         <property name="start">
-            <value>18.769681247308085</value>
+            <value>9.8180624999999964</value>
         </property>
         <property name="length">
             <value>1.6363541666666668</value>
@@ -309,7 +312,7 @@
     </object>
     <object class="SingleSound" id="{d355a4a0-a4b0-423b-bc02-59b141f514c3}">
         <property name="start">
-            <value>25.222750787153839</value>
+            <value>16.271132039845746</value>
         </property>
         <property name="length">
             <value>1.0908958333333334</value>
@@ -329,7 +332,7 @@
     </object>
     <object class="SingleSound" id="{30a61b1c-1adc-48a8-8987-342ee4f0b380}">
         <property name="start">
-            <value>29.510938202142714</value>
+            <value>20.559319454834622</value>
         </property>
         <property name="length">
             <value>1.6363541666666668</value>
@@ -346,7 +349,7 @@
     </object>
     <object class="SingleSound" id="{902a7bc1-fde0-4104-a437-03fcc8fff1cb}">
         <property name="start">
-            <value>20.909104494492212</value>
+            <value>11.957485747184123</value>
         </property>
         <property name="length">
             <value>1.0908958333333334</value>
@@ -366,7 +369,7 @@
     </object>
     <object class="SingleSound" id="{d6684931-08a9-467a-9ce7-7c5b31f39355}">
         <property name="start">
-            <value>23.179999481886625</value>
+            <value>14.228380734578536</value>
         </property>
         <property name="length">
             <value>1.6363541666666668</value>
@@ -383,7 +386,7 @@
     </object>
     <object class="SingleSound" id="{90e85c93-da1c-4894-8c9a-5203e2734113}">
         <property name="start">
-            <value>27.400000408291817</value>
+            <value>18.448381660983728</value>
         </property>
         <property name="length">
             <value>1.6363541666666668</value>
@@ -400,7 +403,7 @@
     </object>
     <object class="SingleSound" id="{548c801d-dde9-43be-8a69-5f15522170a4}">
         <property name="start">
-            <value>32.809103408942619</value>
+            <value>23.85748466163453</value>
         </property>
         <property name="length">
             <value>1.0908958333333334</value>
@@ -420,7 +423,7 @@
     </object>
     <object class="EventMixerGroup" id="{d0ce420a-1a17-4fe2-af03-da6a93dab5c1}">
         <property name="volume">
-            <value>-4</value>
+            <value>-6.5</value>
         </property>
         <property name="name">
             <value>Audio 1</value>
@@ -437,7 +440,7 @@
     </object>
     <object class="SingleSound" id="{0872556e-b046-41d0-9cc0-b2d8868de580}">
         <property name="start">
-            <value>11.181791800777116</value>
+            <value>2.2301730534690254</value>
         </property>
         <property name="length">
             <value>1.0908958333333334</value>
@@ -448,7 +451,7 @@
     </object>
     <object class="SingleSound" id="{fdac9526-d64a-4d09-894c-369d6a146721}">
         <property name="start">
-            <value>35.178189274504781</value>
+            <value>26.226570527196696</value>
         </property>
         <property name="length">
             <value>2.1818124999999999</value>
@@ -459,7 +462,7 @@
     </object>
     <object class="SingleSound" id="{6c812cdd-ad53-4d10-b2db-e446d66a1483}">
         <property name="start">
-            <value>10.090895967443783</value>
+            <value>1.1392772201356927</value>
         </property>
         <property name="length">
             <value>1.0908958333333334</value>
@@ -470,7 +473,7 @@
     </object>
     <object class="SingleSound" id="{3c0fc7e5-b825-4e0a-8112-6378da30f25d}">
         <property name="start">
-            <value>9.0000001341104507</value>
+            <value>0.048381386802359927</value>
         </property>
         <property name="length">
             <value>1.0908958333333334</value>
@@ -481,7 +484,7 @@
     </object>
     <object class="SingleSound" id="{79643866-28ee-44de-ac3d-8143a8b431f7}">
         <property name="start">
-            <value>13.363583467443782</value>
+            <value>4.4119647201356909</value>
         </property>
         <property name="length">
             <value>1.0908958333333334</value>
@@ -492,7 +495,7 @@
     </object>
     <object class="SingleSound" id="{72654ba1-f927-4621-b4c6-ee3664d0509a}">
         <property name="start">
-            <value>12.272687634110449</value>
+            <value>3.3210688868023581</value>
         </property>
         <property name="length">
             <value>1.0908958333333334</value>
@@ -503,7 +506,7 @@
     </object>
     <object class="SingleSound" id="{9c557455-9e95-4eb5-a120-86beb9f3bb49}">
         <property name="start">
-            <value>14.454479300777114</value>
+            <value>5.5028605534690236</value>
         </property>
         <property name="length">
             <value>1.0908958333333334</value>
@@ -514,7 +517,7 @@
     </object>
     <object class="SingleSound" id="{c6a002cf-a728-4691-aef9-b0f15b4609bc}">
         <property name="start">
-            <value>15.544626049218705</value>
+            <value>6.5930073019106139</value>
         </property>
         <property name="length">
             <value>1.0908958333333334</value>
@@ -525,7 +528,7 @@
     </object>
     <object class="SingleSound" id="{684ca8b5-375d-4b21-8bd4-e1ce9560d33d}">
         <property name="start">
-            <value>16.635521882552034</value>
+            <value>7.6839031352439431</value>
         </property>
         <property name="length">
             <value>1.0908958333333334</value>
@@ -536,7 +539,7 @@
     </object>
     <object class="SingleSound" id="{38cfcf10-cd2d-470a-8c40-1460cdb4b9d4}">
         <property name="start">
-            <value>17.726417715885368</value>
+            <value>8.7747989685772794</value>
         </property>
         <property name="length">
             <value>1.0908958333333334</value>
@@ -547,7 +550,7 @@
     </object>
     <object class="SingleSound" id="{ac72ff1d-f618-4335-9a5b-daaff0ce66cb}">
         <property name="start">
-            <value>18.817313549218703</value>
+            <value>9.8656948019106139</value>
         </property>
         <property name="length">
             <value>1.0908958333333334</value>
@@ -558,7 +561,7 @@
     </object>
     <object class="SingleSound" id="{5894d990-91b2-4c0b-92c7-5339c54fe3c1}">
         <property name="start">
-            <value>19.90820938255203</value>
+            <value>10.956590635243941</value>
         </property>
         <property name="length">
             <value>1.0908958333333334</value>
@@ -569,7 +572,7 @@
     </object>
     <object class="SingleSound" id="{e5f3df98-ffed-4218-96e0-f85f76b6f586}">
         <property name="start">
-            <value>20.999105215885365</value>
+            <value>12.047486468577276</value>
         </property>
         <property name="length">
             <value>1.0908958333333334</value>
@@ -580,7 +583,7 @@
     </object>
     <object class="SingleSound" id="{cb073c73-d0c8-477c-88d5-567f560c3b4a}">
         <property name="start">
-            <value>22.089103648553291</value>
+            <value>13.137484901245202</value>
         </property>
         <property name="length">
             <value>1.0908958333333334</value>
@@ -591,7 +594,7 @@
     </object>
     <object class="SingleSound" id="{5594d5e8-7078-4a19-8ae0-97ad7334edfb}">
         <property name="start">
-            <value>23.179999481886625</value>
+            <value>14.228380734578536</value>
         </property>
         <property name="length">
             <value>1.0908958333333334</value>
@@ -602,7 +605,7 @@
     </object>
     <object class="SingleSound" id="{e8bc6d5b-7775-4911-8341-7720afd3baab}">
         <property name="start">
-            <value>24.270895315219956</value>
+            <value>15.319276567911864</value>
         </property>
         <property name="length">
             <value>1.0908958333333334</value>
@@ -613,7 +616,7 @@
     </object>
     <object class="SingleSound" id="{91b12bb6-b955-44e2-9a09-bc962f792ff6}">
         <property name="start">
-            <value>25.361791148553287</value>
+            <value>16.410172401245198</value>
         </property>
         <property name="length">
             <value>1.0908958333333334</value>
@@ -624,7 +627,7 @@
     </object>
     <object class="SingleSound" id="{ee06ef43-d6a3-4153-adc0-da79e5afadee}">
         <property name="start">
-            <value>26.452686981886622</value>
+            <value>17.501068234578533</value>
         </property>
         <property name="length">
             <value>1.0908958333333334</value>
@@ -635,7 +638,7 @@
     </object>
     <object class="SingleSound" id="{fa7bb829-a61d-46ed-a9ce-568432277d88}">
         <property name="start">
-            <value>27.543582815219956</value>
+            <value>18.591964067911867</value>
         </property>
         <property name="length">
             <value>1.0908958333333334</value>
@@ -646,7 +649,7 @@
     </object>
     <object class="SingleSound" id="{00f4361b-0928-4217-9220-a39d6798d49f}">
         <property name="start">
-            <value>28.633729563661547</value>
+            <value>19.682110816353457</value>
         </property>
         <property name="length">
             <value>1.0908958333333334</value>
@@ -657,7 +660,7 @@
     </object>
     <object class="SingleSound" id="{a4732c67-e02f-4a4a-95fb-61d58056fa88}">
         <property name="start">
-            <value>29.724625396994874</value>
+            <value>20.773006649686785</value>
         </property>
         <property name="length">
             <value>1.0908958333333334</value>
@@ -668,7 +671,7 @@
     </object>
     <object class="SingleSound" id="{123c5125-4ab8-4591-9224-9e52913d91fd}">
         <property name="start">
-            <value>30.815521230328208</value>
+            <value>21.863902483020119</value>
         </property>
         <property name="length">
             <value>1.0908958333333334</value>
@@ -679,7 +682,7 @@
     </object>
     <object class="SingleSound" id="{8089efce-6156-45ed-9ca4-1f87b2ebf5b5}">
         <property name="start">
-            <value>31.906417063661543</value>
+            <value>22.954798316353454</value>
         </property>
         <property name="length">
             <value>1.0908958333333334</value>
@@ -690,7 +693,7 @@
     </object>
     <object class="SingleSound" id="{32c84e7c-febe-494b-87c9-f32e4bd2fe0d}">
         <property name="start">
-            <value>32.99731289699487</value>
+            <value>24.045694149686781</value>
         </property>
         <property name="length">
             <value>1.0908958333333334</value>
@@ -701,7 +704,7 @@
     </object>
     <object class="SingleSound" id="{f87fb021-9492-4422-99f5-0df28eaa92ff}">
         <property name="start">
-            <value>34.088208730328205</value>
+            <value>25.136589983020112</value>
         </property>
         <property name="length">
             <value>1.0908958333333334</value>
@@ -712,7 +715,7 @@
     </object>
     <object class="EventMixerGroup" id="{5114e89d-6a0f-4c91-87ae-88f6eece18a6}">
         <property name="volume">
-            <value>-6.5</value>
+            <value>-4.5</value>
         </property>
         <property name="name">
             <value>Audio 2</value>
@@ -729,7 +732,7 @@
     </object>
     <object class="SingleSound" id="{5373f0b2-1a27-4e8f-980f-9f0eaf9bb16f}">
         <property name="start">
-            <value>11.133410413974756</value>
+            <value>2.1817916666666655</value>
         </property>
         <property name="length">
             <value>1.0908958333333334</value>
@@ -746,7 +749,7 @@
     </object>
     <object class="SingleSound" id="{a2389ee1-84b9-407b-b7cf-52654445cdd2}">
         <property name="start">
-            <value>12.224306247308089</value>
+            <value>3.2726874999999982</value>
         </property>
         <property name="length">
             <value>1.0908958333333334</value>
@@ -763,7 +766,7 @@
     </object>
     <object class="SingleSound" id="{29a574b2-3956-47c3-8649-f3c54af039b6}">
         <property name="start">
-            <value>13.315202080641422</value>
+            <value>4.3635833333333309</value>
         </property>
         <property name="length">
             <value>1.0908958333333334</value>
@@ -780,7 +783,7 @@
     </object>
     <object class="SingleSound" id="{455f20a6-806d-4e0d-a934-575f44313ca0}">
         <property name="start">
-            <value>8.9516187473080908</value>
+            <value>0</value>
         </property>
         <property name="length">
             <value>1.0908958333333334</value>
@@ -797,7 +800,7 @@
     </object>
     <object class="SingleSound" id="{3e811dd8-e678-4268-9430-1cc4fe3c19a2}">
         <property name="start">
-            <value>10.042514580641424</value>
+            <value>1.0908958333333327</value>
         </property>
         <property name="length">
             <value>1.0908958333333334</value>
@@ -814,7 +817,7 @@
     </object>
     <object class="SingleSound" id="{5274fc12-5f75-4dd3-8336-11eaf4d3c5b5}">
         <property name="start">
-            <value>14.406097913974754</value>
+            <value>5.4544791666666637</value>
         </property>
         <property name="length">
             <value>1.0908958333333334</value>
@@ -831,7 +834,7 @@
     </object>
     <object class="SingleSound" id="{79f3ca50-5d74-416b-ad1b-e1f98128b475}">
         <property name="start">
-            <value>15.496993747308087</value>
+            <value>6.5453749999999964</value>
         </property>
         <property name="length">
             <value>1.0908958333333334</value>
@@ -848,7 +851,7 @@
     </object>
     <object class="SingleSound" id="{93c48608-7539-4fcc-8494-75c5c9cc01af}">
         <property name="start">
-            <value>16.587889580641416</value>
+            <value>7.6362708333333256</value>
         </property>
         <property name="length">
             <value>1.0908958333333334</value>
@@ -865,7 +868,7 @@
     </object>
     <object class="SingleSound" id="{13e26c01-80c9-4fc1-90c7-cf586adb2113}">
         <property name="start">
-            <value>17.678785413974751</value>
+            <value>8.7271666666666619</value>
         </property>
         <property name="length">
             <value>1.0908958333333334</value>
@@ -882,7 +885,7 @@
     </object>
     <object class="SingleSound" id="{e86b2084-aa3b-452f-bdd9-47633709d9c1}">
         <property name="start">
-            <value>18.769681247308085</value>
+            <value>9.8180624999999964</value>
         </property>
         <property name="length">
             <value>1.0908958333333334</value>
@@ -899,7 +902,7 @@
     </object>
     <object class="SingleSound" id="{e45948d1-7360-47e2-b677-4adea195217d}">
         <property name="start">
-            <value>19.86057708064142</value>
+            <value>10.908958333333331</value>
         </property>
         <property name="length">
             <value>1.0908958333333334</value>
@@ -916,7 +919,7 @@
     </object>
     <object class="SingleSound" id="{cf4082c1-b113-45ac-b5db-76e5fe714d83}">
         <property name="start">
-            <value>20.951472913974747</value>
+            <value>11.999854166666658</value>
         </property>
         <property name="length">
             <value>1.0908958333333334</value>
@@ -933,7 +936,7 @@
     </object>
     <object class="SingleSound" id="{c3641354-0e28-4a43-90dc-cf021d4adb6c}">
         <property name="start">
-            <value>22.04193678787351</value>
+            <value>13.090318040565421</value>
         </property>
         <property name="length">
             <value>1.0908958333333334</value>
@@ -950,7 +953,7 @@
     </object>
     <object class="SingleSound" id="{94a3f0d8-94fa-4fbf-a10f-30af86237142}">
         <property name="start">
-            <value>23.132832621206845</value>
+            <value>14.181213873898756</value>
         </property>
         <property name="length">
             <value>1.0908958333333334</value>
@@ -967,7 +970,7 @@
     </object>
     <object class="SingleSound" id="{f3a98bc1-313d-45c3-8804-24a4812451df}">
         <property name="start">
-            <value>24.223728454540179</value>
+            <value>15.27210970723209</value>
         </property>
         <property name="length">
             <value>1.0908958333333334</value>
@@ -984,7 +987,7 @@
     </object>
     <object class="SingleSound" id="{8d9937fb-9d66-4a0e-bb4c-eaaca56f481d}">
         <property name="start">
-            <value>25.31462428787351</value>
+            <value>16.363005540565418</value>
         </property>
         <property name="length">
             <value>1.0908958333333334</value>
@@ -1001,7 +1004,7 @@
     </object>
     <object class="SingleSound" id="{9e482942-efa5-44f6-b6fb-56a9d696d2d0}">
         <property name="start">
-            <value>26.405520121206841</value>
+            <value>17.453901373898752</value>
         </property>
         <property name="length">
             <value>1.0908958333333334</value>
@@ -1018,7 +1021,7 @@
     </object>
     <object class="SingleSound" id="{7beeb764-b3e9-48cd-9824-33ca7f589998}">
         <property name="start">
-            <value>27.496415954540176</value>
+            <value>18.544797207232087</value>
         </property>
         <property name="length">
             <value>1.0908958333333334</value>
@@ -1035,7 +1038,7 @@
     </object>
     <object class="SingleSound" id="{f6ca0cc4-ea3a-426d-bbd9-d8412da41dc2}">
         <property name="start">
-            <value>28.58731178787351</value>
+            <value>19.635693040565421</value>
         </property>
         <property name="length">
             <value>1.0908958333333334</value>
@@ -1052,7 +1055,7 @@
     </object>
     <object class="SingleSound" id="{6958c3b4-0cc5-4d15-a3cb-5c15ea25065e}">
         <property name="start">
-            <value>29.678207621206838</value>
+            <value>20.726588873898748</value>
         </property>
         <property name="length">
             <value>1.0908958333333334</value>
@@ -1069,7 +1072,7 @@
     </object>
     <object class="SingleSound" id="{cd791f05-d88b-4d81-b3bb-36d40f08a02f}">
         <property name="start">
-            <value>30.769103454540172</value>
+            <value>21.817484707232083</value>
         </property>
         <property name="length">
             <value>1.0908958333333334</value>
@@ -1086,7 +1089,7 @@
     </object>
     <object class="SingleSound" id="{0c3721a2-e86f-42a8-a871-065a268567c5}">
         <property name="start">
-            <value>31.859999287873503</value>
+            <value>22.90838054056541</value>
         </property>
         <property name="length">
             <value>1.0908958333333334</value>
@@ -1103,7 +1106,7 @@
     </object>
     <object class="SingleSound" id="{49a1f83d-f51a-4e69-a1de-88d263a6f1b2}">
         <property name="start">
-            <value>32.950895121206841</value>
+            <value>23.999276373898752</value>
         </property>
         <property name="length">
             <value>1.0908958333333334</value>
@@ -1120,7 +1123,7 @@
     </object>
     <object class="SingleSound" id="{7bd1703f-da96-4f74-8d75-bb035b11465c}">
         <property name="start">
-            <value>34.041790954540176</value>
+            <value>25.090172207232083</value>
         </property>
         <property name="length">
             <value>1.0908958333333334</value>
@@ -1169,13 +1172,14 @@
     </object>
     <object class="MixerBusPanner" id="{3a40ff7b-a620-4023-8797-a841acd8188b}">
         <property name="stereoPan">
-            <value>-100</value>
+            <value>-96</value>
         </property>
     </object>
     <object class="MixerBusEffectChain" id="{706ef273-4499-45dd-94dc-671e8423aa53}">
         <relationship name="effects">
             <destination>{9f3463bd-5807-4379-9a31-b151779719b3}</destination>
             <destination>{40ec3fd2-7fe0-43c0-a0c9-6fdd04eaa835}</destination>
+            <destination>{8b20b186-92c4-48c1-8e20-989f3871ac75}</destination>
         </relationship>
     </object>
     <object class="MixerBusPanner" id="{17e410cd-1e01-4ddd-a5e2-cedf0cdae8cb}">
@@ -1189,7 +1193,11 @@
             <destination>{eba37a31-4440-4caf-a14c-3ee31dbdcc06}</destination>
         </relationship>
     </object>
-    <object class="MixerBusPanner" id="{4534d9a4-4946-4960-b5ad-90c477ee3754}"/>
+    <object class="MixerBusPanner" id="{4534d9a4-4946-4960-b5ad-90c477ee3754}">
+        <property name="stereoPan">
+            <value>-100</value>
+        </property>
+    </object>
     <object class="MixerBusFader" id="{3f51ad69-02c2-4dbe-a0c2-22160735fbd0}"/>
     <object class="SpatialiserEffect" id="{05ea6784-bde0-4aff-a125-b9fc2eac02e7}"/>
     <object class="MixerSend" id="{db1aa4af-da38-4580-ad95-0bb37bbb74f0}">
@@ -1208,14 +1216,100 @@
     <object class="MixerBusFader" id="{f0786741-cadd-4892-bfd7-f554645a4efd}"/>
     <object class="LowpassEffect" id="{9f3463bd-5807-4379-9a31-b151779719b3}">
         <property name="cutoff">
-            <value>720</value>
+            <value>700</value>
+        </property>
+        <property name="resonance">
+            <value>1.03999996</value>
         </property>
     </object>
     <object class="MixerBusFader" id="{40ec3fd2-7fe0-43c0-a0c9-6fdd04eaa835}"/>
+    <object class="PluginEffect" id="{8b20b186-92c4-48c1-8e20-989f3871ac75}">
+        <relationship name="plugin">
+            <destination>{7063ae43-af3c-4c95-ac53-876128423eb8}</destination>
+        </relationship>
+    </object>
     <object class="LowpassEffect" id="{11b87d38-f752-4ab2-805e-b785b7ee608c}">
         <property name="cutoff">
             <value>720</value>
         </property>
     </object>
     <object class="MixerBusFader" id="{eba37a31-4440-4caf-a14c-3ee31dbdcc06}"/>
+    <object class="Plugin" id="{7063ae43-af3c-4c95-ac53-876128423eb8}">
+        <property name="identifier">
+            <value>FMOD Pitch Shifter</value>
+        </property>
+        <property name="uiName">
+            <value>Pitch Shifter</value>
+        </property>
+        <relationship name="pluginParameters">
+            <destination>{d5511688-d1f6-4eca-9762-4f7a41e49240}</destination>
+            <destination>{dae539f4-0469-4d4a-9e6f-24bc654829e3}</destination>
+            <destination>{d1c56659-7c56-40cc-ad20-c5da2041a43b}</destination>
+            <destination>{da37e6e4-1093-4575-a587-4ba444b501e2}</destination>
+        </relationship>
+    </object>
+    <object class="FloatPluginParameter" id="{d5511688-d1f6-4eca-9762-4f7a41e49240}">
+        <property name="name">
+            <value>Pitch</value>
+        </property>
+        <property name="units">
+            <value>x</value>
+        </property>
+        <property name="curve">
+            <value>LinearCurveStrategy{(0.000000,0.500000)(1.000000,2.000000)}</value>
+        </property>
+        <property name="defaultValue">
+            <value>1</value>
+        </property>
+        <property name="value">
+            <value>0.990000069</value>
+        </property>
+    </object>
+    <object class="FloatPluginParameter" id="{dae539f4-0469-4d4a-9e6f-24bc654829e3}">
+        <property name="name">
+            <value>FFT size</value>
+        </property>
+        <property name="units"/>
+        <property name="curve">
+            <value>LinearPiecewiseCurveStrategy{(7.186666,256.000000)(8.000000,500.000000)(9.000000,1000.000000)(10.000000,2000.000000)(10.698667,4096.000000)}</value>
+        </property>
+        <property name="defaultValue">
+            <value>1024</value>
+        </property>
+        <property name="value">
+            <value>1024</value>
+        </property>
+    </object>
+    <object class="FloatPluginParameter" id="{d1c56659-7c56-40cc-ad20-c5da2041a43b}">
+        <property name="name">
+            <value>Overlap</value>
+        </property>
+        <property name="units"/>
+        <property name="curve">
+            <value>LinearPiecewiseCurveStrategy{(0.000000,1.000000)(1.000000,2.000000)(2.000000,5.000000)(3.000000,10.000000)(4.000000,20.000000)(4.400000,32.000000)}</value>
+        </property>
+        <property name="defaultValue">
+            <value>4</value>
+        </property>
+        <property name="value">
+            <value>4</value>
+        </property>
+    </object>
+    <object class="FloatPluginParameter" id="{da37e6e4-1093-4575-a587-4ba444b501e2}">
+        <property name="name">
+            <value>Max channels</value>
+        </property>
+        <property name="units">
+            <value>channels</value>
+        </property>
+        <property name="curve">
+            <value>LinearCurveStrategy{(0.000000,0.000000)(1.000000,16.000000)}</value>
+        </property>
+        <property name="defaultValue">
+            <value>0</value>
+        </property>
+        <property name="value">
+            <value>0</value>
+        </property>
+    </object>
 </objects>
