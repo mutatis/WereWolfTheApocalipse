@@ -49,16 +49,29 @@ public class PlayerAnimation : MonoBehaviour
         PlayerController.playerController.Ataca();
     }
 
+    void Dano(GameObject other)
+    {
+        heal = FMODUnity.RuntimeManager.CreateInstance(socoFraco);
+        heal.setVolume(PlayerPrefs.GetFloat("VolumeFX"));
+        heal.start();
+        int x = Random.Range(0, 100);
+        if(x <= playerStatus.critChance)
+        {
+            other.gameObject.GetComponent<EnemyController>().Dano(playerStatus.dmg * 2);
+        }
+        else
+        {
+            other.gameObject.GetComponent<EnemyController>().Dano(playerStatus.dmg);
+        }
+    }
+
     void OnTriggerEnter (Collider other)
     {
         if(other.gameObject.tag == "Enemy")
         {
             if (PlayerController.playerController.contador <= 2 && other.gameObject.GetComponent<EnemyController>().life > 0 && other.gameObject.GetComponent<EnemyController>().dano)
             {
-                heal = FMODUnity.RuntimeManager.CreateInstance(socoFraco);
-                heal.setVolume(PlayerPrefs.GetFloat("VolumeFX"));
-                heal.start();
-                other.gameObject.GetComponent<EnemyController>().Dano(playerStatus.dmg);
+                Dano(other.gameObject);
             }
             else if (PlayerController.playerController.contador >= 3 && other.gameObject.GetComponent<EnemyController>().life > 0 && other.gameObject.GetComponent<EnemyController>().dano)
             {
