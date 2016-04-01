@@ -7,6 +7,8 @@ public class EnemyAnim : MonoBehaviour
 
     public GameObject obj;
 
+    public float dmg;
+
     public void Return()
     {
         controller.stun = false;
@@ -26,7 +28,10 @@ public class EnemyAnim : MonoBehaviour
     {
         if (other.gameObject.tag == "Player")
         {
-            other.gameObject.GetComponent<PlayerController>().Dano(1);
+            if (other.gameObject.GetComponent<PlayerController>().playerStatus.life > 0)
+            {
+                other.gameObject.GetComponent<PlayerController>().Dano(dmg);
+            }
         }
     }
 }

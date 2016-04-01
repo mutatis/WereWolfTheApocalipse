@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using UnityEngine.SceneManagement;
 
 public class PlayerAnimation : MonoBehaviour
 {
@@ -44,6 +45,11 @@ public class PlayerAnimation : MonoBehaviour
         PlayerController.playerController.Liberated();
     }
 
+    public void Dead()
+    {
+        SceneManager.LoadScene("Dead");
+    }
+
     public void Ataca()
     {
         PlayerController.playerController.Ataca();
@@ -57,11 +63,28 @@ public class PlayerAnimation : MonoBehaviour
         int x = Random.Range(0, 100);
         if(x <= playerStatus.critChance)
         {
-            other.gameObject.GetComponent<EnemyController>().Dano(playerStatus.dmg * 2);
+            other.gameObject.GetComponent<EnemyController>().Dano(playerStatus.dmg * 2, true);
         }
         else
         {
-            other.gameObject.GetComponent<EnemyController>().Dano(playerStatus.dmg);
+            other.gameObject.GetComponent<EnemyController>().Dano(playerStatus.dmg, false);
+        }
+    }
+
+    void SlamDmg(GameObject other)
+    {
+
+        heal = FMODUnity.RuntimeManager.CreateInstance(socoForte);
+        heal.setVolume(PlayerPrefs.GetFloat("VolumeFX"));
+        heal.start();
+        int x = Random.Range(0, 100);
+        if (x <= playerStatus.critChance)
+        {
+            other.gameObject.GetComponent<EnemyController>().Slam(playerStatus.dmg * 2, true);
+        }
+        else
+        {
+            other.gameObject.GetComponent<EnemyController>().Slam(playerStatus.dmg, false);
         }
     }
 
@@ -75,10 +98,7 @@ public class PlayerAnimation : MonoBehaviour
             }
             else if (PlayerController.playerController.contador >= 3 && other.gameObject.GetComponent<EnemyController>().life > 0 && other.gameObject.GetComponent<EnemyController>().dano)
             {
-                heal = FMODUnity.RuntimeManager.CreateInstance(socoForte);
-                heal.setVolume(PlayerPrefs.GetFloat("VolumeFX"));
-                heal.start();
-                other.gameObject.GetComponent<EnemyController>().Slam(playerStatus.dmg);
+                SlamDmg(other.gameObject);
             }
         }
     }
