@@ -21,7 +21,6 @@ public class EnemyController : MonoBehaviour
     public GameObject player;
 
     bool isWalk = true;
-    bool isAttack = false;
     bool procura = true;
 
     Vector3 direction;
@@ -162,19 +161,16 @@ public class EnemyController : MonoBehaviour
     void SpecialMove()
     {
         anim.SetTrigger("SocoFraco2");
-        print("SpecialMove");
     }
 
     void Defesa()
     {
         anim.SetTrigger("SocoForte");
-        print("Defesa");
     }
 
     void Soco()
     {
         anim.SetTrigger("SocoFraco0");
-        print("Soco");
     }
 
     IEnumerator Engage()

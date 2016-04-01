@@ -8,11 +8,6 @@ public class MusicaManager : MonoBehaviour
 
     FMOD.Studio.EventInstance vol;
 
-    void Awake()
-    {
-        DontDestroyOnLoad(gameObject);
-    }
-
     void Start()
     {
         vol = FMODUnity.RuntimeManager.CreateInstance(musica);
