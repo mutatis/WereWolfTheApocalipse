@@ -37,7 +37,13 @@ public class PlayerController : MonoBehaviour
 
     void Update()
     {
-        if (!stun)
+        if(playerStatus.life <= 0)
+        {
+            anim.anim.SetTrigger("Dead");
+            gameObject.GetComponent<PlayerController>().enabled = false;
+        }
+
+        if (!stun && playerStatus.life > 0)
         {
             if (x > 0 && transform.localScale.x < 0)
             {
@@ -163,8 +169,11 @@ public class PlayerController : MonoBehaviour
     public void Dano(float dmg)
     {
         playerStatus.life -= dmg;
-        stun = true;
-        anim.anim.SetTrigger("Dano");
+        if (playerStatus.life > 0)
+        {
+            stun = true;
+            anim.anim.SetTrigger("Dano");
+        }
     }
 
     IEnumerator GO()

@@ -38,7 +38,10 @@ public class EnemyController : MonoBehaviour
         if(life <= 0)
         {
             anim.SetTrigger("Dead");
-            player.GetComponent<PlayerController>().engage--;
+            if (player != null)
+            {
+                player.GetComponent<PlayerController>().engage--;
+            }
             dano = false;
             gameObject.GetComponent<EnemyController>().enabled = false;
         }
@@ -211,12 +214,21 @@ public class EnemyController : MonoBehaviour
         text.text = "";
     }
 
-    public void Dano(float dmg)
+    public void Dano(float dmg, bool crit)
     {
         if (dano)
         {
             life -= dmg;
-            text.text = dmg.ToString();
+            if(crit == true)
+            {
+                text.color = Color.red;
+                text.text = dmg.ToString() + " CRIT";
+            }
+            else
+            {
+                text.color = Color.white;
+                text.text = dmg.ToString();
+            }
             stun = true;
             isWalk = false;
             StopCoroutine("Pode");
@@ -231,10 +243,20 @@ public class EnemyController : MonoBehaviour
         }
     }
 
-    public void Slam(float dmg)
+    public void Slam(float dmg, bool crit)
     {
         dano = false;
         life -= dmg;
+        if (crit == true)
+        {
+            text.color = Color.red;
+            text.text = dmg.ToString() + " CRIT";
+        }
+        else
+        {
+            text.color = Color.white;
+            text.text = dmg.ToString();
+        }
         text.text = dmg.ToString();
         StopCoroutine("Pode");
         stun = true;
