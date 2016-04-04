@@ -24,52 +24,6 @@
 [LOG] Thread::initThread                       : Initializing FMOD Studio bank load thread.  priority 0
 [LOG] Thread::initThread                       : - Stacksize 65536.  Stack pointer 0000000000000000 : usesemaphore = 0 : sleeptime = 1
 [LOG] Thread::callback                         : * FMOD Studio bank load thread started
-[LOG] Manager::readBank                        : fileversion = 68, compatVersion = 68 (oldest = 44, newest = 72)
-[LOG] Manager::readBank                        : fileversion = 68, compatVersion = 68 (oldest = 44, newest = 72)
-[LOG] Manager::readBank                        : fileversion = 68, compatVersion = 68 (oldest = 44, newest = 72)
-[LOG] Manager::readBank                        : fileversion = 68, compatVersion = 68 (oldest = 44, newest = 72)
-[LOG] Manager::readBank                        : fileversion = 68, compatVersion = 68 (oldest = 44, newest = 72)
-[LOG] Manager::readBank                        : fileversion = 68, compatVersion = 68 (oldest = 44, newest = 72)
-[LOG] Manager::readBank                        : fileversion = 68, compatVersion = 68 (oldest = 44, newest = 72)
-[LOG] Manager::readBank                        : fileversion = 68, compatVersion = 68 (oldest = 44, newest = 72)
-[LOG] Manager::finishLoadBank                  : Bank with guid {8a8e60f8-4057-46e3-bdf5-e9a7fded58b4} has already been loaded[LOG] SystemI::createSoundInternal             : filename =  : mode 0a000202
-[LOG] SystemI::createSoundInternal             : exinfo->cbsize             = 232
-[LOG] SystemI::createSoundInternal             : exinfo->length             = 3412384
-[LOG] SystemI::createSoundInternal             : exinfo->fileoffset         = 55744
-[LOG] SystemI::createSoundInternal             : exinfo->numsubsounds       = 1
-[LOG] SystemI::createSoundInternal             : exinfo->inclusionlist      = 000000002433FB28
-[LOG] SystemI::createSoundInternal             : exinfo->inclusionlistnum   = 1
-[LOG] SystemI::createSoundInternal             : exinfo->suggestedsoundtype = 5
-[LOG] SystemI::createSoundInternal             : exinfo->useropen           = 00007FF8CB6D8650
-[LOG] SystemI::createSoundInternal             : exinfo->userclose          = 00007FF8CB6D93C0
-[LOG] SystemI::createSoundInternal             : exinfo->userread           = 00007FF8CB6D8730
-[LOG] SystemI::createSoundInternal             : exinfo->userseek           = 00007FF8CB6D87E0
-[LOG] SystemI::createSoundInternal             : exinfo->fileuserdata       = 0000000023E77D78
-[LOG] SystemI::createSoundInternal             : exinfo->initialseekpostype = 1
-[LOG] SystemI::createSoundInternal             : Format has 1 subsounds.
-[LOG] SystemI::createSoundInternal             : Create as FMOD_CREATESAMPLE
-[LOG] SystemI::createSoundInternal             : Multi-sample sound (1 subsounds), create a sample container.
-[LOG] SystemI::createSoundInternal             : creating subsound 0/1
-[LOG] SystemI::createSample                    : mode 0a000202 length 8525 samples, lengthbytes 2976
-[LOG] SystemI::createSample                    : channels = 2
-[LOG] SystemI::createSample                    : output = 000000002294B078
-[LOG] OutputSoftware::createSample             : lengthpcm 8525, lengthbytes 2976, channels 2, format 2, freq 48000, mode 0a00020a
-[LOG] SystemI::createSoundInternal             : done.  OpenState now = FMOD_OPENSTATE_READY.
-
-[LOG] Manager::readBank                        : fileversion = 68, compatVersion = 68 (oldest = 44, newest = 72)
-[LOG] Manager::finishLoadBank                  : Bank with guid {8a8e60f8-4057-46e3-bdf5-e9a7fded58b4} has already been loaded[LOG] Manager::readBank                        : fileversion = 68, compatVersion = 68 (oldest = 44, newest = 72)
-[LOG] Manager::finishLoadBank                  : Bank with guid {8a8e60f8-4057-46e3-bdf5-e9a7fded58b4} has already been loaded[LOG] Manager::readBank                        : fileversion = 68, compatVersion = 68 (oldest = 44, newest = 72)
-[LOG] Manager::finishLoadBank                  : Bank with guid {8a8e60f8-4057-46e3-bdf5-e9a7fded58b4} has already been loaded[LOG] Manager::readBank                        : fileversion = 68, compatVersion = 68 (oldest = 44, newest = 72)
-[LOG] Manager::finishLoadBank                  : Bank with guid {8a8e60f8-4057-46e3-bdf5-e9a7fded58b4} has already been loaded[LOG] Manager::readBank                        : fileversion = 68, compatVersion = 68 (oldest = 44, newest = 72)
-[LOG] Manager::finishLoadBank                  : Bank with guid {8a8e60f8-4057-46e3-bdf5-e9a7fded58b4} has already been loaded[LOG] Manager::readBank                        : fileversion = 68, compatVersion = 68 (oldest = 44, newest = 72)
-[LOG] Manager::finishLoadBank                  : Bank with guid {8a8e60f8-4057-46e3-bdf5-e9a7fded58b4} has already been loaded[LOG] Manager::readBank                        : fileversion = 68, compatVersion = 68 (oldest = 44, newest = 72)
-[LOG] Manager::finishLoadBank                  : Bank with guid {8a8e60f8-4057-46e3-bdf5-e9a7fded58b4} has already been loaded[LOG] Manager::readBank                        : fileversion = 68, compatVersion = 68 (oldest = 44, newest = 72)
-[LOG] Manager::finishLoadBank                  : Bank with guid {8a8e60f8-4057-46e3-bdf5-e9a7fded58b4} has already been loaded[LOG] Manager::readBank                        : fileversion = 68, compatVersion = 68 (oldest = 44, newest = 72)
-[LOG] Manager::finishLoadBank                  : Bank with guid {8a8e60f8-4057-46e3-bdf5-e9a7fded58b4} has already been loaded[LOG] Manager::readBank                        : fileversion = 68, compatVersion = 68 (oldest = 44, newest = 72)
-[LOG] Manager::finishLoadBank                  : Bank with guid {8a8e60f8-4057-46e3-bdf5-e9a7fded58b4} has already been loaded[LOG] SoundI::release                          : (null) (000000001C53ABC8)
-[LOG] SoundI::release                          : release subsounds. (000000001C53ABC8)
-[LOG] SoundI::release                          :     (null) (0000000023D89648)
-[LOG] SoundI::release                          : release codec. (000000001C53ABC8)
 [LOG] Thread::callback                         : * FMOD Studio bank load thread finished
 [LOG] Thread::close                            : FMOD Studio bank load thread thread destroyed
 [LOG] Thread::callback                         : * FMOD Studio sample load thread finished
