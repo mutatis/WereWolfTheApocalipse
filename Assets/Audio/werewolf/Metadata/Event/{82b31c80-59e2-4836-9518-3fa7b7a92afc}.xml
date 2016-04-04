@@ -2,7 +2,7 @@
 <objects serializationModel="Studio.01.07.00">
     <object class="Event" id="{82b31c80-59e2-4836-9518-3fa7b7a92afc}">
         <property name="name">
-            <value>violon</value>
+            <value>Guitar</value>
         </property>
         <property name="outputFormat">
             <value>2</value>
@@ -27,6 +27,9 @@
         </relationship>
         <relationship name="timeline">
             <destination>{24643e32-0c10-4142-a6df-c993db82a8a7}</destination>
+        </relationship>
+        <relationship name="banks">
+            <destination>{8a8e60f8-4057-46e3-bdf5-e9a7fded58b4}</destination>
         </relationship>
         <relationship name="folder">
             <destination>{7896bd4b-84fd-4276-bc35-60799b86d447}</destination>
