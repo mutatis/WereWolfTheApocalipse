@@ -18,6 +18,8 @@ public class PlayerController : MonoBehaviour
     public float x;
     [HideInInspector]
     public float z;
+    [HideInInspector]
+    public float rage;
 
     public bool jump;
     public bool stun;
@@ -173,6 +175,7 @@ public class PlayerController : MonoBehaviour
         {
             stun = true;
             anim.anim.SetTrigger("Dano");
+            rage += playerStatus.rageRegen;
         }
     }
 

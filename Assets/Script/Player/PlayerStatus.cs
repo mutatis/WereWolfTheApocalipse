@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using UnityEditor;
 
 public class PlayerStatus : MonoBehaviour
 {
@@ -7,7 +8,7 @@ public class PlayerStatus : MonoBehaviour
 
     [HideInInspector]
     public float strength, dexterity, stamina, charisma, intelligence, spirit; //padrao
-
+    
     public float critDamage, dmg, lift, blockEffect, hitStun, knockback; //strength
     
     public float critChance, speed, counterDmg, dodgeCooldown, rangedSpeed, rangedDmg; //dexterity
