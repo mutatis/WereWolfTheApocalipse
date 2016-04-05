@@ -66,10 +66,12 @@ public class PlayerAnimation : MonoBehaviour
         if(x <= playerStatus.critChance)
         {
             other.gameObject.GetComponent<EnemyController>().Dano(playerStatus.dmg * 2, true);
+            playerController.rage += ((playerStatus.dmg * 2) * playerStatus.rageRegen);
         }
         else
         {
             other.gameObject.GetComponent<EnemyController>().Dano(playerStatus.dmg, false);
+            playerController.rage += ((playerStatus.dmg) * playerStatus.rageRegen);
         }
     }
 
@@ -82,11 +84,13 @@ public class PlayerAnimation : MonoBehaviour
         int x = Random.Range(0, 100);
         if (x <= playerStatus.critChance)
         {
-            other.gameObject.GetComponent<EnemyController>().Slam(playerStatus.dmg * 2, true);
+            other.gameObject.GetComponent<EnemyController>().Slam((playerStatus.dmg * 2) + (playerStatus.dmg * 0.25f), true);
+            playerController.rage += ((playerStatus.dmg * 2) * playerStatus.rageRegen);
         }
         else
         {
-            other.gameObject.GetComponent<EnemyController>().Slam(playerStatus.dmg, false);
+            other.gameObject.GetComponent<EnemyController>().Slam((playerStatus.dmg + (playerStatus.dmg * 0.25f)), false);
+            playerController.rage += ((playerStatus.dmg) * playerStatus.rageRegen);
         }
     }
 
@@ -102,7 +106,6 @@ public class PlayerAnimation : MonoBehaviour
             {
                 SlamDmg(other.gameObject);
             }
-            playerController.rage += playerStatus.rageRegen;
         }
     }
 }
