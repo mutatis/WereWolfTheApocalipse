@@ -21,6 +21,8 @@ public class PlayerController : MonoBehaviour
     [HideInInspector]
     public float rage;
 
+    [HideInInspector]
+    public bool block;
     public bool jump;
     public bool stun;
 
@@ -97,6 +99,13 @@ public class PlayerController : MonoBehaviour
                             {
                                 Jump();
                             }
+                            else if(Input.GetKeyDown(KeyCode.Joystick1Button1))
+                            {
+                                block = true;
+                                anim.anim.SetBool("Block", true);
+                                isAttack = false;
+                                isRun = false;
+                            }
                         }
                         else
                         {
@@ -105,6 +114,14 @@ public class PlayerController : MonoBehaviour
                                 anim.anim.SetTrigger("JumpAttack");
                             }
                         }
+                    }
+
+                    if (Input.GetKeyUp(KeyCode.Joystick1Button1))
+                    {
+                        block = false;
+                        anim.anim.SetBool("Block", false);
+                        isAttack = true;
+                        isRun = true;
                     }
                     break;
             }
@@ -170,6 +187,10 @@ public class PlayerController : MonoBehaviour
 
     public void Dano(float dmg)
     {
+        if(block)
+        {
+            dmg = dmg * playerStatus.blockEffect;
+        }
         playerStatus.life -= dmg;
         if (playerStatus.life > 0)
         {
@@ -192,10 +213,6 @@ public class PlayerController : MonoBehaviour
     {
         isRun = true;
         isAttack = true;
-        if(obj == null)
-        {
-            contador = 0;
-        }
         jump = false;
         anim.anim.SetBool("Jump", jump);
     }
