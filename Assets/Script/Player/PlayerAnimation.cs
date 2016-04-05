@@ -13,10 +13,15 @@ public class PlayerAnimation : MonoBehaviour
     [FMODUnity.EventRef]
     public string socoFraco;
 
+    [FMODUnity.EventRef]
+    public string miss;
+
     FMOD.Studio.EventInstance heal;
 
    [FMODUnity.EventRef]
     public string socoForte;
+
+    GameObject obj;
 
     bool run;
 
@@ -42,9 +47,19 @@ public class PlayerAnimation : MonoBehaviour
         playerController.stun = false;
     }
 
+    public void Miss()
+    {
+        if (obj == null)
+        {
+            heal = FMODUnity.RuntimeManager.CreateInstance(miss);
+            heal.setVolume(PlayerPrefs.GetFloat("VolumeFX"));
+            heal.start();
+        }
+    }
+
     public void Liberated()
     {
-        playerController.Liberated();
+        playerController.Liberated(obj);
     }
 
     public void Dead()
@@ -54,6 +69,7 @@ public class PlayerAnimation : MonoBehaviour
 
     public void Ataca()
     {
+        obj = null;
         playerController.Ataca();
     }
 
@@ -100,11 +116,13 @@ public class PlayerAnimation : MonoBehaviour
         {
             if (playerController.contador <= 2 && other.gameObject.GetComponent<EnemyController>().life > 0 && other.gameObject.GetComponent<EnemyController>().dano)
             {
-                Dano(other.gameObject);
+                obj = other.gameObject;
+                Dano(obj);
             }
             else if (playerController.contador >= 3 && other.gameObject.GetComponent<EnemyController>().life > 0 && other.gameObject.GetComponent<EnemyController>().dano)
             {
-                SlamDmg(other.gameObject);
+                obj = other.gameObject;
+                SlamDmg(obj);
             }
         }
     }

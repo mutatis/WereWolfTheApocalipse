@@ -188,10 +188,14 @@ public class PlayerController : MonoBehaviour
         StopCoroutine("GO");
     }
 
-    public void Liberated()
+    public void Liberated(GameObject obj)
     {
         isRun = true;
         isAttack = true;
+        if(obj == null)
+        {
+            contador = 0;
+        }
         jump = false;
         anim.anim.SetBool("Jump", jump);
     }
