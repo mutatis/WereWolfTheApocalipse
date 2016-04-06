@@ -261,11 +261,11 @@ public class EnemyController : MonoBehaviour
         }
         if (transform.localScale.x < 0)
         {
-            rig.velocity = new Vector2((knockback * (-1)), -2);
+            rig.velocity = new Vector2((knockback * (-1)), knockback);
         }
         else if (transform.localScale.x > 0)
         {
-            rig.velocity = new Vector2(knockback, 2);
+            rig.velocity = new Vector2(knockback, knockback);
         }
         if(player == null)
         {
