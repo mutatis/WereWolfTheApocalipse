@@ -82,7 +82,7 @@ public class PlayerAnimation : MonoBehaviour
         int x = Random.Range(0, 100);
         if(x <= playerStatus.critChance)
         {
-            other.gameObject.GetComponent<EnemyController>().Dano(playerStatus.dmg * 2, true);
+            other.gameObject.GetComponent<EnemyController>().Dano(playerStatus.dmg * 2, true, playerController.gameObject);
             playerController.rage += ((playerStatus.dmg * 2) * playerStatus.rageRegen);
             heal = FMODUnity.RuntimeManager.CreateInstance(crit);
             heal.setVolume(PlayerPrefs.GetFloat("VolumeFX"));
@@ -90,7 +90,7 @@ public class PlayerAnimation : MonoBehaviour
         }
         else
         {
-            other.gameObject.GetComponent<EnemyController>().Dano(playerStatus.dmg, false);
+            other.gameObject.GetComponent<EnemyController>().Dano(playerStatus.dmg, false, playerController.gameObject);
             playerController.rage += ((playerStatus.dmg) * playerStatus.rageRegen);
             heal = FMODUnity.RuntimeManager.CreateInstance(socoFraco);
             heal.setVolume(PlayerPrefs.GetFloat("VolumeFX"));
@@ -107,7 +107,7 @@ public class PlayerAnimation : MonoBehaviour
         int x = Random.Range(0, 100);
         if (x <= playerStatus.critChance)
         {
-            other.gameObject.GetComponent<EnemyController>().Slam((playerStatus.dmg * 2) + (playerStatus.dmg * 0.25f), true);
+            other.gameObject.GetComponent<EnemyController>().Slam((playerStatus.dmg * 2) + (playerStatus.dmg * 0.25f), true, playerController.gameObject, playerStatus.knockback);
             playerController.rage += ((playerStatus.dmg * 2) * playerStatus.rageRegen);
             heal = FMODUnity.RuntimeManager.CreateInstance(crit);
             heal.setVolume(PlayerPrefs.GetFloat("VolumeFX"));
@@ -115,7 +115,7 @@ public class PlayerAnimation : MonoBehaviour
         }
         else
         {
-            other.gameObject.GetComponent<EnemyController>().Slam((playerStatus.dmg + (playerStatus.dmg * 0.25f)), false);
+            other.gameObject.GetComponent<EnemyController>().Slam((playerStatus.dmg + (playerStatus.dmg * 0.25f)), false, playerController.gameObject, playerStatus.knockback);
             playerController.rage += ((playerStatus.dmg) * playerStatus.rageRegen);
             heal = FMODUnity.RuntimeManager.CreateInstance(socoFraco);
             heal.setVolume(PlayerPrefs.GetFloat("VolumeFX"));

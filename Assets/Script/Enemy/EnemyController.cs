@@ -5,6 +5,8 @@ public class EnemyController : MonoBehaviour
 {
     public Animator anim;
 
+    public Rigidbody rig;
+
     public ProbabilidadeEnemy probabilidade;
 
     public bool stun;
@@ -210,7 +212,7 @@ public class EnemyController : MonoBehaviour
         text.text = "";
     }
 
-    public void Dano(float dmg, bool crit)
+    public void Dano(float dmg, bool crit, GameObject obj)
     {
         if (dano)
         {
@@ -224,6 +226,10 @@ public class EnemyController : MonoBehaviour
             {
                 text.color = Color.white;
                 text.text = dmg.ToString();
+            }
+            if(player == null)
+            {
+                player = obj;
             }
             stun = true;
             isWalk = false;
@@ -239,7 +245,7 @@ public class EnemyController : MonoBehaviour
         }
     }
 
-    public void Slam(float dmg, bool crit)
+    public void Slam(float dmg, bool crit, GameObject obj, float knockback)
     {
         dano = false;
         life -= dmg;
@@ -252,6 +258,18 @@ public class EnemyController : MonoBehaviour
         {
             text.color = Color.white;
             text.text = dmg.ToString();
+        }
+        if (transform.localScale.x < 0)
+        {
+            rig.velocity = new Vector2((knockback * (-1)), -2);
+        }
+        else if (transform.localScale.x > 0)
+        {
+            rig.velocity = new Vector2(knockback, 2);
+        }
+        if(player == null)
+        {
+            player = obj;
         }
         text.text = dmg.ToString();
         StopCoroutine("Pode");
