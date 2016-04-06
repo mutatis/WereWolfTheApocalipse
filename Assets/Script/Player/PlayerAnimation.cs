@@ -132,7 +132,7 @@ public class PlayerAnimation : MonoBehaviour
                 obj = other.gameObject;
                 Dano(obj);
             }
-            else if (playerController.contador >= 3 && other.gameObject.GetComponent<EnemyController>().life > 0 && other.gameObject.GetComponent<EnemyController>().dano)
+            if (playerController.contador >= 3 && other.gameObject.GetComponent<EnemyController>().life > 0 && other.gameObject.GetComponent<EnemyController>().dano)
             {
                 obj = other.gameObject;
                 SlamDmg(obj);

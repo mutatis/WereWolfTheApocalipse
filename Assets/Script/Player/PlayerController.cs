@@ -72,8 +72,7 @@ public class PlayerController : MonoBehaviour
                         {
                             z = 0;
                         }
-
-                        transform.Translate(new Vector3(x, 0, z));
+                        transform.Translate(new Vector3((x * playerStatus.speed), 0, (z * playerStatus.speed)));
                     }
 
                     if (isAttack)
@@ -152,6 +151,10 @@ public class PlayerController : MonoBehaviour
 
     void SocoFraco()
     {
+        if(contador > 3)
+        {
+            contador = 0;
+        }
         contador++;
         isAttack = false;
         isRun = false;
@@ -169,7 +172,6 @@ public class PlayerController : MonoBehaviour
             default:
                 isRun = true;
                 isAttack = true;
-                contador = 0;
                 break;
         }
         PlayCombo();
