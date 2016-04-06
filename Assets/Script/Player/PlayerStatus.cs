@@ -41,7 +41,7 @@ public class PlayerStatus : MonoBehaviour
 
         //Dexterity
         rangedDmg = ((dexterity * 0.2f) * rangedDmg) + rangedDmg;
-        speed = ((dexterity * 0.1f) * speed) + speed;
+        speed = ((dexterity * 0.04f) * speed) + speed;
         rangedDmg = speed / 2;
         rangedDmg = ((dexterity * 0.2f) * rangedDmg) + rangedDmg;
         counterDmg = ((dexterity * 0.05f) * counterDmg) + counterDmg;

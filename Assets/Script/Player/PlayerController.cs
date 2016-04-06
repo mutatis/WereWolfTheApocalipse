@@ -187,6 +187,18 @@ public class PlayerController : MonoBehaviour
         StopCoroutine("GO");
     }
 
+    public void DanoMagico(float dmg, int tipo)
+    {
+        if (tipo == 1)
+        {
+            playerStatus.life -= (dmg * playerStatus.resistances);
+        }
+        else if(tipo == 2)
+        {
+            playerStatus.life -= (dmg * playerStatus.resistances2);
+        }
+    }
+
     public void Dano(float dmg)
     {
         if(block)
