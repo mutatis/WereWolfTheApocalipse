@@ -37,7 +37,7 @@ public class PlayerStatus : MonoBehaviour
         {
             lift = (strength / 2);
         }
-        knockback = ((strength / 0.2f) * knockback) + knockback;
+        knockback = ((strength / 2f) * knockback) + knockback;
 
         //Dexterity
         rangedDmg = ((dexterity * 0.2f) * rangedDmg) + rangedDmg;

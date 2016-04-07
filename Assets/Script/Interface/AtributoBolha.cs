@@ -36,6 +36,10 @@ public class AtributoBolha : MonoBehaviour
         {
             x = ManagerPlayerPontos.managerPontos.GetIntelligence(nome);
         }
+        else if (posNaLista == 5)
+        {
+            x = ManagerPlayerPontos.managerPontos.GetSpirit(nome);
+        }
 
         for (int i = 0; i < x; i++)
         {
