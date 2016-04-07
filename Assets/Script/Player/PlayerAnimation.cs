@@ -19,7 +19,7 @@ public class PlayerAnimation : MonoBehaviour
     [FMODUnity.EventRef]
     public string miss;
 
-    FMOD.Studio.EventInstance heal;
+    FMOD.Studio.EventInstance audioInstance;
 
    [FMODUnity.EventRef]
     public string socoForte;
@@ -54,9 +54,9 @@ public class PlayerAnimation : MonoBehaviour
     {
         if (obj == null)
         {
-            heal = FMODUnity.RuntimeManager.CreateInstance(miss);
-            heal.setVolume(PlayerPrefs.GetFloat("VolumeFX"));
-            heal.start();
+            audioInstance = FMODUnity.RuntimeManager.CreateInstance(miss);
+            audioInstance.setVolume(PlayerPrefs.GetFloat("VolumeFX"));
+            audioInstance.start();
             playerController.contador = 0;
         }
     }
@@ -84,42 +84,36 @@ public class PlayerAnimation : MonoBehaviour
         {
             other.gameObject.GetComponent<EnemyController>().Dano(playerStatus.dmg * 2, true, playerController.gameObject);
             playerController.rage += ((playerStatus.dmg * 2) * playerStatus.rageRegen);
-            heal = FMODUnity.RuntimeManager.CreateInstance(crit);
-            heal.setVolume(PlayerPrefs.GetFloat("VolumeFX"));
-            heal.start();
+            audioInstance = FMODUnity.RuntimeManager.CreateInstance(crit);
+            audioInstance.setVolume(PlayerPrefs.GetFloat("VolumeFX"));
+            audioInstance.start();
         }
         else
         {
             other.gameObject.GetComponent<EnemyController>().Dano(playerStatus.dmg, false, playerController.gameObject);
             playerController.rage += ((playerStatus.dmg) * playerStatus.rageRegen);
-            heal = FMODUnity.RuntimeManager.CreateInstance(socoFraco);
-            heal.setVolume(PlayerPrefs.GetFloat("VolumeFX"));
-            heal.start();
         }
     }
 
     void SlamDmg(GameObject other)
     {
 
-        heal = FMODUnity.RuntimeManager.CreateInstance(socoForte);
-        heal.setVolume(PlayerPrefs.GetFloat("VolumeFX"));
-        heal.start();
+        audioInstance = FMODUnity.RuntimeManager.CreateInstance(socoForte);
+        audioInstance.setVolume(PlayerPrefs.GetFloat("VolumeFX"));
+        audioInstance.start();
         int x = Random.Range(0, 100);
         if (x <= playerStatus.critChance)
         {
             other.gameObject.GetComponent<EnemyController>().Slam((playerStatus.dmg * 2) + (playerStatus.dmg * 0.25f), true, playerController.gameObject, playerStatus.knockback);
             playerController.rage += ((playerStatus.dmg * 2) * playerStatus.rageRegen);
-            heal = FMODUnity.RuntimeManager.CreateInstance(crit);
-            heal.setVolume(PlayerPrefs.GetFloat("VolumeFX"));
-            heal.start();
+            audioInstance = FMODUnity.RuntimeManager.CreateInstance(crit);
+            audioInstance.setVolume(PlayerPrefs.GetFloat("VolumeFX"));
+            audioInstance.start();
         }
         else
         {
             other.gameObject.GetComponent<EnemyController>().Slam((playerStatus.dmg + (playerStatus.dmg * 0.25f)), false, playerController.gameObject, playerStatus.knockback);
             playerController.rage += ((playerStatus.dmg) * playerStatus.rageRegen);
-            heal = FMODUnity.RuntimeManager.CreateInstance(socoFraco);
-            heal.setVolume(PlayerPrefs.GetFloat("VolumeFX"));
-            heal.start();
         }
     }
 

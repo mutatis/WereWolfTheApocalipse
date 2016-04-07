@@ -13,23 +13,15 @@ public class PlayerController : MonoBehaviour
     public Rigidbody rig;
 
     public Player player;
-
+    
     [HideInInspector]
-    public float x;
-    [HideInInspector]
-    public float z;
-    [HideInInspector]
-    public float rage;
+    public float rage, gnose, z, x;
 
     [HideInInspector]
     public bool block;
-    public bool jump;
-    public bool stun;
+    public bool jump, stun;
 
-    public int contador;
-
-    public int engage;
-    public int flooda;
+    public int contador, engage, flooda;
 
     bool isRun = true;
     bool isAttack = true;
@@ -37,6 +29,11 @@ public class PlayerController : MonoBehaviour
     void Awake()
     {
         playerController = this;
+    }
+
+    void Start()
+    {
+        StartCoroutine("GnoseStart");
     }
 
     void Update()
@@ -131,6 +128,19 @@ public class PlayerController : MonoBehaviour
     {
         yield return new WaitForSeconds(1.2f);
         flooda = 0;
+    }
+
+    IEnumerator GnoseStart()
+    {
+        yield return new WaitForSeconds(1);
+        gnose += playerStatus.gnosiRegen;
+        GnoseRestart();
+    }
+
+    void GnoseRestart()
+    {
+        StopCoroutine("GnoseStart");
+        StartCoroutine("GnoseStart");
     }
 
     void Jump()

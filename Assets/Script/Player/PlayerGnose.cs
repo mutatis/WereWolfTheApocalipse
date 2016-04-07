@@ -2,7 +2,7 @@
 using System.Collections;
 using UnityEngine.UI;
 
-public class PlayerRage : MonoBehaviour
+public class PlayerGnose : MonoBehaviour
 {
     public PlayerStatus playerStatus;
 
@@ -12,11 +12,12 @@ public class PlayerRage : MonoBehaviour
 
     void Start()
     {
-        sli.maxValue = playerStatus.rageMax;
+        sli.maxValue = playerStatus.gnosiMax;
     }
 
     void Update()
     {
-        sli.value = playerController.rage;
+        sli.value = playerController.gnose;
     }
 }
+
