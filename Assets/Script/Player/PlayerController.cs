@@ -120,6 +120,70 @@ public class PlayerController : MonoBehaviour
                         isRun = true;
                     }
                     break;
+
+                case Player.Player2:
+                    if (isRun)
+                    {
+                        x = Input.GetAxis("HorizontalP2");
+                        if (!jump)
+                        {
+                            z = Input.GetAxis("VerticalP2");
+                        }
+                        else
+                        {
+                            z = 0;
+                        }
+                        transform.Translate(new Vector3((x * playerStatus.speed), 0, (z * playerStatus.speed)));
+                    }
+
+                    if (isAttack)
+                    {
+                        if (!jump)
+                        {
+                            if (Input.GetKeyDown(KeyCode.Joystick2Button2) || Input.GetKeyDown(KeyCode.Space))
+                            {
+                                flooda++;
+                                StopCoroutine("Floodando");
+                                StartCoroutine("Floodando");
+                                StopCombo();
+                                SocoFraco();
+                            }
+                            else if (Input.GetKeyDown(KeyCode.Joystick2Button3))
+                            {
+                                flooda++;
+                                StopCoroutine("Floodando");
+                                StartCoroutine("Floodando");
+                                SocoForte();
+                            }
+                            else if (Input.GetKeyDown(KeyCode.Joystick2Button0))
+                            {
+                                Jump();
+                            }
+                            else if (Input.GetKeyDown(KeyCode.Joystick2Button1))
+                            {
+                                block = true;
+                                anim.anim.SetBool("Block", true);
+                                isAttack = false;
+                                isRun = false;
+                            }
+                        }
+                        else
+                        {
+                            if (Input.GetKeyDown(KeyCode.Joystick2Button2))
+                            {
+                                anim.anim.SetTrigger("JumpAttack");
+                            }
+                        }
+                    }
+
+                    if (Input.GetKeyUp(KeyCode.Joystick2Button1))
+                    {
+                        block = false;
+                        anim.anim.SetBool("Block", false);
+                        isAttack = true;
+                        isRun = true;
+                    }
+                    break;
             }
         }
     }
