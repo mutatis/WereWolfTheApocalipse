@@ -93,7 +93,10 @@
             <value>0</value>
         </property>
         <property name="length">
-            <value>0.6900000327732414</value>
+            <value>0.59999998658895493</value>
+        </property>
+        <property name="pitch">
+            <value>3.4000001</value>
         </property>
         <relationship name="modulators">
             <destination>{1c483a71-250b-4a4d-9853-3c50e30ddd22}</destination>
@@ -141,12 +144,10 @@
         <property name="nameOfPropertyBeingModulated">
             <value>pitch</value>
         </property>
-        <property name="amount">
-            <value>11.5</value>
-        </property>
     </object>
     <object class="MixerBusEffectChain" id="{a27fb6b9-a503-4a56-bfb1-e4cf12b0ec55}">
         <relationship name="effects">
+            <destination>{dc861475-994b-4082-bbe8-397766c0c037}</destination>
             <destination>{0a46ca23-8007-4ba2-871d-bace705cb7ad}</destination>
             <destination>{b3f3d902-4086-4988-8d44-c50926e7e829}</destination>
         </relationship>
@@ -162,10 +163,15 @@
             <destination>{48c1c7c2-53fc-403b-b93f-d6e0b6a27461}</destination>
         </relationship>
     </object>
+    <object class="HighpassEffect" id="{dc861475-994b-4082-bbe8-397766c0c037}">
+        <property name="cutoff">
+            <value>2800</value>
+        </property>
+    </object>
     <object class="MixerBusFader" id="{0a46ca23-8007-4ba2-871d-bace705cb7ad}"/>
     <object class="LowpassEffect" id="{b3f3d902-4086-4988-8d44-c50926e7e829}">
         <property name="cutoff">
-            <value>13000</value>
+            <value>6000</value>
         </property>
         <relationship name="modulators">
             <destination>{9278fb9d-b85c-493c-8bac-3913de77e4bc}</destination>
@@ -176,7 +182,7 @@
             <value>cutoff</value>
         </property>
         <property name="amount">
-            <value>35.5</value>
+            <value>20.5</value>
         </property>
     </object>
 </objects>
