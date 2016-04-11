@@ -10,11 +10,12 @@ public class PlayerLife : MonoBehaviour
 
     void Start()
     {
-        sli.maxValue = playerStatus.life;
+        sli.maxValue = playerStatus.lifeMax;
     }
 
     void Update()
     {
+        sli.maxValue = playerStatus.lifeMax;
         sli.value = playerStatus.life;
     }
 }

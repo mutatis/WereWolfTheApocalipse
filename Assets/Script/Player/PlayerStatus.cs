@@ -12,7 +12,7 @@ public class PlayerStatus : MonoBehaviour
     
     public float critChance, speed, counterDmg, dodgeCooldown, rangedSpeed, rangedDmg; //dexterity
     
-    public float life, regen, dmgTrash, resistances; //stamina
+    public float life, lifeMax, regen, dmgTrash, resistances; //stamina
     
     public float giftPower, totenPower, packTactisPower; //charisma
     
@@ -49,6 +49,7 @@ public class PlayerStatus : MonoBehaviour
 
         //Stamina
         life = ((stamina * 0.2f) * life) + life;
+        lifeMax = life;
         resistances = ((stamina * 0.2f) * resistances) + resistances;
         dmgTrash = ((stamina * 0.2f) * dmgTrash) + dmgTrash;
         regen = (stamina * 2);
