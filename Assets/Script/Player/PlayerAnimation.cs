@@ -79,6 +79,9 @@ public class PlayerAnimation : MonoBehaviour
 
     void Dano(GameObject other)
     {
+        audioInstance = FMODUnity.RuntimeManager.CreateInstance(socoForte);
+        audioInstance.setVolume(PlayerPrefs.GetFloat("VolumeFX"));
+        audioInstance.start();
         int x = Random.Range(0, 100);
         if(x <= playerStatus.critChance)
         {
@@ -97,7 +100,6 @@ public class PlayerAnimation : MonoBehaviour
 
     void SlamDmg(GameObject other)
     {
-
         audioInstance = FMODUnity.RuntimeManager.CreateInstance(socoForte);
         audioInstance.setVolume(PlayerPrefs.GetFloat("VolumeFX"));
         audioInstance.start();

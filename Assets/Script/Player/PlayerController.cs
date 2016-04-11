@@ -225,7 +225,7 @@ public class PlayerController : MonoBehaviour
 
     void SocoFraco()
     {
-        if(contador > 3)
+        if (contador > 3)
         {
             contador = 0;
         }
