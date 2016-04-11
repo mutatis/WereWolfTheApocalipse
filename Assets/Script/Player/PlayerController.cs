@@ -13,21 +13,15 @@ public class PlayerController : MonoBehaviour
     public Rigidbody rig;
 
     public Player player;
+    
+    [HideInInspector]
+    public float rage, gnose, z, x;
 
     [HideInInspector]
-    public float x;
-    [HideInInspector]
-    public float z;
-    [HideInInspector]
-    public float rage;
+    public bool block;
+    public bool jump, stun;
 
-    public bool jump;
-    public bool stun;
-
-    public int contador;
-
-    public int engage;
-    public int flooda;
+    public int contador, engage, flooda;
 
     bool isRun = true;
     bool isAttack = true;
@@ -35,6 +29,11 @@ public class PlayerController : MonoBehaviour
     void Awake()
     {
         playerController = this;
+    }
+
+    void Start()
+    {
+        StartCoroutine("GnoseStart");
     }
 
     void Update()
@@ -70,8 +69,7 @@ public class PlayerController : MonoBehaviour
                         {
                             z = 0;
                         }
-
-                        transform.Translate(new Vector3(x, 0, z));
+                        transform.Translate(new Vector3((x * playerStatus.speed), 0, (z * playerStatus.speed)));
                     }
 
                     if (isAttack)
@@ -97,6 +95,13 @@ public class PlayerController : MonoBehaviour
                             {
                                 Jump();
                             }
+                            else if(Input.GetKeyDown(KeyCode.Joystick1Button1))
+                            {
+                                block = true;
+                                anim.anim.SetBool("Block", true);
+                                isAttack = false;
+                                isRun = false;
+                            }
                         }
                         else
                         {
@@ -105,6 +110,78 @@ public class PlayerController : MonoBehaviour
                                 anim.anim.SetTrigger("JumpAttack");
                             }
                         }
+                    }
+
+                    if (Input.GetKeyUp(KeyCode.Joystick1Button1))
+                    {
+                        block = false;
+                        anim.anim.SetBool("Block", false);
+                        isAttack = true;
+                        isRun = true;
+                    }
+                    break;
+
+                case Player.Player2:
+                    if (isRun)
+                    {
+                        x = Input.GetAxis("HorizontalP2");
+                        if (!jump)
+                        {
+                            z = Input.GetAxis("VerticalP2");
+                        }
+                        else
+                        {
+                            z = 0;
+                        }
+                        transform.Translate(new Vector3((x * playerStatus.speed), 0, (z * playerStatus.speed)));
+                    }
+
+                    if (isAttack)
+                    {
+                        if (!jump)
+                        {
+                            if (Input.GetKeyDown(KeyCode.Joystick2Button2) || Input.GetKeyDown(KeyCode.Space))
+                            {
+                                flooda++;
+                                StopCoroutine("Floodando");
+                                StartCoroutine("Floodando");
+                                StopCombo();
+                                SocoFraco();
+                            }
+                            else if (Input.GetKeyDown(KeyCode.Joystick2Button3))
+                            {
+                                flooda++;
+                                StopCoroutine("Floodando");
+                                StartCoroutine("Floodando");
+                                SocoForte();
+                            }
+                            else if (Input.GetKeyDown(KeyCode.Joystick2Button0))
+                            {
+                                Jump();
+                            }
+                            else if (Input.GetKeyDown(KeyCode.Joystick2Button1))
+                            {
+                                block = true;
+                                anim.anim.SetBool("Block", true);
+                                isAttack = false;
+                                isRun = false;
+                            }
+                        }
+                        else
+                        {
+                            if (Input.GetKeyDown(KeyCode.Joystick2Button2))
+                            {
+                                anim.anim.SetTrigger("JumpAttack");
+                            }
+                        }
+                    }
+
+                    if (Input.GetKeyUp(KeyCode.Joystick2Button1))
+                    {
+                        block = false;
+                        anim.anim.SetBool("Block", false);
+                        isAttack = true;
+                        isRun = true;
                     }
                     break;
             }
@@ -115,6 +192,19 @@ public class PlayerController : MonoBehaviour
     {
         yield return new WaitForSeconds(1.2f);
         flooda = 0;
+    }
+
+    IEnumerator GnoseStart()
+    {
+        yield return new WaitForSeconds(1);
+        gnose += playerStatus.gnosiRegen;
+        GnoseRestart();
+    }
+
+    void GnoseRestart()
+    {
+        StopCoroutine("GnoseStart");
+        StartCoroutine("GnoseStart");
     }
 
     void Jump()
@@ -135,6 +225,10 @@ public class PlayerController : MonoBehaviour
 
     void SocoFraco()
     {
+        if(contador > 3)
+        {
+            contador = 0;
+        }
         contador++;
         isAttack = false;
         isRun = false;
@@ -152,7 +246,6 @@ public class PlayerController : MonoBehaviour
             default:
                 isRun = true;
                 isAttack = true;
-                contador = 0;
                 break;
         }
         PlayCombo();
@@ -168,8 +261,24 @@ public class PlayerController : MonoBehaviour
         StopCoroutine("GO");
     }
 
+    public void DanoMagico(float dmg, int tipo)
+    {
+        if (tipo == 1)
+        {
+            playerStatus.life -= (dmg * playerStatus.resistances);
+        }
+        else if(tipo == 2)
+        {
+            playerStatus.life -= (dmg * playerStatus.resistances2);
+        }
+    }
+
     public void Dano(float dmg)
     {
+        if(block)
+        {
+            dmg = dmg * playerStatus.blockEffect;
+        }
         playerStatus.life -= dmg;
         if (playerStatus.life > 0)
         {
@@ -192,10 +301,6 @@ public class PlayerController : MonoBehaviour
     {
         isRun = true;
         isAttack = true;
-        if(obj == null)
-        {
-            contador = 0;
-        }
         jump = false;
         anim.anim.SetBool("Jump", jump);
     }
