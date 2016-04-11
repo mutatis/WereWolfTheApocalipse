@@ -28,6 +28,9 @@
         <relationship name="timeline">
             <destination>{bb6f7c2b-447f-4ad2-887c-f2f3799d62f3}</destination>
         </relationship>
+        <relationship name="banks">
+            <destination>{8a8e60f8-4057-46e3-bdf5-e9a7fded58b4}</destination>
+        </relationship>
         <relationship name="folder">
             <destination>{381ddb61-8704-47f7-b575-3a6005338b98}</destination>
         </relationship>
@@ -69,6 +72,9 @@
         </relationship>
     </object>
     <object class="EventMixerMaster" id="{27a6e74a-6d01-4938-9f58-8dae7aa36dfb}">
+        <property name="pitch">
+            <value>2.4000001</value>
+        </property>
         <relationship name="effectChain">
             <destination>{4d1c0800-bbfd-443b-846e-d815d025a12c}</destination>
         </relationship>
@@ -97,9 +103,6 @@
         </relationship>
     </object>
     <object class="EventMixerGroup" id="{c914bf52-93d9-4d9a-81fa-fb8be9741451}">
-        <property name="volume">
-            <value>-12</value>
-        </property>
         <property name="name">
             <value>Audio 1</value>
         </property>
@@ -142,6 +145,9 @@
     <object class="ParamEqEffect" id="{18931b02-1781-42cf-be92-c4f9bda52226}">
         <property name="centreFrequency">
             <value>2100</value>
+        </property>
+        <property name="gain">
+            <value>5.5</value>
         </property>
         <property name="bandwidth">
             <value>1.44999993</value>
