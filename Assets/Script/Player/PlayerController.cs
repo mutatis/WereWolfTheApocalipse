@@ -82,6 +82,7 @@ public class PlayerController : MonoBehaviour
                                 {
                                     playerStatus.pode = true;
                                     crinos = true;
+                                    anim.GetComponent<SpriteRenderer>().color = Color.blue;
                                     StartCoroutine("Crinos");
                                 }
                                 if (Input.GetKeyDown(KeyCode.Joystick1Button2) || Input.GetKeyDown(KeyCode.Space))
@@ -201,6 +202,7 @@ public class PlayerController : MonoBehaviour
     {
         yield return new WaitForSeconds(30);
         crinos = false;
+        anim.GetComponent<SpriteRenderer>().color = Color.white;
         rage = 0;
     }
 
@@ -291,17 +293,17 @@ public class PlayerController : MonoBehaviour
 
     public void Dano(float dmg)
     {
-        if(block)
-        {
-            dmg = dmg * playerStatus.blockEffect;
-        }
-        playerStatus.life -= dmg;
         if (playerStatus.life > 0)
         {
-            stun = true;
-            anim.anim.SetTrigger("Dano");
+            if (block)
+            {
+                dmg = dmg * playerStatus.blockEffect;
+                stun = true;
+                anim.anim.SetTrigger("Dano");
+            }
             rage += playerStatus.rageRegen;
         }
+        playerStatus.life -= dmg;
     }
 
     IEnumerator GO()
