@@ -19,7 +19,7 @@ public class PlayerController : MonoBehaviour
 
     [HideInInspector]
     public bool block;
-    public bool jump, stun;
+    public bool jump, stun, crinos;
 
     public int contador, engage, flooda;
 
@@ -78,6 +78,12 @@ public class PlayerController : MonoBehaviour
                         {
                             if (!jump)
                             {
+                                if(rage >= playerStatus.rageMax && Input.GetKeyDown(KeyCode.Joystick1Button5) && !crinos)
+                                {
+                                    playerStatus.pode = true;
+                                    crinos = true;
+                                    StartCoroutine("Crinos");
+                                }
                                 if (Input.GetKeyDown(KeyCode.Joystick1Button2) || Input.GetKeyDown(KeyCode.Space))
                                 {
                                     flooda++;
@@ -189,6 +195,13 @@ public class PlayerController : MonoBehaviour
                 }
             }
         }
+    }
+
+    IEnumerator Crinos()
+    {
+        yield return new WaitForSeconds(30);
+        crinos = false;
+        rage = 0;
     }
 
     IEnumerator Floodando()
