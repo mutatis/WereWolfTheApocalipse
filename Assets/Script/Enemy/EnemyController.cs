@@ -201,7 +201,7 @@ public class EnemyController : MonoBehaviour
     public void Wait()
     {
         roamming = true;
-        vel1 = 0.05f * Random.Range(-1, 2);
+        vel1 = 0.05f * Random.Range(-2, 2);
         vel2 = 0.05f * Random.Range(-1, 2);
         //chama a animacao de idle e deixar ele parado perto do player
     }
