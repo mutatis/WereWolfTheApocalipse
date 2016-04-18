@@ -12,11 +12,14 @@ public class EnemyController : MonoBehaviour
     public bool stun;
     [HideInInspector]
     public bool dano = true;
+    [HideInInspector]
+    public bool roamming = false;
 
     public TextMesh text;
 
     public float tempoResposta;
     public float life;
+    public float vel1, vel2;
 
     public string[] attack;
 
@@ -24,6 +27,7 @@ public class EnemyController : MonoBehaviour
 
     bool isWalk = true;
     bool procura = true;
+    bool prepare = true;
 
     Vector3 direction;
 
@@ -31,6 +35,11 @@ public class EnemyController : MonoBehaviour
     
     void Update()
     {
+        if(roamming)
+        {
+            transform.Translate(vel1, 0, vel2);
+        }
+
         if (player != null)
         {
             dist = Vector3.Distance(player.transform.position, transform.position);
@@ -61,6 +70,10 @@ public class EnemyController : MonoBehaviour
             StartCoroutine("GO");
             isWalk = false;
         }
+        else if(player == null)
+        {
+            Prepare();
+        }
 
         if(player == null && procura)
         {
@@ -84,11 +97,40 @@ public class EnemyController : MonoBehaviour
         yield return new WaitForSeconds(1);
         procura = true;
     }
+    public void Prepare()
+    {
+        if (prepare)
+        {
+            Wait();
+            StopCoroutine("Foi");
+            StartCoroutine("Foi");
+            prepare = false;
+        }
+    }
+
+    IEnumerator Foi()
+    {
+        if (vel1 != 0)
+        {
+            anim.SetTrigger("Run");
+        }
+        if (vel1 > 0 && transform.localScale.x > 0)
+        {
+            transform.localScale = new Vector3((transform.localScale.x * -1), transform.localScale.y, transform.localScale.z);
+        }
+        else if (vel1 < 0 && transform.localScale.x < 0)
+        {
+            transform.localScale = new Vector3((transform.localScale.x * -1), transform.localScale.y, transform.localScale.z);
+        }
+        yield return new WaitForSeconds(2);
+        prepare = true;
+    }
 
     public void Combate()
     {
         StopCoroutine("Pode");
         StartCoroutine("Pode");
+        roamming = false;
         int num;
         if(!stun && dist < 2)
         {
@@ -140,6 +182,7 @@ public class EnemyController : MonoBehaviour
     void Switch()
     {
         //escolhe outro player
+        roamming = false;
         player.GetComponent<PlayerController>().engage--;
         player = null;
         procura = true;
@@ -155,28 +198,35 @@ public class EnemyController : MonoBehaviour
         //fica se movendo perto do player
     }
 
-    void Wait()
+    public void Wait()
     {
+        roamming = true;
+        vel1 = 0.05f * Random.Range(-1, 2);
+        vel2 = 0.05f * Random.Range(-1, 2);
         //chama a animacao de idle e deixar ele parado perto do player
     }
 
     void SpecialMove()
     {
+        roamming = false;
         anim.SetTrigger("SocoFraco2");
     }
 
     void Defesa()
     {
+        roamming = false;
         anim.SetTrigger("SocoForte");
     }
 
     void Soco()
     {
+        roamming = false;
         anim.SetTrigger("SocoFraco0");
     }
 
     IEnumerator Engage()
     {
+        roamming = false;
         while (dist > 2f)
         {
             if (isWalk)
@@ -201,6 +251,7 @@ public class EnemyController : MonoBehaviour
 
     IEnumerator GO()
     {
+        roamming = false;
         yield return new WaitForSeconds(5);
         isWalk = true;
     }
@@ -208,12 +259,14 @@ public class EnemyController : MonoBehaviour
 
     public void DanoAgain()
     {
+        roamming = false;
         dano = true;
         text.text = "";
     }
 
     public void Dano(float dmg, bool crit, GameObject obj)
     {
+        roamming = false;
         if (dano)
         {
             life -= dmg;
@@ -247,6 +300,7 @@ public class EnemyController : MonoBehaviour
 
     public void Slam(float dmg, bool crit, GameObject obj, float knockback)
     {
+        roamming = false;
         dano = false;
         life -= dmg;
         if (crit == true)
