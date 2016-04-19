@@ -1,9 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<objects serializationModel="Studio.01.08.00">
+<objects serializationModel="Studio.01.07.00">
     <object class="AudioFile" id="{a13e9134-6b78-4bbe-acab-5c5f6540cff1}">
-        <property name="assetPath">
-            <value>lapis (4).mp3</value>
-        </property>
         <property name="frequencyInKHz">
             <value>44.0999985</value>
         </property>
@@ -13,7 +10,10 @@
         <property name="length">
             <value>0.39183673469387753</value>
         </property>
-        <relationship name="masterAssetFolder">
+        <property name="audioFilePath">
+            <value>$(AUDIO_BIN_DIR)/lapis {f9ff2567-8e60-4e94-8d2a-14d78c60d101}.mp3</value>
+        </property>
+        <relationship name="container">
             <destination>{8a401d65-f098-49db-9173-79042282f7f5}</destination>
         </relationship>
     </object>
