@@ -96,7 +96,10 @@
     </object>
     <object class="GameParameter" id="{d04dfbe5-760b-4e0d-baf6-ecda84aae14e}">
         <property name="name">
-            <value>transition</value>
+            <value>transition_final</value>
+        </property>
+        <property name="maximum">
+            <value>100</value>
         </property>
         <property name="initialValue">
             <value>0</value>
@@ -281,10 +284,10 @@
     <object class="MixerBusPanner" id="{02fe1314-dd7c-4b40-8195-bf9dfccbe678}"/>
     <object class="ParameterCondition" id="{31549d46-d179-4b92-b954-3576bdbab218}">
         <property name="minimum">
-            <value>0.50000005960464478</value>
+            <value>50.000005960464478</value>
         </property>
         <property name="maximum">
-            <value>1</value>
+            <value>100</value>
         </property>
         <relationship name="parameter">
             <destination>{d04dfbe5-760b-4e0d-baf6-ecda84aae14e}</destination>
@@ -300,7 +303,7 @@
     </object>
     <object class="AutomationPoint" id="{7e48d138-7a1d-4471-9098-98c80702cd16}">
         <property name="position">
-            <value>0.19815668202764977</value>
+            <value>19.815668202764979</value>
         </property>
         <property name="value">
             <value>0</value>
@@ -308,7 +311,7 @@
     </object>
     <object class="AutomationPoint" id="{7d748385-8e6e-4bbc-a04d-2645fd6dc7a0}">
         <property name="position">
-            <value>0.39784946236559138</value>
+            <value>39.784946236559136</value>
         </property>
         <property name="value">
             <value>0</value>
@@ -319,7 +322,7 @@
     </object>
     <object class="AutomationPoint" id="{42aada1e-35bb-456a-ba70-1acda909da6a}">
         <property name="position">
-            <value>0.49923195084485406</value>
+            <value>49.923195084485407</value>
         </property>
         <property name="value">
             <value>-80</value>
