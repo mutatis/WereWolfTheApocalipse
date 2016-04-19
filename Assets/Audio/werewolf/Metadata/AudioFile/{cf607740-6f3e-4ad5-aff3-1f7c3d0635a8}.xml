@@ -1,9 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<objects serializationModel="Studio.01.08.00">
+<objects serializationModel="Studio.01.07.00">
     <object class="AudioFile" id="{cf607740-6f3e-4ad5-aff3-1f7c3d0635a8}">
-        <property name="assetPath">
-            <value>violon (4).ogg</value>
-        </property>
         <property name="frequencyInKHz">
             <value>48</value>
         </property>
@@ -13,7 +10,10 @@
         <property name="length">
             <value>70.392854166666666</value>
         </property>
-        <relationship name="masterAssetFolder">
+        <property name="audioFilePath">
+            <value>$(AUDIO_BIN_DIR)/violon {adfca6ca-0cb4-49b8-8a76-be288423721b}.ogg</value>
+        </property>
+        <relationship name="container">
             <destination>{8a401d65-f098-49db-9173-79042282f7f5}</destination>
         </relationship>
     </object>

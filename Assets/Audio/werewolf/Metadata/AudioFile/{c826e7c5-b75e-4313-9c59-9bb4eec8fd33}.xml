@@ -1,9 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<objects serializationModel="Studio.01.08.00">
+<objects serializationModel="Studio.01.07.00">
     <object class="AudioFile" id="{c826e7c5-b75e-4313-9c59-9bb4eec8fd33}">
-        <property name="assetPath">
-            <value>title_lowpart.ogg</value>
-        </property>
         <property name="frequencyInKHz">
             <value>48</value>
         </property>
@@ -13,7 +10,10 @@
         <property name="length">
             <value>270.29166666666669</value>
         </property>
-        <relationship name="masterAssetFolder">
+        <property name="audioFilePath">
+            <value>$(AUDIO_BIN_DIR)/title_lowpart {396fa3ed-e893-415d-b290-bfbfc2eb0a39}.ogg</value>
+        </property>
+        <relationship name="container">
             <destination>{8a401d65-f098-49db-9173-79042282f7f5}</destination>
         </relationship>
     </object>

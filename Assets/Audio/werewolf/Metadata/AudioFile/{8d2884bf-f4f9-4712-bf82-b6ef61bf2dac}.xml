@@ -1,9 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<objects serializationModel="Studio.01.08.00">
+<objects serializationModel="Studio.01.07.00">
     <object class="AudioFile" id="{8d2884bf-f4f9-4712-bf82-b6ef61bf2dac}">
-        <property name="assetPath">
-            <value>soco_bom_fmod.wav</value>
-        </property>
         <property name="frequencyInKHz">
             <value>48</value>
         </property>
@@ -13,7 +10,10 @@
         <property name="length">
             <value>11.610583333333333</value>
         </property>
-        <relationship name="masterAssetFolder">
+        <property name="audioFilePath">
+            <value>$(AUDIO_BIN_DIR)/soco_bom_fmod {6918b6c2-abdd-44e8-8637-2994712901f1}.wav</value>
+        </property>
+        <relationship name="container">
             <destination>{8a401d65-f098-49db-9173-79042282f7f5}</destination>
         </relationship>
     </object>

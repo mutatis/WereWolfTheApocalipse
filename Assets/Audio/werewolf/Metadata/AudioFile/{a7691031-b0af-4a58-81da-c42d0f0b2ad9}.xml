@@ -1,9 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<objects serializationModel="Studio.01.08.00">
+<objects serializationModel="Studio.01.07.00">
     <object class="AudioFile" id="{a7691031-b0af-4a58-81da-c42d0f0b2ad9}">
-        <property name="assetPath">
-            <value>critical (4).wav</value>
-        </property>
         <property name="frequencyInKHz">
             <value>48</value>
         </property>
@@ -13,7 +10,10 @@
         <property name="length">
             <value>1.8461666666666667</value>
         </property>
-        <relationship name="masterAssetFolder">
+        <property name="audioFilePath">
+            <value>$(AUDIO_BIN_DIR)/critical {9e953454-4169-4286-89e2-57db67d811c0}.wav</value>
+        </property>
+        <relationship name="container">
             <destination>{8a401d65-f098-49db-9173-79042282f7f5}</destination>
         </relationship>
     </object>

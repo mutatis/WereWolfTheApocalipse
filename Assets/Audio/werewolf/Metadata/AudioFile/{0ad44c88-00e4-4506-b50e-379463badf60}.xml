@@ -1,9 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<objects serializationModel="Studio.01.08.00">
+<objects serializationModel="Studio.01.07.00">
     <object class="AudioFile" id="{0ad44c88-00e4-4506-b50e-379463badf60}">
-        <property name="assetPath">
-            <value>violonending.ogg</value>
-        </property>
         <property name="frequencyInKHz">
             <value>48</value>
         </property>
@@ -13,7 +10,10 @@
         <property name="length">
             <value>15.4285625</value>
         </property>
-        <relationship name="masterAssetFolder">
+        <property name="audioFilePath">
+            <value>$(AUDIO_BIN_DIR)/violonending {7743d75a-4fb2-4794-8604-9aac0483c3fc}.ogg</value>
+        </property>
+        <relationship name="container">
             <destination>{8a401d65-f098-49db-9173-79042282f7f5}</destination>
         </relationship>
     </object>
