@@ -63,7 +63,7 @@ public class SpriteRowCreator : MonoBehaviour
                 }
                 case RowCreatorOptions.fixedDistanceWithHeightVariation:
                 {
-                    newInstance = Instantiate(gameObjectToBeCreated[index], transform.position + new Vector3 (i*distance,Random.Range(-yVariance,yVariance),0), gameObjectToBeCreated[index].transform.rotation) as GameObject;
+                    newInstance = Instantiate(gameObjectToBeCreated[index], transform.position + new Vector3 (i*distance,Random.Range(-yVariance,yVariance), Random.Range(-yVariance, yVariance)), gameObjectToBeCreated[index].transform.rotation) as GameObject;
                     break;
                 }
                 case RowCreatorOptions.variableDistance:

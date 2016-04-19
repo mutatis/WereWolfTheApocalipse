@@ -30,5 +30,12 @@ public class EnemyAnim : MonoBehaviour
         {
             other.gameObject.GetComponent<PlayerController>().Dano(dmg);         
         }
+        if (other.gameObject.tag == "Parede")
+        {
+            if(controller.roamming)
+            {
+                controller.Wait();
+            }
+        }
     }
 }

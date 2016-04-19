@@ -14,7 +14,6 @@ public class ManagerPlayerPontos : MonoBehaviour
 
     void Awake()
     {
-        DontDestroyOnLoad(gameObject);
         managerPontos = this;
     }
 

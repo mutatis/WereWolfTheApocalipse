@@ -19,7 +19,7 @@ public class PlayerController : MonoBehaviour
 
     [HideInInspector]
     public bool block;
-    public bool jump, stun;
+    public bool jump, stun, crinos;
 
     public int contador, engage, flooda;
 
@@ -38,154 +38,172 @@ public class PlayerController : MonoBehaviour
 
     void Update()
     {
-        if(playerStatus.life <= 0)
+        if (Time.timeScale != 0)
         {
-            anim.anim.SetTrigger("Dead");
-            gameObject.GetComponent<PlayerController>().enabled = false;
+            if (playerStatus.life <= 0)
+            {
+                anim.anim.SetTrigger("Dead");
+                gameObject.GetComponent<PlayerController>().enabled = false;
+            }
+
+            if (!stun && playerStatus.life > 0)
+            {
+                if (x > 0 && transform.localScale.x < 0)
+                {
+                    transform.localScale = new Vector3((transform.localScale.x * -1), transform.localScale.y, transform.localScale.z);
+                }
+                else if (x < 0 && transform.localScale.x > 0)
+                {
+                    transform.localScale = new Vector3((transform.localScale.x * -1), transform.localScale.y, transform.localScale.z);
+                }
+
+                switch (player)
+                {
+                    case Player.Player1:
+                        if (isRun)
+                        {
+                            x = Input.GetAxis("HorizontalP1");
+                            if (!jump)
+                            {
+                                z = Input.GetAxis("VerticalP1");
+                            }
+                            else
+                            {
+                                z = 0;
+                            }
+                            transform.Translate(new Vector3((x * playerStatus.speed), 0, (z * playerStatus.speed)));
+                        }
+
+                        if (isAttack)
+                        {
+                            if (!jump)
+                            {
+                                if(rage >= playerStatus.rageMax && Input.GetKeyDown(KeyCode.Joystick1Button5) && !crinos)
+                                {
+                                    playerStatus.pode = true;
+                                    crinos = true;
+                                    anim.GetComponent<SpriteRenderer>().color = Color.blue;
+                                    StartCoroutine("Crinos");
+                                }
+                                if (Input.GetKeyDown(KeyCode.Joystick1Button2) || Input.GetKeyDown(KeyCode.Space))
+                                {
+                                    flooda++;
+                                    StopCoroutine("Floodando");
+                                    StartCoroutine("Floodando");
+                                    StopCombo();
+                                    SocoFraco();
+                                }
+                                else if (Input.GetKeyDown(KeyCode.Joystick1Button3))
+                                {
+                                    flooda++;
+                                    StopCoroutine("Floodando");
+                                    StartCoroutine("Floodando");
+                                    SocoForte();
+                                }
+                                else if (Input.GetKeyDown(KeyCode.Joystick1Button0))
+                                {
+                                    Jump();
+                                }
+                                else if (Input.GetKeyDown(KeyCode.Joystick1Button1))
+                                {
+                                    block = true;
+                                    anim.anim.SetBool("Block", true);
+                                    isAttack = false;
+                                    isRun = false;
+                                }
+                            }
+                            else
+                            {
+                                if (Input.GetKeyDown(KeyCode.Joystick1Button2))
+                                {
+                                    anim.anim.SetTrigger("JumpAttack");
+                                }
+                            }
+                        }
+
+                        if (Input.GetKeyUp(KeyCode.Joystick1Button1))
+                        {
+                            block = false;
+                            anim.anim.SetBool("Block", false);
+                            isAttack = true;
+                            isRun = true;
+                        }
+                        break;
+
+                    case Player.Player2:
+                        if (isRun)
+                        {
+                            x = Input.GetAxis("HorizontalP2");
+                            if (!jump)
+                            {
+                                z = Input.GetAxis("VerticalP2");
+                            }
+                            else
+                            {
+                                z = 0;
+                            }
+                            transform.Translate(new Vector3((x * playerStatus.speed), 0, (z * playerStatus.speed)));
+                        }
+
+                        if (isAttack)
+                        {
+                            if (!jump)
+                            {
+                                if (Input.GetKeyDown(KeyCode.Joystick2Button2) || Input.GetKeyDown(KeyCode.Space))
+                                {
+                                    flooda++;
+                                    StopCoroutine("Floodando");
+                                    StartCoroutine("Floodando");
+                                    StopCombo();
+                                    SocoFraco();
+                                }
+                                else if (Input.GetKeyDown(KeyCode.Joystick2Button3))
+                                {
+                                    flooda++;
+                                    StopCoroutine("Floodando");
+                                    StartCoroutine("Floodando");
+                                    SocoForte();
+                                }
+                                else if (Input.GetKeyDown(KeyCode.Joystick2Button0))
+                                {
+                                    Jump();
+                                }
+                                else if (Input.GetKeyDown(KeyCode.Joystick2Button1))
+                                {
+                                    block = true;
+                                    anim.anim.SetBool("Block", true);
+                                    isAttack = false;
+                                    isRun = false;
+                                }
+                            }
+                            else
+                            {
+                                if (Input.GetKeyDown(KeyCode.Joystick2Button2))
+                                {
+                                    anim.anim.SetTrigger("JumpAttack");
+                                }
+                            }
+                        }
+
+                        if (Input.GetKeyUp(KeyCode.Joystick2Button1))
+                        {
+                            block = false;
+                            anim.anim.SetBool("Block", false);
+                            isAttack = true;
+                            isRun = true;
+                        }
+                        break;
+                }
+            }
         }
+    }
 
-        if (!stun && playerStatus.life > 0)
-        {
-            if (x > 0 && transform.localScale.x < 0)
-            {
-                transform.localScale = new Vector3((transform.localScale.x * -1), transform.localScale.y, transform.localScale.z);
-            }
-            else if (x < 0 && transform.localScale.x > 0)
-            {
-                transform.localScale = new Vector3((transform.localScale.x * -1), transform.localScale.y, transform.localScale.z);
-            }
-
-            switch (player)
-            {
-                case Player.Player1:
-                    if (isRun)
-                    {
-                        x = Input.GetAxis("HorizontalP1");
-                        if (!jump)
-                        {
-                            z = Input.GetAxis("VerticalP1");
-                        }
-                        else
-                        {
-                            z = 0;
-                        }
-                        transform.Translate(new Vector3((x * playerStatus.speed), 0, (z * playerStatus.speed)));
-                    }
-
-                    if (isAttack)
-                    {
-                        if (!jump)
-                        {
-                            if (Input.GetKeyDown(KeyCode.Joystick1Button2) || Input.GetKeyDown(KeyCode.Space))
-                            {
-                                flooda++;
-                                StopCoroutine("Floodando");
-                                StartCoroutine("Floodando");
-                                StopCombo();
-                                SocoFraco();
-                            }
-                            else if (Input.GetKeyDown(KeyCode.Joystick1Button3))
-                            {
-                                flooda++;
-                                StopCoroutine("Floodando");
-                                StartCoroutine("Floodando");
-                                SocoForte();
-                            }
-                            else if (Input.GetKeyDown(KeyCode.Joystick1Button0))
-                            {
-                                Jump();
-                            }
-                            else if(Input.GetKeyDown(KeyCode.Joystick1Button1))
-                            {
-                                block = true;
-                                anim.anim.SetBool("Block", true);
-                                isAttack = false;
-                                isRun = false;
-                            }
-                        }
-                        else
-                        {
-                            if (Input.GetKeyDown(KeyCode.Joystick1Button2))
-                            {
-                                anim.anim.SetTrigger("JumpAttack");
-                            }
-                        }
-                    }
-
-                    if (Input.GetKeyUp(KeyCode.Joystick1Button1))
-                    {
-                        block = false;
-                        anim.anim.SetBool("Block", false);
-                        isAttack = true;
-                        isRun = true;
-                    }
-                    break;
-
-                case Player.Player2:
-                    if (isRun)
-                    {
-                        x = Input.GetAxis("HorizontalP2");
-                        if (!jump)
-                        {
-                            z = Input.GetAxis("VerticalP2");
-                        }
-                        else
-                        {
-                            z = 0;
-                        }
-                        transform.Translate(new Vector3((x * playerStatus.speed), 0, (z * playerStatus.speed)));
-                    }
-
-                    if (isAttack)
-                    {
-                        if (!jump)
-                        {
-                            if (Input.GetKeyDown(KeyCode.Joystick2Button2) || Input.GetKeyDown(KeyCode.Space))
-                            {
-                                flooda++;
-                                StopCoroutine("Floodando");
-                                StartCoroutine("Floodando");
-                                StopCombo();
-                                SocoFraco();
-                            }
-                            else if (Input.GetKeyDown(KeyCode.Joystick2Button3))
-                            {
-                                flooda++;
-                                StopCoroutine("Floodando");
-                                StartCoroutine("Floodando");
-                                SocoForte();
-                            }
-                            else if (Input.GetKeyDown(KeyCode.Joystick2Button0))
-                            {
-                                Jump();
-                            }
-                            else if (Input.GetKeyDown(KeyCode.Joystick2Button1))
-                            {
-                                block = true;
-                                anim.anim.SetBool("Block", true);
-                                isAttack = false;
-                                isRun = false;
-                            }
-                        }
-                        else
-                        {
-                            if (Input.GetKeyDown(KeyCode.Joystick2Button2))
-                            {
-                                anim.anim.SetTrigger("JumpAttack");
-                            }
-                        }
-                    }
-
-                    if (Input.GetKeyUp(KeyCode.Joystick2Button1))
-                    {
-                        block = false;
-                        anim.anim.SetBool("Block", false);
-                        isAttack = true;
-                        isRun = true;
-                    }
-                    break;
-            }
-        }
+    IEnumerator Crinos()
+    {
+        yield return new WaitForSeconds(30);
+        crinos = false;
+        anim.GetComponent<SpriteRenderer>().color = Color.white;
+        rage = 0;
     }
 
     IEnumerator Floodando()
@@ -224,7 +242,7 @@ public class PlayerController : MonoBehaviour
     }
 
     void SocoFraco()
-    {
+    {   
         if (contador > 3)
         {
             contador = 0;
@@ -275,17 +293,17 @@ public class PlayerController : MonoBehaviour
 
     public void Dano(float dmg)
     {
-        if(block)
-        {
-            dmg = dmg * playerStatus.blockEffect;
-        }
-        playerStatus.life -= dmg;
         if (playerStatus.life > 0)
         {
-            stun = true;
-            anim.anim.SetTrigger("Dano");
+            if (block)
+            {
+                dmg = dmg * playerStatus.blockEffect;
+                stun = true;
+                anim.anim.SetTrigger("Dano");
+            }
             rage += playerStatus.rageRegen;
         }
+        playerStatus.life -= dmg;
     }
 
     IEnumerator GO()
