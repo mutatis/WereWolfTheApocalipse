@@ -1,9 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<objects serializationModel="Studio.01.07.00">
+<objects serializationModel="Studio.01.08.00">
     <object class="Workspace" id="{57448806-bfb7-4094-b3b6-539776fee7dd}">
-        <property name="outputFormat">
-            <value>6</value>
-        </property>
         <relationship name="masterEventFolder">
             <destination>{0f988173-2c3b-456f-8c9d-035d4fc1e9ed}</destination>
         </relationship>
@@ -13,16 +10,28 @@
         <relationship name="masterBankFolder">
             <destination>{c3ed6372-218b-4336-bf6c-8908d7caa2c3}</destination>
         </relationship>
-        <relationship name="audioBinManager">
-            <destination>{67273ddd-c5e2-4cd2-826d-092d9b1cf0c9}</destination>
+        <relationship name="masterAssetFolder">
+            <destination>{8a401d65-f098-49db-9173-79042282f7f5}</destination>
         </relationship>
         <relationship name="mixer">
             <destination>{a7691523-eeb7-419b-936a-d720aab30c6a}</destination>
         </relationship>
-    </object>
-    <object class="AudioBinManager" id="{67273ddd-c5e2-4cd2-826d-092d9b1cf0c9}">
-        <relationship name="masterAudioBinFolder">
-            <destination>{8a401d65-f098-49db-9173-79042282f7f5}</destination>
+        <relationship name="platforms">
+            <destination>{3cad4c15-8844-4640-abdb-fbfd5de1bc8d}</destination>
         </relationship>
+    </object>
+    <object class="Platform" id="{3cad4c15-8844-4640-abdb-fbfd5de1bc8d}">
+        <property name="hardwareType">
+            <value>0</value>
+        </property>
+        <property name="name">
+            <value>Desktop</value>
+        </property>
+        <property name="subDirectory">
+            <value>Desktop</value>
+        </property>
+        <property name="speakerFormat">
+            <value>6</value>
+        </property>
     </object>
 </objects>

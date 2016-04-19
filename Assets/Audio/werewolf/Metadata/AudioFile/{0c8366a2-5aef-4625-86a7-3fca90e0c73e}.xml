@@ -1,6 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<objects serializationModel="Studio.01.07.00">
+<objects serializationModel="Studio.01.08.00">
     <object class="AudioFile" id="{0c8366a2-5aef-4625-86a7-3fca90e0c73e}">
+        <property name="assetPath">
+            <value>wakka.wav</value>
+        </property>
         <property name="frequencyInKHz">
             <value>48</value>
         </property>
@@ -10,10 +13,7 @@
         <property name="length">
             <value>1.0908958333333334</value>
         </property>
-        <property name="audioFilePath">
-            <value>$(AUDIO_BIN_DIR)/wakka {593ebdf9-4e60-475e-8377-11536e6815e3}.wav</value>
-        </property>
-        <relationship name="container">
+        <relationship name="masterAssetFolder">
             <destination>{8a401d65-f098-49db-9173-79042282f7f5}</destination>
         </relationship>
     </object>

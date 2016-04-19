@@ -1,6 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<objects serializationModel="Studio.01.07.00">
+<objects serializationModel="Studio.01.08.00">
     <object class="AudioFile" id="{88f75bb8-20a4-4ec7-bf86-b965a2693c0d}">
+        <property name="assetPath">
+            <value>fase1teste.ogg</value>
+        </property>
         <property name="frequencyInKHz">
             <value>48</value>
         </property>
@@ -10,10 +13,7 @@
         <property name="length">
             <value>137.14285416666667</value>
         </property>
-        <property name="audioFilePath">
-            <value>$(AUDIO_BIN_DIR)/fase1teste {7157d409-5c7d-445e-875e-5ebb15799880}.ogg</value>
-        </property>
-        <relationship name="container">
+        <relationship name="masterAssetFolder">
             <destination>{8a401d65-f098-49db-9173-79042282f7f5}</destination>
         </relationship>
     </object>

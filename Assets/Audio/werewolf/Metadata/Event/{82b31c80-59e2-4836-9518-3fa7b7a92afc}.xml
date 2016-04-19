@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<objects serializationModel="Studio.01.07.00">
+<objects serializationModel="Studio.01.08.00">
     <object class="Event" id="{82b31c80-59e2-4836-9518-3fa7b7a92afc}">
         <property name="name">
             <value>Guitar</value>
@@ -89,9 +89,9 @@
             <destination>{930c78f1-2d1a-426f-a58b-32bce6b1b9a1}</destination>
         </relationship>
         <relationship name="markers">
+            <destination>{56f9df20-3fc8-4da7-a6eb-b9dbbb418402}</destination>
             <destination>{6751f106-31ca-420a-8f24-dc13f8e7e638}</destination>
             <destination>{c81324f9-4e8e-4ab9-bd1a-267feef2c02f}</destination>
-            <destination>{56f9df20-3fc8-4da7-a6eb-b9dbbb418402}</destination>
         </relationship>
     </object>
     <object class="GameParameter" id="{d04dfbe5-760b-4e0d-baf6-ecda84aae14e}">
@@ -192,6 +192,20 @@
             <destination>{bfd9dc63-aa8b-4131-be28-e031a7b50ebc}</destination>
         </relationship>
     </object>
+    <object class="LoopRegion" id="{56f9df20-3fc8-4da7-a6eb-b9dbbb418402}">
+        <property name="position">
+            <value>0</value>
+        </property>
+        <property name="length">
+            <value>61.743903793808478</value>
+        </property>
+        <relationship name="timeline">
+            <destination>{24643e32-0c10-4142-a6df-c993db82a8a7}</destination>
+        </relationship>
+        <relationship name="markerTrack">
+            <destination>{150272f2-f60c-4885-8c86-f61e030cd273}</destination>
+        </relationship>
+    </object>
     <object class="TransitionRegion" id="{6751f106-31ca-420a-8f24-dc13f8e7e638}">
         <property name="position">
             <value>0</value>
@@ -229,6 +243,8 @@
             <destination>{150272f2-f60c-4885-8c86-f61e030cd273}</destination>
         </relationship>
     </object>
+<<<<<<< HEAD
+=======
     <object class="LoopRegion" id="{56f9df20-3fc8-4da7-a6eb-b9dbbb418402}">
         <property name="position">
             <value>0</value>
@@ -251,6 +267,7 @@
             <destination>{42aada1e-35bb-456a-ba70-1acda909da6a}</destination>
         </relationship>
     </object>
+>>>>>>> 97bcd3de55c0e1201714da34c5651cc504ecd2d4
     <object class="MixerBusEffectChain" id="{3e8f6d0d-4a8e-4fc6-a033-a6c4fb2096ea}">
         <relationship name="effects">
             <destination>{5ddd4cd2-e6fd-4bfb-bc60-33e624b7894c}</destination>

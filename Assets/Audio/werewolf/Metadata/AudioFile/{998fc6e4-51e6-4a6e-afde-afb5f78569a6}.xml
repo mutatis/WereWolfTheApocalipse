@@ -1,6 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<objects serializationModel="Studio.01.07.00">
+<objects serializationModel="Studio.01.08.00">
     <object class="AudioFile" id="{998fc6e4-51e6-4a6e-afde-afb5f78569a6}">
+        <property name="assetPath">
+            <value>checkmark.wav</value>
+        </property>
         <property name="frequencyInKHz">
             <value>48</value>
         </property>
@@ -10,10 +13,7 @@
         <property name="length">
             <value>0.44977083333333334</value>
         </property>
-        <property name="audioFilePath">
-            <value>$(AUDIO_BIN_DIR)/checkmark {746945dd-449b-4d00-8f20-d0a0521d1356}.wav</value>
-        </property>
-        <relationship name="container">
+        <relationship name="masterAssetFolder">
             <destination>{8a401d65-f098-49db-9173-79042282f7f5}</destination>
         </relationship>
     </object>
