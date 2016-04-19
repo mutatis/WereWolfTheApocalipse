@@ -3,7 +3,7 @@ using System.Collections;
 
 public class TimeCreator : MonoBehaviour
 {
-    public FollowTarget camera;
+    public ControllerCamera camera;
 
     public SpriteRowCreator creator;
 
@@ -24,9 +24,9 @@ public class TimeCreator : MonoBehaviour
         yield return new WaitForSeconds(4);
         if (x > num)
         {
-            camera.cont++;
-            camera.segue = true;
+            camera.GG();
             creator.enabled = false;
+            StopCoroutine("GO");
         }
         else
         {
