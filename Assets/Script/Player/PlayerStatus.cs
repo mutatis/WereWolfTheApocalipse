@@ -110,7 +110,6 @@ public class PlayerStatus : MonoBehaviour
 
     void Crinos()
     {
-        print("CUUUU");
         dmg = dmg * 3;
         dmgTrash = dmgTrash * 2;
         knockback = knockback * 1.5f;
