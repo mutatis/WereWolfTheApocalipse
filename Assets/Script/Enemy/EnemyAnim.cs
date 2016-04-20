@@ -9,6 +9,9 @@ public class EnemyAnim : MonoBehaviour
 
     public float dmg;
 
+    [HideInInspector]
+    public string nome;
+
     public void Return()
     {
         controller.stun = false;
@@ -21,6 +24,7 @@ public class EnemyAnim : MonoBehaviour
 
     public void Dead()
     {
+        PlayerPrefs.SetInt(nome + "XP", (PlayerPrefs.GetInt(nome + "XP") + controller.xp));
         Destroy(obj);
     }
 

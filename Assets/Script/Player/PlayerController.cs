@@ -23,6 +23,8 @@ public class PlayerController : MonoBehaviour
 
     public int contador, engage, flooda;
 
+    public string nome;
+
     bool isRun = true;
     bool isAttack = true;
 

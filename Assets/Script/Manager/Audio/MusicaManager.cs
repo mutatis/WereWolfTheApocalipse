@@ -6,6 +6,8 @@ public class MusicaManager : MonoBehaviour
     [FMODUnity.EventRef]
     public string musica1;
 
+    private FMOD.Studio.ParameterInstance levelIntensity;
+
     [FMODUnity.EventRef]
     public string musica2;
 
@@ -43,13 +45,17 @@ public class MusicaManager : MonoBehaviour
         if (Application.loadedLevelName != nomeCena)
         {
             vol.stop(FMOD.Studio.STOP_MODE.ALLOWFADEOUT);
-            vol2.stop(FMOD.Studio.STOP_MODE.ALLOWFADEOUT);
             vol3.stop(FMOD.Studio.STOP_MODE.ALLOWFADEOUT);
-            Destroy(gameObject);
             
         }
         vol.setVolume(PlayerPrefs.GetFloat("VolumeMusica"));
         vol2.setVolume(PlayerPrefs.GetFloat("VolumeMusica"));
         vol3.setVolume(PlayerPrefs.GetFloat("VolumeMusica"));
+    }
+
+    public void Mudo()
+    {
+        vol2.getParameter("transition_final", out levelIntensity);
+        levelIntensity.setValue(80f);
     }
 }

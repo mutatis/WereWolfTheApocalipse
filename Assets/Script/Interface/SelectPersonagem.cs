@@ -7,6 +7,8 @@ public class SelectPersonagem : MonoBehaviour
 {
     public static SelectPersonagem personagem;
 
+    public MusicaManager musica;
+
     public Image[] player;
 
     public GameObject[] atributos;
@@ -51,11 +53,13 @@ public class SelectPersonagem : MonoBehaviour
         {
             if(startP1 && startP2)
             {
+                musica.Mudo();
                 SceneManager.LoadScene("Jogo");
             }
         }
         else if(startP1)
         {
+            musica.Mudo();
             SceneManager.LoadScene("Jogo");
         }
 
