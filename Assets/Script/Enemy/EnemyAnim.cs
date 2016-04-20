@@ -24,6 +24,7 @@ public class EnemyAnim : MonoBehaviour
 
     public void Dead()
     {
+        FollowTarget.follow.quant--;
         PlayerPrefs.SetInt(nome + "XP", (PlayerPrefs.GetInt(nome + "XP") + controller.xp));
         Destroy(obj);
     }

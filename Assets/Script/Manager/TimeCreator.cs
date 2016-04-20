@@ -5,7 +5,7 @@ public class TimeCreator : MonoBehaviour
 {
     public ControllerCamera camera;
 
-    public SpriteRowCreator creator;
+    public SpriteRowCreator[] creator;
 
     public Vector2 quant;
 
@@ -16,6 +16,7 @@ public class TimeCreator : MonoBehaviour
 	void Start ()
     {
         num = Random.Range((int)quant.x, (int)quant.y);
+        FollowTarget.follow.quant = num;
         StartCoroutine("GO");
 	}
 
@@ -25,13 +26,22 @@ public class TimeCreator : MonoBehaviour
         if (x > num)
         {
             camera.GG();
-            creator.enabled = false;
-            StopCoroutine("GO");
+            for (int i = 0; i < creator.Length; i++)
+            {
+                creator[i].enabled = false;
+                StopCoroutine("GO");
+            }
         }
         else
         {
-            x++;
-            creator.CreateSprites();
+            for (int i = 0; i < creator.Length; i++)
+            {
+                x++;
+                if (x <= num)
+                {
+                    creator[i].CreateSprites();
+                }
+            }
             Denovo();
         }
     }
