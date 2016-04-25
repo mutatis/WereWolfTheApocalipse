@@ -5,7 +5,11 @@ public class EnemyAnim : MonoBehaviour
 {
     public EnemyController controller;
 
+    public EnemyRanged controller2;
+
     public GameObject obj;
+
+    public int tipo;
 
     public float dmg;
 
@@ -14,18 +18,39 @@ public class EnemyAnim : MonoBehaviour
 
     public void Return()
     {
-        controller.stun = false;
+        if (tipo == 1)
+        {
+            controller2.stun = false;
+        }
+        else
+        {
+            controller.stun = false;
+        }
     }
 
     public void DanoAgain()
     {
-        controller.DanoAgain();
+        if (tipo == 1)
+        {
+            controller2.DanoAgain();
+        }
+        else
+        {
+            controller.DanoAgain();
+        }
     }
 
     public void Dead()
     {
         FollowTarget.follow.quant--;
-        PlayerPrefs.SetInt(nome + "XP", (PlayerPrefs.GetInt(nome + "XP") + controller.xp));
+        if (tipo == 1)
+        {
+            PlayerPrefs.SetInt(nome + "XP", (PlayerPrefs.GetInt(nome + "XP") + controller2.xp));
+        }
+        else
+        {
+            PlayerPrefs.SetInt(nome + "XP", (PlayerPrefs.GetInt(nome + "XP") + controller.xp));
+        }
         Destroy(obj);
     }
 
@@ -37,9 +62,19 @@ public class EnemyAnim : MonoBehaviour
         }
         if (other.gameObject.tag == "Parede")
         {
-            if(controller.roamming)
+            if (tipo == 1)
             {
-                controller.Wait();
+                if (controller2.roamming)
+                {
+                    controller2.Wait();
+                }
+            }
+            else
+            {
+                if (controller.roamming)
+                {
+                    controller.Wait();
+                }
             }
         }
     }
