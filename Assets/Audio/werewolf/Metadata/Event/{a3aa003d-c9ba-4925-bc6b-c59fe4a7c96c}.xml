@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<objects serializationModel="Studio.01.07.00">
+<objects serializationModel="Studio.01.08.00">
     <object class="Event" id="{a3aa003d-c9ba-4925-bc6b-c59fe4a7c96c}">
         <property name="name">
             <value>Rua</value>
@@ -157,17 +157,17 @@
         </relationship>
     </object>
     <object class="EventSound" id="{c9cf82bc-b8fe-4ff8-be8c-adc8de0ecf09}">
-        <property name="start">
-            <value>7.0000000298023224</value>
-        </property>
-        <property name="length">
-            <value>5.0000001490116119</value>
-        </property>
         <property name="triggerProbabilityEnabled">
             <value>true</value>
         </property>
         <property name="triggerProbability">
             <value>50</value>
+        </property>
+        <property name="start">
+            <value>7.0000000298023224</value>
+        </property>
+        <property name="length">
+            <value>5.0000001490116119</value>
         </property>
         <property name="volume">
             <value>-3.5</value>
@@ -177,34 +177,34 @@
         </relationship>
     </object>
     <object class="EventSound" id="{f728eae9-7361-40f6-a332-3a0f841e0ead}">
-        <property name="start">
-            <value>12.500000186264515</value>
-        </property>
-        <property name="length">
-            <value>5</value>
-        </property>
         <property name="triggerProbabilityEnabled">
             <value>true</value>
         </property>
         <property name="triggerProbability">
             <value>49.5</value>
         </property>
+        <property name="start">
+            <value>12.500000186264515</value>
+        </property>
+        <property name="length">
+            <value>5</value>
+        </property>
         <relationship name="event">
             <destination>{0ffa0108-1e71-4529-8fdb-3281557452dd}</destination>
         </relationship>
     </object>
     <object class="EventSound" id="{55f8a4df-b9de-4ba0-90e9-4ae576ddbe63}">
-        <property name="start">
-            <value>18</value>
-        </property>
-        <property name="length">
-            <value>10</value>
-        </property>
         <property name="triggerProbabilityEnabled">
             <value>true</value>
         </property>
         <property name="triggerProbability">
             <value>51.5</value>
+        </property>
+        <property name="start">
+            <value>18</value>
+        </property>
+        <property name="length">
+            <value>10</value>
         </property>
         <property name="volume">
             <value>-10</value>
@@ -214,14 +214,14 @@
         </relationship>
     </object>
     <object class="EventSound" id="{5fe996c7-8154-44c1-af4d-1599e551f792}">
+        <property name="triggerProbability">
+            <value>47</value>
+        </property>
         <property name="start">
             <value>28.56967295918367</value>
         </property>
         <property name="length">
             <value>7.0700200882752711</value>
-        </property>
-        <property name="triggerProbability">
-            <value>47</value>
         </property>
         <relationship name="event">
             <destination>{20b2de40-c4f0-4883-b444-3e04dde4fafe}</destination>
@@ -239,51 +239,51 @@
         </relationship>
     </object>
     <object class="EventSound" id="{f5c71da8-5f45-4842-9364-eac9f48767f0}">
-        <property name="start">
-            <value>45.00000074505806</value>
-        </property>
-        <property name="length">
-            <value>7.0700200882752711</value>
-        </property>
         <property name="triggerProbabilityEnabled">
             <value>true</value>
         </property>
         <property name="triggerProbability">
             <value>52</value>
         </property>
+        <property name="start">
+            <value>45.00000074505806</value>
+        </property>
+        <property name="length">
+            <value>7.0700200882752711</value>
+        </property>
         <relationship name="event">
             <destination>{20b2de40-c4f0-4883-b444-3e04dde4fafe}</destination>
         </relationship>
     </object>
     <object class="EventSound" id="{f321d3ad-5c97-47d2-a240-f652501fd593}">
-        <property name="start">
-            <value>53.000000789761543</value>
-        </property>
-        <property name="length">
-            <value>5</value>
-        </property>
         <property name="triggerProbabilityEnabled">
             <value>true</value>
         </property>
         <property name="triggerProbability">
             <value>53</value>
         </property>
+        <property name="start">
+            <value>53.000000789761543</value>
+        </property>
+        <property name="length">
+            <value>5</value>
+        </property>
         <relationship name="event">
             <destination>{c86cf7b5-aa93-4441-8d73-603c2ec773d0}</destination>
         </relationship>
     </object>
     <object class="EventSound" id="{ffe61c65-b585-47e9-bb91-a23a15c9c9ac}">
-        <property name="start">
-            <value>59.807247395833329</value>
-        </property>
-        <property name="length">
-            <value>10</value>
-        </property>
         <property name="triggerProbabilityEnabled">
             <value>true</value>
         </property>
         <property name="triggerProbability">
             <value>47.5</value>
+        </property>
+        <property name="start">
+            <value>59.807247395833329</value>
+        </property>
+        <property name="length">
+            <value>10</value>
         </property>
         <property name="volume">
             <value>-9.5</value>
@@ -293,17 +293,17 @@
         </relationship>
     </object>
     <object class="EventSound" id="{1b95be00-7a9c-4469-af27-bd1520161864}">
-        <property name="start">
-            <value>70.999999701976776</value>
-        </property>
-        <property name="length">
-            <value>5.0000001490116119</value>
-        </property>
         <property name="triggerProbabilityEnabled">
             <value>true</value>
         </property>
         <property name="triggerProbability">
             <value>53</value>
+        </property>
+        <property name="start">
+            <value>70.999999701976776</value>
+        </property>
+        <property name="length">
+            <value>5.0000001490116119</value>
         </property>
         <property name="volume">
             <value>-3.5</value>
@@ -313,17 +313,17 @@
         </relationship>
     </object>
     <object class="EventSound" id="{ed1b8ace-5071-487b-a5f1-a4e77d51b753}">
-        <property name="start">
-            <value>77.593257653061215</value>
-        </property>
-        <property name="length">
-            <value>5</value>
-        </property>
         <property name="triggerProbabilityEnabled">
             <value>true</value>
         </property>
         <property name="triggerProbability">
             <value>57.5</value>
+        </property>
+        <property name="start">
+            <value>77.593257653061215</value>
+        </property>
+        <property name="length">
+            <value>5</value>
         </property>
         <relationship name="event">
             <destination>{09e0af22-8b63-49bd-8b6a-8d05067e25ac}</destination>
@@ -347,34 +347,34 @@
         </relationship>
     </object>
     <object class="EventSound" id="{4eb5ed5a-64b4-4e91-8ace-09ab28a3cad6}">
-        <property name="start">
-            <value>1.195428729189044</value>
-        </property>
-        <property name="length">
-            <value>5</value>
-        </property>
         <property name="triggerProbabilityEnabled">
             <value>true</value>
         </property>
         <property name="triggerProbability">
             <value>49</value>
         </property>
+        <property name="start">
+            <value>1.195428729189044</value>
+        </property>
+        <property name="length">
+            <value>5</value>
+        </property>
         <relationship name="event">
             <destination>{8c83a2be-ad8f-4197-9de4-2575e99e50bd}</destination>
         </relationship>
     </object>
     <object class="EventSound" id="{53e35208-0018-4b08-8062-b4aaefcc35d6}">
-        <property name="start">
-            <value>8.1954288334971714</value>
-        </property>
-        <property name="length">
-            <value>5</value>
-        </property>
         <property name="triggerProbabilityEnabled">
             <value>true</value>
         </property>
         <property name="triggerProbability">
             <value>50</value>
+        </property>
+        <property name="start">
+            <value>8.1954288334971714</value>
+        </property>
+        <property name="length">
+            <value>5</value>
         </property>
         <property name="volume">
             <value>-5</value>
@@ -384,34 +384,34 @@
         </relationship>
     </object>
     <object class="EventSound" id="{d5396be5-6685-4690-ab47-0238ba6fa0bc}">
-        <property name="start">
-            <value>14.695428855848913</value>
-        </property>
-        <property name="length">
-            <value>5</value>
-        </property>
         <property name="triggerProbabilityEnabled">
             <value>true</value>
         </property>
         <property name="triggerProbability">
             <value>51</value>
         </property>
+        <property name="start">
+            <value>14.695428855848913</value>
+        </property>
+        <property name="length">
+            <value>5</value>
+        </property>
         <relationship name="event">
             <destination>{f5cf5850-8abd-4b33-a5fc-8be5973fb150}</destination>
         </relationship>
     </object>
     <object class="EventSound" id="{5bb3b7b5-b677-4031-a280-072934bdf819}">
-        <property name="start">
-            <value>20.195429086816912</value>
-        </property>
-        <property name="length">
-            <value>5</value>
-        </property>
         <property name="triggerProbabilityEnabled">
             <value>true</value>
         </property>
         <property name="triggerProbability">
             <value>48.5</value>
+        </property>
+        <property name="start">
+            <value>20.195429086816912</value>
+        </property>
+        <property name="length">
+            <value>5</value>
         </property>
         <relationship name="event">
             <destination>{09e0af22-8b63-49bd-8b6a-8d05067e25ac}</destination>
@@ -446,68 +446,68 @@
         </relationship>
     </object>
     <object class="EventSound" id="{cc9215f2-3992-4d98-b1c2-e05f6eb91932}">
-        <property name="start">
-            <value>42.002636330874722</value>
-        </property>
-        <property name="length">
-            <value>5</value>
-        </property>
         <property name="triggerProbabilityEnabled">
             <value>true</value>
         </property>
         <property name="triggerProbability">
             <value>40.5</value>
         </property>
+        <property name="start">
+            <value>42.002636330874722</value>
+        </property>
+        <property name="length">
+            <value>5</value>
+        </property>
         <relationship name="event">
             <destination>{177b6052-2d63-4efe-a0a3-5fce92c8d284}</destination>
         </relationship>
     </object>
     <object class="EventSound" id="{bfba07b5-90cb-450e-b397-4b7f9ab233a8}">
-        <property name="start">
-            <value>53.195429578555235</value>
-        </property>
-        <property name="length">
-            <value>5</value>
-        </property>
         <property name="triggerProbabilityEnabled">
             <value>true</value>
         </property>
         <property name="triggerProbability">
             <value>53</value>
         </property>
+        <property name="start">
+            <value>53.195429578555235</value>
+        </property>
+        <property name="length">
+            <value>5</value>
+        </property>
         <relationship name="event">
             <destination>{f5cf5850-8abd-4b33-a5fc-8be5973fb150}</destination>
         </relationship>
     </object>
     <object class="EventSound" id="{23d7a057-f663-408d-9bbd-2a21f86840b0}">
-        <property name="start">
-            <value>60.195429682863363</value>
-        </property>
-        <property name="length">
-            <value>5</value>
-        </property>
         <property name="triggerProbabilityEnabled">
             <value>true</value>
         </property>
         <property name="triggerProbability">
             <value>55</value>
         </property>
+        <property name="start">
+            <value>60.195429682863363</value>
+        </property>
+        <property name="length">
+            <value>5</value>
+        </property>
         <relationship name="event">
             <destination>{8c83a2be-ad8f-4197-9de4-2575e99e50bd}</destination>
         </relationship>
     </object>
     <object class="EventSound" id="{c9053b8f-b750-407f-9191-ebe78824f3ec}">
-        <property name="start">
-            <value>70.195429831874975</value>
-        </property>
-        <property name="length">
-            <value>5</value>
-        </property>
         <property name="triggerProbabilityEnabled">
             <value>true</value>
         </property>
         <property name="triggerProbability">
             <value>51.5</value>
+        </property>
+        <property name="start">
+            <value>70.195429831874975</value>
+        </property>
+        <property name="length">
+            <value>5</value>
         </property>
         <relationship name="event">
             <destination>{46f621c1-0d90-4f7c-bced-519ed0fd2fa0}</destination>
