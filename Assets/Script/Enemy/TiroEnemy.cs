@@ -26,4 +26,13 @@ public class TiroEnemy : MonoBehaviour
         yield return new WaitForSeconds(3f);
         Destroy(gameObject);
     }
+
+    void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.tag == "Player")
+        {
+            other.gameObject.GetComponent<PlayerController>().Dano(dmg);
+            Destroy(gameObject);
+        }
+    }
 }
