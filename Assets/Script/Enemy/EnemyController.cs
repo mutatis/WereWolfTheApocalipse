@@ -335,4 +335,34 @@ public class EnemyController : MonoBehaviour
         stun = true;
         anim.SetTrigger("Slam");
     }
+
+    void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.tag == "Parede1")
+        {
+            print("P1");
+            vel1 = 0.05f * Random.Range(-2, -0.2f);
+            vel2 = 0.05f * Random.Range(-1, 2);
+        }
+        if (other.gameObject.tag == "Parede2")
+        {
+            print("P2");
+            vel1 = 0.05f * Random.Range(0.2f, 2);
+            vel2 = 0.05f * Random.Range(-1, 2);
+        }
+    }
+
+    void OnTriggerStay(Collider other)
+    {
+        if (other.gameObject.tag == "Parede1")
+        {
+            vel1 = 0.05f * Random.Range(-2, -0.2f);
+            vel2 = 0.05f * Random.Range(-1, 2);
+        }
+        if (other.gameObject.tag == "Parede2")
+        {
+            vel1 = 0.05f * Random.Range(0.2f, 2);
+            vel2 = 0.05f * Random.Range(-1, 2);
+        }
+    }
 }
