@@ -39,7 +39,9 @@ public class EnemyRanged : MonoBehaviour
 
     void Start()
     {
-        Combate();
+        Wait();
+        StartCoroutine("Pode");
+        //Combate();
     }
 
     void Update()
@@ -73,16 +75,9 @@ public class EnemyRanged : MonoBehaviour
         if (player == null && procura)
         {
             var x = Random.Range(0, Manager.manager.player.Length);
-            if (Manager.manager.player[x].GetComponent<PlayerController>().engage < 2)
-            {
                 player = Manager.manager.player[x];
                 player.GetComponent<PlayerController>().engage++;
-            }
-            else
-            {
-                StopCoroutine("Procura");
-                StartCoroutine("Procura");
-            }
+           
         }
     }
 
@@ -150,15 +145,15 @@ public class EnemyRanged : MonoBehaviour
                     break;
 
                 case 4:
-                    Flank();
+                    Wait();
                     break;
 
                 case 5:
-                    Flee();
+                    Wait();
                     break;
 
                 case 6:
-                    Switch();
+                    Wait();
                     break;
 
                 default:
