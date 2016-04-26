@@ -8,6 +8,11 @@ public class OpcoesNavigat : MonoBehaviour
 
     public Controllopcao[] efeito;
 
+    public GameObject obj;
+    public GameObject obj2;
+
+    public ManagerPlayer man;
+
     int x;
 
     bool podeDpad;
@@ -32,7 +37,9 @@ public class OpcoesNavigat : MonoBehaviour
             }
             else if (Input.GetKeyDown(KeyCode.Joystick1Button1))
             {
-                SceneManager.LoadScene("Menu");
+                obj.SetActive(true);
+                man.enabled = true;
+                obj2.SetActive(false);
             }
         }
 

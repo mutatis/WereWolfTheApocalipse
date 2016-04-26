@@ -7,6 +7,12 @@ public class ManagerPlayer : MonoBehaviour
 {
     public Image[] select;
 
+    public ManagerPlayer man;
+
+    public GameObject obj;
+
+    public GameObject obj2;
+
     int x;
 
     bool podeDpad = false;
@@ -123,6 +129,8 @@ public class ManagerPlayer : MonoBehaviour
 
     public void Tres()
     {
-        SceneManager.LoadScene("Opcao");
+        obj.SetActive(true);
+        man.enabled = false;
+        obj2.SetActive(false);
     }
 }

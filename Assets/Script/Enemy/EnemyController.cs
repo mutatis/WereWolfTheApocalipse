@@ -9,6 +9,8 @@ public class EnemyController : MonoBehaviour
 
     public ProbabilidadeEnemy probabilidade;
 
+    public EnemyAnim enemyanim;
+
     public bool stun;
     [HideInInspector]
     public bool dano = true;
@@ -20,6 +22,8 @@ public class EnemyController : MonoBehaviour
     public float tempoResposta;
     public float life;
     public float vel1, vel2;
+
+    public int xp;
 
     public string[] attack;
 
@@ -50,6 +54,7 @@ public class EnemyController : MonoBehaviour
             anim.SetTrigger("Dead");
             if (player != null)
             {
+                enemyanim.nome = player.GetComponent<PlayerController>().nome;
                 player.GetComponent<PlayerController>().engage--;
             }
             dano = false;

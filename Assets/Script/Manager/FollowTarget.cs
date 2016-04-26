@@ -2,6 +2,8 @@
 
 public class FollowTarget : MonoBehaviour
 {
+    public static FollowTarget follow;
+
     public Transform target; // Reference to the player.
 
 	public Vector3 offset;   // The offset at which the Health Bar follows the player.
@@ -12,6 +14,7 @@ public class FollowTarget : MonoBehaviour
     public float[] pos;
     
     public int cont;
+    public int quant;
 
     public bool segue;
 
@@ -21,6 +24,11 @@ public class FollowTarget : MonoBehaviour
 
     private Vector3 velocity = Vector3.zero; //A reference value used by SmoothDamp that tracks this object velocity
 	
+    void Awake()
+    {
+        follow = this;
+    }
+
 	void FixedUpdate ()
 	{
         num = transform.position.x;
@@ -30,7 +38,7 @@ public class FollowTarget : MonoBehaviour
             obj[cont].SetActive(true);
         }
 
-        if (segue)
+        if (segue && quant <= 0)
         {
             xPosition = target.position.x + offset.x;
             yPosition = offset.y;
