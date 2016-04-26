@@ -1,6 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<objects serializationModel="Studio.01.07.00">
+<objects serializationModel="Studio.01.08.00">
     <object class="AudioFile" id="{bd892214-be2f-44c5-8e2a-1b8ea98c057c}">
+        <property name="assetPath">
+            <value>buzina.wav</value>
+        </property>
         <property name="frequencyInKHz">
             <value>48</value>
         </property>
@@ -10,10 +13,7 @@
         <property name="length">
             <value>6.4041666666666668</value>
         </property>
-        <property name="audioFilePath">
-            <value>$(AUDIO_BIN_DIR)/buzina {fc9f6102-24bc-4e3d-a243-a02510848cc5}.wav</value>
-        </property>
-        <relationship name="container">
+        <relationship name="masterAssetFolder">
             <destination>{8a401d65-f098-49db-9173-79042282f7f5}</destination>
         </relationship>
     </object>
