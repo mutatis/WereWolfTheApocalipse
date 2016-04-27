@@ -29,6 +29,8 @@ public class EnemyController : MonoBehaviour
 
     public GameObject player;
 
+    public GameObject[] obj;
+
     bool isWalk = true;
     bool procura = true;
     bool prepare = true;
@@ -36,6 +38,13 @@ public class EnemyController : MonoBehaviour
     Vector3 direction;
 
     float dist;
+    float dist1;
+    float dist2;
+
+    void Start()
+    {
+        obj = GameObject.FindGameObjectsWithTag("Player");
+    }
     
     void Update()
     {
@@ -47,6 +56,30 @@ public class EnemyController : MonoBehaviour
         if (player != null)
         {
             dist = Vector3.Distance(player.transform.position, transform.position);
+        }
+
+        if(player == null)
+        {
+            if(obj.Length >= 1)
+            {
+                dist1 = Vector3.Distance(obj[0].transform.position, transform.position);
+                if (dist1 < 2)
+                {
+                    player = obj[0];
+                    StopCoroutine("Pode");
+                    StartCoroutine("Pode");
+                }
+            }
+            if (obj.Length >= 2)
+            {
+                dist2 = Vector3.Distance(obj[1].transform.position, transform.position);
+                if (dist2 < 2)
+                {
+                    player = obj[1];
+                    StopCoroutine("Pode");
+                    StartCoroutine("Pode");
+                }
+            }
         }
 
         if(life <= 0)
