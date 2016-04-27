@@ -397,6 +397,9 @@
         </relationship>
     </object>
     <object class="EventMixerMaster" id="{d3e87ba6-32b3-4b3a-8cee-2e00b650ab82}">
+        <property name="volume">
+            <value>10</value>
+        </property>
         <relationship name="effectChain">
             <destination>{c5252b40-50fc-48f1-a0d0-9134786467e4}</destination>
         </relationship>
@@ -2777,10 +2780,10 @@
     </object>
     <object class="MixerBusPanner" id="{951c1cdd-0814-4a42-9e6a-9c2de5e334f8}">
         <property name="surroundPanDirection">
-            <value>-30</value>
+            <value>-42.6901016</value>
         </property>
         <property name="surroundPanExtent">
-            <value>0</value>
+            <value>108.87233</value>
         </property>
     </object>
     <object class="MixerBusFader" id="{744e9113-2399-4d6f-9119-e2eb0628b1dd}"/>
