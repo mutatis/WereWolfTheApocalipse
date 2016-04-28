@@ -383,7 +383,6 @@ public class EnemyController : MonoBehaviour
     {
         if (other.gameObject.tag == "Parede1")
         {
-            print("P1");
             vel1 = 0.05f * Random.Range(-2, -0.2f);
             vel2 = 0.05f * Random.Range(-1, 2);
         }
