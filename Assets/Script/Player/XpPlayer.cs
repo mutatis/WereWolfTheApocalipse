@@ -27,6 +27,5 @@ public class XpPlayer : MonoBehaviour
     {
         lvl++;
         PlayerPrefs.SetInt(player.nome + "LVL", lvl);
-        Debug.Break();
     }
 }
