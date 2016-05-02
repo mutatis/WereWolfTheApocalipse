@@ -3,7 +3,15 @@ using System.Collections;
 
 public class PlayerDons : MonoBehaviour
 {
+    public float[] cost;
+
+    public PlayerController controller;
+
     public PlayerDom player;
+
+    public GameObject invoque, eletrecute;
+
+    public Transform posInvoque;
 
     public string nome;
 
@@ -64,11 +72,32 @@ public class PlayerDons : MonoBehaviour
         }
     }
 
+    void FabricoftheMind()
+    {
+        Instantiate(invoque, posInvoque.position, transform.rotation);
+    }
+
+    void Eletrecute()
+    {
+        Instantiate(eletrecute, transform.position, transform.rotation);
+    }
+
     void PressButtonA(string player)
     {
-        if(PlayerPrefs.GetInt(nome + player + "ButtonA") == 0)
+        if(PlayerPrefs.GetInt(nome + player + "ButtonA") == 0 && controller.gnose >= cost[0])
         {
             CalloftheWyld();
+            controller.gnose -= cost[0];
+        }
+        else if (PlayerPrefs.GetInt(nome + player + "ButtonA") == 1 && controller.gnose >= cost[1])
+        {
+            FabricoftheMind();
+            controller.gnose -= cost[1];
+        }
+        else if (PlayerPrefs.GetInt(nome + player + "ButtonA") == 2 && controller.gnose >= cost[2])
+        {
+            Eletrecute();
+            controller.gnose -= cost[2];
         }
     }
 
