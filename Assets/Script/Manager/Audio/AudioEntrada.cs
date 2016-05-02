@@ -27,8 +27,12 @@ public class AudioEntrada : MonoBehaviour
         if (Application.loadedLevelName != nomeCena)
         {
             vol.stop(FMOD.Studio.STOP_MODE.ALLOWFADEOUT);
+            vol.release();
             //Destroy(gameObject);
         }
-        vol.setVolume(PlayerPrefs.GetFloat("VolumeMusica"));
+        else
+        {
+            vol.setVolume(PlayerPrefs.GetFloat("VolumeMusica"));
+        }
     }
 }
