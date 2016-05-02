@@ -109,9 +109,6 @@
         </relationship>
     </object>
     <object class="EventMixerMaster" id="{bfd9dc63-aa8b-4131-be28-e031a7b50ebc}">
-        <property name="volume">
-            <value>4</value>
-        </property>
         <relationship name="effectChain">
             <destination>{3e8f6d0d-4a8e-4fc6-a033-a6c4fb2096ea}</destination>
         </relationship>
@@ -301,7 +298,7 @@
             <value>0</value>
         </property>
         <property name="value">
-            <value>-18.5</value>
+            <value>0</value>
         </property>
     </object>
     <object class="AutomationPoint" id="{7e48d138-7a1d-4471-9098-98c80702cd16}">
@@ -309,7 +306,7 @@
             <value>19.815668202764979</value>
         </property>
         <property name="value">
-            <value>-18.5</value>
+            <value>0</value>
         </property>
     </object>
     <object class="AutomationPoint" id="{7d748385-8e6e-4bbc-a04d-2645fd6dc7a0}">
@@ -317,7 +314,7 @@
             <value>39.784946236559136</value>
         </property>
         <property name="value">
-            <value>-18.5</value>
+            <value>0</value>
         </property>
         <property name="curveShape">
             <value>0.394761503</value>
@@ -328,25 +325,34 @@
             <value>49.923195084485407</value>
         </property>
         <property name="value">
-            <value>-80</value>
+            <value>-22.7714291</value>
         </property>
     </object>
     <object class="HighpassEffect" id="{27d9cff8-b68c-4332-b6a4-5ac886f8eb5c}">
         <property name="cutoff">
-            <value>2100</value>
+            <value>10000</value>
         </property>
     </object>
     <object class="CompressorEffect" id="{8b52b299-2dbb-4049-95a4-aaa1dd0a7764}">
+        <property name="threshold">
+            <value>-17</value>
+        </property>
+        <property name="ratio">
+            <value>4.0999999</value>
+        </property>
         <property name="attackTime">
-            <value>6.4000001</value>
+            <value>52</value>
+        </property>
+        <property name="releaseTime">
+            <value>500</value>
         </property>
         <property name="gain">
-            <value>4</value>
+            <value>21</value>
         </property>
     </object>
     <object class="LowpassEffect" id="{6b814055-cf22-4bc3-9b3a-71e915fcba0e}">
         <property name="cutoff">
-            <value>1150</value>
+            <value>1650</value>
         </property>
     </object>
     <object class="MixerBusFader" id="{5ddd4cd2-e6fd-4bfb-bc60-33e624b7894c}"/>
