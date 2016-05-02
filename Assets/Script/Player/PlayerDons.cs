@@ -7,6 +7,8 @@ public class PlayerDons : MonoBehaviour
 
     public string nome;
 
+    GameObject[] obj;
+
     void Update()
     {
         switch(player)
@@ -35,11 +37,38 @@ public class PlayerDons : MonoBehaviour
         }
     }
 
+    void CalloftheWyld()
+    {
+        obj = GameObject.FindGameObjectsWithTag("Player");
+        for(int i = 0; i < obj.Length; i ++)
+        {
+            if(obj[i].GetComponent<PlayerDons>().nome != nome)
+            {
+                obj[i].GetComponent<PlayerStatus>().call = true;
+                obj[i].GetComponent<PlayerController>().call = true;
+            }
+        }
+        StartCoroutine("Call");
+    }
+
+    IEnumerator Call()
+    {
+        yield return new WaitForSeconds(3);
+        for (int i = 0; i < obj.Length; i++)
+        {
+            if (obj[i].GetComponent<PlayerDons>().nome != nome)
+            {
+                obj[i].GetComponent<PlayerStatus>().call = false;
+                obj[i].GetComponent<PlayerController>().call = false;
+            }
+        }
+    }
+
     void PressButtonA(string player)
     {
         if(PlayerPrefs.GetInt(nome + player + "ButtonA") == 0)
         {
-            PlayerPrefs.SetInt("CalloftheWild", 1);
+            CalloftheWyld();
         }
     }
 

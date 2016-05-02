@@ -25,6 +25,7 @@ public class PlayerStatus : MonoBehaviour
     public float dmgTemp, dmgTrashTemp, knockbackTemp, critChanceTemp, critDamageTemp, resistancesTemp, speedTemp;
 
     public bool pode = true;
+    public bool call = true;
 
     void Start()
     {
@@ -88,7 +89,27 @@ public class PlayerStatus : MonoBehaviour
 
     void FixedUpdate()
     {
-        if(player.crinos)
+
+        if (player.call)
+        {
+            if (call)
+            {
+                Crinos();
+                call = false;
+            }
+        }
+        else
+        {
+            dmg = dmgTemp;
+            dmgTrash = dmgTrashTemp;
+            knockback = knockbackTemp;
+            critChance = critChanceTemp;
+            critDamage = critDamageTemp;
+            resistances = resistancesTemp;
+            speed = speedTemp;
+        }
+
+        if (player.crinos)
         {
             if (pode)
             {
@@ -106,6 +127,11 @@ public class PlayerStatus : MonoBehaviour
             resistances = resistancesTemp;
             speed = speedTemp;
         }
+    }
+
+    void Call()
+    {
+        dmg = dmg * 2;
     }
 
     void Crinos()
