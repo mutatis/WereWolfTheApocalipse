@@ -96,9 +96,6 @@
         </relationship>
     </object>
     <object class="GroupTrack" id="{bef8bc89-e0b0-472b-829b-5fd29fb96d36}">
-        <relationship name="modules">
-            <destination>{784373ee-415f-4b97-a064-e608adb53d62}</destination>
-        </relationship>
         <relationship name="mixerGroup">
             <destination>{6842925c-cf8d-44f5-af39-63137274bbab}</destination>
         </relationship>
@@ -126,7 +123,6 @@
             <destination>{bfba07b5-90cb-450e-b397-4b7f9ab233a8}</destination>
             <destination>{23d7a057-f663-408d-9bbd-2a21f86840b0}</destination>
             <destination>{c9053b8f-b750-407f-9191-ebe78824f3ec}</destination>
-            <destination>{784373ee-415f-4b97-a064-e608adb53d62}</destination>
         </relationship>
         <relationship name="markers">
             <destination>{cd1489ae-fd20-4cea-b638-ab24d93efc9e}</destination>
@@ -561,20 +557,9 @@
             <destination>{c5fe8837-9ec1-4de0-a217-04504b91b4bd}</destination>
         </relationship>
     </object>
-    <object class="SingleSound" id="{784373ee-415f-4b97-a064-e608adb53d62}">
-        <property name="start">
-            <value>0</value>
-        </property>
-        <property name="length">
-            <value>154.22693877551021</value>
-        </property>
-        <relationship name="audioFile">
-            <destination>{64797e61-d1c7-4b8e-accb-69e875edeefb}</destination>
-        </relationship>
-    </object>
     <object class="EventMixerGroup" id="{6842925c-cf8d-44f5-af39-63137274bbab}">
         <property name="volume">
-            <value>-40</value>
+            <value>-56</value>
         </property>
         <property name="name">
             <value>Audio 1</value>
@@ -614,10 +599,10 @@
     </object>
     <object class="MixerBusPanner" id="{4b36dbab-2eca-42ed-87e9-3cc7b000ea27}">
         <property name="surroundPanDirection">
-            <value>47.7893982</value>
+            <value>49.5845642</value>
         </property>
         <property name="surroundPanExtent">
-            <value>0.232906342</value>
+            <value>0</value>
         </property>
     </object>
     <object class="MixerBusFader" id="{82e69400-eba8-4b73-819a-39d9b1853991}"/>
@@ -674,16 +659,19 @@
             <value>5200</value>
         </property>
         <property name="resonance">
-            <value>1.27999997</value>
+            <value>1.38</value>
         </property>
     </object>
     <object class="MixerBusFader" id="{cd16c847-7866-40ef-9cea-8fab944b27b0}"/>
     <object class="ParamEqEffect" id="{c6ce33d4-26e6-4987-9636-7d02b19581ac}">
         <property name="centreFrequency">
-            <value>2100</value>
+            <value>1800</value>
         </property>
         <property name="gain">
             <value>5</value>
+        </property>
+        <property name="bandwidth">
+            <value>1.64999986</value>
         </property>
     </object>
 </objects>
