@@ -58,6 +58,11 @@ public class EnemyController : MonoBehaviour
             dist = Vector3.Distance(player.transform.position, transform.position);
         }
 
+        if(dist > 6 && player != null && player.GetComponent<PlayerController>().engage > 2)
+        {
+            Switch();
+        }
+
         if(player == null)
         {
             if(obj.Length >= 1)
@@ -66,6 +71,7 @@ public class EnemyController : MonoBehaviour
                 if (dist1 < 2)
                 {
                     player = obj[0];
+                    player.GetComponent<PlayerController>().engage++;
                     StopCoroutine("Pode");
                     StartCoroutine("Pode");
                 }
@@ -76,6 +82,7 @@ public class EnemyController : MonoBehaviour
                 if (dist2 < 2)
                 {
                     player = obj[1];
+                    player.GetComponent<PlayerController>().engage++;
                     StopCoroutine("Pode");
                     StartCoroutine("Pode");
                 }
@@ -221,7 +228,10 @@ public class EnemyController : MonoBehaviour
     {
         //escolhe outro player
         roamming = false;
-        player.GetComponent<PlayerController>().engage--;
+        if (player.GetComponent<PlayerController>().engage > 0)
+        {
+            player.GetComponent<PlayerController>().engage--;
+        }
         player = null;
         procura = true;
     }
@@ -373,7 +383,6 @@ public class EnemyController : MonoBehaviour
     {
         if (other.gameObject.tag == "Parede1")
         {
-            print("P1");
             vel1 = 0.05f * Random.Range(-2, -0.2f);
             vel2 = 0.05f * Random.Range(-1, 2);
         }
