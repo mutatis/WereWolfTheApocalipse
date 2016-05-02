@@ -390,6 +390,9 @@
         <property name="volume">
             <value>-3.5</value>
         </property>
+        <relationship name="modulators">
+            <destination>{f1cf3262-7a9d-40a2-9bce-1faa4e923d78}</destination>
+        </relationship>
         <relationship name="effectChain">
             <destination>{c5252b40-50fc-48f1-a0d0-9134786467e4}</destination>
         </relationship>
@@ -2732,6 +2735,41 @@
         <relationship name="markerTrack">
             <destination>{52d3e4fa-9268-4190-8215-827a85da9d84}</destination>
         </relationship>
+    </object>
+    <object class="ADSRModulator" id="{f1cf3262-7a9d-40a2-9bce-1faa4e923d78}">
+        <property name="nameOfPropertyBeingModulated">
+            <value>volume</value>
+        </property>
+        <property name="initialValue">
+            <value>-80</value>
+        </property>
+        <property name="attackTime">
+            <value>2000</value>
+        </property>
+        <property name="attackShape">
+            <value>-0.550516248</value>
+        </property>
+        <property name="peakValue">
+            <value>0</value>
+        </property>
+        <property name="holdTime">
+            <value>1000</value>
+        </property>
+        <property name="decayTime">
+            <value>1000</value>
+        </property>
+        <property name="decayShape">
+            <value>0</value>
+        </property>
+        <property name="sustainValue">
+            <value>0</value>
+        </property>
+        <property name="releaseTime">
+            <value>2000</value>
+        </property>
+        <property name="releaseShape">
+            <value>0.550516367</value>
+        </property>
     </object>
     <object class="MixerBusEffectChain" id="{c5252b40-50fc-48f1-a0d0-9134786467e4}">
         <relationship name="effects">
