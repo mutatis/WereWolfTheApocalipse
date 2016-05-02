@@ -19,7 +19,7 @@ public class PlayerController : MonoBehaviour
 
     [HideInInspector]
     public bool block;
-    public bool jump, stun, crinos;
+    public bool jump, stun, crinos, call;
 
     public int contador, engage, flooda;
 

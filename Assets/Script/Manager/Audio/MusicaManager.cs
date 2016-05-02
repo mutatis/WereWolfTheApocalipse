@@ -20,6 +20,8 @@ public class MusicaManager : MonoBehaviour
 
     public string nomeCena;
 
+    float temp;
+
     void Awake()
     {
         DontDestroyOnLoad(gameObject);
@@ -45,8 +47,10 @@ public class MusicaManager : MonoBehaviour
         if (Application.loadedLevelName != nomeCena)
         {
             vol.stop(FMOD.Studio.STOP_MODE.ALLOWFADEOUT);
+            vol.release();
             vol3.stop(FMOD.Studio.STOP_MODE.ALLOWFADEOUT);
-            
+            vol.release();
+
         }
         vol.setVolume(PlayerPrefs.GetFloat("VolumeMusica"));
         vol2.setVolume(PlayerPrefs.GetFloat("VolumeMusica"));
