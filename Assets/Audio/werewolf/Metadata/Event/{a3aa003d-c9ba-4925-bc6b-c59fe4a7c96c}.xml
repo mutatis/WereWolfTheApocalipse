@@ -211,6 +211,9 @@
         </relationship>
     </object>
     <object class="EventSound" id="{5fe996c7-8154-44c1-af4d-1599e551f792}">
+        <property name="triggerProbabilityEnabled">
+            <value>true</value>
+        </property>
         <property name="triggerProbability">
             <value>47</value>
         </property>
@@ -225,6 +228,12 @@
         </relationship>
     </object>
     <object class="EventSound" id="{432f46ff-dac4-4834-8cbc-981f2314cf55}">
+        <property name="triggerProbabilityEnabled">
+            <value>true</value>
+        </property>
+        <property name="triggerProbability">
+            <value>49</value>
+        </property>
         <property name="start">
             <value>39.000000655651093</value>
         </property>
@@ -415,6 +424,12 @@
         </relationship>
     </object>
     <object class="EventSound" id="{58f63fcd-f085-4686-805a-858d26a1fd14}">
+        <property name="triggerProbabilityEnabled">
+            <value>true</value>
+        </property>
+        <property name="triggerProbability">
+            <value>39.5</value>
+        </property>
         <property name="start">
             <value>25.736152627917729</value>
         </property>
@@ -429,6 +444,12 @@
         </relationship>
     </object>
     <object class="EventSound" id="{becbfcc1-a17d-4c28-8e44-b4fdf9cab118}">
+        <property name="triggerProbabilityEnabled">
+            <value>true</value>
+        </property>
+        <property name="triggerProbability">
+            <value>45</value>
+        </property>
         <property name="start">
             <value>31.195429250729685</value>
         </property>
@@ -543,6 +564,7 @@
     </object>
     <object class="MixerBusEffectChain" id="{218128a3-67b7-4887-9de2-83565027d280}">
         <relationship name="effects">
+            <destination>{ffba26bf-dcd4-4d49-b62f-05417508a67b}</destination>
             <destination>{1a3b4287-a2bf-4a5d-9489-58a06dbcdd8c}</destination>
             <destination>{e519e4d8-f2d8-40c2-ab9c-4ebfeb754b45}</destination>
             <destination>{d54f1ab1-beee-47d6-8dbd-eb6fabeb3452}</destination>
@@ -550,10 +572,10 @@
     </object>
     <object class="MixerBusPanner" id="{4b36dbab-2eca-42ed-87e9-3cc7b000ea27}">
         <property name="surroundPanDirection">
-            <value>71.5323563</value>
+            <value>67.4499664</value>
         </property>
         <property name="surroundPanExtent">
-            <value>63.5437202</value>
+            <value>0</value>
         </property>
     </object>
     <object class="MixerBusFader" id="{82e69400-eba8-4b73-819a-39d9b1853991}"/>
@@ -569,9 +591,17 @@
         </relationship>
     </object>
     <object class="MixerBusPanner" id="{5a961352-01e9-418e-a5a3-79162951adcf}"/>
+    <object class="HighpassEffect" id="{ffba26bf-dcd4-4d49-b62f-05417508a67b}">
+        <property name="cutoff">
+            <value>6500</value>
+        </property>
+    </object>
     <object class="MixerBusFader" id="{1a3b4287-a2bf-4a5d-9489-58a06dbcdd8c}"/>
     <object class="SpatialiserEffect" id="{e519e4d8-f2d8-40c2-ab9c-4ebfeb754b45}"/>
     <object class="MixerSend" id="{d54f1ab1-beee-47d6-8dbd-eb6fabeb3452}">
+        <property name="level">
+            <value>-40</value>
+        </property>
         <property name="inputFormat">
             <value>2</value>
         </property>

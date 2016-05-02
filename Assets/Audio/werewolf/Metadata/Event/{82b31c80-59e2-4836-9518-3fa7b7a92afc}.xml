@@ -89,9 +89,9 @@
             <destination>{930c78f1-2d1a-426f-a58b-32bce6b1b9a1}</destination>
         </relationship>
         <relationship name="markers">
-            <destination>{56f9df20-3fc8-4da7-a6eb-b9dbbb418402}</destination>
-            <destination>{c81324f9-4e8e-4ab9-bd1a-267feef2c02f}</destination>
             <destination>{6751f106-31ca-420a-8f24-dc13f8e7e638}</destination>
+            <destination>{c81324f9-4e8e-4ab9-bd1a-267feef2c02f}</destination>
+            <destination>{56f9df20-3fc8-4da7-a6eb-b9dbbb418402}</destination>
         </relationship>
     </object>
     <object class="GameParameter" id="{d04dfbe5-760b-4e0d-baf6-ecda84aae14e}">
@@ -110,7 +110,7 @@
     </object>
     <object class="EventMixerMaster" id="{bfd9dc63-aa8b-4131-be28-e031a7b50ebc}">
         <property name="volume">
-            <value>-8</value>
+            <value>0.400000006</value>
         </property>
         <relationship name="effectChain">
             <destination>{3e8f6d0d-4a8e-4fc6-a033-a6c4fb2096ea}</destination>
@@ -192,18 +192,27 @@
             <destination>{bfd9dc63-aa8b-4131-be28-e031a7b50ebc}</destination>
         </relationship>
     </object>
-    <object class="LoopRegion" id="{56f9df20-3fc8-4da7-a6eb-b9dbbb418402}">
+    <object class="TransitionRegion" id="{6751f106-31ca-420a-8f24-dc13f8e7e638}">
         <property name="position">
             <value>0</value>
         </property>
         <property name="length">
-            <value>61.743903793808478</value>
+            <value>61.842895208640307</value>
         </property>
+        <property name="quantizationInterval">
+            <value>3</value>
+        </property>
+        <relationship name="triggerConditions">
+            <destination>{31549d46-d179-4b92-b954-3576bdbab218}</destination>
+        </relationship>
+        <relationship name="destination">
+            <destination>{c81324f9-4e8e-4ab9-bd1a-267feef2c02f}</destination>
+        </relationship>
         <relationship name="timeline">
             <destination>{24643e32-0c10-4142-a6df-c993db82a8a7}</destination>
         </relationship>
         <relationship name="markerTrack">
-            <destination>{150272f2-f60c-4885-8c86-f61e030cd273}</destination>
+            <destination>{6476843d-0963-4651-93e2-1f6e78bd07a5}</destination>
         </relationship>
     </object>
     <object class="NamedMarker" id="{c81324f9-4e8e-4ab9-bd1a-267feef2c02f}">
@@ -220,27 +229,18 @@
             <destination>{150272f2-f60c-4885-8c86-f61e030cd273}</destination>
         </relationship>
     </object>
-    <object class="TransitionRegion" id="{6751f106-31ca-420a-8f24-dc13f8e7e638}">
+    <object class="LoopRegion" id="{56f9df20-3fc8-4da7-a6eb-b9dbbb418402}">
         <property name="position">
             <value>0</value>
         </property>
         <property name="length">
-            <value>61.842895208640307</value>
+            <value>61.743903793808478</value>
         </property>
-        <property name="quantizationInterval">
-            <value>3</value>
-        </property>
-        <relationship name="triggerConditions">
-            <destination>{31549d46-d179-4b92-b954-3576bdbab218}</destination>
-        </relationship>
         <relationship name="timeline">
             <destination>{24643e32-0c10-4142-a6df-c993db82a8a7}</destination>
         </relationship>
         <relationship name="markerTrack">
-            <destination>{6476843d-0963-4651-93e2-1f6e78bd07a5}</destination>
-        </relationship>
-        <relationship name="destination">
-            <destination>{c81324f9-4e8e-4ab9-bd1a-267feef2c02f}</destination>
+            <destination>{150272f2-f60c-4885-8c86-f61e030cd273}</destination>
         </relationship>
     </object>
     <object class="AutomationCurve" id="{8b705b9b-a515-49f8-9126-bfa4d87928fa}">
@@ -260,10 +260,10 @@
     </object>
     <object class="MixerBusPanner" id="{ae5a3afa-5c62-40ca-aedc-34ab0d3cdcd6}">
         <property name="surroundPanDirection">
-            <value>38.6598091</value>
+            <value>29.870224</value>
         </property>
         <property name="surroundPanExtent">
-            <value>110.610039</value>
+            <value>59.1157875</value>
         </property>
         <property name="surroundLFELevel">
             <value>-80</value>
@@ -298,7 +298,7 @@
             <value>0</value>
         </property>
         <property name="value">
-            <value>0</value>
+            <value>-18.5</value>
         </property>
     </object>
     <object class="AutomationPoint" id="{7e48d138-7a1d-4471-9098-98c80702cd16}">
@@ -306,7 +306,7 @@
             <value>19.815668202764979</value>
         </property>
         <property name="value">
-            <value>0</value>
+            <value>-18.5</value>
         </property>
     </object>
     <object class="AutomationPoint" id="{7d748385-8e6e-4bbc-a04d-2645fd6dc7a0}">
@@ -314,7 +314,7 @@
             <value>39.784946236559136</value>
         </property>
         <property name="value">
-            <value>0</value>
+            <value>-18.5</value>
         </property>
         <property name="curveShape">
             <value>0.394761503</value>
@@ -331,6 +331,9 @@
     <object class="MixerBusFader" id="{5ddd4cd2-e6fd-4bfb-bc60-33e624b7894c}"/>
     <object class="SpatialiserEffect" id="{d02ae4c0-7be3-47c2-929d-19f66bf050d1}"/>
     <object class="MixerSend" id="{93e09afb-6ce9-4c55-b2a1-fb029941f247}">
+        <property name="level">
+            <value>-49</value>
+        </property>
         <property name="inputFormat">
             <value>2</value>
         </property>
