@@ -12,9 +12,24 @@ public class PlayerDons : MonoBehaviour
         switch(player)
         {
             case PlayerDom.Player1:
-                if(Input.GetKey(KeyCode.Joystick1Button0))
+                if (Input.GetKey(KeyCode.Joystick1Button5))
                 {
-
+                    if (Input.GetKeyDown(KeyCode.Joystick1Button0))
+                    {
+                        PressButtonA("P1");
+                    }
+                    else if (Input.GetKeyDown(KeyCode.Joystick1Button1))
+                    {
+                        PressButtonB("P1");
+                    }
+                    else if (Input.GetKeyDown(KeyCode.Joystick1Button2))
+                    {
+                        PressButtonX("P1");
+                    }
+                    else if (Input.GetKeyDown(KeyCode.Joystick1Button3))
+                    {
+                        PressButtonY("P1");
+                    }
                 }
                 break;
         }
@@ -22,7 +37,10 @@ public class PlayerDons : MonoBehaviour
 
     void PressButtonA(string player)
     {
-
+        if(PlayerPrefs.GetInt(nome + player + "ButtonA") == 0)
+        {
+            PlayerPrefs.SetInt("CalloftheWild", 1);
+        }
     }
 
     void PressButtonB(string player)
