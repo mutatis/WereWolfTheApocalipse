@@ -28,7 +28,7 @@ public class AudioEntrada : MonoBehaviour
         {
             vol.stop(FMOD.Studio.STOP_MODE.ALLOWFADEOUT);
             vol.release();
-            //Destroy(gameObject);
+            Destroy(gameObject);
         }
         else
         {
