@@ -19,7 +19,7 @@ public class PlayerController : MonoBehaviour
 
     [HideInInspector]
     public bool block;
-    public bool jump, stun, crinos, call;
+    public bool jump, stun, crinos, call, lunar;
 
     public int contador, engage, flooda;
 
@@ -304,6 +304,7 @@ public class PlayerController : MonoBehaviour
                 anim.anim.SetTrigger("Dano");
             }
             rage += playerStatus.rageRegen;
+            dmg -= playerStatus.dmgTrash;
         }
         playerStatus.life -= dmg;
     }

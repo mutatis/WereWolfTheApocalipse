@@ -48,7 +48,19 @@ public class EnemyController : MonoBehaviour
     
     void Update()
     {
-        if(roamming)
+        if (life <= 0)
+        {
+            anim.SetTrigger("Dead");
+            if (player != null)
+            {
+                enemyanim.nome = player.GetComponent<PlayerController>().nome;
+                player.GetComponent<PlayerController>().engage--;
+            }
+            dano = false;
+            gameObject.GetComponent<EnemyController>().enabled = false;
+        }
+
+        if (roamming)
         {
             transform.Translate(vel1, 0, vel2);
         }
@@ -87,18 +99,6 @@ public class EnemyController : MonoBehaviour
                     StartCoroutine("Pode");
                 }
             }
-        }
-
-        if(life <= 0)
-        {
-            anim.SetTrigger("Dead");
-            if (player != null)
-            {
-                enemyanim.nome = player.GetComponent<PlayerController>().nome;
-                player.GetComponent<PlayerController>().engage--;
-            }
-            dano = false;
-            gameObject.GetComponent<EnemyController>().enabled = false;
         }
 
         if (dist > 2f && isWalk && player != null)

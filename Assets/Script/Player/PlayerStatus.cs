@@ -26,6 +26,7 @@ public class PlayerStatus : MonoBehaviour
 
     public bool pode = true;
     public bool call = true;
+    public bool lunar = true;
 
     void Start()
     {
@@ -89,12 +90,30 @@ public class PlayerStatus : MonoBehaviour
 
     void FixedUpdate()
     {
+        if (player.lunar)
+        {
+            if (lunar)
+            {
+                Lunar();
+                lunar = false;
+            }
+        }
+        else
+        {
+            dmg = dmgTemp;
+            dmgTrash = dmgTrashTemp;
+            knockback = knockbackTemp;
+            critChance = critChanceTemp;
+            critDamage = critDamageTemp;
+            resistances = resistancesTemp;
+            speed = speedTemp;
+        }
 
         if (player.call)
         {
             if (call)
             {
-                Crinos();
+                Call();
                 call = false;
             }
         }
@@ -127,6 +146,11 @@ public class PlayerStatus : MonoBehaviour
             resistances = resistancesTemp;
             speed = speedTemp;
         }
+    }
+
+    void Lunar()
+    {
+        dmgTrash *= 2;
     }
 
     void Call()

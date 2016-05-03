@@ -31,6 +31,7 @@ public class FollowTarget : MonoBehaviour
 
 	void FixedUpdate ()
 	{
+        target = Manager.manager.player[0].transform;
         num = transform.position.x;
         if(num >= pos[cont])
         {

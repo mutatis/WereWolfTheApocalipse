@@ -11,4 +11,9 @@ public class Manager : MonoBehaviour
     {
         manager = this;
     }
+
+    void Update()
+    {
+        player = GameObject.FindGameObjectsWithTag("Player");
+    }
 }
