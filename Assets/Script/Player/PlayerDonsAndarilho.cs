@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class PlayerDons : MonoBehaviour
+public class PlayerDonsAndarilho : MonoBehaviour
 {
     public float[] cost;
 
@@ -50,7 +50,7 @@ public class PlayerDons : MonoBehaviour
         obj = GameObject.FindGameObjectsWithTag("Player");
         for(int i = 0; i < obj.Length; i ++)
         {
-            if(obj[i].GetComponent<PlayerDons>().nome != nome)
+            if(obj[i].GetComponent<PlayerController>().nome != nome)
             {
                 obj[i].GetComponent<PlayerStatus>().call = true;
                 obj[i].GetComponent<PlayerController>().call = true;
@@ -64,12 +64,13 @@ public class PlayerDons : MonoBehaviour
         yield return new WaitForSeconds(3);
         for (int i = 0; i < obj.Length; i++)
         {
-            if (obj[i].GetComponent<PlayerDons>().nome != nome)
+            if (obj[i].GetComponent<PlayerController>().nome != nome)
             {
                 obj[i].GetComponent<PlayerStatus>().call = false;
                 obj[i].GetComponent<PlayerController>().call = false;
             }
         }
+        StopCoroutine("Call");
     }
 
     void FabricoftheMind()
