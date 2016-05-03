@@ -43,6 +43,7 @@ public class AtributaSetinha : MonoBehaviour
                         heal.start();
                     }
                 }
+                podeDpad = false;
             }
         }
         else if (SelectPersonagem.personagem.select2 == meuNumero.meuNumero)
@@ -63,6 +64,7 @@ public class AtributaSetinha : MonoBehaviour
                         anim.SetTrigger("Aperto");
                     }
                 }
+                podeDpad2 = false;
             }
         }
 

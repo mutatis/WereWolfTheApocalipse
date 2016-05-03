@@ -82,17 +82,44 @@ public class PlayerDonsPresas : MonoBehaviour
 
     void PressButtonB(string player)
     {
-
+        if (PlayerPrefs.GetInt(nome + player + "ButtonB") == 0 && controller.gnose >= cost[0])
+        {
+            LunarArmor();
+            controller.gnose -= cost[0];
+        }
+        else if (PlayerPrefs.GetInt(nome + player + "ButtonB") == 1 && controller.gnose >= cost[1])
+        {
+            WallofGranite();
+            controller.gnose -= cost[1];
+        }
     }
 
     void PressButtonX(string player)
     {
-
+        if (PlayerPrefs.GetInt(nome + player + "ButtonX") == 0 && controller.gnose >= cost[0])
+        {
+            LunarArmor();
+            controller.gnose -= cost[0];
+        }
+        else if (PlayerPrefs.GetInt(nome + player + "ButtonX") == 1 && controller.gnose >= cost[1])
+        {
+            WallofGranite();
+            controller.gnose -= cost[1];
+        }
     }
 
     void PressButtonY(string player)
     {
-
+        if (PlayerPrefs.GetInt(nome + player + "ButtonY") == 0 && controller.gnose >= cost[0])
+        {
+            LunarArmor();
+            controller.gnose -= cost[0];
+        }
+        else if (PlayerPrefs.GetInt(nome + player + "ButtonY") == 1 && controller.gnose >= cost[1])
+        {
+            WallofGranite();
+            controller.gnose -= cost[1];
+        }
     }
 }
 
