@@ -75,7 +75,9 @@ public class PlayerDonsAndarilho : MonoBehaviour
 
     void FabricoftheMind()
     {
-        Instantiate(invoque, posInvoque.position, transform.rotation);
+        GameObject temp;
+        temp = Instantiate(invoque, posInvoque.position, transform.rotation) as GameObject;
+        temp.GetComponent<Pacman>().obj = gameObject;
     }
 
     void Eletrecute()
@@ -104,17 +106,59 @@ public class PlayerDonsAndarilho : MonoBehaviour
 
     void PressButtonB(string player)
     {
-
+        if (PlayerPrefs.GetInt(nome + player + "ButtonB") == 0 && controller.gnose >= cost[0])
+        {
+            CalloftheWyld();
+            controller.gnose -= cost[0];
+        }
+        else if (PlayerPrefs.GetInt(nome + player + "ButtonB") == 1 && controller.gnose >= cost[1])
+        {
+            FabricoftheMind();
+            controller.gnose -= cost[1];
+        }
+        else if (PlayerPrefs.GetInt(nome + player + "ButtonB") == 2 && controller.gnose >= cost[2])
+        {
+            Eletrecute();
+            controller.gnose -= cost[2];
+        }
     }
 
     void PressButtonX(string player)
     {
-
+        if (PlayerPrefs.GetInt(nome + player + "ButtonX") == 0 && controller.gnose >= cost[0])
+        {
+            CalloftheWyld();
+            controller.gnose -= cost[0];
+        }
+        else if (PlayerPrefs.GetInt(nome + player + "ButtonX") == 1 && controller.gnose >= cost[1])
+        {
+            FabricoftheMind();
+            controller.gnose -= cost[1];
+        }
+        else if (PlayerPrefs.GetInt(nome + player + "ButtonX") == 2 && controller.gnose >= cost[2])
+        {
+            Eletrecute();
+            controller.gnose -= cost[2];
+        }
     }
 
     void PressButtonY(string player)
     {
-
+        if (PlayerPrefs.GetInt(nome + player + "ButtonY") == 0 && controller.gnose >= cost[0])
+        {
+            CalloftheWyld();
+            controller.gnose -= cost[0];
+        }
+        else if (PlayerPrefs.GetInt(nome + player + "ButtonY") == 1 && controller.gnose >= cost[1])
+        {
+            FabricoftheMind();
+            controller.gnose -= cost[1];
+        }
+        else if (PlayerPrefs.GetInt(nome + player + "ButtonY") == 2 && controller.gnose >= cost[2])
+        {
+            Eletrecute();
+            controller.gnose -= cost[2];
+        }
     }
 }
 

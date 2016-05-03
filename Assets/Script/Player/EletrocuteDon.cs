@@ -12,6 +12,17 @@ public class EletrocuteDon : MonoBehaviour
 
     GameObject obj;
 
+    void Start()
+    {
+        StartCoroutine("GO");
+    }
+
+    IEnumerator GO()
+    {
+        yield return new WaitForSeconds(2);
+        Destroy(gameObject);
+    }
+
     void Dano(GameObject other)
     {
         audioInstance = FMODUnity.RuntimeManager.CreateInstance(raio);
