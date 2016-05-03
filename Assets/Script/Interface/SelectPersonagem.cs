@@ -54,12 +54,28 @@ public class SelectPersonagem : MonoBehaviour
             if(startP1 && startP2)
             {
                 musica.Mudo();
+                if (select == 0)
+                {
+                    PlayerPrefs.SetInt("Escolha", 1);
+                }
+                else
+                {
+                    PlayerPrefs.SetInt("Escolha", 2);
+                }
                 SceneManager.LoadScene("Jogo");
             }
         }
         else if(startP1)
         {
             musica.Mudo();
+            if (select == 0)
+            {
+                PlayerPrefs.SetInt("Escolha", 1);
+            }
+            else
+            {
+                PlayerPrefs.SetInt("Escolha", 2);
+            }
             SceneManager.LoadScene("Jogo");
         }
 
