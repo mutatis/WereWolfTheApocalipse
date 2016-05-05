@@ -7,9 +7,17 @@ public class GranitePresas : MonoBehaviour
 
     bool para = true;
 
+    [FMODUnity.EventRef]
+    public string parede;
+
+    FMOD.Studio.EventInstance volInicio;
+
     void Start()
     {
         StartCoroutine("GO");
+        volInicio = FMODUnity.RuntimeManager.CreateInstance(parede);
+        volInicio.setVolume(PlayerPrefs.GetFloat("VolumeFX"));
+        volInicio.start();
     }
 
     void Update()

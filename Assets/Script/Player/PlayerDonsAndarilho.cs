@@ -9,7 +9,7 @@ public class PlayerDonsAndarilho : MonoBehaviour
 
     public PlayerDom player;
 
-    public GameObject invoque, eletrecute;
+    public GameObject invoque, eletrecute, pack;
 
     public Transform posInvoque;
 
@@ -39,6 +39,35 @@ public class PlayerDonsAndarilho : MonoBehaviour
                     else if (Input.GetKeyDown(KeyCode.Joystick1Button3))
                     {
                         PressButtonY("P1");
+                    }
+                    else if (Input.GetKeyDown(KeyCode.Joystick1Button4))
+                    {
+                        PressButtonL1("P1");
+                    }
+                }
+                break;
+            case PlayerDom.Player2:
+                if (Input.GetKey(KeyCode.Joystick2Button5))
+                {
+                    if (Input.GetKeyDown(KeyCode.Joystick2Button0))
+                    {
+                        PressButtonA("P2");
+                    }
+                    else if (Input.GetKeyDown(KeyCode.Joystick2Button1))
+                    {
+                        PressButtonB("P2");
+                    }
+                    else if (Input.GetKeyDown(KeyCode.Joystick2Button2))
+                    {
+                        PressButtonX("P2");
+                    }
+                    else if (Input.GetKeyDown(KeyCode.Joystick2Button3))
+                    {
+                        PressButtonY("P2");
+                    }
+                    else if (Input.GetKeyDown(KeyCode.Joystick2Button4))
+                    {
+                        PressButtonL1("P2");
                     }
                 }
                 break;
@@ -83,6 +112,16 @@ public class PlayerDonsAndarilho : MonoBehaviour
     void Eletrecute()
     {
         Instantiate(eletrecute, transform.position, transform.rotation);
+    }
+
+    void Pack1()
+    {
+        pack.SetActive(true);
+    }
+
+    void PressButtonL1(string player)
+    {
+        Pack1();
     }
 
     void PressButtonA(string player)

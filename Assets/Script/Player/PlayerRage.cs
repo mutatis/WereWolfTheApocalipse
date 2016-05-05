@@ -4,19 +4,48 @@ using UnityEngine.UI;
 
 public class PlayerRage : MonoBehaviour
 {
-    public PlayerStatus playerStatus;
+    public GameObject[] obj;
 
-    public PlayerController playerController;
+    GameObject temp;
+
+    public int tipo;
 
     public Slider sli;
 
-    void Start()
-    {
-        sli.maxValue = playerStatus.rageMax;
-    }
-
     void Update()
     {
-        sli.value = playerController.rage;
+        if (obj.Length <= 0)
+        {
+            Procura();
+        }
+        else
+        {
+            sli.value = temp.GetComponent<PlayerController>().rage;
+        }
+    }
+
+    void Procura()
+    {
+        obj = GameObject.FindGameObjectsWithTag("Player");
+
+        for (int i = 0; i < obj.Length; i++)
+        {
+            switch (tipo)
+            {
+                case 1:
+                    if (obj[i].GetComponent<PlayerController>().player == Player.Player1)
+                    {
+                        temp = obj[i];
+                    }
+                    break;
+                case 2:
+                    if (obj[i].GetComponent<PlayerController>().player == Player.Player2)
+                    {
+                        temp = obj[i];
+                    }
+                    break;
+            }
+        }
+        sli.maxValue = temp.GetComponent<PlayerController>().playerStatus.rageMax;
     }
 }

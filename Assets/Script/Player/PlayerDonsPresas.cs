@@ -42,6 +42,27 @@ public class PlayerDonsPresas : MonoBehaviour
                     }
                 }
                 break;
+            case PlayerDomPresas.Player2:
+                if (Input.GetKey(KeyCode.Joystick1Button5))
+                {
+                    if (Input.GetKeyDown(KeyCode.Joystick1Button0))
+                    {
+                        PressButtonA("P2");
+                    }
+                    else if (Input.GetKeyDown(KeyCode.Joystick1Button1))
+                    {
+                        PressButtonB("P2");
+                    }
+                    else if (Input.GetKeyDown(KeyCode.Joystick1Button2))
+                    {
+                        PressButtonX("P2");
+                    }
+                    else if (Input.GetKeyDown(KeyCode.Joystick1Button3))
+                    {
+                        PressButtonY("P2");
+                    }
+                }
+                break;
         }
     }
 
@@ -82,17 +103,44 @@ public class PlayerDonsPresas : MonoBehaviour
 
     void PressButtonB(string player)
     {
-
+        if (PlayerPrefs.GetInt(nome + player + "ButtonB") == 0 && controller.gnose >= cost[0])
+        {
+            LunarArmor();
+            controller.gnose -= cost[0];
+        }
+        else if (PlayerPrefs.GetInt(nome + player + "ButtonB") == 1 && controller.gnose >= cost[1])
+        {
+            WallofGranite();
+            controller.gnose -= cost[1];
+        }
     }
 
     void PressButtonX(string player)
     {
-
+        if (PlayerPrefs.GetInt(nome + player + "ButtonX") == 0 && controller.gnose >= cost[0])
+        {
+            LunarArmor();
+            controller.gnose -= cost[0];
+        }
+        else if (PlayerPrefs.GetInt(nome + player + "ButtonX") == 1 && controller.gnose >= cost[1])
+        {
+            WallofGranite();
+            controller.gnose -= cost[1];
+        }
     }
 
     void PressButtonY(string player)
     {
-
+        if (PlayerPrefs.GetInt(nome + player + "ButtonY") == 0 && controller.gnose >= cost[0])
+        {
+            LunarArmor();
+            controller.gnose -= cost[0];
+        }
+        else if (PlayerPrefs.GetInt(nome + player + "ButtonY") == 1 && controller.gnose >= cost[1])
+        {
+            WallofGranite();
+            controller.gnose -= cost[1];
+        }
     }
 }
 
