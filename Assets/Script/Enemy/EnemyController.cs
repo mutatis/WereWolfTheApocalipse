@@ -53,8 +53,8 @@ public class EnemyController : MonoBehaviour
             anim.SetTrigger("Dead");
             if (player != null)
             {
-                enemyanim.nome = player.GetComponent<PlayerController>().nome;
                 player.GetComponent<PlayerController>().engage--;
+                enemyanim.nome = player.GetComponent<PlayerController>().nome;
             }
             dano = false;
             gameObject.GetComponent<EnemyController>().enabled = false;
