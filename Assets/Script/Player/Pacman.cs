@@ -8,9 +8,10 @@ public class Pacman : MonoBehaviour
     public GameObject obj;
 
     [FMODUnity.EventRef]
-    public string raio;
+    public string inicio, dano, fim;
 
-    FMOD.Studio.EventInstance audioInstance;
+    FMOD.Studio.EventInstance vol;
+    FMOD.Studio.EventInstance volInicio;
 
     public float vel;
 
@@ -22,6 +23,9 @@ public class Pacman : MonoBehaviour
         {
             vel *= -1;
         }
+        volInicio = FMODUnity.RuntimeManager.CreateInstance(inicio);
+        volInicio.setVolume(PlayerPrefs.GetFloat("VolumeFX"));
+        volInicio.start();
     }
 
     void Update()
@@ -31,6 +35,10 @@ public class Pacman : MonoBehaviour
         
         if(temp == 2)
         {
+            volInicio.stop(FMOD.Studio.STOP_MODE.IMMEDIATE);
+            vol = FMODUnity.RuntimeManager.CreateInstance(fim);
+            vol.setVolume(PlayerPrefs.GetFloat("VolumeFX"));
+            vol.start();
             Destroy(gameObject);
         }
     }
@@ -45,9 +53,6 @@ public class Pacman : MonoBehaviour
 
     void Dano(GameObject other)
     {
-        audioInstance = FMODUnity.RuntimeManager.CreateInstance(raio);
-        audioInstance.setVolume(PlayerPrefs.GetFloat("VolumeFX"));
-        audioInstance.start();
         if (other.gameObject.tag == "Enemy")
         {
             other.gameObject.GetComponent<EnemyController>().Dano(dmg, false, gameObject);
@@ -72,6 +77,9 @@ public class Pacman : MonoBehaviour
         {
             if (other.gameObject.GetComponent<EnemyController>().life > 0 && other.gameObject.GetComponent<EnemyController>().dano)
             {
+                vol = FMODUnity.RuntimeManager.CreateInstance(dano);
+                vol.setVolume(PlayerPrefs.GetFloat("VolumeFX"));
+                vol.start();
                 Dano(other.gameObject);
             }
         }
@@ -79,6 +87,9 @@ public class Pacman : MonoBehaviour
         {
             if (other.gameObject.GetComponent<EnemyRanged>().life > 0 && other.gameObject.GetComponent<EnemyRanged>().dano)
             {
+                vol = FMODUnity.RuntimeManager.CreateInstance(dano);
+                vol.setVolume(PlayerPrefs.GetFloat("VolumeFX"));
+                vol.start();
                 Dano(other.gameObject);
             }
         }
