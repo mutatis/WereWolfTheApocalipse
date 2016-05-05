@@ -215,7 +215,7 @@
     <object class="MixerBusPanner" id="{0348aa68-1203-44dc-a93c-6346be327683}"/>
     <object class="MixerBusEffectChain" id="{64baf387-f59a-4258-8a7e-39fefd8713f4}">
         <relationship name="effects">
-            <destination>{baa8e9ee-2791-4b34-9906-91fadad1fbcb}</destination>
+            <destination>{b1ef252e-30a3-44dd-9dd0-12ad1aa2bbea}</destination>
             <destination>{92ce7d48-7aea-4d6e-b279-9f86cec5eb44}</destination>
         </relationship>
     </object>
@@ -225,7 +225,7 @@
             <value>0</value>
         </property>
         <property name="value">
-            <value>-80</value>
+            <value>0</value>
         </property>
         <property name="curveShape">
             <value>-0.737881362</value>
@@ -236,7 +236,7 @@
             <value>0.7683486238532109</value>
         </property>
         <property name="value">
-            <value>-0.0608711243</value>
+            <value>5.03043079</value>
         </property>
         <property name="curveShape">
             <value>0.632094979</value>
@@ -289,6 +289,13 @@
     </object>
     <object class="LowpassEffect" id="{b3417524-6ad6-48a3-a830-114c44519ee2}"/>
     <object class="MixerBusFader" id="{4674eb41-9db9-4cf7-a70d-77d6765023bd}"/>
-    <object class="LowpassEffect" id="{baa8e9ee-2791-4b34-9906-91fadad1fbcb}"/>
+    <object class="ParamEqEffect" id="{b1ef252e-30a3-44dd-9dd0-12ad1aa2bbea}">
+        <property name="centreFrequency">
+            <value>440</value>
+        </property>
+        <property name="gain">
+            <value>-4.5</value>
+        </property>
+    </object>
     <object class="MixerBusFader" id="{92ce7d48-7aea-4d6e-b279-9f86cec5eb44}"/>
 </objects>
