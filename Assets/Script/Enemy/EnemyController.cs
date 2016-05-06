@@ -27,7 +27,7 @@ public class EnemyController : MonoBehaviour
 
     public string[] attack;
 
-    public GameObject player;
+    public GameObject player, seta;
 
     public GameObject[] obj;
 
