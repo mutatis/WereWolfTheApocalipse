@@ -188,6 +188,23 @@ public class PackAtiva : MonoBehaviour
         {
             Erro();
         }
+        yield return new WaitForSeconds(1);
+        if (y == 10)
+        {
+            y = Random.Range(-4, -1);
+        }
+        else
+        {
+            Erro();
+        }
+        if (x == 10)
+        {
+            x = Random.Range(1, 4);
+        }
+        else
+        {
+            Erro();
+        }
     }
 
     void OnTriggerEnter(Collider other)
