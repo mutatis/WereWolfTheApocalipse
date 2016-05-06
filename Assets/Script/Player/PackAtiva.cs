@@ -131,6 +131,7 @@ public class PackAtiva : MonoBehaviour
     {
         if (temp >= 7)
         {
+            gameObject.AddComponent<ArrancarPelos>();
             arranca.enabled = true;
         }
         else
