@@ -2,7 +2,7 @@
 <objects serializationModel="Studio.01.08.00">
     <object class="Event" id="{f467d879-5db7-4ace-ac60-b2a1dc1d305f}">
         <property name="name">
-            <value>golpe_forte</value>
+            <value>golpefortebackup</value>
         </property>
         <property name="outputFormat">
             <value>2</value>
@@ -28,9 +28,6 @@
         </relationship>
         <relationship name="timeline">
             <destination>{b8b809b7-7b2f-417d-8bbb-6a7b1306a61b}</destination>
-        </relationship>
-        <relationship name="banks">
-            <destination>{8a8e60f8-4057-46e3-bdf5-e9a7fded58b4}</destination>
         </relationship>
         <relationship name="folder">
             <destination>{381ddb61-8704-47f7-b575-3a6005338b98}</destination>
@@ -99,7 +96,7 @@
             <value>0</value>
         </property>
         <property name="length">
-            <value>0.39999999105930328</value>
+            <value>0.45000000000000001</value>
         </property>
         <property name="looping">
             <value>true</value>
@@ -157,7 +154,7 @@
             <value>pitch</value>
         </property>
         <property name="amount">
-            <value>31.5</value>
+            <value>12.5</value>
         </property>
     </object>
     <object class="RandomizerModulator" id="{d64179c4-4e16-41a0-b28e-59e2c99dc212}">
@@ -165,7 +162,7 @@
             <value>volume</value>
         </property>
         <property name="amount">
-            <value>15</value>
+            <value>5</value>
         </property>
     </object>
     <object class="MixerBusEffectChain" id="{c23fa234-31c5-4fd6-ba47-cf8f3f5fe143}">
