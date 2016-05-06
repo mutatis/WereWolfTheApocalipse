@@ -9,19 +9,29 @@ public class ArrancarPelos : MonoBehaviour
 
     int selecionado;
 
+    bool zero;
+
     void Update()
     {
         switch(player.player)
         {
             case Player.Player1:
                 x = Input.GetAxis("HorizontalP1");
-                if(x < -0.1f)
+                if (zero)
                 {
-                    Anterior();
+                    if (x < -0.1f)
+                    {
+                        Anterior();
+                    }
+                    else if (x > 0.1f)
+                    {
+                        Proximo();
+                    }
                 }
-                else if(x > 0.1f)
+
+                if(x == 0)
                 {
-                    Proximo();
+                    zero = true;
                 }
                 break;
         }
@@ -29,7 +39,8 @@ public class ArrancarPelos : MonoBehaviour
 
     void Proximo()
     {
-        if (selecionado <= Manager.manager.enemy.Length)
+        zero = false;
+        if (selecionado < Manager.manager.enemy.Length)
         {
             selecionado++;
         }
@@ -52,7 +63,8 @@ public class ArrancarPelos : MonoBehaviour
 
     void Anterior()
     {
-        if (selecionado >= 0)
+        zero = false;
+        if (selecionado > 0)
         {
             selecionado--;
         }

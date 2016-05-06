@@ -3,12 +3,15 @@ using System.Collections;
 
 public class PackAtiva : MonoBehaviour
 {
+    public ArrancarPelos arranca;
+
     public SpriteRenderer[] sprt;
 
     public Sprite[] img;
 
     int x = 0;
     int y = 10;
+    int temp;
     
     void Update()
     {
@@ -126,6 +129,14 @@ public class PackAtiva : MonoBehaviour
 
     void Acerto(int player)
     {
+        if (temp >= 7)
+        {
+            arranca.enabled = true;
+        }
+        else
+        {
+            temp++;
+        }
         sprt[player].sprite = img[4];
     }
 
@@ -141,6 +152,7 @@ public class PackAtiva : MonoBehaviour
 
     IEnumerator GO()
     {
+        temp = 0;
         yield return new WaitForSeconds(1);
         x = Random.Range(1, 4);
         yield return new WaitForSeconds(1);
@@ -189,16 +201,9 @@ public class PackAtiva : MonoBehaviour
             Erro();
         }
         yield return new WaitForSeconds(1);
-        if (y == 10)
+        if (y == 10 && x == 10)
         {
             y = Random.Range(-4, -1);
-        }
-        else
-        {
-            Erro();
-        }
-        if (x == 10)
-        {
             x = Random.Range(1, 4);
         }
         else
