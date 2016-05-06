@@ -57,7 +57,7 @@ public class PlayerStatus : MonoBehaviour
         rangedDmg = speed / 2;
         rangedDmg = ((dexterity * 0.2f) * rangedDmg) + rangedDmg;
         counterDmg = ((dexterity * 0.05f) * counterDmg) + counterDmg;
-        //critChance = (dexterity * 4.5f) + critChance;
+        critChance = (dexterity * 4.5f) + critChance;
         critChanceTemp = critChance;
 
         //Stamina
