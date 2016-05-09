@@ -11,7 +11,7 @@ public class PackAtiva : MonoBehaviour
 
     int x = 0;
     int y = 10;
-    int temp;
+    public int temp;
     
     void Update()
     {
@@ -125,16 +125,17 @@ public class PackAtiva : MonoBehaviour
                 }
                 break;
         }
+
+        if (temp >= 6)
+        {
+            arranca.enabled = true;
+            Erro();
+        }
     }
 
     void Acerto(int player)
     {
-        if (temp >= 7)
-        {
-            gameObject.AddComponent<ArrancarPelos>();
-            arranca.enabled = true;
-        }
-        else
+        if(temp < 6)
         {
             temp++;
         }
@@ -144,6 +145,7 @@ public class PackAtiva : MonoBehaviour
     void Erro()
     {
         StopCoroutine("GO");
+        temp = 0;
         sprt[0].sprite = null;
         sprt[1].sprite = null;
         y = 10;
@@ -201,7 +203,8 @@ public class PackAtiva : MonoBehaviour
         {
             Erro();
         }
-        yield return new WaitForSeconds(1);
+        StopCoroutine("GO");
+        /*yield return new WaitForSeconds(1);
         if (y == 10 && x == 10)
         {
             y = Random.Range(-4, -1);
@@ -210,7 +213,7 @@ public class PackAtiva : MonoBehaviour
         else
         {
             Erro();
-        }
+        }*/
     }
 
     void OnTriggerEnter(Collider other)
