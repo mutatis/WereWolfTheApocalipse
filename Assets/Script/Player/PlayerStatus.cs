@@ -98,18 +98,7 @@ public class PlayerStatus : MonoBehaviour
                 lunar = false;
             }
         }
-        else
-        {
-            dmg = dmgTemp;
-            dmgTrash = dmgTrashTemp;
-            knockback = knockbackTemp;
-            critChance = critChanceTemp;
-            critDamage = critDamageTemp;
-            resistances = resistancesTemp;
-            speed = speedTemp;
-        }
-
-        if (player.call)
+        else if (player.call)
         {
             if (call)
             {
@@ -117,18 +106,7 @@ public class PlayerStatus : MonoBehaviour
                 call = false;
             }
         }
-        else
-        {
-            dmg = dmgTemp;
-            dmgTrash = dmgTrashTemp;
-            knockback = knockbackTemp;
-            critChance = critChanceTemp;
-            critDamage = critDamageTemp;
-            resistances = resistancesTemp;
-            speed = speedTemp;
-        }
-
-        if (player.crinos)
+        else if (player.crinos)
         {
             if (pode)
             {

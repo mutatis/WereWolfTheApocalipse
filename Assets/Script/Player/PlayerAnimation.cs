@@ -93,7 +93,7 @@ public class PlayerAnimation : MonoBehaviour
             {
                 other.gameObject.GetComponent<EnemyRanged>().Dano(playerStatus.dmg * 2, true, playerController.gameObject);
             }
-            playerController.rage += ((playerStatus.dmg * 2) * playerStatus.rageRegen);
+            playerController.rage += playerStatus.rageRegen;
             audioInstance = FMODUnity.RuntimeManager.CreateInstance(crit);
             audioInstance.setVolume(PlayerPrefs.GetFloat("VolumeFX"));
             audioInstance.start();
@@ -108,7 +108,7 @@ public class PlayerAnimation : MonoBehaviour
             {
                 other.gameObject.GetComponent<EnemyRanged>().Dano(playerStatus.dmg, false, playerController.gameObject);
             }
-            playerController.rage += ((playerStatus.dmg) * playerStatus.rageRegen);
+            playerController.rage += playerStatus.rageRegen;
         }
     }
 
@@ -128,7 +128,7 @@ public class PlayerAnimation : MonoBehaviour
             {
                 other.gameObject.GetComponent<EnemyRanged>().Slam((playerStatus.dmg * 2) + (playerStatus.dmg * 0.25f), true, playerController.gameObject, playerStatus.knockback);
             }
-            playerController.rage += ((playerStatus.dmg * 2) * playerStatus.rageRegen);
+            playerController.rage += playerStatus.rageRegen;
             audioInstance = FMODUnity.RuntimeManager.CreateInstance(crit);
             audioInstance.setVolume(PlayerPrefs.GetFloat("VolumeFX"));
             audioInstance.start();
@@ -143,7 +143,7 @@ public class PlayerAnimation : MonoBehaviour
             {
                 other.gameObject.GetComponent<EnemyRanged>().Slam((playerStatus.dmg + (playerStatus.dmg * 0.25f)), false, playerController.gameObject, playerStatus.knockback);
             }
-            playerController.rage += ((playerStatus.dmg) * playerStatus.rageRegen);
+            playerController.rage += playerStatus.rageRegen;
         }
     }
 
