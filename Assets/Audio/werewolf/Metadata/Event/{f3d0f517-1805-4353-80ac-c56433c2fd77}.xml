@@ -126,7 +126,6 @@
     <object class="MixerBusEffectChain" id="{2f5ae787-0548-496d-9746-caff4d078722}">
         <relationship name="effects">
             <destination>{0b7e4fb6-d5b9-4323-937c-1d0cc8a4cf84}</destination>
-            <destination>{acfe1e0f-3cdb-45d2-b13e-0d51a94eb78c}</destination>
             <destination>{52340ff2-fd6c-416e-b4f4-82b3ee295c58}</destination>
             <destination>{86f3398f-5645-49d7-8f60-95e259a6ea10}</destination>
             <destination>{a05d3f19-c64f-4cb8-91f1-88ccbf0365c0}</destination>
@@ -155,19 +154,11 @@
     <object class="MixerBusPanner" id="{0201217a-a30d-4ce5-8b79-9c041ce209c0}"/>
     <object class="ParamEqEffect" id="{0b7e4fb6-d5b9-4323-937c-1d0cc8a4cf84}">
         <property name="centreFrequency">
-            <value>540</value>
+            <value>320</value>
         </property>
         <property name="gain">
-            <value>-30</value>
+            <value>-25.5</value>
         </property>
-    </object>
-    <object class="LowpassEffect" id="{acfe1e0f-3cdb-45d2-b13e-0d51a94eb78c}">
-        <property name="cutoff">
-            <value>6500</value>
-        </property>
-        <relationship name="modulators">
-            <destination>{468738bb-23c9-42af-9ca6-89e28de796c9}</destination>
-        </relationship>
     </object>
     <object class="MixerBusFader" id="{52340ff2-fd6c-416e-b4f4-82b3ee295c58}"/>
     <object class="SpatialiserEffect" id="{86f3398f-5645-49d7-8f60-95e259a6ea10}"/>
@@ -183,12 +174,4 @@
         </relationship>
     </object>
     <object class="MixerBusFader" id="{e14bfac1-81bf-440f-9adf-467385a4fcde}"/>
-    <object class="RandomizerModulator" id="{468738bb-23c9-42af-9ca6-89e28de796c9}">
-        <property name="nameOfPropertyBeingModulated">
-            <value>cutoff</value>
-        </property>
-        <property name="amount">
-            <value>10.5</value>
-        </property>
-    </object>
 </objects>

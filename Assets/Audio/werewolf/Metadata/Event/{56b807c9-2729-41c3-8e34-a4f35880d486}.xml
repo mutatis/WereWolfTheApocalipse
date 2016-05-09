@@ -77,7 +77,7 @@
     </object>
     <object class="EventMixerMaster" id="{946b6a14-b73d-4d7a-868e-afefe5167c4c}">
         <property name="volume">
-            <value>10</value>
+            <value>6.5</value>
         </property>
         <relationship name="effectChain">
             <destination>{5eae157d-695b-4f8d-aa79-952a5066dd23}</destination>
@@ -112,7 +112,7 @@
     </object>
     <object class="EventMixerGroup" id="{2129118b-f329-4ef7-ad84-7a30ff42c91e}">
         <property name="volume">
-            <value>3.5</value>
+            <value>2.5</value>
         </property>
         <property name="name">
             <value>Audio 1</value>
@@ -129,7 +129,6 @@
     </object>
     <object class="MixerBusEffectChain" id="{5eae157d-695b-4f8d-aa79-952a5066dd23}">
         <relationship name="effects">
-            <destination>{d6fec303-d3fa-4dca-9d73-410475941154}</destination>
             <destination>{b36c066b-25f2-4fcd-bf78-1883fc86e4de}</destination>
             <destination>{72f42395-c14b-4222-bade-0f110109f85f}</destination>
             <destination>{2b7a1c89-9f1a-4499-8968-84d097a652e5}</destination>
@@ -164,11 +163,6 @@
         </relationship>
     </object>
     <object class="MixerBusPanner" id="{9ba927fd-300e-477c-93ab-c3ad0be04921}"/>
-    <object class="LowpassEffect" id="{d6fec303-d3fa-4dca-9d73-410475941154}">
-        <property name="cutoff">
-            <value>5500</value>
-        </property>
-    </object>
     <object class="MixerBusFader" id="{b36c066b-25f2-4fcd-bf78-1883fc86e4de}"/>
     <object class="SpatialiserEffect" id="{72f42395-c14b-4222-bade-0f110109f85f}">
         <property name="extentMode">
@@ -185,10 +179,7 @@
     </object>
     <object class="ThreeEQEffect" id="{ed9e56e1-96f0-46bf-9ba2-b634a29bf0ad}">
         <property name="lowGain">
-            <value>-16.5</value>
-        </property>
-        <property name="midGain">
-            <value>-14</value>
+            <value>-13.5</value>
         </property>
         <property name="highGain">
             <value>7</value>
