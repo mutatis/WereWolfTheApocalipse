@@ -2,7 +2,7 @@
 <objects serializationModel="Studio.01.08.00">
     <object class="Event" id="{92dafeb9-a19b-4bb9-aa27-e56e68d65de6}">
         <property name="name">
-            <value>critical</value>
+            <value>criticalbackup</value>
         </property>
         <property name="outputFormat">
             <value>2</value>
@@ -27,9 +27,6 @@
         </relationship>
         <relationship name="timeline">
             <destination>{bb6f7c2b-447f-4ad2-887c-f2f3799d62f3}</destination>
-        </relationship>
-        <relationship name="banks">
-            <destination>{8a8e60f8-4057-46e3-bdf5-e9a7fded58b4}</destination>
         </relationship>
         <relationship name="folder">
             <destination>{381ddb61-8704-47f7-b575-3a6005338b98}</destination>
