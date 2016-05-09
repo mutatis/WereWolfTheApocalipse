@@ -6,7 +6,7 @@ public class AudioEntrada : MonoBehaviour
     [FMODUnity.EventRef]
     public string som;
 
-    FMOD.Studio.EventInstance vol;
+    FMOD.Studio.EventInstance volEntrada;
 
     public string nomeCena;
 
@@ -17,22 +17,22 @@ public class AudioEntrada : MonoBehaviour
 
     void Start()
     {
-        vol = FMODUnity.RuntimeManager.CreateInstance(som);
-        vol.setVolume(PlayerPrefs.GetFloat("VolumeMusica"));
-        vol.start();
+        volEntrada = FMODUnity.RuntimeManager.CreateInstance(som);
+        volEntrada.setVolume(PlayerPrefs.GetFloat("VolumeMusica"));
+        volEntrada.start();
     }
 
     void Update()
     {
         if (Application.loadedLevelName != nomeCena)
         {
-            vol.stop(FMOD.Studio.STOP_MODE.ALLOWFADEOUT);
-            vol.release();
+            volEntrada.stop(FMOD.Studio.STOP_MODE.ALLOWFADEOUT);
+            volEntrada.release();
             Destroy(gameObject);
         }
         else
         {
-            vol.setVolume(PlayerPrefs.GetFloat("VolumeMusica"));
+            volEntrada.setVolume(PlayerPrefs.GetFloat("VolumeMusica"));
         }
     }
 }

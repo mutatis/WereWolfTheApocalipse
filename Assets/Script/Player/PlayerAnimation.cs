@@ -79,7 +79,7 @@ public class PlayerAnimation : MonoBehaviour
 
     void Dano(GameObject other)
     {
-        audioInstance = FMODUnity.RuntimeManager.CreateInstance(socoForte);
+        audioInstance = FMODUnity.RuntimeManager.CreateInstance(socoFraco);
         audioInstance.setVolume(PlayerPrefs.GetFloat("VolumeFX"));
         audioInstance.start();
         int x = Random.Range(0, 100);
