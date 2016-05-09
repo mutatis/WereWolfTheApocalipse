@@ -111,7 +111,12 @@ public class PlayerDonsAndarilho : MonoBehaviour
 
     void Eletrecute()
     {
-        Instantiate(eletrecute, transform.position, transform.rotation);
+        GameObject tempObj;
+        tempObj = Instantiate(eletrecute, transform.position, transform.rotation) as GameObject;
+        if(gameObject.transform.localScale.x < 0)
+        {
+            tempObj.transform.localScale = new Vector3(tempObj.transform.localScale.x * -1, tempObj.transform.localScale.y, tempObj.transform.localScale.z);
+        }
     }
 
     void Pack1()
