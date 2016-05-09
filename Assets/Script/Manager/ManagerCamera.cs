@@ -10,6 +10,11 @@ public class ManagerCamera : MonoBehaviour
 
     public string nomeCena;
 
+    void Awake()
+    {
+        DontDestroyOnLoad(gameObject);
+    }
+
     void Start()
     {
         vol = FMODUnity.RuntimeManager.CreateInstance(musica1);
