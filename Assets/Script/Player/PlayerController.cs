@@ -300,6 +300,9 @@ public class PlayerController : MonoBehaviour
             if (block)
             {
                 dmg = dmg * playerStatus.blockEffect;
+            }
+            else
+            {
                 stun = true;
                 anim.anim.SetTrigger("Dano");
             }
@@ -322,13 +325,20 @@ public class PlayerController : MonoBehaviour
     {
         isRun = true;
         isAttack = true;
-        jump = false;
-        anim.anim.SetBool("Jump", jump);
     }
 
     public void Ataca()
     {
         isAttack = true;
+    }
+
+    void OnCollisionEnter(Collision other)
+    {
+        if(other.gameObject.tag == "Chao")
+        {
+            jump = false;
+            anim.anim.SetBool("Jump", jump);
+        }
     }
 }
 

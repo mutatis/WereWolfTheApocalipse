@@ -16,6 +16,8 @@ public class EnemyController : MonoBehaviour
     public bool dano = true;
     [HideInInspector]
     public bool roamming = false;
+    [HideInInspector]
+    public bool combate = true;
 
     public TextMesh text;
 
@@ -177,7 +179,7 @@ public class EnemyController : MonoBehaviour
         StartCoroutine("Pode");
         roamming = false;
         int num;
-        if(!stun && dist < 2)
+        if(!stun && dist < 2 && combate)
         {
             num = probabilidade.ChooseAttack();
 
@@ -257,18 +259,21 @@ public class EnemyController : MonoBehaviour
     void SpecialMove()
     {
         roamming = false;
+        combate = false;
         anim.SetTrigger("SocoFraco2");
     }
 
     void Defesa()
     {
         roamming = false;
+        combate = false;
         anim.SetTrigger("SocoForte");
     }
 
     void Soco()
     {
         roamming = false;
+        combate = false;
         anim.SetTrigger("SocoFraco0");
     }
 
