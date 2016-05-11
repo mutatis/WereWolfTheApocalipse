@@ -92,6 +92,9 @@
         </relationship>
     </object>
     <object class="EventMixerMaster" id="{7fc75d06-3871-4bc0-8629-a143235d21f8}">
+        <property name="volume">
+            <value>10</value>
+        </property>
         <relationship name="effectChain">
             <destination>{76f45ca1-8b29-4bad-ba58-a33ecc6f9e34}</destination>
         </relationship>
@@ -273,7 +276,7 @@
             <value>0.053937203658502395</value>
         </property>
         <property name="value">
-            <value>-4</value>
+            <value>1.61217022</value>
         </property>
     </object>
     <object class="AutomationPoint" id="{fb2967c3-0e9d-4c78-9586-99728f8ef3a9}">
@@ -281,7 +284,7 @@
             <value>0.50014497937884039</value>
         </property>
         <property name="value">
-            <value>-3.65565109</value>
+            <value>1.61217022</value>
         </property>
         <property name="curveShape">
             <value>1</value>
@@ -307,7 +310,7 @@
     </object>
     <object class="LowpassEffect" id="{adeb7bae-93e1-491d-a140-74ba8b74afe0}">
         <property name="cutoff">
-            <value>2600</value>
+            <value>2900</value>
         </property>
         <property name="resonance">
             <value>1.74000001</value>
