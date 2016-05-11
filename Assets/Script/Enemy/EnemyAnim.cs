@@ -16,6 +16,11 @@ public class EnemyAnim : MonoBehaviour
     [HideInInspector]
     public string nome;
 
+    public void Liberated()
+    {
+        controller.combate = true;
+    }
+
     public void Return()
     {
         if (tipo == 1)
