@@ -52,13 +52,10 @@ public class PlayerAnimation : MonoBehaviour
 
     public void Miss()
     {
-        if (obj == null)
-        {
-            audioInstance = FMODUnity.RuntimeManager.CreateInstance(miss);
-            audioInstance.setVolume(PlayerPrefs.GetFloat("VolumeFX"));
-            audioInstance.start();
-            playerController.contador = 0;
-        }
+        audioInstance = FMODUnity.RuntimeManager.CreateInstance(miss);
+        audioInstance.setVolume(PlayerPrefs.GetFloat("VolumeFX"));
+        audioInstance.start();
+        playerController.contador = 0;
     }
 
     public void Liberated()
