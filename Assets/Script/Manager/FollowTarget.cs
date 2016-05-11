@@ -4,7 +4,7 @@ public class FollowTarget : MonoBehaviour
 {
     public static FollowTarget follow;
 
-    public Transform target; // Reference to the player.
+    public GameObject target; // Reference to the player.
 
 	public Vector3 offset;   // The offset at which the Health Bar follows the player.
 
@@ -31,7 +31,7 @@ public class FollowTarget : MonoBehaviour
 
 	void FixedUpdate ()
 	{
-        target = Manager.manager.player[0].transform;
+        target = Manager.manager.player[0];
         num = transform.position.x;
         if(num >= pos[cont])
         {
@@ -39,9 +39,9 @@ public class FollowTarget : MonoBehaviour
             obj[cont].SetActive(true);
         }
 
-        if (segue && quant <= 0)
+        if (segue && quant <= 0 && target.GetComponent<PlayerController>().x >= 0)
         {
-            xPosition = target.position.x + offset.x;
+            xPosition = target.transform.position.x + offset.x;
             yPosition = offset.y;
             transform.position = Vector3.SmoothDamp(transform.position, new Vector3(xPosition, transform.position.y, transform.position.z), ref velocity, smoothTime);
         }

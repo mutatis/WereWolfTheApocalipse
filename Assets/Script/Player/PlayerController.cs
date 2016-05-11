@@ -27,6 +27,7 @@ public class PlayerController : MonoBehaviour
 
     bool isRun = true;
     bool isAttack = true;
+    bool r1;
 
     void Awake()
     {
@@ -76,7 +77,16 @@ public class PlayerController : MonoBehaviour
                             transform.Translate(new Vector3((x * playerStatus.speed), 0, (z * playerStatus.speed)));
                         }
 
-                        if (isAttack)
+                        if(Input.GetKey(KeyCode.Joystick1Button5))
+                        {
+                            r1 = true;
+                        }
+                        if (Input.GetKeyUp(KeyCode.Joystick1Button5))
+                        {
+                            r1 = false;
+                        }
+
+                        if (isAttack && !r1)
                         {
                             if (!jump)
                             {
@@ -147,7 +157,16 @@ public class PlayerController : MonoBehaviour
                             transform.Translate(new Vector3((x * playerStatus.speed), 0, (z * playerStatus.speed)));
                         }
 
-                        if (isAttack)
+                        if (Input.GetKey(KeyCode.Joystick2Button5))
+                        {
+                            r1 = true;
+                        }
+                        if (Input.GetKeyUp(KeyCode.Joystick2Button5))
+                        {
+                            r1 = false;
+                        }
+
+                        if (isAttack && !r1)
                         {
                             if (!jump)
                             {
