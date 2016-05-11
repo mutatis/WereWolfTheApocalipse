@@ -2,7 +2,7 @@
 <objects serializationModel="Studio.01.08.00">
     <object class="Event" id="{f467d879-5db7-4ace-ac60-b2a1dc1d305f}">
         <property name="name">
-            <value>golpefortebackup</value>
+            <value>golpe_forte</value>
         </property>
         <property name="outputFormat">
             <value>2</value>
@@ -28,6 +28,9 @@
         </relationship>
         <relationship name="timeline">
             <destination>{b8b809b7-7b2f-417d-8bbb-6a7b1306a61b}</destination>
+        </relationship>
+        <relationship name="banks">
+            <destination>{8a8e60f8-4057-46e3-bdf5-e9a7fded58b4}</destination>
         </relationship>
         <relationship name="folder">
             <destination>{381ddb61-8704-47f7-b575-3a6005338b98}</destination>
@@ -96,7 +99,7 @@
             <value>0</value>
         </property>
         <property name="length">
-            <value>0.45000000000000001</value>
+            <value>0.59999999999999998</value>
         </property>
         <property name="looping">
             <value>true</value>

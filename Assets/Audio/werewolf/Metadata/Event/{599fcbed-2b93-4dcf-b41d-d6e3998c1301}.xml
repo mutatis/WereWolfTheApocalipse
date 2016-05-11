@@ -100,6 +100,9 @@
         </relationship>
     </object>
     <object class="EventMixerGroup" id="{79e7e249-5e33-4489-8f5c-bb0b92aa71c5}">
+        <property name="volume">
+            <value>-15</value>
+        </property>
         <property name="name">
             <value>Audio 1</value>
         </property>
@@ -124,6 +127,7 @@
     <object class="MixerBusFader" id="{9620c069-4d63-417f-834a-b6a8998568e6}"/>
     <object class="MixerBusEffectChain" id="{f51dd3d1-192f-4a14-bc54-7ada3049f24e}">
         <relationship name="effects">
+            <destination>{6bc64e38-37cb-4e3b-b1cb-f5dfc8035897}</destination>
             <destination>{2c5c9dae-8d24-4410-97e4-289f34a09f23}</destination>
             <destination>{15dc92ac-0f18-4faa-a440-c04a2f5a9ff8}</destination>
         </relationship>
@@ -139,10 +143,18 @@
             <destination>{48c1c7c2-53fc-403b-b93f-d6e0b6a27461}</destination>
         </relationship>
     </object>
+    <object class="ThreeEQEffect" id="{6bc64e38-37cb-4e3b-b1cb-f5dfc8035897}">
+        <property name="highGain">
+            <value>-18</value>
+        </property>
+        <property name="highCrossover">
+            <value>1650</value>
+        </property>
+    </object>
     <object class="MixerBusFader" id="{2c5c9dae-8d24-4410-97e4-289f34a09f23}"/>
     <object class="LowpassEffect" id="{15dc92ac-0f18-4faa-a440-c04a2f5a9ff8}">
         <property name="cutoff">
-            <value>12500</value>
+            <value>8000</value>
         </property>
         <relationship name="modulators">
             <destination>{bb81038e-a5e2-4f3e-8856-7a1f98752704}</destination>
@@ -154,7 +166,7 @@
             <value>cutoff</value>
         </property>
         <property name="amount">
-            <value>50</value>
+            <value>20</value>
         </property>
     </object>
     <object class="RandomizerModulator" id="{3cd8541b-1cec-40d0-bd15-b57ded97e9bc}">
@@ -162,7 +174,7 @@
             <value>resonance</value>
         </property>
         <property name="amount">
-            <value>48</value>
+            <value>20</value>
         </property>
     </object>
 </objects>
