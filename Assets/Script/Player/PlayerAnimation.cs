@@ -16,9 +16,6 @@ public class PlayerAnimation : MonoBehaviour
     [FMODUnity.EventRef]
     public string crit;
 
-    [FMODUnity.EventRef]
-    public string miss;
-
     FMOD.Studio.EventInstance audioInstance;
 
    [FMODUnity.EventRef]
@@ -52,10 +49,10 @@ public class PlayerAnimation : MonoBehaviour
 
     public void Miss()
     {
-        audioInstance = FMODUnity.RuntimeManager.CreateInstance(miss);
-        audioInstance.setVolume(PlayerPrefs.GetFloat("VolumeFX"));
-        audioInstance.start();
-        playerController.contador = 0;
+        if (obj == null)
+        {
+            playerController.contador = 0;
+        }
     }
 
     public void Liberated()

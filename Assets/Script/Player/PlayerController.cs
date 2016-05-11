@@ -13,7 +13,12 @@ public class PlayerController : MonoBehaviour
     public Rigidbody rig;
 
     public Player player;
+
+    [FMODUnity.EventRef]
+    public string miss;
     
+    FMOD.Studio.EventInstance audioInstanceCreator;
+
     [HideInInspector]
     public float rage, gnose, z, x;
 
@@ -255,6 +260,9 @@ public class PlayerController : MonoBehaviour
 
     void SocoForte()
     {
+        audioInstanceCreator = FMODUnity.RuntimeManager.CreateInstance(miss);
+        audioInstanceCreator.setVolume(PlayerPrefs.GetFloat("VolumeFX"));
+        audioInstanceCreator.start();
         isAttack = false;
         isRun = false;
         anim.anim.SetTrigger("SocoForte");
@@ -271,6 +279,9 @@ public class PlayerController : MonoBehaviour
         contador++;
         isAttack = false;
         isRun = false;
+        audioInstanceCreator = FMODUnity.RuntimeManager.CreateInstance(miss);
+        audioInstanceCreator.setVolume(PlayerPrefs.GetFloat("VolumeFX"));
+        audioInstanceCreator.start();
         switch (contador)
         {
             case 1:
