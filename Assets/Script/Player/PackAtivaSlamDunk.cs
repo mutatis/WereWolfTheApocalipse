@@ -4,7 +4,9 @@ using System.Collections;
 
 public class PackAtivaSlamDunk : MonoBehaviour
 {
-    public Slider sliPunhe, sliAumenDimi;
+    public Slider sliPunhe;
+
+    public GameObject sliAumenDimi;
 
     public Transform segue, pai;
 
@@ -15,11 +17,20 @@ public class PackAtivaSlamDunk : MonoBehaviour
     void Start()
     {
         sliPunhe.maxValue = numPress;
+        for(int i = 0; i < Manager.manager.player.Length; i++)
+        {
+            Manager.manager.player[i].GetComponent<PlayerController>().enabled = false;
+        }
     }
 
     void Update()
     {
-        //segue.position = new Vector3(pai.position.x, pai.position.y + 3, pai.position.z);
+        for (int i = 0; i < Manager.manager.player.Length; i++)
+        {
+            Manager.manager.player[i].GetComponent<PlayerController>().enabled = false;
+        }
+        pai = Manager.manager.player[0].transform;
+        segue.position = new Vector3(pai.position.x, pai.position.y + 3, pai.position.z);
         if(Input.GetKeyDown(KeyCode.Joystick1Button0))
         {
             if (etapa == 0)

@@ -4,40 +4,25 @@ using System.Collections;
 
 public class SliAumenDimi : MonoBehaviour
 {
-    public Slider sli;
+    public SelectEnemySlam slam;
 
-    public float maxSli, temp, x;
+    public GameObject sli;
 
-    void Start()
-    {
-        maxSli = sli.maxValue;
-    }
+    public float maxSli;
 
     void Update()
     {
-        if(Input.GetKeyDown(KeyCode.Joystick1Button0) && temp >= 0.45f && temp <= 0.65f)
+        if(Input.GetKeyDown(KeyCode.Joystick2Button0) && transform.localScale.x < maxSli)
         {
-            sli.gameObject.SetActive(false);
+            Manager.manager.player[1].GetComponent<Rigidbody>().velocity = new Vector3(0, 35, 0);
+            slam.enabled = true;
+            sli.SetActive(false);
+        }
+        if(transform.localScale.x <= 0.05f)
+        {
+            sli.SetActive(false);
         }
 
-        if(x == 1)
-        {
-            temp -= 0.05f;
-        }
-        else
-        {
-            temp += 0.05f;
-        }
-
-        sli.value = temp;
-
-        if(temp >= maxSli)
-        {
-            x = 1;
-        }
-        else if(temp <= 0)
-        {
-            x = 0;
-        }
+        transform.localScale = new Vector3(transform.localScale.x - 0.004f, transform.localScale.y - 0.004f, transform.localScale.z - 0.004f);
     }
 }
