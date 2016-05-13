@@ -19,7 +19,6 @@ public class PlayerGoSlamDunk : MonoBehaviour
 
         if (dist > 2)
         {
-            Debug.LogError("FUDEI");
             direction = obj.transform.position - transform.position;
             direction.Normalize();
             transform.Translate((direction.x), (direction.y / 4), direction.z / 4);

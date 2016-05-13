@@ -11,8 +11,17 @@ public class SelectEnemySlam : MonoBehaviour
 
     bool zero;
 
+    void Start()
+    {
+        StartCoroutine("GO");
+    }
+
     void Update()
-    {        
+    {
+        if (Manager.manager.player[1].GetComponent<Rigidbody>().velocity.y < 0)
+        {
+            Manager.manager.player[1].GetComponent<Rigidbody>().velocity = new Vector3(0, 0, 0);
+        }
         x = Input.GetAxis("HorizontalP2");
         if (zero)
         {
@@ -33,13 +42,24 @@ public class SelectEnemySlam : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.Joystick2Button0))
         {
-            obj.SetActive(true);
+            Aperto();
             /*Manager.manager.player[1].AddComponent<PlayerGoSlamDunk>();
             Manager.manager.player[1].GetComponent<PlayerGoSlamDunk>().selecionado = selecionado;
             Manager.manager.player[1].GetComponent<PlayerGoSlamDunk>().obj = Manager.manager.enemy[selecionado];
             Destroy(gameObject);*/
         }
         
+    }
+
+    void Aperto()
+    {
+        obj.SetActive(true);
+    }
+
+    IEnumerator GO()
+    {
+        yield return new WaitForSeconds(2);
+        Aperto();
     }
 
     void Proximo()

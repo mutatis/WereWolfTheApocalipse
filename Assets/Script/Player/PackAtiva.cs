@@ -5,13 +5,20 @@ public class PackAtiva : MonoBehaviour
 {
     public ArrancarPelos arranca;
 
+    public GameObject slam;
+
     public SpriteRenderer[] sprt;
 
     public Sprite[] img;
 
+    public int temp;
+    [HideInInspector]
+    public int qual;
+
+    bool pode;
+
     int x = 0;
     int y = 10;
-    public int temp;
     
     void Update()
     {
@@ -126,11 +133,26 @@ public class PackAtiva : MonoBehaviour
                 break;
         }
 
-        if (temp >= 6)
+        if (temp >= 6 && qual == 1)
         {
-            arranca.enabled = true;
-            Erro();
+            Arranca();
         }
+        else if (temp >= 6 && qual == 2 && pode)
+        {
+            Slam();
+        }
+    }
+
+    void Arranca()
+    {
+        arranca.enabled = true;
+        Erro();
+    }
+
+    void Slam()
+    {
+        Instantiate(slam);
+        pode = false;
     }
 
     void Acerto(int player)
@@ -221,6 +243,7 @@ public class PackAtiva : MonoBehaviour
         if(other.gameObject.tag == "Player")
         {
             StartCoroutine("GO");
+            pode = true;
         }
     }
 }

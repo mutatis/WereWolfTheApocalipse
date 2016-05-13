@@ -4,6 +4,8 @@ using System.Collections;
 
 public class PackAtivaSlamDunk : MonoBehaviour
 {
+    public Canvas canvas;
+
     public Slider sliPunhe;
 
     public GameObject sliAumenDimi;
@@ -16,6 +18,8 @@ public class PackAtivaSlamDunk : MonoBehaviour
 
     void Start()
     {
+        canvas.renderMode = RenderMode.ScreenSpaceCamera;
+        canvas.worldCamera = Camera.main;
         sliPunhe.maxValue = numPress;
         for(int i = 0; i < Manager.manager.player.Length; i++)
         {

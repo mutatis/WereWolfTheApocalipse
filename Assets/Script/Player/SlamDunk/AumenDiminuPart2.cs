@@ -16,11 +16,14 @@ public class AumenDiminuPart2 : MonoBehaviour
             Manager.manager.player[1].AddComponent<PlayerGoSlamDunk>();
             Manager.manager.player[1].GetComponent<PlayerGoSlamDunk>().selecionado = selecionado;
             Manager.manager.player[1].GetComponent<PlayerGoSlamDunk>().obj = Manager.manager.enemy[selecionado];
-            Destroy(gameObject);
+            Destroy(obj);
         }
         if (transform.localScale.x <= 0.05f)
         {
-            obj.SetActive(false);
+            Manager.manager.player[1].AddComponent<PlayerGoSlamDunk>();
+            Manager.manager.player[1].GetComponent<PlayerGoSlamDunk>().selecionado = selecionado;
+            Manager.manager.player[1].GetComponent<PlayerGoSlamDunk>().obj = Manager.manager.enemy[selecionado];
+            Destroy(obj);
         }
 
         transform.localScale = new Vector3(transform.localScale.x - 0.004f, transform.localScale.y - 0.004f, transform.localScale.z - 0.004f);
