@@ -3,7 +3,6 @@ using System.Collections;
 
 public class SelectEnemySlam : MonoBehaviour
 {
-
     float x;
 
     int selecionado;
@@ -13,31 +12,31 @@ public class SelectEnemySlam : MonoBehaviour
     void Update()
     {
         
-                x = Input.GetAxis("HorizontalP2");
-                if (zero)
-                {
-                    if (x < -0.1f)
-                    {
-                        Anterior();
-                    }
-                    else if (x > 0.1f)
-                    {
-                        Proximo();
-                    }
-                }
+        x = Input.GetAxis("HorizontalP2");
+        if (zero)
+        {
+            if (x < -0.1f)
+            {
+                Anterior();
+            }
+            else if (x > 0.1f)
+            {
+                Proximo();
+            }
+        }
 
-                if (x == 0)
-                {
-                    zero = true;
-                }
+        if (x == 0)
+        {
+            zero = true;
+        }
 
-                if (Input.GetKeyDown(KeyCode.Joystick2Button0))
-                {
-                    Manager.manager.player[1].AddComponent<PlayerGoSlamDunk>();
-                    Manager.manager.player[1].GetComponent<PlayerGoSlamDunk>().selecionado = selecionado;
-                    Manager.manager.player[1].GetComponent<PlayerGoSlamDunk>().obj = Manager.manager.enemy[selecionado];
-                    Destroy(gameObject);
-                }
+        if (Input.GetKeyDown(KeyCode.Joystick2Button0))
+        {
+            Manager.manager.player[1].AddComponent<PlayerGoSlamDunk>();
+            Manager.manager.player[1].GetComponent<PlayerGoSlamDunk>().selecionado = selecionado;
+            Manager.manager.player[1].GetComponent<PlayerGoSlamDunk>().obj = Manager.manager.enemy[selecionado];
+            Destroy(gameObject);
+        }
         
     }
 
