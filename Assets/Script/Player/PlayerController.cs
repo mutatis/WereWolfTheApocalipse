@@ -241,7 +241,10 @@ public class PlayerController : MonoBehaviour
     IEnumerator GnoseStart()
     {
         yield return new WaitForSeconds(1);
-        gnose += playerStatus.gnosiRegen;
+        if (gnose < playerStatus.gnosiMax)
+        {
+            gnose += playerStatus.gnosiRegen;
+        }
         GnoseRestart();
     }
 
