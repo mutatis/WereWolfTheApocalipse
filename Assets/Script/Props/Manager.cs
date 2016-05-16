@@ -7,6 +7,8 @@ public class Manager : MonoBehaviour
 
     public GameObject[] player;
 
+    public GameObject[] playerEngage;
+
     public GameObject[] enemy;
 
     void Awake()
@@ -17,6 +19,8 @@ public class Manager : MonoBehaviour
     void Update()
     {
         player = GameObject.FindGameObjectsWithTag("Player");
+
+        playerEngage = GameObject.FindGameObjectsWithTag("PlayerEngage");
 
         enemy = GameObject.FindGameObjectsWithTag("Enemy");
     }
