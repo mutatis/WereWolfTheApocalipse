@@ -155,6 +155,11 @@ public class EnemyController : MonoBehaviour
         }
     }
 
+    public void Para()
+    {
+        StopAllCoroutines();
+    }
+
     IEnumerator Foi()
     {
         if (vel1 != 0)

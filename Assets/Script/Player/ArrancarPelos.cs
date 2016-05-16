@@ -37,6 +37,10 @@ public class ArrancarPelos : MonoBehaviour
                 if(Input.GetKeyDown(KeyCode.Joystick1Button0))
                 {
                     Manager.manager.enemy[selecionado].GetComponent<EnemyController>().Dano(500, false, gameObject);
+                    for (int i = 0; i < Manager.manager.enemy.Length; i++)
+                    {
+                        Manager.manager.enemy[i].GetComponent<EnemyController>().enabled = true;
+                    }
                     Destroy(gameObject.GetComponent<ArrancarPelos>());
                 }
                 break;

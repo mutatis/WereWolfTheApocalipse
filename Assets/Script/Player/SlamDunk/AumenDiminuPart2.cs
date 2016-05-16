@@ -13,6 +13,10 @@ public class AumenDiminuPart2 : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Joystick2Button0) && transform.localScale.x < maxSli)
         {
+            for (int i = 0; i < Manager.manager.enemy.Length; i++)
+            {
+                Manager.manager.enemy[i].GetComponent<EnemyController>().enabled = true;
+            }
             Manager.manager.player[1].AddComponent<PlayerGoSlamDunk>();
             Manager.manager.player[1].GetComponent<PlayerGoSlamDunk>().selecionado = selecionado;
             Manager.manager.player[1].GetComponent<PlayerGoSlamDunk>().obj = Manager.manager.enemy[selecionado];
@@ -20,6 +24,10 @@ public class AumenDiminuPart2 : MonoBehaviour
         }
         if (transform.localScale.x <= 0.05f)
         {
+            for (int i = 0; i < Manager.manager.enemy.Length; i++)
+            {
+                Manager.manager.enemy[i].GetComponent<EnemyController>().enabled = true;
+            }
             Manager.manager.player[1].AddComponent<PlayerGoSlamDunk>();
             Manager.manager.player[1].GetComponent<PlayerGoSlamDunk>().selecionado = selecionado;
             Manager.manager.player[1].GetComponent<PlayerGoSlamDunk>().obj = Manager.manager.enemy[selecionado];

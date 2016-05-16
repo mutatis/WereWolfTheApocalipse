@@ -20,6 +20,10 @@ public class SliAumenDimi : MonoBehaviour
         }
         if(transform.localScale.x <= 0.05f)
         {
+            for (int i = 0; i < Manager.manager.enemy.Length; i++)
+            {
+                Manager.manager.enemy[i].GetComponent<EnemyController>().enabled = true;
+            }
             sli.SetActive(false);
         }
 

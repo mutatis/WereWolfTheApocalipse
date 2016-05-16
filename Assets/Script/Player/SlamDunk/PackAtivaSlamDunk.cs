@@ -21,18 +21,10 @@ public class PackAtivaSlamDunk : MonoBehaviour
         canvas.renderMode = RenderMode.ScreenSpaceCamera;
         canvas.worldCamera = Camera.main;
         sliPunhe.maxValue = numPress;
-        for(int i = 0; i < Manager.manager.player.Length; i++)
-        {
-            Manager.manager.player[i].GetComponent<PlayerController>().enabled = false;
-        }
     }
 
     void Update()
     {
-        for (int i = 0; i < Manager.manager.player.Length; i++)
-        {
-            Manager.manager.player[i].GetComponent<PlayerController>().enabled = false;
-        }
         pai = Manager.manager.player[0].transform;
         segue.position = new Vector3(pai.position.x, pai.position.y + 3, pai.position.z);
         if(Input.GetKeyDown(KeyCode.Joystick1Button0))

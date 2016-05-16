@@ -53,6 +53,10 @@ public class SelectEnemySlam : MonoBehaviour
 
     void Aperto()
     {
+        for (int i = 0; i < Manager.manager.enemy.Length; i++)
+        {
+            Manager.manager.enemy[i].GetComponent<EnemyController>().enabled = true;
+        }
         obj.SetActive(true);
     }
 
