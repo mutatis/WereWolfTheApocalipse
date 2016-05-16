@@ -45,7 +45,7 @@ public class EnemyController : MonoBehaviour
 
     void Start()
     {
-        obj = GameObject.FindGameObjectsWithTag("Player");
+        obj = GameObject.FindGameObjectsWithTag("PlayerEngage");
     }
     
     void Update()
@@ -102,7 +102,7 @@ public class EnemyController : MonoBehaviour
                 }
             }
         }
-
+        /*
         if (dist < 1f && player != null)
         {
             if (player.gameObject.name == "Engage1" && transform.localScale.x < 0)
@@ -113,7 +113,7 @@ public class EnemyController : MonoBehaviour
             {
                 transform.localScale = new Vector3((transform.localScale.x * -1), transform.localScale.y, transform.localScale.z);
             }
-        }
+        }*/
 
         if (dist > 1f && isWalk && player != null)
         {
@@ -192,6 +192,14 @@ public class EnemyController : MonoBehaviour
 
     public void Combate()
     {
+        if (player.gameObject.name == "Engage1" && transform.localScale.x < 0)
+        {
+            transform.localScale = new Vector3((transform.localScale.x * -1), transform.localScale.y, transform.localScale.z);
+        }
+        else if (player.gameObject.name == "Engage2" && transform.localScale.x > 0)
+        {
+            transform.localScale = new Vector3((transform.localScale.x * -1), transform.localScale.y, transform.localScale.z);
+        }
         StopCoroutine("Pode");
         StartCoroutine("Pode");
         roamming = false;
@@ -315,14 +323,6 @@ public class EnemyController : MonoBehaviour
             }
             dist = Vector3.Distance(player.transform.position, transform.position);
             yield return new WaitForEndOfFrame();
-        }
-        if(player.gameObject.name == "Engage1" && transform.localScale.x < 0)
-        {
-            transform.localScale = new Vector3((transform.localScale.x * -1), transform.localScale.y, transform.localScale.z);
-        }
-        else if (player.gameObject.name == "Engage2" && transform.localScale.x > 0)
-        {
-            transform.localScale = new Vector3((transform.localScale.x * -1), transform.localScale.y, transform.localScale.z);
         }
         StopCoroutine("Engage");
     }
