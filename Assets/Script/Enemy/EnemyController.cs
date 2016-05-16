@@ -52,6 +52,7 @@ public class EnemyController : MonoBehaviour
     {
         if (life <= 0)
         {
+            StopAllCoroutines();
             anim.SetTrigger("Dead");
             if (player != null)
             {
@@ -72,7 +73,7 @@ public class EnemyController : MonoBehaviour
             dist = Vector3.Distance(player.transform.position, transform.position);
         }
 
-        if(dist > 6 && player != null && player.GetComponent<PlayerEngage>().engage > 2)
+        if(dist > 6 && player != null && player.GetComponent<PlayerEngage>().engage > 1)
         {
             Switch();
         }
@@ -102,18 +103,6 @@ public class EnemyController : MonoBehaviour
                 }
             }
         }
-        /*
-        if (dist < 1f && player != null)
-        {
-            if (player.gameObject.name == "Engage1" && transform.localScale.x < 0)
-            {
-                transform.localScale = new Vector3((transform.localScale.x * -1), transform.localScale.y, transform.localScale.z);
-            }
-            else if (player.gameObject.name == "Engage2" && transform.localScale.x > 0)
-            {
-                transform.localScale = new Vector3((transform.localScale.x * -1), transform.localScale.y, transform.localScale.z);
-            }
-        }*/
 
         if (dist > 1f && isWalk && player != null)
         {
@@ -192,11 +181,12 @@ public class EnemyController : MonoBehaviour
 
     public void Combate()
     {
-        if (player.gameObject.name == "Engage1" && transform.localScale.x < 0)
+        var temp = player.GetComponent<PlayerEngage>().player.transform.position;
+        if (temp.x > transform.position.x && transform.localScale.x > 0)
         {
             transform.localScale = new Vector3((transform.localScale.x * -1), transform.localScale.y, transform.localScale.z);
         }
-        else if (player.gameObject.name == "Engage2" && transform.localScale.x > 0)
+        if (temp.x < transform.position.x && transform.localScale.x < 0)
         {
             transform.localScale = new Vector3((transform.localScale.x * -1), transform.localScale.y, transform.localScale.z);
         }
@@ -324,13 +314,15 @@ public class EnemyController : MonoBehaviour
             dist = Vector3.Distance(player.transform.position, transform.position);
             yield return new WaitForEndOfFrame();
         }
+        StopCoroutine("Pode");
+        StartCoroutine("Pode");
         StopCoroutine("Engage");
     }
 
     IEnumerator GO()
     {
         roamming = false;
-        yield return new WaitForSeconds(5);
+        yield return new WaitForSeconds(2);
         isWalk = true;
     }
 
