@@ -72,7 +72,7 @@ public class EnemyController : MonoBehaviour
             dist = Vector3.Distance(player.transform.position, transform.position);
         }
 
-        if(dist > 6 && player != null && player.GetComponent<PlayerEngage>().engage >= 2)
+        if(dist > 6 && player != null && player.GetComponent<PlayerEngage>().engage > 2)
         {
             Switch();
         }
@@ -103,7 +103,19 @@ public class EnemyController : MonoBehaviour
             }
         }
 
-        if (dist > 0.5f && isWalk && player != null)
+        if (dist < 1f && player != null)
+        {
+            if (player.gameObject.name == "Engage1" && transform.localScale.x < 0)
+            {
+                transform.localScale = new Vector3((transform.localScale.x * -1), transform.localScale.y, transform.localScale.z);
+            }
+            else if (player.gameObject.name == "Engage2" && transform.localScale.x > 0)
+            {
+                transform.localScale = new Vector3((transform.localScale.x * -1), transform.localScale.y, transform.localScale.z);
+            }
+        }
+
+        if (dist > 1f && isWalk && player != null)
         {
             StartCoroutine("Engage");
         }
