@@ -15,7 +15,7 @@ public class EnemyController : MonoBehaviour
     [HideInInspector]
     public bool dano = true;
     [HideInInspector]
-    public bool roamming = false;
+    public bool roamming = true;
     [HideInInspector]
     public bool combate = true;
 
@@ -34,7 +34,7 @@ public class EnemyController : MonoBehaviour
     public GameObject[] obj;
 
     bool isWalk = true;
-    bool procura = true;
+    bool procura = false;
     bool prepare = true;
 
     Vector3 direction;
@@ -46,6 +46,7 @@ public class EnemyController : MonoBehaviour
     void Start()
     {
         obj = GameObject.FindGameObjectsWithTag("PlayerEngage");
+        StartCoroutine("Procura");
     }
     
     void Update()
@@ -104,7 +105,7 @@ public class EnemyController : MonoBehaviour
             }
         }
 
-        if (dist > 1f && isWalk && player != null)
+        if (dist > 0.5f && isWalk && player != null)
         {
             StartCoroutine("Engage");
         }
@@ -142,7 +143,8 @@ public class EnemyController : MonoBehaviour
     IEnumerator Procura()
     {
         procura = false;
-        yield return new WaitForSeconds(1);
+        var tempo = Random.Range(0, 2);
+        yield return new WaitForSeconds(tempo);
         procura = true;
     }
     public void Prepare()
@@ -225,7 +227,7 @@ public class EnemyController : MonoBehaviour
                     break;
 
                 case 6:
-                    Switch();
+                    Soco();
                     break;
 
                 default:
