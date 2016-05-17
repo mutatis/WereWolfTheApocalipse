@@ -36,6 +36,7 @@ public class EnemyController : MonoBehaviour
     bool isWalk = true;
     bool procura = false;
     bool prepare = true;
+    bool chamei;
 
     Vector3 direction;
 
@@ -45,7 +46,7 @@ public class EnemyController : MonoBehaviour
 
     void Start()
     {
-        obj = GameObject.FindGameObjectsWithTag("PlayerEngage");
+        obj = GameObject.FindGameObjectsWithTag("Player");
         StartCoroutine("Procura");
     }
     
@@ -64,7 +65,7 @@ public class EnemyController : MonoBehaviour
             gameObject.GetComponent<EnemyController>().enabled = false;
         }
 
-        if (roamming)
+        if (roamming && player == null)
         {
             transform.Translate(vel1, 0, vel2);
         }
@@ -74,49 +75,18 @@ public class EnemyController : MonoBehaviour
             dist = Vector3.Distance(player.transform.position, transform.position);
         }
 
-        if(dist > 6 && player != null && player.GetComponent<PlayerEngage>().engage > 1)
+        if (dist > 1f && player != null && !chamei)
         {
-            Switch();
+            StartCoroutine(Engage());
+            roamming = false;
+            isWalk = true;
         }
-
-        if(player == null)
-        {
-            if(obj.Length >= 1)
-            {
-                dist1 = Vector3.Distance(obj[0].transform.position, transform.position);
-                if (dist1 < 2)
-                {
-                    player = obj[0];
-                    player.GetComponent<PlayerEngage>().engage++;
-                    StopCoroutine("Pode");
-                    StartCoroutine("Pode");
-                }
-            }
-            if (obj.Length >= 2)
-            {
-                dist2 = Vector3.Distance(obj[1].transform.position, transform.position);
-                if (dist2 < 2)
-                {
-                    player = obj[1];
-                    player.GetComponent<PlayerEngage>().engage++;
-                    StopCoroutine("Pode");
-                    StartCoroutine("Pode");
-                }
-            }
-        }
-
-        if (dist > 0.5f && isWalk && player != null)
-        {
-            StartCoroutine("Engage");
-        }
-        else if(isWalk && player != null)
+        else if(isWalk && player != null && dist > 2)
         {
             player.GetComponent<PlayerEngage>().engage--;
             player = null;
             StopCoroutine("Pode");
             StartCoroutine("Pode");
-            StopCoroutine("GO");
-            StartCoroutine("GO");
             isWalk = false;
         }
         else if(player == null)
@@ -143,10 +113,28 @@ public class EnemyController : MonoBehaviour
     IEnumerator Procura()
     {
         procura = false;
-        var tempo = Random.Range(0, 2);
+        var tempo = Random.Range(1, 2);
         yield return new WaitForSeconds(tempo);
-        procura = true;
+        var ran = Random.value;
+        print(ran);
+        if (ran > 0.3f)
+        {
+            procura = true;
+        }
+        else
+        {
+            roamming = true;
+            player = null;
+            Denovo();
+        }
     }
+
+    void Denovo()
+    {
+        StopCoroutine("Procura");
+        StartCoroutine("Procura");
+    }
+
     public void Prepare()
     {
         if (prepare)
@@ -183,21 +171,22 @@ public class EnemyController : MonoBehaviour
 
     public void Combate()
     {
-        var temp = player.GetComponent<PlayerEngage>().player.transform.position;
-        if (temp.x > transform.position.x && transform.localScale.x > 0)
-        {
-            transform.localScale = new Vector3((transform.localScale.x * -1), transform.localScale.y, transform.localScale.z);
-        }
-        if (temp.x < transform.position.x && transform.localScale.x < 0)
-        {
-            transform.localScale = new Vector3((transform.localScale.x * -1), transform.localScale.y, transform.localScale.z);
-        }
+        StopCoroutine("Procura");
         StopCoroutine("Pode");
         StartCoroutine("Pode");
         roamming = false;
         int num;
-        if(!stun && dist < 2 && combate)
+        if(!stun && dist < 0.5f && combate && !isWalk)
         {
+            var temp = player.GetComponent<PlayerEngage>().playercontroller.transform.position;
+            if (temp.x > transform.position.x && transform.localScale.x > 0)
+            {
+                transform.localScale = new Vector3((transform.localScale.x * -1), transform.localScale.y, transform.localScale.z);
+            }
+            if (temp.x < transform.position.x && transform.localScale.x < 0)
+            {
+                transform.localScale = new Vector3((transform.localScale.x * -1), transform.localScale.y, transform.localScale.z);
+            }
             num = probabilidade.ChooseAttack();
 
             switch(num)
@@ -215,7 +204,7 @@ public class EnemyController : MonoBehaviour
                     break;
 
                 case 3:
-                    Wait();
+                    //Wait();
                     break;
 
                 case 4:
@@ -246,13 +235,13 @@ public class EnemyController : MonoBehaviour
     void Switch()
     {
         //escolhe outro player
-        roamming = false;
+        roamming = true;
         if (player.GetComponent<PlayerEngage>().engage > 0)
         {
             player.GetComponent<PlayerEngage>().engage--;
         }
         player = null;
-        procura = true;
+        Denovo();
     }
 
     void Flee()
@@ -270,7 +259,6 @@ public class EnemyController : MonoBehaviour
         roamming = true;
         vel1 = 0.05f * Random.Range(-2, 2);
         vel2 = 0.05f * Random.Range(-1, 2);
-        //chama a animacao de idle e deixar ele parado perto do player
     }
 
     void SpecialMove()
@@ -296,36 +284,34 @@ public class EnemyController : MonoBehaviour
 
     IEnumerator Engage()
     {
+        StopCoroutine("Procura");
         roamming = false;
+        chamei = true;
+        yield return new WaitForSeconds(1);
         while (dist > 0.5f)
         {
-            if (isWalk)
+            direction = player.transform.position - transform.position;
+            direction.Normalize();
+            if (!stun)
             {
-                direction = player.transform.position - transform.position;
-                direction.Normalize();
-                transform.Translate((direction / 20) * Time.deltaTime);
-                if (direction.x > 0 && transform.localScale.x > 0)
-                {
-                    transform.localScale = new Vector3((transform.localScale.x * -1), transform.localScale.y, transform.localScale.z);
-                }
-                else if (direction.x < 0 && transform.localScale.x < 0)
-                {
-                    transform.localScale = new Vector3((transform.localScale.x * -1), transform.localScale.y, transform.localScale.z);
-                }
+                transform.Translate((direction * 4) * Time.deltaTime);
             }
+            if (direction.x > 0 && transform.localScale.x > 0)
+            {
+                transform.localScale = new Vector3((transform.localScale.x * -1), transform.localScale.y, transform.localScale.z);
+            }
+            else if (direction.x < 0 && transform.localScale.x < 0)
+            {
+                transform.localScale = new Vector3((transform.localScale.x * -1), transform.localScale.y, transform.localScale.z);
+            }
+            
             dist = Vector3.Distance(player.transform.position, transform.position);
             yield return new WaitForEndOfFrame();
         }
+        isWalk = false;
+        chamei = false;
         StopCoroutine("Pode");
         StartCoroutine("Pode");
-        StopCoroutine("Engage");
-    }
-
-    IEnumerator GO()
-    {
-        roamming = false;
-        yield return new WaitForSeconds(2);
-        isWalk = true;
     }
 
 
@@ -359,8 +345,6 @@ public class EnemyController : MonoBehaviour
             stun = true;
             isWalk = false;
             StopCoroutine("Pode");
-            StopCoroutine("GO");
-            StartCoroutine("GO");
             if ((player.transform.localScale.x > 0 && transform.localScale.x < 0) || (player.transform.localScale.x < 0 && transform.localScale.x > 0))
             {
                 transform.localScale = new Vector3((transform.localScale.x * -1), transform.localScale.y, transform.localScale.z);

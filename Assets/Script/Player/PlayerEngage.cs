@@ -5,12 +5,12 @@ public class PlayerEngage : MonoBehaviour
 {
     public int engage;
 
-    public PlayerController player;
+    public PlayerController playercontroller;
 
     public string nome;
 
     void Start()
     {
-        nome = player.nome;
+        nome = playercontroller.nome;
     }
 }
