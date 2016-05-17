@@ -269,7 +269,6 @@ public class PlayerController : MonoBehaviour
         isAttack = false;
         isRun = false;
         anim.anim.SetTrigger("SocoForte");
-
         PlayCombo();
     }
 
