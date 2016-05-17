@@ -29,7 +29,7 @@ public class PlayerAnimation : MonoBehaviour
     {
         if ((playerController.x != 0 || playerController.z != 0) && !playerController.jump)
         {
-            if (run)
+            if (!anim.GetCurrentAnimatorStateInfo(0).IsName("Run"))
             {
                 anim.SetTrigger("Run");
                 run = false;

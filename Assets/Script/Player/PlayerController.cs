@@ -64,7 +64,6 @@ public class PlayerController : MonoBehaviour
                 {
                     transform.localScale = new Vector3((transform.localScale.x * -1), transform.localScale.y, transform.localScale.z);
                 }
-
                 switch (player)
                 {
                     case Player.Player1:
