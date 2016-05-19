@@ -264,6 +264,7 @@ public class SubBossController : MonoBehaviour
 
     IEnumerator Engage()
     {
+        StopCoroutine("Pode");
         roamming = false;
         dano = false;
         while (dist > 0.5f)

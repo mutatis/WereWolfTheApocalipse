@@ -9,6 +9,8 @@ public class EnemyAnim : MonoBehaviour
 
     public SubBossController subBoss;
 
+    public BossController boss;
+
     public GameObject obj;
 
     public int tipo;
@@ -33,6 +35,10 @@ public class EnemyAnim : MonoBehaviour
         {
             subBoss.stun = false;
         }
+        if(tipo == 3)
+        {
+            boss.stun = false;
+        }
         else
         {
             controller.stun = false;
@@ -48,6 +54,10 @@ public class EnemyAnim : MonoBehaviour
         if(tipo == 2)
         {
             subBoss.DanoAgain();
+        }
+        if(tipo == 3)
+        {
+            boss.DanoAgain();
         }
         else
         {
