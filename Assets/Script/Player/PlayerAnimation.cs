@@ -87,6 +87,10 @@ public class PlayerAnimation : MonoBehaviour
             {
                 other.gameObject.GetComponent<EnemyRanged>().Dano(playerStatus.dmg * 2, true, playerController.gameObject);
             }
+            else if (other.gameObject.tag == "SubBoss")
+            {
+                other.gameObject.GetComponent<SubBossController>().Dano(playerStatus.dmg * 2, true, playerController.gameObject);
+            }
             playerController.rage += playerStatus.rageRegen;
             audioInstance = FMODUnity.RuntimeManager.CreateInstance(crit);
             audioInstance.setVolume(PlayerPrefs.GetFloat("VolumeFX"));
@@ -101,6 +105,10 @@ public class PlayerAnimation : MonoBehaviour
             else if (other.gameObject.tag == "EnemyRanged")
             {
                 other.gameObject.GetComponent<EnemyRanged>().Dano(playerStatus.dmg, false, playerController.gameObject);
+            }
+            else if (other.gameObject.tag == "SubBoss")
+            {
+                other.gameObject.GetComponent<SubBossController>().Dano(playerStatus.dmg, false, playerController.gameObject);
             }
             playerController.rage += playerStatus.rageRegen;
         }
@@ -122,6 +130,10 @@ public class PlayerAnimation : MonoBehaviour
             {
                 other.gameObject.GetComponent<EnemyRanged>().Slam((playerStatus.dmg * 2) + (playerStatus.dmg * 0.25f), true, playerController.gameObject, playerStatus.knockback);
             }
+            else if (other.gameObject.tag == "SubBoss")
+            {
+                other.gameObject.GetComponent<SubBossController>().Slam((playerStatus.dmg * 2) + (playerStatus.dmg * 0.25f), true, playerController.gameObject, playerStatus.knockback);
+            }
             playerController.rage += playerStatus.rageRegen;
             audioInstance = FMODUnity.RuntimeManager.CreateInstance(crit);
             audioInstance.setVolume(PlayerPrefs.GetFloat("VolumeFX"));
@@ -136,6 +148,10 @@ public class PlayerAnimation : MonoBehaviour
             else if (other.gameObject.tag == "EnemyRanged")
             {
                 other.gameObject.GetComponent<EnemyRanged>().Slam((playerStatus.dmg + (playerStatus.dmg * 0.25f)), false, playerController.gameObject, playerStatus.knockback);
+            }
+            else if (other.gameObject.tag == "SubBoss")
+            {
+                other.gameObject.GetComponent<SubBossController>().Slam((playerStatus.dmg + (playerStatus.dmg * 0.25f)), false, playerController.gameObject, playerStatus.knockback);
             }
             playerController.rage += playerStatus.rageRegen;
         }
@@ -164,6 +180,19 @@ public class PlayerAnimation : MonoBehaviour
                 Dano(obj);
             }
             if (playerController.contador >= 3 && other.gameObject.GetComponent<EnemyRanged>().life > 0 && other.gameObject.GetComponent<EnemyRanged>().dano)
+            {
+                obj = other.gameObject;
+                SlamDmg(obj);
+            }
+        }
+        else if (other.gameObject.tag == "SubBoss")
+        {
+            if (playerController.contador <= 2 && other.gameObject.GetComponent<SubBossController>().life > 0 && other.gameObject.GetComponent<SubBossController>().dano)
+            {
+                obj = other.gameObject;
+                Dano(obj);
+            }
+            if (playerController.contador >= 3 && other.gameObject.GetComponent<SubBossController>().life > 0 && other.gameObject.GetComponent<SubBossController>().dano)
             {
                 obj = other.gameObject;
                 SlamDmg(obj);

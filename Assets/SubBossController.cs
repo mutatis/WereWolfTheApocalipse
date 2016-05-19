@@ -11,6 +11,8 @@ public class SubBossController : MonoBehaviour
 
     public ProbabilidadeEnemy probabilidade;
 
+    public ProbabilidadeEnemy probabilidade2;
+
     public EnemyAnim enemyanim;
 
     public bool stun;
@@ -34,11 +36,14 @@ public class SubBossController : MonoBehaviour
 
     public int marcado;
 
+    GameObject obj;
+
     int dir;
 
     bool isWalk = true;
     bool procura = true;
     bool prepare = true;
+    bool sugando;
 
     Vector3 direction;
 
@@ -53,6 +58,11 @@ public class SubBossController : MonoBehaviour
     {
         if(player != null)
             dist = Vector3.Distance(player.transform.position, transform.position);
+
+        if(sugando)
+        {
+            obj.GetComponent<PlayerController>().rage -= 0.05f;
+        }
 
         if (!perto)
         {
@@ -128,17 +138,23 @@ public class SubBossController : MonoBehaviour
         StartCoroutine("Pode");
         roamming = false;
         int num;
-        if (!stun)
-        {
-            num = probabilidade.ChooseAttack();
-            print(num);
             if (!perto)
             {
+                num = probabilidade2.ChooseAttack();
                 roamming = false;
-                StartCoroutine("Engage");
+                switch(num)
+                {
+                    case 0:
+                        StartCoroutine("Engage");
+                        break;
+                    case 1:
+                        StartCoroutine(SugaFuria());
+                        break;
+                }
             }
             else
             {
+                num = probabilidade.ChooseAttack();
                 switch (num)
                 {
                     case 0:
@@ -177,7 +193,7 @@ public class SubBossController : MonoBehaviour
                         break;
                 }
             }
-        }
+        
     }
 
     IEnumerator Pode()
@@ -187,22 +203,23 @@ public class SubBossController : MonoBehaviour
         Combate();
     }
 
+    IEnumerator SugaFuria()
+    {
+        var x = Random.Range(0, Manager.manager.player.Length);
+        obj = Manager.manager.player[x];
+        StopCoroutine("Pode");
+        sugando = true;
+        yield return new WaitForSeconds(3);
+        StartCoroutine("Pode");
+        sugando = false;
+    }
+
     void Switch()
     {
         //escolhe outro player
         roamming = false;
         player = null;
         procura = true;
-    }
-
-    void Flee()
-    {
-        //sai do range de ataque
-    }
-
-    void Flank()
-    {
-        //fica se movendo perto do player
     }
 
     public void Wait()
@@ -234,15 +251,14 @@ public class SubBossController : MonoBehaviour
     IEnumerator Engage()
     {
         roamming = false;
+        dano = false;
         while (dist > 0.5f)
         {
+            dano = false;
             sprt.SetActive(false);
             direction = player.transform.position - transform.position;
             direction.Normalize();
-            if (!stun)
-            {
-                transform.Translate((direction * 10) * Time.deltaTime);
-            }
+            transform.Translate((direction * 10) * Time.deltaTime);
             if (direction.x > 0 && transform.localScale.x > 0)
             {
                 transform.localScale = new Vector3((transform.localScale.x * -1), transform.localScale.y, transform.localScale.z);
@@ -256,6 +272,7 @@ public class SubBossController : MonoBehaviour
             yield return new WaitForEndOfFrame();
         }
         sprt.SetActive(true);
+        dano = true;
         Attack();
         Wait();
         marcado = 0;
@@ -323,7 +340,6 @@ public class SubBossController : MonoBehaviour
             }
             stun = true;
             isWalk = false;
-            StopCoroutine("Pode");
             StopCoroutine("GO");
             StartCoroutine("GO");
             if ((player.transform.localScale.x > 0 && transform.localScale.x < 0) || (player.transform.localScale.x < 0 && transform.localScale.x > 0))
@@ -363,7 +379,6 @@ public class SubBossController : MonoBehaviour
             player = obj;
         }
         text.text = dmg.ToString();
-        StopCoroutine("Pode");
         stun = true;
         anim.SetTrigger("Slam");
     }
