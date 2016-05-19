@@ -13,6 +13,9 @@ public class SubBossController : MonoBehaviour
 
     public ProbabilidadeEnemy probabilidade2;
 
+    [HideInInspector]
+    public SpriteRowCreator summon;
+
     public EnemyAnim enemyanim;
 
     public bool stun;
@@ -49,6 +52,7 @@ public class SubBossController : MonoBehaviour
 
     void Start()
     {
+        summon = Manager.manager.summoner;
         Wait();
         StartCoroutine("Pode");
         //Combate();
@@ -61,7 +65,7 @@ public class SubBossController : MonoBehaviour
 
         if(sugando)
         {
-            obj.GetComponent<PlayerController>().rage -= 0.05f;
+            obj.GetComponent<PlayerController>().rage -= 0.5f;
         }
 
         if (!perto)
@@ -83,6 +87,7 @@ public class SubBossController : MonoBehaviour
 
         if (life <= 0)
         {
+            StopAllCoroutines();
             anim.SetTrigger("Dead");
             dano = false;
             gameObject.GetComponent<SubBossController>().enabled = false;
@@ -150,6 +155,10 @@ public class SubBossController : MonoBehaviour
                     case 1:
                         StartCoroutine(SugaFuria());
                         break;
+                    case 2:
+                        Summoner();
+                        break;
+
                 }
             }
             else
@@ -201,6 +210,11 @@ public class SubBossController : MonoBehaviour
         var tempo = tempoResposta;
         yield return new WaitForSeconds(tempo);
         Combate();
+    }
+
+    void Summoner()
+    {
+        summon.CreateSprites();
     }
 
     IEnumerator SugaFuria()

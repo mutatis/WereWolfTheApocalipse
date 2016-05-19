@@ -13,6 +13,8 @@ public class Manager : MonoBehaviour
 
     public GameObject[] posSubBoss;
 
+    public SpriteRowCreator summoner;
+
     void Awake()
     {
         manager = this;
