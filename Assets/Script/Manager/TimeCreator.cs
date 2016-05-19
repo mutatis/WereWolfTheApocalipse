@@ -23,6 +23,7 @@ public class TimeCreator : MonoBehaviour
     IEnumerator GO()
     {
         yield return new WaitForSeconds(4);
+        x++;
         if (x > num)
         {
             camera.GG();
@@ -36,7 +37,6 @@ public class TimeCreator : MonoBehaviour
         {
             for (int i = 0; i < creator.Length; i++)
             {
-                x++;
                 if (x <= num)
                 {
                     creator[i].CreateSprites();
