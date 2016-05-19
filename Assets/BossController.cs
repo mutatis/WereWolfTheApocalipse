@@ -7,7 +7,7 @@ public class BossController : MonoBehaviour
 
     public Rigidbody rig;
 
-    public GameObject sprt;
+    public GameObject sprt, salto;
 
     public ProbabilidadeEnemy probabilidade;
 
@@ -296,6 +296,7 @@ public class BossController : MonoBehaviour
 
     IEnumerator Attack()
     {
+        salto.SetActive(true);
         StopCoroutine("Pode");
         roamming = false;
         var esco = Random.Range(0, Manager.manager.posSubBoss.Length);
@@ -326,6 +327,7 @@ public class BossController : MonoBehaviour
         }
         else
         {
+            salto.SetActive(false);
             marcado = 0;
             StartCoroutine("Volta");
             StopCoroutine("Attack");
