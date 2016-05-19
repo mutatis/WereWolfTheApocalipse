@@ -44,18 +44,22 @@ public class BossController : MonoBehaviour
     int dir;
     int contSalto;
 
+    float lifeMax;
+
     bool isWalk = true;
     bool procura = true;
     bool prepare = true;
-    bool sugando;
+    public bool regen;
 
     Vector3 direction;
 
     void Start()
     {
+        lifeMax = life;
         summon = Manager.manager.summoner;
         Wait();
         StartCoroutine("Pode");
+        StartCoroutine("Regen");
         //Combate();
     }
 
@@ -64,9 +68,9 @@ public class BossController : MonoBehaviour
         if (player != null)
             dist = Vector3.Distance(player.transform.position, transform.position);
 
-        if (sugando)
+        if(lifeMax > life && regen)
         {
-            obj.GetComponent<PlayerController>().rage -= 0.5f;
+            life += 0.05f;
         }
 
         if (!perto)
@@ -101,6 +105,13 @@ public class BossController : MonoBehaviour
             player = Manager.manager.posSubBoss[x];
 
         }
+    }
+
+    IEnumerator Regen()
+    {
+        regen = false;
+        yield return new WaitForSeconds(2);
+        regen = true;
     }
 
     IEnumerator Procura()
@@ -154,7 +165,7 @@ public class BossController : MonoBehaviour
                     StartCoroutine("Engage");
                     break;
                 case 1:
-                    StartCoroutine(SugaFuria());
+                    StartCoroutine("Engage");
                     break;
                 case 2:
                     Summoner();
@@ -216,17 +227,6 @@ public class BossController : MonoBehaviour
     void Summoner()
     {
         summon.CreateSprites();
-    }
-
-    IEnumerator SugaFuria()
-    {
-        var x = Random.Range(0, Manager.manager.player.Length);
-        obj = Manager.manager.player[x];
-        StopCoroutine("Pode");
-        sugando = true;
-        yield return new WaitForSeconds(3);
-        StartCoroutine("Pode");
-        sugando = false;
     }
 
     void Switch()
@@ -348,7 +348,6 @@ public class BossController : MonoBehaviour
         isWalk = true;
     }
 
-
     public void DanoAgain()
     {
         roamming = false;
@@ -380,6 +379,8 @@ public class BossController : MonoBehaviour
             isWalk = false;
             StopCoroutine("GO");
             StartCoroutine("GO");
+            StopCoroutine("Regen");
+            StartCoroutine("Regen");
             if ((player.transform.localScale.x > 0 && transform.localScale.x < 0) || (player.transform.localScale.x < 0 && transform.localScale.x > 0))
             {
                 transform.localScale = new Vector3((transform.localScale.x * -1), transform.localScale.y, transform.localScale.z);
@@ -416,6 +417,8 @@ public class BossController : MonoBehaviour
         {
             player = obj;
         }
+        StopCoroutine("Regen");
+        StartCoroutine("Regen");
         text.text = dmg.ToString();
         stun = true;
         anim.SetTrigger("Slam");

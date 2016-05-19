@@ -7,7 +7,6 @@ public class BossSalto : MonoBehaviour
 
     void OnTriggerEnter(Collider other)
     {
-        print("BATEUUUUU");
         if (other.gameObject.tag == "Player")
         {
             other.gameObject.GetComponent<PlayerController>().Dano(dmg);
