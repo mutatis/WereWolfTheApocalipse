@@ -7,6 +7,8 @@ public class EnemyAnim : MonoBehaviour
 
     public EnemyRanged controller2;
 
+    public SubBossController subBoss;
+
     public GameObject obj;
 
     public int tipo;
@@ -27,6 +29,10 @@ public class EnemyAnim : MonoBehaviour
         {
             controller2.stun = false;
         }
+        if (tipo == 2)
+        {
+            subBoss.stun = false;
+        }
         else
         {
             controller.stun = false;
@@ -38,6 +44,10 @@ public class EnemyAnim : MonoBehaviour
         if (tipo == 1)
         {
             controller2.DanoAgain();
+        }
+        if(tipo == 2)
+        {
+            subBoss.DanoAgain();
         }
         else
         {

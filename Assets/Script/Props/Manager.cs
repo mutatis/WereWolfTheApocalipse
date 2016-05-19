@@ -11,6 +11,8 @@ public class Manager : MonoBehaviour
 
     public GameObject[] enemy;
 
+    public GameObject[] posSubBoss;
+
     void Awake()
     {
         manager = this;
