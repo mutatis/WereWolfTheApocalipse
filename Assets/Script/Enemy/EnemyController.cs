@@ -97,7 +97,7 @@ public class EnemyController : MonoBehaviour
         if(player == null && procura)
         {
             var x = Random.Range(0, Manager.manager.playerEngage.Length);
-            if(Manager.manager.playerEngage[x].GetComponent<PlayerEngage>().engage < 2)
+            if(Manager.manager.playerEngage[x].GetComponent<PlayerEngage>().engage < 1)
             {
                 player = Manager.manager.playerEngage[x];
                 player.GetComponent<PlayerEngage>().engage++;
