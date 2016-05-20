@@ -42,7 +42,7 @@ public class BossController : MonoBehaviour
     GameObject obj;
 
     int dir;
-    int contSalto;
+    int contSalto, contSaltoMax;
 
     float lifeMax;
 
@@ -71,6 +71,19 @@ public class BossController : MonoBehaviour
         if(lifeMax > life && regen)
         {
             life += 0.05f;
+        }
+
+        if(life > (lifeMax * 0.5f))
+        {
+            contSaltoMax = 2;
+        }
+        else if(life > (lifeMax * 0.25f))
+        {
+            contSaltoMax = 4;
+        }
+        else
+        {
+            contSaltoMax = 6;
         }
 
         if (!perto)
@@ -303,7 +316,7 @@ public class BossController : MonoBehaviour
         dir = esco;
         player = Manager.manager.posSubBoss[esco];
         dist = Vector3.Distance(player.transform.position, transform.position);
-        if (contSalto <= 4)
+        if (contSalto <= contSaltoMax)
         {
             while (dist > 0.5f)
             {

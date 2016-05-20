@@ -75,10 +75,10 @@ public class EnemyController : MonoBehaviour
             dist = Vector3.Distance(player.transform.position, transform.position);
         }
 
-        if (dist > 1f && player != null && !chamei)
+        if (dist > 4f && player != null && !chamei)
         {
             StartCoroutine(Engage());
-            roamming = false;
+            roamming = true;
             isWalk = true;
         }
         else if(isWalk && player != null && dist > 2)
