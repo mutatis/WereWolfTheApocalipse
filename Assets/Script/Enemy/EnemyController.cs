@@ -14,7 +14,6 @@ public class EnemyController : MonoBehaviour
     public bool stun;
     [HideInInspector]
     public bool dano = true;
-    [HideInInspector]
     public bool roamming = true;
     [HideInInspector]
     public bool combate = true;
@@ -65,7 +64,7 @@ public class EnemyController : MonoBehaviour
             gameObject.GetComponent<EnemyController>().enabled = false;
         }
 
-        if (roamming && player == null)
+        if (roamming || player == null)
         {
             transform.Translate(vel1, 0, vel2);
         }
@@ -75,10 +74,9 @@ public class EnemyController : MonoBehaviour
             dist = Vector3.Distance(player.transform.position, transform.position);
         }
 
-        if (dist > 4f && player != null && !chamei)
+        if (dist > 1f && player != null)
         {
             StartCoroutine(Engage());
-            roamming = true;
             isWalk = true;
         }
         else if(isWalk && player != null && dist > 2)
@@ -102,11 +100,6 @@ public class EnemyController : MonoBehaviour
                 player = Manager.manager.playerEngage[x];
                 player.GetComponent<PlayerEngage>().engage++;
             }
-            else
-            {
-                StopCoroutine("Procura");
-                StartCoroutine("Procura");
-            }
         }
     }
 
@@ -123,6 +116,8 @@ public class EnemyController : MonoBehaviour
         else
         {
             roamming = true;
+            if(player != null)
+                player.GetComponent<PlayerEngage>().engage--;
             player = null;
             Denovo();
         }
@@ -130,7 +125,6 @@ public class EnemyController : MonoBehaviour
 
     void Denovo()
     {
-        StopCoroutine("Procura");
         StartCoroutine("Procura");
     }
 
@@ -203,7 +197,7 @@ public class EnemyController : MonoBehaviour
                     break;
 
                 case 3:
-                    //Wait();
+                    Switch();
                     break;
 
                 case 4:
@@ -240,7 +234,7 @@ public class EnemyController : MonoBehaviour
             player.GetComponent<PlayerEngage>().engage--;
         }
         player = null;
-        Denovo();
+        procura = true;
     }
 
     void Flee()
@@ -255,7 +249,7 @@ public class EnemyController : MonoBehaviour
 
     public void Wait()
     {
-        roamming = true;
+        //roamming = true;
         vel1 = 0.05f * Random.Range(-2, 2);
         vel2 = 0.05f * Random.Range(-1, 2);
     }
