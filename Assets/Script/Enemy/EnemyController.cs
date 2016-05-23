@@ -79,6 +79,11 @@ public class EnemyController : MonoBehaviour
             StartCoroutine(Engage());
             isWalk = true;
         }
+        else if (player != null && dist < 1 && !chamei)
+        {
+            StartCoroutine("Pode");
+            chamei = true;
+        }
         else if(isWalk && player != null && dist > 2)
         {
             player.GetComponent<PlayerEngage>().engage--;
@@ -217,6 +222,7 @@ public class EnemyController : MonoBehaviour
                     break;
             }
         }
+        chamei = false;
     }
 
     IEnumerator Pode()
@@ -249,7 +255,7 @@ public class EnemyController : MonoBehaviour
 
     public void Wait()
     {
-        //roamming = true;
+        roamming = true;
         vel1 = 0.05f * Random.Range(-2, 2);
         vel2 = 0.05f * Random.Range(-1, 2);
     }
@@ -279,7 +285,6 @@ public class EnemyController : MonoBehaviour
     {
         StopCoroutine("Procura");
         roamming = false;
-        chamei = true;
         yield return new WaitForSeconds(1);
         while (dist > 0.5f)
         {
@@ -302,7 +307,6 @@ public class EnemyController : MonoBehaviour
             yield return new WaitForEndOfFrame();
         }
         isWalk = false;
-        chamei = false;
         StopCoroutine("Pode");
         StartCoroutine("Pode");
     }
