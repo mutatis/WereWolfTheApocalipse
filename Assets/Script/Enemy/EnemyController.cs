@@ -292,7 +292,7 @@ public class EnemyController : MonoBehaviour
             direction.Normalize();
             if (!stun)
             {
-                transform.Translate((direction * 4) * Time.deltaTime);
+                transform.Translate((direction / 10) * Time.deltaTime);
             }
             if (direction.x > 0 && transform.localScale.x > 0)
             {
