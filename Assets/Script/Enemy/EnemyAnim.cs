@@ -98,7 +98,7 @@ public class EnemyAnim : MonoBehaviour
             {
                 if (controller.roamming)
                 {
-                    controller.Wait();
+                    controller.StartCoroutine("Wait");
                 }
             }
         }
