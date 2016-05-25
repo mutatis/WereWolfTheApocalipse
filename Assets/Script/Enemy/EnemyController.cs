@@ -205,18 +205,6 @@ public class EnemyController : MonoBehaviour
                     Switch();
                     break;
 
-                case 4:
-                    Flank();
-                    break;
-
-                case 5:
-                    Flee();
-                    break;
-
-                case 6:
-                    Soco();
-                    break;
-
                 default:
                     Soco();
                     break;
@@ -241,16 +229,6 @@ public class EnemyController : MonoBehaviour
         }
         player = null;
         procura = true;
-    }
-
-    void Flee()
-    {
-        //sai do range de ataque
-    }
-
-    void Flank()
-    {
-        //fica se movendo perto do player
     }
 
     public void Wait()
