@@ -292,7 +292,7 @@ public class EnemyController : MonoBehaviour
             }
             
             dist = Vector3.Distance(player.transform.position, transform.position);
-            yield return new WaitForEndOfFrame();
+            yield return new WaitForSeconds(0.01f);
         }
         isWalk = false;
         StopCoroutine("Pode");
@@ -304,6 +304,7 @@ public class EnemyController : MonoBehaviour
     {
         roamming = false;
         dano = true;
+        chamei = false;
         text.text = "";
     }
 
@@ -329,6 +330,7 @@ public class EnemyController : MonoBehaviour
             }
             stun = true;
             isWalk = false;
+            chamei = true;
             StopCoroutine("Pode");
             if ((player.transform.localScale.x > 0 && transform.localScale.x < 0) || (player.transform.localScale.x < 0 && transform.localScale.x > 0))
             {
@@ -368,6 +370,7 @@ public class EnemyController : MonoBehaviour
         }
         text.text = dmg.ToString();
         StopCoroutine("Pode");
+        chamei = true;
         stun = true;
         anim.SetTrigger("Slam");
     }
