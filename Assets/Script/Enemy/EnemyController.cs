@@ -46,6 +46,7 @@ public class EnemyController : MonoBehaviour
     void Start()
     {
         obj = GameObject.FindGameObjectsWithTag("Player");
+        StartCoroutine("Esquece");
         StartCoroutine("Procura");
     }
     
@@ -106,6 +107,12 @@ public class EnemyController : MonoBehaviour
                 player.GetComponent<PlayerEngage>().engage++;
             }
         }
+    }
+
+    IEnumerator Esquece()
+    {
+        yield return new WaitForSeconds(5);
+        Switch();
     }
 
     IEnumerator Procura()
@@ -222,6 +229,9 @@ public class EnemyController : MonoBehaviour
     void Switch()
     {
         //escolhe outro player
+        StopCoroutine("Esquece");
+        StartCoroutine("Esquece");
+        StopCoroutine("Engage");
         roamming = true;
         if (player.GetComponent<PlayerEngage>().engage > 0)
         {
