@@ -11,6 +11,10 @@ public class Manager : MonoBehaviour
 
     public GameObject[] enemy;
 
+    public GameObject[] subBoss;
+
+    public GameObject[] boss;
+
     public GameObject[] posSubBoss;
 
     public SpriteRowCreator summoner;
@@ -27,5 +31,9 @@ public class Manager : MonoBehaviour
         playerEngage = GameObject.FindGameObjectsWithTag("PlayerEngage");
 
         enemy = GameObject.FindGameObjectsWithTag("Enemy");
+
+        subBoss = GameObject.FindGameObjectsWithTag("SubBoss");
+
+        boss = GameObject.FindGameObjectsWithTag("Boss");
     }
 }
