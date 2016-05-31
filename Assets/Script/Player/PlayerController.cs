@@ -46,6 +46,7 @@ public class PlayerController : MonoBehaviour
 
     void Update()
     {
+        print(crinos);
         if (Time.timeScale != 0)
         {
             if (playerStatus.life <= 0)
@@ -94,13 +95,11 @@ public class PlayerController : MonoBehaviour
                         {
                             if (!jump)
                             {
-                               // rage >= playerStatus.rageMax &&
-                                if (Input.GetKeyDown(KeyCode.Joystick1Button5) && !crinos)
+                                if(rage >= playerStatus.rageMax && Input.GetKeyDown(KeyCode.Joystick1Button0) && !crinos)
                                 {
-                                    print("FFFFFFFFFFFFF");
                                     playerStatus.pode = true;
                                     crinos = true;
-                                    anim.anim.runtimeAnimatorController = Resources.Load("Assets/Animation/Controller/Player/CrinosAndarilho") as RuntimeAnimatorController;
+                                    anim.GetComponent<SpriteRenderer>().color = Color.blue;
                                     StartCoroutine("Crinos");
                                 }
                                 if (Input.GetKeyDown(KeyCode.Joystick1Button2) || Input.GetKeyDown(KeyCode.Space))
