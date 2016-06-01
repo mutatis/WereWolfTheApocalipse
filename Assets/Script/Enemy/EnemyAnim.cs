@@ -72,6 +72,14 @@ public class EnemyAnim : MonoBehaviour
         {
             PlayerPrefs.SetInt(nome + "XP", (PlayerPrefs.GetInt(nome + "XP") + controller2.xp));
         }
+        if(tipo == 2)
+        {
+            PlayerPrefs.SetInt(nome + "XP", (PlayerPrefs.GetInt(nome + "XP") + subBoss.xp));
+        }
+        if (tipo == 3)
+        {
+            PlayerPrefs.SetInt(nome + "XP", (PlayerPrefs.GetInt(nome + "XP") + boss.xp));
+        }
         else
         {
             PlayerPrefs.SetInt(nome + "XP", (PlayerPrefs.GetInt(nome + "XP") + controller.xp));
