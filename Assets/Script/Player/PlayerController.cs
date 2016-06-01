@@ -81,17 +81,18 @@ public class PlayerController : MonoBehaviour
                             transform.Translate(new Vector3((x * playerStatus.speed), 0, (z * playerStatus.speed)));
                         }
 
+                        if (rage >= playerStatus.rageMax && Input.GetKeyDown(KeyCode.Joystick1Button5) && !crinos)
+                        {
+                            playerStatus.pode = true;
+                            crinos = true;
+                            anim.GetComponent<SpriteRenderer>().color = Color.blue;
+                            StartCoroutine("Crinos");
+                        }
+
                         if (isAttack && !r1)
                         {
                             if (!jump)
                             {
-                                if(rage >= playerStatus.rageMax && Input.GetKeyDown(KeyCode.Joystick1Button5) && !crinos)
-                                {
-                                    playerStatus.pode = true;
-                                    crinos = true;
-                                    anim.GetComponent<SpriteRenderer>().color = Color.blue;
-                                    StartCoroutine("Crinos");
-                                }
                                 if (Input.GetKeyDown(KeyCode.Joystick1Button2) || Input.GetKeyDown(KeyCode.Space))
                                 {
                                     flooda++;
