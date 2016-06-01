@@ -81,18 +81,17 @@ public class PlayerController : MonoBehaviour
                             transform.Translate(new Vector3((x * playerStatus.speed), 0, (z * playerStatus.speed)));
                         }
 
-                        if (rage >= playerStatus.rageMax && Input.GetKeyDown(KeyCode.Joystick1Button5) && !crinos)
-                        {
-                            playerStatus.pode = true;
-                            crinos = true;
-                            anim.GetComponent<SpriteRenderer>().color = Color.blue;
-                            StartCoroutine("Crinos");
-                        }
-
                         if (isAttack && !r1)
                         {
                             if (!jump)
                             {
+                                if(rage >= playerStatus.rageMax && Input.GetKeyDown(KeyCode.Joystick1Button5) && !crinos)
+                                {
+                                    playerStatus.pode = true;
+                                    crinos = true;
+                                    anim.GetComponent<SpriteRenderer>().color = Color.blue;
+                                    StartCoroutine("Crinos");
+                                }
                                 if (Input.GetKeyDown(KeyCode.Joystick1Button2) || Input.GetKeyDown(KeyCode.Space))
                                 {
                                     flooda++;
@@ -132,10 +131,11 @@ public class PlayerController : MonoBehaviour
                             {
                                 r1 = true;
                             }
-                            if (Input.GetKeyUp(KeyCode.Joystick1Button5))
-                            {
-                                r1 = false;
-                            }
+                        }
+
+                        if (Input.GetKeyUp(KeyCode.Joystick1Button5))
+                        {
+                            r1 = false;
                         }
 
                         if (Input.GetKeyUp(KeyCode.Joystick1Button1))
