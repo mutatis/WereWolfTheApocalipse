@@ -46,7 +46,6 @@ public class PlayerController : MonoBehaviour
 
     void Update()
     {
-        print(crinos);
         if (Time.timeScale != 0)
         {
             if (playerStatus.life <= 0)
@@ -82,20 +81,11 @@ public class PlayerController : MonoBehaviour
                             transform.Translate(new Vector3((x * playerStatus.speed), 0, (z * playerStatus.speed)));
                         }
 
-                        if(Input.GetKey(KeyCode.Joystick1Button5))
-                        {
-                            r1 = true;
-                        }
-                        if (Input.GetKeyUp(KeyCode.Joystick1Button5))
-                        {
-                            r1 = false;
-                        }
-
                         if (isAttack && !r1)
                         {
                             if (!jump)
                             {
-                                if(rage >= playerStatus.rageMax && Input.GetKeyDown(KeyCode.Joystick1Button0) && !crinos)
+                                if(rage >= playerStatus.rageMax && Input.GetKeyDown(KeyCode.Joystick1Button5) && !crinos)
                                 {
                                     playerStatus.pode = true;
                                     crinos = true;
@@ -135,6 +125,15 @@ public class PlayerController : MonoBehaviour
                                 {
                                     anim.anim.SetTrigger("JumpAttack");
                                 }
+                            }
+                            
+                            if (Input.GetKey(KeyCode.Joystick1Button5))
+                            {
+                                r1 = true;
+                            }
+                            if (Input.GetKeyUp(KeyCode.Joystick1Button5))
+                            {
+                                r1 = false;
                             }
                         }
 
