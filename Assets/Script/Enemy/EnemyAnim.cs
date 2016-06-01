@@ -68,6 +68,10 @@ public class EnemyAnim : MonoBehaviour
     public void Dead()
     {
         FollowTarget.follow.quant--;
+        if (tipo == 0)
+        {
+            PlayerPrefs.SetInt(nome + "XP", (PlayerPrefs.GetInt(nome + "XP") + controller.xp));
+        }
         if (tipo == 1)
         {
             PlayerPrefs.SetInt(nome + "XP", (PlayerPrefs.GetInt(nome + "XP") + controller2.xp));
@@ -79,10 +83,6 @@ public class EnemyAnim : MonoBehaviour
         if (tipo == 3)
         {
             PlayerPrefs.SetInt(nome + "XP", (PlayerPrefs.GetInt(nome + "XP") + boss.xp));
-        }
-        else
-        {
-            PlayerPrefs.SetInt(nome + "XP", (PlayerPrefs.GetInt(nome + "XP") + controller.xp));
         }
         Destroy(obj);
     }
