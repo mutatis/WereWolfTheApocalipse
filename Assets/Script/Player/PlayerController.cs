@@ -10,6 +10,8 @@ public class PlayerController : MonoBehaviour
 
     public PlayerAnimation anim;
 
+    public Animator nim;
+
     public Rigidbody rig;
 
     public Player player;
@@ -84,12 +86,13 @@ public class PlayerController : MonoBehaviour
                         if (isAttack && !r1)
                         {
                             if (!jump)
-                            {
-                                if(rage >= playerStatus.rageMax && Input.GetKeyDown(KeyCode.Joystick1Button5) && !crinos)
+                            {//rage >= playerStatus.rageMax && 
+                                if (Input.GetKeyDown(KeyCode.Joystick1Button5) && !crinos)
                                 {
                                     playerStatus.pode = true;
                                     crinos = true;
                                     anim.GetComponent<SpriteRenderer>().color = Color.blue;
+                                    anim.anim.runtimeAnimatorController = nim.GetComponent<Animator>().runtimeAnimatorController;
                                     StartCoroutine("Crinos");
                                 }
                                 if (Input.GetKeyDown(KeyCode.Joystick1Button2) || Input.GetKeyDown(KeyCode.Space))
