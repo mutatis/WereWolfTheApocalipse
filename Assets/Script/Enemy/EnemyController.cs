@@ -17,6 +17,8 @@ public class EnemyController : MonoBehaviour
     public bool roamming = true;
     [HideInInspector]
     public bool combate = true;
+	[HideInInspector]
+	public bool peguei = false;
 
     public TextMesh text;
 
@@ -52,61 +54,64 @@ public class EnemyController : MonoBehaviour
     
     void Update()
     {
-        if (life <= 0)
-        {
-            StopAllCoroutines();
-            anim.SetTrigger("Dead");
-            if (player != null)
-            {
-                player.GetComponent<PlayerEngage>().engage--;
-                enemyanim.nome = player.GetComponent<PlayerEngage>().nome;
-            }
-            dano = false;
-            gameObject.GetComponent<EnemyController>().enabled = false;
-        }
+		if (!peguei) 
+		{
+			if (life <= 0) 
+			{
+				StopAllCoroutines ();
+				anim.SetTrigger ("Dead");
+				if (player != null) 
+				{
+					player.GetComponent<PlayerEngage> ().engage--;
+					enemyanim.nome = player.GetComponent<PlayerEngage> ().nome;
+				}
+				dano = false;
+				gameObject.GetComponent<EnemyController> ().enabled = false;
+			}
 
-        if (roamming || player == null)
-        {
-            transform.Translate(vel1, 0, vel2);
-        }
+			if (roamming || player == null) 
+			{
+				transform.Translate (vel1, 0, vel2);
+			}
 
-        if (player != null)
-        {
-            dist = Vector3.Distance(player.transform.position, transform.position);
-        }
+			if (player != null) 
+			{
+				dist = Vector3.Distance (player.transform.position, transform.position);
+			}
 
-        if (dist > 1f && player != null)
-        {
-            StartCoroutine(Engage());
-            isWalk = true;
-        }
-        else if (player != null && dist < 1 && !chamei)
-        {
-            StartCoroutine("Pode");
-            chamei = true;
-        }
-        else if(isWalk && player != null && dist > 2)
-        {
-            player.GetComponent<PlayerEngage>().engage--;
-            player = null;
-            StopCoroutine("Pode");
-            StartCoroutine("Pode");
-            isWalk = false;
-        }
-        else if(player == null)
-        {
-            Prepare();
-        }
+			if (dist > 1f && player != null) 
+			{
+				StartCoroutine (Engage ());
+				isWalk = true;
+			} 
+			else if (player != null && dist < 1 && !chamei) 
+			{
+				StartCoroutine ("Pode");
+				chamei = true;
+			} 
+			else if (isWalk && player != null && dist > 2) 
+			{
+				player.GetComponent<PlayerEngage> ().engage--;
+				player = null;
+				StopCoroutine ("Pode");
+				StartCoroutine ("Pode");
+				isWalk = false;
+			}
+			else if (player == null) 
+			{
+				Prepare ();
+			}
 
-        if(player == null && procura)
-        {
-            var x = Random.Range(0, Manager.manager.playerEngage.Length);
-            if(Manager.manager.playerEngage[x].GetComponent<PlayerEngage>().engage < 1)
-            {
-                player = Manager.manager.playerEngage[x];
-                player.GetComponent<PlayerEngage>().engage++;
-            }
-        }
+			if (player == null && procura) 
+			{
+				var x = Random.Range (0, Manager.manager.playerEngage.Length);
+				if (Manager.manager.playerEngage [x].GetComponent<PlayerEngage> ().engage < 1) 
+				{
+					player = Manager.manager.playerEngage [x];
+					player.GetComponent<PlayerEngage> ().engage++;
+				}
+			}
+		}		
     }
 
     IEnumerator Esquece()
