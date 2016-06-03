@@ -17,8 +17,6 @@ public class EnemyController : MonoBehaviour
     public bool roamming = true;
     [HideInInspector]
     public bool combate = true;
-	[HideInInspector]
-	public bool peguei = false;
 
     public TextMesh text;
 
@@ -30,6 +28,8 @@ public class EnemyController : MonoBehaviour
 
     public string[] attack;
 
+    [HideInInspector]
+    public GameObject peguei;
     public GameObject player, seta;
 
     public GameObject[] obj;
@@ -54,7 +54,7 @@ public class EnemyController : MonoBehaviour
     
     void Update()
     {
-		if (!peguei) 
+		if (peguei ==  null) 
 		{
 			if (life <= 0) 
 			{
@@ -111,7 +111,13 @@ public class EnemyController : MonoBehaviour
 					player.GetComponent<PlayerEngage> ().engage++;
 				}
 			}
-		}		
+		}	
+        else
+        {
+            player = null;
+            StopAllCoroutines();
+            transform.position = peguei.transform.position;
+        }	
     }
 
     IEnumerator Esquece()

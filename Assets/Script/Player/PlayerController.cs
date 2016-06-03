@@ -25,6 +25,8 @@ public class PlayerController : MonoBehaviour
     public float rage, gnose, z, x;
 
     [HideInInspector]
+    public bool isAttack = true;
+    [HideInInspector]
     public bool block;
     public bool jump, stun, crinos, call, lunar;
 
@@ -33,7 +35,6 @@ public class PlayerController : MonoBehaviour
     public string nome;
 
     bool isRun = true;
-    bool isAttack = true;
     bool r1;
 
     void Awake()
