@@ -28,6 +28,8 @@ public class PlayerController : MonoBehaviour
     public bool isAttack = true;
     [HideInInspector]
     public bool block;
+    [HideInInspector]
+    public bool isJump = true;
     public bool jump, stun, crinos, call, lunar;
 
     public int contador, engage, flooda;
@@ -260,9 +262,12 @@ public class PlayerController : MonoBehaviour
 
     void Jump()
     {
-        jump = true;
-        anim.anim.SetBool("Jump", jump);
-        rig.velocity = new Vector3(rig.velocity.x, 10, rig.velocity.z);
+        if (isJump)
+        {
+            jump = true;
+            anim.anim.SetBool("Jump", jump);
+            rig.velocity = new Vector3(rig.velocity.x, 10, rig.velocity.z);
+        }
     }
 
     void SocoForte()
@@ -380,6 +385,7 @@ public class PlayerController : MonoBehaviour
     {
         if(other.gameObject.tag == "Chao")
         {
+            anim.Liberated();
             jump = false;
             anim.anim.SetBool("Jump", jump);
         }

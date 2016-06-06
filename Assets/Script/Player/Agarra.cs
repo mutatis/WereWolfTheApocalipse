@@ -11,11 +11,13 @@ public class Agarra : MonoBehaviour
 
 	IEnumerator GO()
 	{
+        player.isJump = false;
 		enemy.GetComponent<EnemyController> ().peguei = gameObject;
 		yield return new WaitForSeconds (1.5f);
         enemy.GetComponent<EnemyController>().peguei = null;
         enemy = null;
 		pego = false;
+        player.isJump = true;
 		StopCoroutine("GO");
 	}
 
