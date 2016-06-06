@@ -329,8 +329,16 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-    public void Dano(float dmg)
+    public void Dano(float dmg, GameObject inimigo)
     {
+        if(inimigo.transform.position.x > transform.position.x)
+        {
+            anim.anim.SetInteger("Frente", 0);
+        }
+        else if(inimigo.transform.position.x < transform.position.x)
+        {
+            anim.anim.SetInteger("Frente", 1);
+        }
         if (playerStatus.life > 0)
         {
             if (block)

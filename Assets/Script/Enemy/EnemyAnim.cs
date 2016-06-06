@@ -91,7 +91,7 @@ public class EnemyAnim : MonoBehaviour
     {
         if (other.gameObject.tag == "Player")
         {
-            other.gameObject.GetComponent<PlayerController>().Dano(dmg);         
+            other.gameObject.GetComponent<PlayerController>().Dano(dmg, gameObject);         
         }
         if (other.gameObject.tag == "Parede")
         {
