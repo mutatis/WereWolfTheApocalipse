@@ -56,9 +56,12 @@ public class PlayerController : MonoBehaviour
             if (playerStatus.life <= 0)
             {
                 anim.anim.SetTrigger("Dead");
-                gameObject.GetComponent<PlayerController>().enabled = false;
+                if (anim.anim.GetCurrentAnimatorStateInfo(0).IsName("PlayerDead"))
+                {
+                    gameObject.GetComponent<PlayerController>().enabled = false;
+                }
             }
-
+            
             if (!stun && playerStatus.life > 0)
             {
                 if (x > 0 && transform.localScale.x < 0)
