@@ -21,8 +21,8 @@ public class TiroEnemy : MonoBehaviour
             if ((transform.position.x - obj.transform.position.x) > 0)
             {
                 velocityX *= -1;
-                foi = true;
             }
+            foi = true;
         }
         transform.Translate(new Vector3(velocityX, 0, 0));
     }

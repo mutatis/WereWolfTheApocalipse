@@ -336,29 +336,32 @@ public class PlayerController : MonoBehaviour
 
     public void Dano(float dmg, GameObject inimigo)
     {
-        if(inimigo.transform.position.x > transform.position.x)
+        if (gameObject.GetComponent<PlayerController>().enabled == true)
         {
-            anim.anim.SetInteger("Frente", 0);
-        }
-        else if(inimigo.transform.position.x < transform.position.x)
-        {
-            anim.anim.SetInteger("Frente", 1);
-        }
-        if (playerStatus.life > 0)
-        {
-            if (block)
+            if (inimigo.transform.position.x > transform.position.x)
             {
-                dmg = dmg * playerStatus.blockEffect;
+                anim.anim.SetInteger("Frente", 0);
             }
-            else
+            else if (inimigo.transform.position.x < transform.position.x)
             {
-                stun = true;
-                anim.anim.SetTrigger("Dano");
+                anim.anim.SetInteger("Frente", 1);
             }
-            rage += playerStatus.rageRegen;
-            dmg -= playerStatus.dmgTrash;
+            if (playerStatus.life > 0)
+            {
+                if (block)
+                {
+                    dmg = dmg * playerStatus.blockEffect;
+                }
+                else
+                {
+                    stun = true;
+                    anim.anim.SetTrigger("Dano");
+                }
+                rage += playerStatus.rageRegen;
+                dmg -= playerStatus.dmgTrash;
+            }
+            playerStatus.life -= dmg;
         }
-        playerStatus.life -= dmg;
     }
 
     IEnumerator GO()
