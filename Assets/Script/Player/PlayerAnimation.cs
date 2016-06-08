@@ -42,6 +42,11 @@ public class PlayerAnimation : MonoBehaviour
         }
 	}
 
+    public void Levanta()
+    {
+        playerController.transform.position = new Vector3(playerController.transform.position.x - 2f, playerController.transform.position.y, playerController.transform.position.z);
+    }
+
     public void Stun()
     {
         playerController.stun = false;

@@ -132,7 +132,7 @@ public class PlayerController : MonoBehaviour
                                 }
                                 else if (Input.GetKeyDown(KeyCode.Joystick1Button0))
                                 {
-                                    //anim.anim.SetTrigger("Uivo");
+                                    //anim.anim.SetTrigger("Slam");
                                     Jump();
                                 }
                                 else if (Input.GetKeyDown(KeyCode.Joystick1Button1))
