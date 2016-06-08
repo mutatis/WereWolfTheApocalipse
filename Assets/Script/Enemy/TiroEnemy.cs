@@ -7,17 +7,23 @@ public class TiroEnemy : MonoBehaviour
 
     public float velocityX, dmg, range;
 
+    bool foi;
+
     void Start()
     {
-        if((transform.position.x - obj.transform.position.x) > 0)
-        {
-            velocityX *= -1;
-        }
         StartCoroutine("GO");
     }
 
     void Update()
     {
+        if(obj != null && !foi)
+        {
+            if ((transform.position.x - obj.transform.position.x) > 0)
+            {
+                velocityX *= -1;
+            }
+            foi = true;
+        }
         transform.Translate(new Vector3(velocityX, 0, 0));
     }
 
@@ -31,7 +37,7 @@ public class TiroEnemy : MonoBehaviour
     {
         if (other.gameObject.tag == "Player")
         {
-            other.gameObject.GetComponent<PlayerController>().Dano(dmg);
+            other.gameObject.GetComponent<PlayerController>().Dano(dmg, gameObject);
             Destroy(gameObject);
         }
     }

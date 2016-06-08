@@ -43,21 +43,21 @@ public class PlayerDonsPresas : MonoBehaviour
                 }
                 break;
             case PlayerDomPresas.Player2:
-                if (Input.GetKey(KeyCode.Joystick1Button5))
+                if (Input.GetKey(KeyCode.Joystick2Button5))
                 {
-                    if (Input.GetKeyDown(KeyCode.Joystick1Button0))
+                    if (Input.GetKeyDown(KeyCode.Joystick2Button0))
                     {
                         PressButtonA("P2");
                     }
-                    else if (Input.GetKeyDown(KeyCode.Joystick1Button1))
+                    else if (Input.GetKeyDown(KeyCode.Joystick2Button1))
                     {
                         PressButtonB("P2");
                     }
-                    else if (Input.GetKeyDown(KeyCode.Joystick1Button2))
+                    else if (Input.GetKeyDown(KeyCode.Joystick2Button2))
                     {
                         PressButtonX("P2");
                     }
-                    else if (Input.GetKeyDown(KeyCode.Joystick1Button3))
+                    else if (Input.GetKeyDown(KeyCode.Joystick2Button3))
                     {
                         PressButtonY("P2");
                     }

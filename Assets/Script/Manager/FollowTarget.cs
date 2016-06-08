@@ -19,6 +19,9 @@ public class FollowTarget : MonoBehaviour
     public bool segue;
 
     float num;
+
+    int enemy;
+
     private float xPosition; //wanted X position
     private float yPosition; //wanted Y position
 
@@ -33,13 +36,15 @@ public class FollowTarget : MonoBehaviour
 	{
         target = Manager.manager.player[0];
         num = transform.position.x;
-        if(num >= pos[cont])
+        enemy = Manager.manager.enemy.Length + Manager.manager.subBoss.Length + Manager.manager.boss.Length;
+
+        if (num >= pos[cont])
         {
             segue = false;
             obj[cont].SetActive(true);
         }
 
-        if (segue && quant <= 0 && target.GetComponent<PlayerController>().x >= 0)
+        if (segue && quant <= 0 && enemy <= 0 && target.GetComponent<PlayerController>().x >= 0)
         {
             xPosition = target.transform.position.x + offset.x;
             yPosition = offset.y;

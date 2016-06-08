@@ -16,6 +16,7 @@ public class EnemyRanged : MonoBehaviour
     public bool dano = true;
     [HideInInspector]
     public bool roamming = false;
+    public bool perto = false;
 
     public TextMesh text;
 
@@ -46,18 +47,21 @@ public class EnemyRanged : MonoBehaviour
 
     void Update()
     {
-        if (marcado == 0)
+        if (!perto)
         {
-            transform.Translate(vel1, 0, vel2);
-        }
+            if (marcado == 0)
+            {
+                transform.Translate(vel1, 0, vel2);
+            }
 
-        if(marcado == 1)
-        {
-            transform.Translate(new Vector3(0.001f, 0, -0.1f));
-        }
-        else if(marcado == 2)
-        {
-            transform.Translate(new Vector3(0.001f, 0, 0.1f));
+            if (marcado == 1)
+            {
+                transform.Translate(new Vector3(0.001f, 0, -0.1f));
+            }
+            else if (marcado == 2)
+            {
+                transform.Translate(new Vector3(0.001f, 0, 0.1f));
+            }
         }
 
         if (life <= 0)
@@ -124,48 +128,70 @@ public class EnemyRanged : MonoBehaviour
         int num;
         if (!stun)
         {
+            var temp = player.GetComponent<PlayerController>().transform.position;
+            if (temp.x > transform.position.x && transform.localScale.x > 0)
+            {
+                transform.localScale = new Vector3((transform.localScale.x * -1), transform.localScale.y, transform.localScale.z);
+            }
+            if (temp.x < transform.position.x && transform.localScale.x < 0)
+            {
+                transform.localScale = new Vector3((transform.localScale.x * -1), transform.localScale.y, transform.localScale.z);
+            }
             num = probabilidade.ChooseAttack();
 
-            switch (num)
+            if (!perto)
             {
-                case 0:
-                    Soco();
-                    break;
+                roamming = false;
+                StartCoroutine("Engage");
+            }
+            else
+            {
+                switch (num)
+                {
+                    case 0:
+                        Soco();
+                        break;
 
-                case 1:
-                    Defesa();
-                    break;
+                    case 1:
+                        Defesa();
+                        break;
 
-                case 2:
-                    Engage();
-                    break;
+                    case 2:
+                        Engage();
+                        break;
 
-                case 3:
-                    Wait();
-                    break;
+                    case 3:
+                        Wait();
+                        break;
 
-                case 4:
-                    Wait();
-                    break;
+                    case 4:
+                        Wait();
+                        break;
 
-                case 5:
-                    Wait();
-                    break;
+                    case 5:
+                        Wait();
+                        break;
 
-                case 6:
-                    Wait();
-                    break;
+                    case 6:
+                        Wait();
+                        break;
 
-                default:
-                    Soco();
-                    break;
+                    default:
+                        Soco();
+                        break;
+                }
             }
         }
     }
 
     IEnumerator Pode()
     {
-        yield return new WaitForSeconds(tempoResposta);
+        var tempo = tempoResposta;
+        if(perto)
+        {
+            tempo *= 0.5f;
+        }
+        yield return new WaitForSeconds(tempo);
         Combate();
     }
 
@@ -199,19 +225,19 @@ public class EnemyRanged : MonoBehaviour
     void SpecialMove()
     {
         roamming = false;
-        StartCoroutine("Engage");
+        anim.SetTrigger("SocoFraco2");
     }
 
     void Defesa()
     {
         roamming = false;
-        StartCoroutine("Engage");
+        anim.SetTrigger("SocoForte");
     }
 
     void Soco()
     {
         roamming = false;
-        StartCoroutine("Engage");
+        anim.SetTrigger("SocoFraco0");
     }
 
     IEnumerator Engage()
@@ -349,7 +375,6 @@ public class EnemyRanged : MonoBehaviour
     {
         if (other.gameObject.tag == "Parede1")
         {
-            print("P1");
             vel1 = 0.05f * Random.Range(-2, -0.2f);
             vel2 = 0.05f * Random.Range(-1, 2);
         }

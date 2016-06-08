@@ -7,6 +7,10 @@ public class EnemyAnim : MonoBehaviour
 
     public EnemyRanged controller2;
 
+    public SubBossController subBoss;
+
+    public BossController boss;
+
     public GameObject obj;
 
     public int tipo;
@@ -27,6 +31,14 @@ public class EnemyAnim : MonoBehaviour
         {
             controller2.stun = false;
         }
+        if (tipo == 2)
+        {
+            subBoss.stun = false;
+        }
+        if(tipo == 3)
+        {
+            boss.stun = false;
+        }
         else
         {
             controller.stun = false;
@@ -39,6 +51,14 @@ public class EnemyAnim : MonoBehaviour
         {
             controller2.DanoAgain();
         }
+        if(tipo == 2)
+        {
+            subBoss.DanoAgain();
+        }
+        if(tipo == 3)
+        {
+            boss.DanoAgain();
+        }
         else
         {
             controller.DanoAgain();
@@ -48,13 +68,21 @@ public class EnemyAnim : MonoBehaviour
     public void Dead()
     {
         FollowTarget.follow.quant--;
+        if (tipo == 0)
+        {
+            PlayerPrefs.SetInt(nome + "XP", (PlayerPrefs.GetInt(nome + "XP") + controller.xp));
+        }
         if (tipo == 1)
         {
             PlayerPrefs.SetInt(nome + "XP", (PlayerPrefs.GetInt(nome + "XP") + controller2.xp));
         }
-        else
+        if(tipo == 2)
         {
-            PlayerPrefs.SetInt(nome + "XP", (PlayerPrefs.GetInt(nome + "XP") + controller.xp));
+            PlayerPrefs.SetInt(nome + "XP", (PlayerPrefs.GetInt(nome + "XP") + subBoss.xp));
+        }
+        if (tipo == 3)
+        {
+            PlayerPrefs.SetInt(nome + "XP", (PlayerPrefs.GetInt(nome + "XP") + boss.xp));
         }
         Destroy(obj);
     }
@@ -63,7 +91,7 @@ public class EnemyAnim : MonoBehaviour
     {
         if (other.gameObject.tag == "Player")
         {
-            other.gameObject.GetComponent<PlayerController>().Dano(dmg);         
+            other.gameObject.GetComponent<PlayerController>().Dano(dmg, gameObject);         
         }
         if (other.gameObject.tag == "Parede")
         {
@@ -78,7 +106,7 @@ public class EnemyAnim : MonoBehaviour
             {
                 if (controller.roamming)
                 {
-                    controller.Wait();
+                    controller.StartCoroutine("Wait");
                 }
             }
         }

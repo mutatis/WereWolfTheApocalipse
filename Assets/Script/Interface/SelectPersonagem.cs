@@ -9,7 +9,7 @@ public class SelectPersonagem : MonoBehaviour
 
     public MusicaManager musica;
 
-    public Image[] player;
+    public Animator[] player;
 
     public GameObject[] atributos;
 
@@ -34,15 +34,15 @@ public class SelectPersonagem : MonoBehaviour
     {
         if(PlayerPrefs.GetInt("Players") == 1)
         {
-            player[0].color = new Color(1, 1, 1, 1);
-            player[1].color = new Color(1, 1, 1, 0.3f);
+            player[0].enabled = true;
+            player[1].enabled = false;
             select = 0;
             select2 = 999;
         }
         else if (PlayerPrefs.GetInt("Players") == 2)
         {
-            player[0].color = new Color(1, 1, 1, 1);
-            player[1].color = new Color(1, 1, 1, 1);
+            player[0].enabled = true;
+            player[1].enabled = true;
             select2 = 1;
         }
     }
@@ -189,14 +189,14 @@ public class SelectPersonagem : MonoBehaviour
         {
             if (select2 == 0 && select != 1)
             {
-                player[1].color = new Color(1, 1, 1, 1);
-                player[0].color = new Color(1, 1, 1, 0.3f);
+                player[1].enabled = true;
+                player[0].enabled = false;
                 select2 = 1;
             }
             else if (select2 == 1 && select != 0)
             {
-                player[0].color = new Color(1, 1, 1, 1);
-                player[1].color = new Color(1, 1, 1, 0.3f);
+                player[0].enabled = true;
+                player[1].enabled = false;
                 select2 = 0;
             }
             podeDpad2 = false;
@@ -209,14 +209,14 @@ public class SelectPersonagem : MonoBehaviour
         {
             if (select == 0 && select2 != 1)
             {
-                player[1].color = new Color(1, 1, 1, 1);
-                player[0].color = new Color(1, 1, 1, 0.3f);
+                player[1].enabled = true;
+                player[0].enabled = false;
                 select = 1;
             }
             else if (select == 1 && select2 != 0)
             {
-                player[0].color = new Color(1, 1, 1, 1);
-                player[1].color = new Color(1, 1, 1, 0.3f);
+                player[0].enabled = true;
+                player[1].enabled = false;
                 select = 0;
             }
             podeDpad = false;

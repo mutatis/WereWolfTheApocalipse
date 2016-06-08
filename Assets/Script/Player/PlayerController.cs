@@ -10,24 +10,39 @@ public class PlayerController : MonoBehaviour
 
     public PlayerAnimation anim;
 
+    public Animator crinosAnim;
+    public Animator playerAnim;
+
     public Rigidbody rig;
 
     public Player player;
+
+    [FMODUnity.EventRef]
+    public string miss;
     
+    FMOD.Studio.EventInstance audioInstanceCreator;
+
     [HideInInspector]
     public float rage, gnose, z, x;
 
     [HideInInspector]
+    public bool isAttack = true;
+    [HideInInspector]
     public bool block;
+    [HideInInspector]
+    public bool isJump = true;
     public bool jump, stun, crinos, call, lunar;
 
     public int contador, engage, flooda;
 
     public string nome;
 
+    public GameObject enemy;
+
     bool isRun = true;
-    bool isAttack = true;
     bool r1;
+
+    int jumpAttack;
 
     void Awake()
     {
@@ -45,10 +60,22 @@ public class PlayerController : MonoBehaviour
         {
             if (playerStatus.life <= 0)
             {
+                if (enemy.transform.position.x < transform.position.x && transform.localScale.x > 0)
+                {
+                    transform.localScale = new Vector3(transform.localScale.x * -1, transform.localScale.y, transform.localScale.z);
+                }
+                else if (enemy.transform.position.x > transform.position.x && transform.localScale.x < 0)
+                {
+                    transform.localScale = new Vector3(transform.localScale.x * -1, transform.localScale.y, transform.localScale.z);
+                }
                 anim.anim.SetTrigger("Dead");
-                gameObject.GetComponent<PlayerController>().enabled = false;
+                anim.anim.SetBool("isDead", true);
+                if (anim.anim.GetCurrentAnimatorStateInfo(0).IsName("PlayerDead"))
+                {
+                    gameObject.GetComponent<PlayerController>().enabled = false;
+                }
             }
-
+            
             if (!stun && playerStatus.life > 0)
             {
                 if (x > 0 && transform.localScale.x < 0)
@@ -59,7 +86,6 @@ public class PlayerController : MonoBehaviour
                 {
                     transform.localScale = new Vector3((transform.localScale.x * -1), transform.localScale.y, transform.localScale.z);
                 }
-
                 switch (player)
                 {
                     case Player.Player1:
@@ -77,24 +103,16 @@ public class PlayerController : MonoBehaviour
                             transform.Translate(new Vector3((x * playerStatus.speed), 0, (z * playerStatus.speed)));
                         }
 
-                        if(Input.GetKey(KeyCode.Joystick1Button5))
-                        {
-                            r1 = true;
-                        }
-                        if (Input.GetKeyUp(KeyCode.Joystick1Button5))
-                        {
-                            r1 = false;
-                        }
-
                         if (isAttack && !r1)
                         {
                             if (!jump)
                             {
-                                if(rage >= playerStatus.rageMax && Input.GetKeyDown(KeyCode.Joystick1Button5) && !crinos)
+                                if (rage >= playerStatus.rageMax && Input.GetKeyDown(KeyCode.Joystick1Button5) && !crinos)
                                 {
                                     playerStatus.pode = true;
                                     crinos = true;
                                     anim.GetComponent<SpriteRenderer>().color = Color.blue;
+                                    anim.anim.runtimeAnimatorController = crinosAnim.GetComponent<Animator>().runtimeAnimatorController;
                                     StartCoroutine("Crinos");
                                 }
                                 if (Input.GetKeyDown(KeyCode.Joystick1Button2) || Input.GetKeyDown(KeyCode.Space))
@@ -114,6 +132,7 @@ public class PlayerController : MonoBehaviour
                                 }
                                 else if (Input.GetKeyDown(KeyCode.Joystick1Button0))
                                 {
+                                    //anim.anim.SetTrigger("Slam");
                                     Jump();
                                 }
                                 else if (Input.GetKeyDown(KeyCode.Joystick1Button1))
@@ -126,11 +145,22 @@ public class PlayerController : MonoBehaviour
                             }
                             else
                             {
-                                if (Input.GetKeyDown(KeyCode.Joystick1Button2))
+                                if (Input.GetKeyDown(KeyCode.Joystick1Button2) && jumpAttack == 0)
                                 {
                                     anim.anim.SetTrigger("JumpAttack");
+                                    jumpAttack++;
                                 }
                             }
+                            
+                            if (Input.GetKey(KeyCode.Joystick1Button5))
+                            {
+                                r1 = true;
+                            }
+                        }
+
+                        if (Input.GetKeyUp(KeyCode.Joystick1Button5))
+                        {
+                            r1 = false;
                         }
 
                         if (Input.GetKeyUp(KeyCode.Joystick1Button1))
@@ -222,6 +252,7 @@ public class PlayerController : MonoBehaviour
     IEnumerator Crinos()
     {
         yield return new WaitForSeconds(30);
+        anim.anim.runtimeAnimatorController = playerAnim.GetComponent<Animator>().runtimeAnimatorController;
         crinos = false;
         anim.GetComponent<SpriteRenderer>().color = Color.white;
         rage = 0;
@@ -236,7 +267,10 @@ public class PlayerController : MonoBehaviour
     IEnumerator GnoseStart()
     {
         yield return new WaitForSeconds(1);
-        gnose += playerStatus.gnosiRegen;
+        if (gnose < playerStatus.gnosiMax)
+        {
+            gnose += playerStatus.gnosiRegen;
+        }
         GnoseRestart();
     }
 
@@ -248,17 +282,23 @@ public class PlayerController : MonoBehaviour
 
     void Jump()
     {
-        jump = true;
-        anim.anim.SetBool("Jump", jump);
-        rig.velocity = new Vector3(rig.velocity.x, 10, rig.velocity.z);
+        if (isJump)
+        {
+            jump = true;
+            anim.anim.SetBool("Jump", jump);
+            rig.velocity = new Vector3(rig.velocity.x, 10, rig.velocity.z);
+            jumpAttack = 0;
+        }
     }
 
     void SocoForte()
     {
+        audioInstanceCreator = FMODUnity.RuntimeManager.CreateInstance(miss);
+        audioInstanceCreator.setVolume(PlayerPrefs.GetFloat("VolumeFX"));
+        audioInstanceCreator.start();
         isAttack = false;
         isRun = false;
         anim.anim.SetTrigger("SocoForte");
-
         PlayCombo();
     }
 
@@ -271,6 +311,9 @@ public class PlayerController : MonoBehaviour
         contador++;
         isAttack = false;
         isRun = false;
+        audioInstanceCreator = FMODUnity.RuntimeManager.CreateInstance(miss);
+        audioInstanceCreator.setVolume(PlayerPrefs.GetFloat("VolumeFX"));
+        audioInstanceCreator.start();
         switch (contador)
         {
             case 1:
@@ -312,23 +355,35 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-    public void Dano(float dmg)
+    public void Dano(float dmg, GameObject inimigo)
     {
-        if (playerStatus.life > 0)
+        enemy = inimigo;
+        if (gameObject.GetComponent<PlayerController>().enabled == true)
         {
-            if (block)
+            if (inimigo.transform.position.x > transform.position.x)
             {
-                dmg = dmg * playerStatus.blockEffect;
+                anim.anim.SetInteger("Frente", 0);
             }
-            else
+            else if (inimigo.transform.position.x < transform.position.x)
             {
-                stun = true;
-                anim.anim.SetTrigger("Dano");
+                anim.anim.SetInteger("Frente", 1);
             }
-            rage += playerStatus.rageRegen;
-            dmg -= playerStatus.dmgTrash;
+            if (playerStatus.life > 0)
+            {
+                if (block)
+                {
+                    dmg = dmg * playerStatus.blockEffect;
+                }
+                else
+                {
+                    stun = true;
+                    anim.anim.SetTrigger("Dano");
+                }
+                rage += playerStatus.rageRegen;
+                dmg -= playerStatus.dmgTrash;
+            }
+            playerStatus.life -= dmg;
         }
-        playerStatus.life -= dmg;
     }
 
     IEnumerator GO()
@@ -355,6 +410,7 @@ public class PlayerController : MonoBehaviour
     {
         if(other.gameObject.tag == "Chao")
         {
+            anim.Liberated();
             jump = false;
             anim.anim.SetBool("Jump", jump);
         }

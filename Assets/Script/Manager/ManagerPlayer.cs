@@ -70,6 +70,9 @@ public class ManagerPlayer : MonoBehaviour
                     Tres();
                     break;
 
+                case 3:
+                    Quatro();
+                    break;
             }
         }
     }
@@ -132,5 +135,10 @@ public class ManagerPlayer : MonoBehaviour
         obj.SetActive(true);
         man.enabled = false;
         obj2.SetActive(false);
+    }
+
+    public void Quatro()
+    {
+        Application.Quit();
     }
 }

@@ -5,17 +5,24 @@ public class PackAtiva : MonoBehaviour
 {
     public ArrancarPelos arranca;
 
+    public GameObject slam;
+
     public SpriteRenderer[] sprt;
 
     public Sprite[] img;
 
+    public int temp;
+    [HideInInspector]
+    public int qual;
+
+    bool pode;
+
     int x = 0;
     int y = 10;
-    public int temp;
     
     void Update()
     {
-        switch(x)
+        switch (x)
         {
             case 1:
                 sprt[0].sprite = img[0];
@@ -126,11 +133,29 @@ public class PackAtiva : MonoBehaviour
                 break;
         }
 
-        if (temp >= 6)
+        if (temp >= 6 && qual == 1)
         {
-            arranca.enabled = true;
-            Erro();
+            Arranca();
         }
+        else if (temp >= 6 && qual == 2 && pode)
+        {
+            Slam();
+        }
+    }
+
+    void Arranca()
+    {
+        arranca.enabled = true;
+        ParaTudo();
+        Erro();
+    }
+
+    void Slam()
+    {
+        Instantiate(slam);
+        ParaTudo();
+        pode = false;
+        Erro();
     }
 
     void Acerto(int player)
@@ -144,6 +169,10 @@ public class PackAtiva : MonoBehaviour
 
     void Erro()
     {
+        for (int i = 0; i < Manager.manager.enemy.Length; i++)
+        {
+            Manager.manager.enemy[i].GetComponent<EnemyController>().enabled = true;
+        }
         StopCoroutine("GO");
         temp = 0;
         sprt[0].sprite = null;
@@ -153,8 +182,18 @@ public class PackAtiva : MonoBehaviour
         gameObject.SetActive(false);
     }
 
+    void ParaTudo()
+    {
+        for (int i = 0; i < Manager.manager.enemy.Length; i++)
+        {
+            Manager.manager.enemy[i].GetComponent<EnemyController>().enabled = false;
+            Manager.manager.enemy[i].GetComponent<EnemyController>().StopAllCoroutines();
+        }
+    }
+
     IEnumerator GO()
     {
+        ParaTudo();
         temp = 0;
         yield return new WaitForSeconds(1);
         x = Random.Range(1, 4);
@@ -221,6 +260,7 @@ public class PackAtiva : MonoBehaviour
         if(other.gameObject.tag == "Player")
         {
             StartCoroutine("GO");
+            pode = true;
         }
     }
 }
