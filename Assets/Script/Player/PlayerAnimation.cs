@@ -16,6 +16,9 @@ public class PlayerAnimation : MonoBehaviour
     [FMODUnity.EventRef]
     public string crit;
 
+    [FMODUnity.EventRef]
+    public string queda;
+
     FMOD.Studio.EventInstance audioInstance;
 
    [FMODUnity.EventRef]
@@ -42,9 +45,23 @@ public class PlayerAnimation : MonoBehaviour
         }
 	}
 
+    public void Queda()
+    {
+        audioInstance = FMODUnity.RuntimeManager.CreateInstance(queda);
+        audioInstance.setVolume(PlayerPrefs.GetFloat("VolumeFX"));
+        audioInstance.start();
+    }
+
     public void Levanta()
     {
-        playerController.transform.position = new Vector3(playerController.transform.position.x - 2f, playerController.transform.position.y, playerController.transform.position.z);
+        if (playerController.transform.localScale.x > 0)
+        {
+            playerController.transform.position = new Vector3(playerController.transform.position.x - 2f, playerController.transform.position.y, playerController.transform.position.z);
+        }
+        else if (playerController.transform.localScale.x < 0)
+        {
+            playerController.transform.position = new Vector3(playerController.transform.position.x + 2f, playerController.transform.position.y, playerController.transform.position.z);
+        }
     }
 
     public void Stun()

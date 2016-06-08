@@ -132,8 +132,8 @@ public class PlayerController : MonoBehaviour
                                 }
                                 else if (Input.GetKeyDown(KeyCode.Joystick1Button0))
                                 {
-                                    //anim.anim.SetTrigger("Slam");
-                                    Jump();
+                                    anim.anim.SetTrigger("Slam");
+                                    //Jump();
                                 }
                                 else if (Input.GetKeyDown(KeyCode.Joystick1Button1))
                                 {
