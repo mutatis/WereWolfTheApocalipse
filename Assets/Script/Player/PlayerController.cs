@@ -10,7 +10,8 @@ public class PlayerController : MonoBehaviour
 
     public PlayerAnimation anim;
 
-    public Animator nim;
+    public Animator crinosAnim;
+    public Animator playerAnim;
 
     public Rigidbody rig;
 
@@ -36,8 +37,12 @@ public class PlayerController : MonoBehaviour
 
     public string nome;
 
+    GameObject enemy;
+
     bool isRun = true;
     bool r1;
+
+    int jumpAttack;
 
     void Awake()
     {
@@ -55,6 +60,10 @@ public class PlayerController : MonoBehaviour
         {
             if (playerStatus.life <= 0)
             {
+                if (enemy.transform.position.x < transform.position.x && transform.localScale.x > 0)
+                {
+                    transform.position = new Vector3(transform.position.x * -1, transform.position.y, transform.position.z);
+                }
                 anim.anim.SetTrigger("Dead");
                 anim.anim.SetBool("isDead", true);
                 if (anim.anim.GetCurrentAnimatorStateInfo(0).IsName("PlayerDead"))
@@ -93,13 +102,13 @@ public class PlayerController : MonoBehaviour
                         if (isAttack && !r1)
                         {
                             if (!jump)
-                            {//rage >= playerStatus.rageMax && 
-                                if (Input.GetKeyDown(KeyCode.Joystick1Button5) && !crinos)
+                            {
+                                if (rage >= playerStatus.rageMax && Input.GetKeyDown(KeyCode.Joystick1Button5) && !crinos)
                                 {
                                     playerStatus.pode = true;
                                     crinos = true;
                                     anim.GetComponent<SpriteRenderer>().color = Color.blue;
-                                    anim.anim.runtimeAnimatorController = nim.GetComponent<Animator>().runtimeAnimatorController;
+                                    anim.anim.runtimeAnimatorController = crinosAnim.GetComponent<Animator>().runtimeAnimatorController;
                                     StartCoroutine("Crinos");
                                 }
                                 if (Input.GetKeyDown(KeyCode.Joystick1Button2) || Input.GetKeyDown(KeyCode.Space))
@@ -119,6 +128,7 @@ public class PlayerController : MonoBehaviour
                                 }
                                 else if (Input.GetKeyDown(KeyCode.Joystick1Button0))
                                 {
+                                    //anim.anim.SetTrigger("Uivo");
                                     Jump();
                                 }
                                 else if (Input.GetKeyDown(KeyCode.Joystick1Button1))
@@ -131,9 +141,10 @@ public class PlayerController : MonoBehaviour
                             }
                             else
                             {
-                                if (Input.GetKeyDown(KeyCode.Joystick1Button2))
+                                if (Input.GetKeyDown(KeyCode.Joystick1Button2) && jumpAttack == 0)
                                 {
                                     anim.anim.SetTrigger("JumpAttack");
+                                    jumpAttack++;
                                 }
                             }
                             
@@ -237,6 +248,7 @@ public class PlayerController : MonoBehaviour
     IEnumerator Crinos()
     {
         yield return new WaitForSeconds(30);
+        anim.anim.runtimeAnimatorController = playerAnim.GetComponent<Animator>().runtimeAnimatorController;
         crinos = false;
         anim.GetComponent<SpriteRenderer>().color = Color.white;
         rage = 0;
@@ -271,6 +283,7 @@ public class PlayerController : MonoBehaviour
             jump = true;
             anim.anim.SetBool("Jump", jump);
             rig.velocity = new Vector3(rig.velocity.x, 10, rig.velocity.z);
+            jumpAttack = 0;
         }
     }
 
@@ -340,6 +353,7 @@ public class PlayerController : MonoBehaviour
 
     public void Dano(float dmg, GameObject inimigo)
     {
+        enemy = inimigo;
         if (gameObject.GetComponent<PlayerController>().enabled == true)
         {
             if (inimigo.transform.position.x > transform.position.x)

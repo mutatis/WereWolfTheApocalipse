@@ -96,6 +96,8 @@ public class PlayerDonsAndarilho : MonoBehaviour
 
     void FabricoftheMind()
     {
+        controller.stun = true;
+        controller.anim.anim.SetTrigger("Summon");
         GameObject temp;
         temp = Instantiate(invoque, posInvoque.position, transform.rotation) as GameObject;
         temp.GetComponent<Pacman>().obj = gameObject;
