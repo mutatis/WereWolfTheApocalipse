@@ -37,7 +37,7 @@ public class PlayerController : MonoBehaviour
 
     public string nome;
 
-    GameObject enemy;
+    public GameObject enemy;
 
     bool isRun = true;
     bool r1;
@@ -62,7 +62,11 @@ public class PlayerController : MonoBehaviour
             {
                 if (enemy.transform.position.x < transform.position.x && transform.localScale.x > 0)
                 {
-                    transform.position = new Vector3(transform.position.x * -1, transform.position.y, transform.position.z);
+                    transform.localScale = new Vector3(transform.localScale.x * -1, transform.localScale.y, transform.localScale.z);
+                }
+                else if (enemy.transform.position.x > transform.position.x && transform.localScale.x < 0)
+                {
+                    transform.localScale = new Vector3(transform.localScale.x * -1, transform.localScale.y, transform.localScale.z);
                 }
                 anim.anim.SetTrigger("Dead");
                 anim.anim.SetBool("isDead", true);
