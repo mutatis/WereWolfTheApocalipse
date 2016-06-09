@@ -19,9 +19,10 @@ public class PlayerController : MonoBehaviour
 
     [FMODUnity.EventRef]
     public string miss;
-
     [FMODUnity.EventRef]
     public string blockSound;
+    [FMODUnity.EventRef]
+    public string jumpSound;
 
     FMOD.Studio.EventInstance audioInstanceCreator;
 
@@ -287,6 +288,9 @@ public class PlayerController : MonoBehaviour
     {
         if (isJump)
         {
+            audioInstanceCreator = FMODUnity.RuntimeManager.CreateInstance(jumpSound);
+            audioInstanceCreator.setVolume(PlayerPrefs.GetFloat("VolumeFX"));
+            audioInstanceCreator.start();
             jump = true;
             anim.anim.SetBool("Jump", jump);
             rig.velocity = new Vector3(rig.velocity.x, 10, rig.velocity.z);
