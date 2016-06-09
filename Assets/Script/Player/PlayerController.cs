@@ -135,8 +135,8 @@ public class PlayerController : MonoBehaviour
                                 }
                                 else if (Input.GetKeyDown(KeyCode.Joystick1Button0))
                                 {
-                                    anim.anim.SetTrigger("Slam");
-                                    //Jump();
+                                    //anim.anim.SetTrigger("Slam");
+                                    Jump();
                                 }
                                 else if (Input.GetKeyDown(KeyCode.Joystick1Button1))
                                 {
@@ -379,6 +379,7 @@ public class PlayerController : MonoBehaviour
                     audioInstanceCreator = FMODUnity.RuntimeManager.CreateInstance(blockSound);
                     audioInstanceCreator.setVolume(PlayerPrefs.GetFloat("VolumeFX"));
                     audioInstanceCreator.start();
+                    anim.anim.SetTrigger("DanoBlock");
                 }
                 else
                 {
