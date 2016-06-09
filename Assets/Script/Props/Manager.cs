@@ -6,15 +6,10 @@ public class Manager : MonoBehaviour
     public static Manager manager;
 
     public GameObject[] player;
-
     public GameObject[] playerEngage;
-
     public GameObject[] enemy;
-
     public GameObject[] subBoss;
-
     public GameObject[] boss;
-
     public GameObject[] posSubBoss;
 
     public SpriteRowCreator summoner;

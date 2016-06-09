@@ -19,7 +19,10 @@ public class PlayerController : MonoBehaviour
 
     [FMODUnity.EventRef]
     public string miss;
-    
+
+    [FMODUnity.EventRef]
+    public string blockSound;
+
     FMOD.Studio.EventInstance audioInstanceCreator;
 
     [HideInInspector]
@@ -373,6 +376,9 @@ public class PlayerController : MonoBehaviour
                 if (block)
                 {
                     dmg = dmg * playerStatus.blockEffect;
+                    audioInstanceCreator = FMODUnity.RuntimeManager.CreateInstance(blockSound);
+                    audioInstanceCreator.setVolume(PlayerPrefs.GetFloat("VolumeFX"));
+                    audioInstanceCreator.start();
                 }
                 else
                 {
