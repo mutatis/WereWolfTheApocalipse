@@ -12,6 +12,7 @@ public class PlayerController : MonoBehaviour
 
     public Animator crinosAnim;
     public Animator playerAnim;
+    public Animator grabAnim;
 
     public Rigidbody rig;
 
@@ -314,6 +315,7 @@ public class PlayerController : MonoBehaviour
         }
         else
         {
+            grabAnim.SetTrigger("GrabThrow");
             anim.anim.SetTrigger("GrabThrow");
             anim.SlamDmg(enemy);
         }
@@ -337,6 +339,7 @@ public class PlayerController : MonoBehaviour
         switch (contador)
         {
             case 0:
+                grabAnim.SetTrigger("GrabAttack");
                 anim.anim.SetTrigger("GrabAttack");
                 break;
             case 1:

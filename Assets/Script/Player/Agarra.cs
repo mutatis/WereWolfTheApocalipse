@@ -9,6 +9,12 @@ public class Agarra : MonoBehaviour
 
 	bool pego;
 
+    public void Joga()
+    {
+        enemy.GetComponent<EnemyController>().Slam(player.playerStatus.dmg, false, gameObject, 5);
+        End();
+    }
+
 	IEnumerator GO()
 	{
         player.isGrab = true;
@@ -25,6 +31,11 @@ public class Agarra : MonoBehaviour
         player.isJump = false;
 		enemy.GetComponent<EnemyController> ().peguei = gameObject;
 		yield return new WaitForSeconds (1.5f);
+        End();
+	}
+
+    void End()
+    {
         player.isGrab = false;
         player.anim.anim.SetBool("Grab", false);
         if ((player.x != 0 || player.z != 0) && !player.jump)
@@ -37,10 +48,10 @@ public class Agarra : MonoBehaviour
         }
         enemy.GetComponent<EnemyController>().peguei = null;
         enemy = null;
-		pego = false;
+        pego = false;
         player.isJump = true;
-		StopCoroutine("GO");
-	}
+        StopCoroutine("GO");
+    }
 
 	void OnTriggerEnter(Collider other)
 	{
