@@ -11,9 +11,30 @@ public class Agarra : MonoBehaviour
 
 	IEnumerator GO()
 	{
+        player.isGrab = true;
+        player.enemy = enemy;
+        player.anim.anim.SetBool("Grab", true);
+        if ((player.x != 0 || player.z != 0) && !player.jump)
+        {
+            player.anim.anim.SetTrigger("Run");            
+        }
+        else
+        {
+            player.anim.anim.SetTrigger("Idle");
+        }
         player.isJump = false;
 		enemy.GetComponent<EnemyController> ().peguei = gameObject;
 		yield return new WaitForSeconds (1.5f);
+        player.isGrab = false;
+        player.anim.anim.SetBool("Grab", false);
+        if ((player.x != 0 || player.z != 0) && !player.jump)
+        {
+            player.anim.anim.SetTrigger("Run");
+        }
+        else
+        {
+            player.anim.anim.SetTrigger("Idle");
+        }
         enemy.GetComponent<EnemyController>().peguei = null;
         enemy = null;
 		pego = false;

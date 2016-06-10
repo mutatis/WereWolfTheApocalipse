@@ -35,6 +35,8 @@ public class PlayerController : MonoBehaviour
     public bool block;
     [HideInInspector]
     public bool isJump = true;
+    [HideInInspector]
+    public bool isGrab = false;
     public bool jump, stun, crinos, call, lunar;
 
     public int contador, engage, flooda;
@@ -300,13 +302,21 @@ public class PlayerController : MonoBehaviour
 
     void SocoForte()
     {
-        audioInstanceCreator = FMODUnity.RuntimeManager.CreateInstance(miss);
-        audioInstanceCreator.setVolume(PlayerPrefs.GetFloat("VolumeFX"));
-        audioInstanceCreator.start();
-        isAttack = false;
-        isRun = false;
-        anim.anim.SetTrigger("SocoForte");
-        PlayCombo();
+        if (!isGrab)
+        {
+            audioInstanceCreator = FMODUnity.RuntimeManager.CreateInstance(miss);
+            audioInstanceCreator.setVolume(PlayerPrefs.GetFloat("VolumeFX"));
+            audioInstanceCreator.start();
+            isAttack = false;
+            isRun = false;
+            anim.anim.SetTrigger("SocoForte");
+            PlayCombo();
+        }
+        else
+        {
+            anim.anim.SetTrigger("GrabThrow");
+            anim.SlamDmg(enemy);
+        }
     }
 
     void SocoFraco()
@@ -315,7 +325,10 @@ public class PlayerController : MonoBehaviour
         {
             contador = 0;
         }
-        contador++;
+        if (!isGrab)
+        {
+            contador++;
+        }
         isAttack = false;
         isRun = false;
         audioInstanceCreator = FMODUnity.RuntimeManager.CreateInstance(miss);
@@ -323,6 +336,9 @@ public class PlayerController : MonoBehaviour
         audioInstanceCreator.start();
         switch (contador)
         {
+            case 0:
+                anim.anim.SetTrigger("GrabAttack");
+                break;
             case 1:
                 anim.anim.SetTrigger("SocoFraco0");
                 break;
