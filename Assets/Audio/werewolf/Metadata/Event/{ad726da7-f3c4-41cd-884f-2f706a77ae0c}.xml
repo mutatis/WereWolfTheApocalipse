@@ -72,6 +72,9 @@
         </relationship>
     </object>
     <object class="EventMixerMaster" id="{9fb44dfd-37e3-45fe-b959-6aabe096fa4f}">
+        <property name="volume">
+            <value>10</value>
+        </property>
         <relationship name="effectChain">
             <destination>{30116094-9017-4b61-8be0-be3af67e0b45}</destination>
         </relationship>
@@ -135,6 +138,9 @@
         <property name="nameOfPropertyBeingModulated">
             <value>pitch</value>
         </property>
+        <property name="amount">
+            <value>8.5</value>
+        </property>
     </object>
     <object class="RandomizerModulator" id="{fd825658-2fa2-4235-80a5-6d6438610beb}">
         <property name="nameOfPropertyBeingModulated">
@@ -152,6 +158,9 @@
     <object class="MixerBusFader" id="{5149119e-7c39-4deb-9663-62d7e67734ea}"/>
     <object class="SpatialiserEffect" id="{aa239c52-18ec-4368-bca7-c7293a40a32e}"/>
     <object class="MixerSend" id="{71a8836d-3e52-431f-a5e6-52b8d5343304}">
+        <property name="level">
+            <value>-38</value>
+        </property>
         <property name="inputFormat">
             <value>2</value>
         </property>
@@ -162,6 +171,9 @@
     <object class="LowpassEffect" id="{0264125d-b5c4-432c-9694-a68b871254ae}">
         <property name="cutoff">
             <value>4400</value>
+        </property>
+        <property name="resonance">
+            <value>1.39999998</value>
         </property>
         <relationship name="modulators">
             <destination>{f7579a49-4858-4d2a-925a-772470ee23fb}</destination>
