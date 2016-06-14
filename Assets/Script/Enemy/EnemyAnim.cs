@@ -15,6 +15,11 @@ public class EnemyAnim : MonoBehaviour
 
     public int tipo;
 
+    [FMODUnity.EventRef]
+    public string socoFracoEnemy;
+
+    FMOD.Studio.EventInstance audioInstance;
+
     public float dmg;
 
     [HideInInspector]
@@ -91,6 +96,9 @@ public class EnemyAnim : MonoBehaviour
     {
         if (other.gameObject.tag == "Player")
         {
+            audioInstance = FMODUnity.RuntimeManager.CreateInstance(socoFracoEnemy);
+            audioInstance.setVolume(PlayerPrefs.GetFloat("VolumeFX"));
+            audioInstance.start();
             other.gameObject.GetComponent<PlayerController>().Dano(dmg, gameObject);         
         }
         if (other.gameObject.tag == "Parede")

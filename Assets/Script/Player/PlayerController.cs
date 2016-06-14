@@ -317,7 +317,6 @@ public class PlayerController : MonoBehaviour
         {
             grabAnim.SetTrigger("GrabThrow");
             anim.anim.SetTrigger("GrabThrow");
-            anim.SlamDmg(enemy);
         }
     }
 
@@ -341,6 +340,10 @@ public class PlayerController : MonoBehaviour
             case 0:
                 grabAnim.SetTrigger("GrabAttack");
                 anim.anim.SetTrigger("GrabAttack");
+                enemy.GetComponent<EnemyController>().Dano(playerStatus.dmg, false, gameObject);
+                anim.audioInstance = FMODUnity.RuntimeManager.CreateInstance(anim.socoFraco);
+                anim.audioInstance.setVolume(PlayerPrefs.GetFloat("VolumeFX"));
+                anim.audioInstance.start();
                 break;
             case 1:
                 anim.anim.SetTrigger("SocoFraco0");

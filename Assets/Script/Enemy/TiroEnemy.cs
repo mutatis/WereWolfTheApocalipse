@@ -5,6 +5,11 @@ public class TiroEnemy : MonoBehaviour
 {
     public GameObject obj;
 
+    [FMODUnity.EventRef]
+    public string tiro;
+
+    FMOD.Studio.EventInstance tiroInstance;
+
     public float velocityX, dmg, range;
 
     bool foi;
@@ -12,6 +17,9 @@ public class TiroEnemy : MonoBehaviour
     void Start()
     {
         StartCoroutine("GO");
+        tiroInstance = FMODUnity.RuntimeManager.CreateInstance(tiro);
+        tiroInstance.setVolume(PlayerPrefs.GetFloat("VolumeFX"));
+        tiroInstance.start();
     }
 
     void Update()

@@ -19,7 +19,8 @@ public class PlayerAnimation : MonoBehaviour
     [FMODUnity.EventRef]
     public string queda;
 
-    FMOD.Studio.EventInstance audioInstance;
+    [HideInInspector]
+    public FMOD.Studio.EventInstance audioInstance;
 
    [FMODUnity.EventRef]
     public string socoForte;
