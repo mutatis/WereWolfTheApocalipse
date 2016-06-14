@@ -114,6 +114,14 @@ public class EnemyController : MonoBehaviour
 		}	
         else
         {
+            if(peguei.GetComponent<Agarra>().player.transform.localScale.x > 0 && transform.localScale.x < 0)
+            {
+                transform.localScale = new Vector3(transform.localScale.x * -1, transform.localScale.y, transform.localScale.z);
+            }
+            else if (peguei.GetComponent<Agarra>().player.transform.localScale.x < 0 && transform.localScale.x > 0)
+            {
+                transform.localScale = new Vector3(transform.localScale.x * -1, transform.localScale.y, transform.localScale.z);
+            }
             player = null;
             StopAllCoroutines();
             transform.position = peguei.transform.position;

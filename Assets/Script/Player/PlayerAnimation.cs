@@ -144,7 +144,7 @@ public class PlayerAnimation : MonoBehaviour
         }
     }
 
-    void SlamDmg(GameObject other)
+    public void SlamDmg(GameObject other)
     {
         audioInstance = FMODUnity.RuntimeManager.CreateInstance(socoForte);
         audioInstance.setVolume(PlayerPrefs.GetFloat("VolumeFX"));
