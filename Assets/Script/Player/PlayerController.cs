@@ -38,6 +38,8 @@ public class PlayerController : MonoBehaviour
     public bool isJump = true;
     [HideInInspector]
     public bool isGrab = false;
+    [HideInInspector]
+    public bool isRun = true;
     public bool jump, stun, crinos, call, lunar;
 
     public int contador, engage, flooda;
@@ -46,7 +48,6 @@ public class PlayerController : MonoBehaviour
 
     public GameObject enemy;
 
-    bool isRun = true;
     bool r1;
 
     int jumpAttack;
@@ -108,6 +109,11 @@ public class PlayerController : MonoBehaviour
                                 z = 0;
                             }
                             transform.Translate(new Vector3((x * playerStatus.speed), 0, (z * playerStatus.speed)));
+                        }
+                        else
+                        {
+                            x = 0;
+                            z = 0;
                         }
 
                         if (isAttack && !r1)
@@ -192,6 +198,11 @@ public class PlayerController : MonoBehaviour
                                 z = 0;
                             }
                             transform.Translate(new Vector3((x * playerStatus.speed), 0, (z * playerStatus.speed)));
+                        }
+                        else
+                        {
+                            x = 0;
+                            z = 0;
                         }
 
                         if (Input.GetKey(KeyCode.Joystick2Button5))
