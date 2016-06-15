@@ -409,8 +409,11 @@ public class PlayerController : MonoBehaviour
                 }
                 else
                 {
-                    stun = true;
-                    anim.anim.SetTrigger("Dano");
+                    if (!jump)
+                    {
+                        stun = true;
+                        anim.anim.SetTrigger("Dano");
+                    }
                 }
                 rage += playerStatus.rageRegen;
                 dmg -= playerStatus.dmgTrash;
