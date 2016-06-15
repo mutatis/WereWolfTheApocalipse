@@ -41,6 +41,7 @@ public class PlayerAnimation : MonoBehaviour
             }*/
             if (!anim.GetCurrentAnimatorStateInfo(0).IsName("Run"))
             {
+                playerController.stun = false;
                 anim.SetTrigger("Run");
                 run = false;
             }
