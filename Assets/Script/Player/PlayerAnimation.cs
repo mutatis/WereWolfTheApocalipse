@@ -59,6 +59,16 @@ public class PlayerAnimation : MonoBehaviour
         audioInstance.start();
     }
 
+    void NotIdle()
+    {
+        idle = false;
+    }
+
+    void OkIdle()
+    {
+        idle = true;
+    }
+
     public void Levanta()
     {
         if (playerController.transform.localScale.x > 0)
@@ -74,6 +84,7 @@ public class PlayerAnimation : MonoBehaviour
     public void Stun()
     {
         playerController.stun = false;
+        OkIdle();
     }
 
     public void Miss()
@@ -88,7 +99,7 @@ public class PlayerAnimation : MonoBehaviour
     {
         playerController.Liberated(obj);
         obj = null;
-        idle = true;
+        OkIdle();
     }
 
     public void Dead()
@@ -98,7 +109,7 @@ public class PlayerAnimation : MonoBehaviour
 
     public void Ataca()
     {
-        idle = false;
+        NotIdle();
         playerController.Ataca();
     }
 
