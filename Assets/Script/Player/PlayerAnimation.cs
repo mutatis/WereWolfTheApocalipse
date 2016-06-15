@@ -27,19 +27,25 @@ public class PlayerAnimation : MonoBehaviour
 
     GameObject obj;
 
+    bool idle = true;
     bool run;
 
 	void Update ()
     {
-        if ((playerController.x != 0 || playerController.z != 0) && !playerController.jump)
+        if ((playerController.x != 0 || playerController.z != 0) && !playerController.jump && !playerController.isGrab)
         {
-            if (run)
+            /*if (run)
+            {
+                anim.SetTrigger("Run");
+                run = false;
+            }*/
+            if (!anim.GetCurrentAnimatorStateInfo(0).IsName("Run"))
             {
                 anim.SetTrigger("Run");
                 run = false;
             }
         }
-        else if(!run)
+        else if(!run && idle)
         {
             anim.SetTrigger("Idle");
             run = true;
@@ -51,6 +57,16 @@ public class PlayerAnimation : MonoBehaviour
         audioInstance = FMODUnity.RuntimeManager.CreateInstance(queda);
         audioInstance.setVolume(PlayerPrefs.GetFloat("VolumeFX"));
         audioInstance.start();
+    }
+
+    void NotIdle()
+    {
+        idle = false;
+    }
+
+    void OkIdle()
+    {
+        idle = true;
     }
 
     public void Levanta()
@@ -68,6 +84,7 @@ public class PlayerAnimation : MonoBehaviour
     public void Stun()
     {
         playerController.stun = false;
+        OkIdle();
     }
 
     public void Miss()
@@ -82,6 +99,7 @@ public class PlayerAnimation : MonoBehaviour
     {
         playerController.Liberated(obj);
         obj = null;
+        OkIdle();
     }
 
     public void Dead()
@@ -91,6 +109,7 @@ public class PlayerAnimation : MonoBehaviour
 
     public void Ataca()
     {
+        NotIdle();
         playerController.Ataca();
     }
 

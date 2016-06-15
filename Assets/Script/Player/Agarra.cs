@@ -5,12 +5,23 @@ public class Agarra : MonoBehaviour
 {
     public PlayerController player;
 
-	GameObject enemy;
+    [FMODUnity.EventRef]
+    public string pega;
+
+    [FMODUnity.EventRef]
+    public string joga;
+
+    FMOD.Studio.EventInstance agarraAudioInstance;
+
+    GameObject enemy;
 
 	bool pego;
 
     public void Joga()
     {
+        agarraAudioInstance = FMODUnity.RuntimeManager.CreateInstance(joga);
+        agarraAudioInstance.setVolume(PlayerPrefs.GetFloat("VolumeFX"));
+        agarraAudioInstance.start();
         enemy.GetComponent<EnemyController>().Slam(player.playerStatus.dmg, false, gameObject, 5);
         End();
     }
@@ -57,9 +68,12 @@ public class Agarra : MonoBehaviour
 	{
 		if(other.gameObject.tag == "Enemy")
 		{
-			if (!pego && !player.stun && player.isAttack && other.gameObject.GetComponent<EnemyController>().life > 0 && (player.x > 0 || player.x < 0) ) 
-			{
-				enemy = other.gameObject;
+			if (!pego && !player.stun && player.isAttack && other.gameObject.GetComponent<EnemyController>().life > 0 && (player.x > 0 || player.x < 0) )
+            {
+                agarraAudioInstance = FMODUnity.RuntimeManager.CreateInstance(pega);
+                agarraAudioInstance.setVolume(PlayerPrefs.GetFloat("VolumeFX"));
+                agarraAudioInstance.start();
+                enemy = other.gameObject;
 				pego = true;
 				StartCoroutine ("GO");
 			}
