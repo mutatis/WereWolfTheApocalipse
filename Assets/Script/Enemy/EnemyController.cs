@@ -38,6 +38,8 @@ public class EnemyController : MonoBehaviour
     bool procura = false;
     bool prepare = true;
     bool chamei;
+    bool isIdle = true;
+    bool isRun = true;
 
     Vector3 direction;
 
@@ -54,7 +56,9 @@ public class EnemyController : MonoBehaviour
     
     void Update()
     {
-		if (peguei ==  null) 
+        anim.SetBool("isWalk", isWalk);
+
+        if (peguei ==  null) 
 		{
 			if (life <= 0) 
 			{
@@ -69,7 +73,12 @@ public class EnemyController : MonoBehaviour
 				gameObject.GetComponent<EnemyController> ().enabled = false;
 			}
 
-			if (roamming || player == null) 
+            if (!isWalk && !anim.GetCurrentAnimatorStateInfo(0).IsName("EnemyIdle"))
+            {
+                anim.SetTrigger("Idle");
+            }
+
+            if (roamming || player == null) 
 			{
 				transform.Translate (vel1, 0, vel2);
 			}
@@ -290,9 +299,19 @@ public class EnemyController : MonoBehaviour
 
     IEnumerator Engage()
     {
+        if (isIdle)
+        {
+            anim.SetTrigger("Idle");
+            isIdle = false;
+        }
         StopCoroutine("Procura");
         roamming = false;
         yield return new WaitForSeconds(1);
+        if (isRun)
+        {
+            anim.SetTrigger("Run");
+            isRun = false;
+        }
         while (dist > 0.5f)
         {
             direction = player.transform.position - transform.position;
@@ -314,6 +333,8 @@ public class EnemyController : MonoBehaviour
             yield return new WaitForSeconds(0.01f);
         }
         isWalk = false;
+        isIdle = true;
+        isRun = true;
         StopCoroutine("Pode");
         StartCoroutine("Pode");
     }
