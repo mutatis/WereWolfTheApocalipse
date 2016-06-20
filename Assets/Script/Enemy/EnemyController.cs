@@ -241,6 +241,10 @@ public class EnemyController : MonoBehaviour
                     Switch();
                     break;
 
+                case 4:
+                    Soco2();
+                    break;
+
                 default:
                     Soco();
                     break;
@@ -295,6 +299,13 @@ public class EnemyController : MonoBehaviour
         block = false;
         anim.SetTrigger("Idle");
         StartCoroutine("Pode");
+    }
+
+    void Soco2()
+    {
+        roamming = false;
+        combate = false;
+        anim.SetTrigger("SocoFraco1");
     }
 
     void Soco()
