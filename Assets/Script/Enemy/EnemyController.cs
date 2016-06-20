@@ -40,6 +40,7 @@ public class EnemyController : MonoBehaviour
     bool chamei;
     bool isIdle = true;
     bool isRun = true;
+    bool block;
 
     Vector3 direction;
 
@@ -229,7 +230,7 @@ public class EnemyController : MonoBehaviour
                     break;
 
                 case 1:
-                    Defesa();
+                    StartCoroutine(Defesa());
                     break;
 
                 case 2:
@@ -283,11 +284,17 @@ public class EnemyController : MonoBehaviour
         anim.SetTrigger("SocoFraco2");
     }
 
-    void Defesa()
+    IEnumerator Defesa()
     {
         roamming = false;
         combate = false;
-        anim.SetTrigger("SocoForte");
+        anim.SetTrigger("Block");
+        block = true;
+        StopCoroutine("Pode");
+        yield return new WaitForSeconds(3f);
+        block = false;
+        anim.SetTrigger("Idle");
+        StartCoroutine("Pode");
     }
 
     void Soco()
@@ -353,16 +360,33 @@ public class EnemyController : MonoBehaviour
         roamming = false;
         if (dano)
         {
-            life -= dmg;
-            if(crit == true)
+            if (!block)
             {
-                text.color = Color.red;
-                text.text = dmg.ToString() + " CRIT";
+                life -= dmg;
+                if (crit == true)
+                {
+                    text.color = Color.red;
+                    text.text = dmg.ToString() + " CRIT";
+                }
+                else
+                {
+                    text.color = Color.white;
+                    text.text = dmg.ToString();
+                }
             }
             else
             {
-                text.color = Color.white;
-                text.text = dmg.ToString();
+                life -= (dmg / 2);
+                if (crit == true)
+                {
+                    text.color = Color.red;
+                    text.text = (dmg / 2).ToString() + " CRIT";
+                }
+                else
+                {
+                    text.color = Color.white;
+                    text.text = (dmg / 2).ToString();
+                }
             }
             if(player == null)
             {
@@ -376,7 +400,14 @@ public class EnemyController : MonoBehaviour
             {
                 transform.localScale = new Vector3((transform.localScale.x * -1), transform.localScale.y, transform.localScale.z);
             }
-            anim.SetTrigger("Dano");
+            if (!block)
+            {
+                anim.SetTrigger("Dano");
+            }
+            else
+            {
+                anim.SetTrigger("BlockDmg");
+            }
             dano = false;
         }
     }
