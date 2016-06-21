@@ -405,7 +405,7 @@ public class EnemyController : MonoBehaviour
             isWalk = false;
             chamei = true;
             StopCoroutine("Pode");
-            if ((player.transform.localScale.x > 0 && transform.localScale.x < 0) || (player.transform.localScale.x < 0 && transform.localScale.x > 0))
+            if ((player.transform.localScale.x < 0 && transform.localScale.x > 0) || (player.transform.localScale.x > 0 && transform.localScale.x < 0))
             {
                 transform.localScale = new Vector3((transform.localScale.x * -1), transform.localScale.y, transform.localScale.z);
             }
