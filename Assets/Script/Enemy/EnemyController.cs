@@ -397,10 +397,8 @@ public class EnemyController : MonoBehaviour
                     text.text = (dmg / 2).ToString();
                 }
             }
-            if(player == null)
-            {
                 player = obj;
-            }
+            
             stun = true;
             isWalk = false;
             chamei = true;
