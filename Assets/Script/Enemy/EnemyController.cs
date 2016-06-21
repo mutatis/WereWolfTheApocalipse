@@ -132,7 +132,7 @@ public class EnemyController : MonoBehaviour
             {
                 transform.localScale = new Vector3(transform.localScale.x * -1, transform.localScale.y, transform.localScale.z);
             }
-            player = null;
+            //player = null;
             StopAllCoroutines();
             transform.position = peguei.transform.position;
         }	
@@ -140,7 +140,7 @@ public class EnemyController : MonoBehaviour
 
     IEnumerator Esquece()
     {
-        yield return new WaitForSeconds(5);
+        yield return new WaitForSeconds(10);
         Switch();
     }
 
@@ -238,11 +238,11 @@ public class EnemyController : MonoBehaviour
                     break;
 
                 case 3:
-                    Switch();
+                    Soco2();
                     break;
 
                 case 4:
-                    Soco2();
+                    Switch();
                     break;
 
                 default:
@@ -294,10 +294,12 @@ public class EnemyController : MonoBehaviour
         combate = false;
         anim.SetTrigger("Block");
         block = true;
+        chamei = true;
         StopCoroutine("Pode");
-        yield return new WaitForSeconds(3f);
+        yield return new WaitForSeconds(2f);
         block = false;
-        anim.SetTrigger("Idle");
+        isWalk = false;
+        StopCoroutine("Pode");
         StartCoroutine("Pode");
     }
 
@@ -336,7 +338,7 @@ public class EnemyController : MonoBehaviour
             direction.Normalize();
             if (!stun)
             {
-                transform.Translate((direction / 10) * Time.deltaTime);
+                transform.Translate((direction / 25) * Time.deltaTime);
             }
             if (direction.x > 0 && transform.localScale.x > 0)
             {
