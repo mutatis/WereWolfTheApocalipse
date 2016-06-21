@@ -294,13 +294,9 @@ public class EnemyController : MonoBehaviour
         combate = false;
         anim.SetTrigger("Block");
         block = true;
-        chamei = true;
-        StopCoroutine("Pode");
         yield return new WaitForSeconds(2f);
+        combate = true;
         block = false;
-        isWalk = false;
-        StopCoroutine("Pode");
-        StartCoroutine("Pode");
     }
 
     void Soco2()
