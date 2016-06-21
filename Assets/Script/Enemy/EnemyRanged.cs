@@ -274,6 +274,11 @@ public class EnemyRanged : MonoBehaviour
 
     void Attack()
     {
+        anim.SetTrigger("Tiro");
+    }
+
+    public void Atira()
+    {
         GameObject obj = Instantiate(tiro);
         obj.GetComponent<TiroEnemy>().transform.position = transform.position;
         obj.GetComponent<TiroEnemy>().obj = player;

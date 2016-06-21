@@ -30,6 +30,11 @@ public class EnemyAnim : MonoBehaviour
         controller.combate = true;
     }
 
+    public void Tiro()
+    {
+        controller2.Atira();
+    }
+
     public void Return()
     {
         if (tipo == 1)
