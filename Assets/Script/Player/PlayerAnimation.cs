@@ -82,6 +82,12 @@ public class PlayerAnimation : MonoBehaviour
         }
     }
 
+    public void DanoAgain()
+    {
+        playerController.apanha = false;
+        playerController.jump = false;
+    }
+
     public void Stun()
     {
         playerController.stun = false;

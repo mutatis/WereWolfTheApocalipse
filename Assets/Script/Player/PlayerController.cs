@@ -40,7 +40,7 @@ public class PlayerController : MonoBehaviour
     public bool isGrab = false;
     [HideInInspector]
     public bool isRun = true;
-    public bool jump, stun, crinos, call, lunar;
+    public bool jump, stun, crinos, call, lunar, apanha;
 
     public int contador, engage, flooda;
 
@@ -50,7 +50,7 @@ public class PlayerController : MonoBehaviour
 
     bool r1;
 
-    int jumpAttack;
+    int jumpAttack, dano;
 
     void Awake()
     {
@@ -145,7 +145,6 @@ public class PlayerController : MonoBehaviour
                                 }
                                 else if (Input.GetKeyDown(KeyCode.Joystick1Button0))
                                 {
-                                    //anim.anim.SetTrigger("Slam");
                                     Jump();
                                 }
                                 else if (Input.GetKeyDown(KeyCode.Joystick1Button1))
@@ -398,38 +397,85 @@ public class PlayerController : MonoBehaviour
     public void Dano(float dmg, GameObject inimigo)
     {
         enemy = inimigo;
-        if (gameObject.GetComponent<PlayerController>().enabled == true)
+
+        if (!apanha)
         {
-            if (inimigo.transform.position.x > transform.position.x)
+            if (dano > 3)
             {
-                anim.anim.SetInteger("Frente", 0);
-            }
-            else if (inimigo.transform.position.x < transform.position.x)
-            {
-                anim.anim.SetInteger("Frente", 1);
-            }
-            if (playerStatus.life > 0)
-            {
-                if (block)
+                if (gameObject.GetComponent<PlayerController>().enabled == true)
                 {
-                    dmg = dmg * playerStatus.blockEffect;
-                    audioInstanceCreator = FMODUnity.RuntimeManager.CreateInstance(blockSound);
-                    audioInstanceCreator.setVolume(PlayerPrefs.GetFloat("VolumeFX"));
-                    audioInstanceCreator.start();
-                    anim.anim.SetTrigger("DanoBlock");
-                }
-                else
-                {
-                    if (!jump)
+                    if ((inimigo.transform.position.x > transform.position.x) && transform.localScale.x < 0)
                     {
-                        stun = true;
-                        anim.anim.SetTrigger("Dano");
+                        transform.localScale = new Vector3(transform.localScale.x * -1, transform.localScale.y, transform.localScale.z);
+                    }
+                    else if ((inimigo.transform.position.x < transform.position.x) && transform.localScale.x < 0)
+                    {
+                        transform.localScale = new Vector3(transform.localScale.x * -1, transform.localScale.y, transform.localScale.z);
+                    }
+                    if (playerStatus.life > 0)
+                    {
+                        if (block)
+                        {
+                            dmg = dmg * playerStatus.blockEffect;
+                            audioInstanceCreator = FMODUnity.RuntimeManager.CreateInstance(blockSound);
+                            audioInstanceCreator.setVolume(PlayerPrefs.GetFloat("VolumeFX"));
+                            audioInstanceCreator.start();
+                            anim.anim.SetTrigger("DanoBlock");
+                        }
+                        else
+                        {
+                            if (!jump)
+                            {
+                                stun = true;
+                                anim.anim.SetTrigger("Slam");
+                                jump = true;
+                                apanha = true;
+                            }
+                        }
+                        rage += playerStatus.rageRegen;
+                        dmg -= playerStatus.dmgTrash;
                     }
                 }
-                rage += playerStatus.rageRegen;
-                dmg -= playerStatus.dmgTrash;
+                dano = 0;
             }
-            playerStatus.life -= dmg;
+            else
+            {
+                if (gameObject.GetComponent<PlayerController>().enabled == true)
+                {
+                    if (inimigo.transform.position.x > transform.position.x)
+                    {
+                        anim.anim.SetInteger("Frente", 0);
+                    }
+                    else if (inimigo.transform.position.x < transform.position.x)
+                    {
+                        anim.anim.SetInteger("Frente", 1);
+                    }
+                    if (playerStatus.life > 0)
+                    {
+                        if (block)
+                        {
+                            dmg = dmg * playerStatus.blockEffect;
+                            audioInstanceCreator = FMODUnity.RuntimeManager.CreateInstance(blockSound);
+                            audioInstanceCreator.setVolume(PlayerPrefs.GetFloat("VolumeFX"));
+                            audioInstanceCreator.start();
+                            anim.anim.SetTrigger("DanoBlock");
+                        }
+                        else
+                        {
+                            if (!jump)
+                            {
+                                stun = true;
+                                anim.anim.SetTrigger("Dano");
+                                apanha = true;
+                                dano++;
+                            }
+                        }
+                        rage += playerStatus.rageRegen;
+                        dmg -= playerStatus.dmgTrash;
+                    }
+                }
+                playerStatus.life -= dmg;
+            }
         }
     }
 
