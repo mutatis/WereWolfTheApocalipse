@@ -51,7 +51,6 @@ public class EnemyController : MonoBehaviour
     void Start()
     {
         obj = GameObject.FindGameObjectsWithTag("Player");
-        StartCoroutine("Esquece");
         StartCoroutine("Procura");
     }
     
@@ -138,16 +137,16 @@ public class EnemyController : MonoBehaviour
         }	
     }
 
-    IEnumerator Esquece()
+    /*IEnumerator Esquece()
     {
         yield return new WaitForSeconds(10);
         Switch();
-    }
+    }*/
 
     IEnumerator Procura()
     {
         procura = false;
-        var tempo = Random.Range(1, 2);
+        var tempo = Random.Range(2f, 3f);
         yield return new WaitForSeconds(tempo);
         var ran = Random.value;
         if (ran > 0.3f)
@@ -242,7 +241,7 @@ public class EnemyController : MonoBehaviour
                     break;
 
                 case 4:
-                    Switch();
+                    Soco();
                     break;
 
                 default:
@@ -262,8 +261,6 @@ public class EnemyController : MonoBehaviour
     void Switch()
     {
         //escolhe outro player
-        StopCoroutine("Esquece");
-        StartCoroutine("Esquece");
         StopCoroutine("Engage");
         roamming = true;
         if (player.GetComponent<PlayerEngage>().engage > 0)
@@ -285,7 +282,7 @@ public class EnemyController : MonoBehaviour
     {
         roamming = false;
         combate = false;
-        anim.SetTrigger("SocoFraco2");
+        anim.SetTrigger("SocoFraco0");
     }
 
     IEnumerator Defesa()
@@ -396,9 +393,7 @@ public class EnemyController : MonoBehaviour
                     text.color = Color.white;
                     text.text = (dmg / 2).ToString();
                 }
-            }
-                player = obj;
-            
+            }           
             stun = true;
             isWalk = false;
             chamei = true;
@@ -442,15 +437,12 @@ public class EnemyController : MonoBehaviour
         {
             rig.velocity = new Vector2(knockback, knockback);
         }
-        if(player == null)
-        {
-            player = obj;
-        }
         text.text = dmg.ToString();
         StopCoroutine("Pode");
         chamei = true;
         stun = true;
         anim.SetTrigger("Slam");
+        Switch();
     }
 
     void OnTriggerEnter(Collider other)

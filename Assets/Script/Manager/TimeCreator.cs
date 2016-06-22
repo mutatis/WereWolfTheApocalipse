@@ -22,7 +22,7 @@ public class TimeCreator : MonoBehaviour
 
     IEnumerator GO()
     {
-        yield return new WaitForSeconds(4);
+        yield return new WaitForSeconds(2);
         if (x > num)
         {
             camera.GG();
