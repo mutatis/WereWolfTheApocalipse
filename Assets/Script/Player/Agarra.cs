@@ -31,7 +31,7 @@ public class Agarra : MonoBehaviour
         player.isGrab = true;
         player.enemy = enemy;
         player.anim.anim.SetBool("Grab", true);
-        if ((player.x != 0 || player.z != 0) && !player.jump)
+        if ((player.x != 0 || player.z != 0))
         {
             player.anim.anim.SetTrigger("Run");            
         }
@@ -58,9 +58,10 @@ public class Agarra : MonoBehaviour
             player.anim.anim.SetTrigger("Idle");
         }
         enemy.GetComponent<EnemyController>().peguei = null;
-        enemy = null;
         pego = false;
         player.isJump = true;
+        enemy.GetComponent<EnemyController>().Switch();
+        enemy = null;
         StopCoroutine("GO");
     }
 
@@ -68,7 +69,7 @@ public class Agarra : MonoBehaviour
 	{
 		if(other.gameObject.tag == "Enemy")
 		{
-			if (!pego && !player.stun && player.isAttack && other.gameObject.GetComponent<EnemyController>().life > 0 && (player.x > 0 || player.x < 0) && !player.jump)
+			if (!pego && !player.stun && player.isAttack && other.gameObject.GetComponent<EnemyController>().life > 0 && !other.gameObject.GetComponent<EnemyController>().slam && (player.x > 0 || player.x < 0) && !player.jump)
             {
                 agarraAudioInstance = FMODUnity.RuntimeManager.CreateInstance(pega);
                 agarraAudioInstance.setVolume(PlayerPrefs.GetFloat("VolumeFX"));

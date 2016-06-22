@@ -48,7 +48,7 @@ public class PlayerController : MonoBehaviour
 
     public GameObject enemy;
 
-    bool r1;
+    bool r1, isIdle;
 
     int jumpAttack, dano;
 
@@ -114,6 +114,16 @@ public class PlayerController : MonoBehaviour
                         {
                             x = 0;
                             z = 0;
+                        }
+                        
+                        if(x == 0 && z == 0 && isGrab && !isIdle)
+                        {
+                            anim.anim.SetTrigger("Idle");
+                            isIdle = true;
+                        }
+                        else if(x != 0 || z != 0)
+                        {
+                            isIdle = false;
                         }
 
                         if (isAttack && !r1)

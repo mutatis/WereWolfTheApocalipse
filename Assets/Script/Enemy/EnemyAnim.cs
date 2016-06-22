@@ -52,6 +52,7 @@ public class EnemyAnim : MonoBehaviour
         else
         {
             controller.stun = false;
+            controller.slam = false;
         }
     }
 

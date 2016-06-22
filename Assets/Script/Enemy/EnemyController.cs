@@ -17,6 +17,8 @@ public class EnemyController : MonoBehaviour
     public bool roamming = true;
     [HideInInspector]
     public bool combate = true;
+    [HideInInspector]
+    public bool slam;
 
     public TextMesh text;
 
@@ -241,7 +243,7 @@ public class EnemyController : MonoBehaviour
                     break;
 
                 case 4:
-                    Soco();
+                    Grab();
                     break;
 
                 default:
@@ -258,7 +260,19 @@ public class EnemyController : MonoBehaviour
         Combate();
     }
 
-    void Switch()
+    void Grab()
+    {
+        if((player.GetComponent<PlayerEngage>().playercontroller.transform.position.x > transform.position.x && player.GetComponent<PlayerEngage>().playercontroller.transform.localScale.x > 0) || (player.GetComponent<PlayerEngage>().playercontroller.transform.position.x < transform.position.x && player.GetComponent<PlayerEngage>().playercontroller.transform.localScale.x < 0))
+        {
+            player.GetComponent<PlayerEngage>().playercontroller.anim.gameObject.SetActive(false);
+            anim.SetBool("isGrab", true);
+            anim.SetTrigger("Grab");
+            roamming = false;
+            combate = false;
+        }
+    }
+
+    public void Switch()
     {
         //escolhe outro player
         StopCoroutine("Engage");
@@ -418,6 +432,7 @@ public class EnemyController : MonoBehaviour
     {
         roamming = false;
         dano = false;
+        slam = true;
         life -= dmg;
         if (crit == true)
         {
