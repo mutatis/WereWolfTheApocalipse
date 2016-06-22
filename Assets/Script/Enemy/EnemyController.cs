@@ -78,7 +78,7 @@ public class EnemyController : MonoBehaviour
                 anim.SetTrigger("Idle");
             }
 
-            if (roamming || player == null) 
+            if ((roamming || player == null) && !stun) 
 			{
 				transform.Translate (vel1, 0, vel2);
 			}
