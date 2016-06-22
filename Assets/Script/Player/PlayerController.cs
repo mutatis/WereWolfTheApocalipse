@@ -408,7 +408,7 @@ public class PlayerController : MonoBehaviour
                     {
                         transform.localScale = new Vector3(transform.localScale.x * -1, transform.localScale.y, transform.localScale.z);
                     }
-                    else if ((inimigo.transform.position.x < transform.position.x) && transform.localScale.x < 0)
+                    else if ((inimigo.transform.position.x < transform.position.x) && transform.localScale.x > 0)
                     {
                         transform.localScale = new Vector3(transform.localScale.x * -1, transform.localScale.y, transform.localScale.z);
                     }
