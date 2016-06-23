@@ -1,4 +1,5 @@
-﻿using System;
+using System;
+using System.Runtime.InteropServices;
 using System.Collections.Generic;
 using System.Text;
 using UnityEngine;
@@ -237,6 +238,9 @@ namespace FMODUnity
             else
             {
                 // Load plugins (before banks)
+		    	#if (UNITY_IOS || UNITY_TVOS) && !UNITY_EDITOR
+				FmodUnityNativePluginInit(lowlevelSystem.getRaw());
+				#else
                 foreach (var pluginName in fmodSettings.Plugins)
                 {
                     string pluginPath = RuntimeUtils.GetPluginPath(pluginName);
@@ -253,38 +257,44 @@ namespace FMODUnity
                     CheckInitResult(result, String.Format("Loading plugin '{0}' from '{1}'", pluginName, pluginPath));
                     loadedPlugins.Add(pluginName, handle);
                 }
+                #endif
 
-                // Always load strings bank
-                try
-                { 
-                    LoadBank(fmodSettings.MasterBank + ".strings", fmodSettings.AutomaticSampleLoading);
-                }
-                catch (BankLoadException e)
+                if (fmodSettings.ImportType == ImportType.StreamingAssets)
                 {
-                    UnityEngine.Debug.LogException(e);
-                }
-
-                if (fmodSettings.AutomaticEventLoading)
-                {
+                    // Always load strings bank
                     try
                     {
-                        LoadBank(fmodSettings.MasterBank, fmodSettings.AutomaticSampleLoading);
+                        LoadBank(fmodSettings.MasterBank + ".strings", fmodSettings.AutomaticSampleLoading);
                     }
                     catch (BankLoadException e)
                     {
                         UnityEngine.Debug.LogException(e);
                     }
 
-                    foreach (var bank in fmodSettings.Banks)
+                    if (fmodSettings.AutomaticEventLoading)
                     {
                         try
                         {
-                            LoadBank(bank, fmodSettings.AutomaticSampleLoading);
+                            LoadBank(fmodSettings.MasterBank, fmodSettings.AutomaticSampleLoading);
                         }
                         catch (BankLoadException e)
                         {
                             UnityEngine.Debug.LogException(e);
                         }
+
+                        foreach (var bank in fmodSettings.Banks)
+                        {
+                            try
+                            {
+                                LoadBank(bank, fmodSettings.AutomaticSampleLoading);
+                            }
+                            catch (BankLoadException e)
+                            {
+                                UnityEngine.Debug.LogException(e);
+                            }
+                        }
+
+                        WaitForAllLoads();
                     }
                 }
             };
@@ -513,6 +523,48 @@ namespace FMODUnity
             }
         }
 
+        public static void LoadBank(TextAsset asset, bool loadSamples = false)
+        {
+            string bankName = asset.name;
+            if (Instance.loadedBanks.ContainsKey(bankName))
+            {
+                LoadedBank loadedBank = Instance.loadedBanks[bankName];
+                loadedBank.RefCount++;
+
+                if (loadSamples)
+                {
+                    loadedBank.Bank.loadSampleData();
+                }
+            }
+            else
+            {
+                LoadedBank loadedBank = new LoadedBank();
+                FMOD.RESULT loadResult = Instance.studioSystem.loadBankMemory(asset.bytes, FMOD.Studio.LOAD_BANK_FLAGS.NORMAL, out loadedBank.Bank);
+
+                if (loadResult == FMOD.RESULT.OK)
+                {
+                    loadedBank.RefCount = 1;
+                    Instance.loadedBanks.Add(bankName, loadedBank);
+
+                    if (loadSamples)
+                    {
+                        loadedBank.Bank.loadSampleData();
+                    }
+                }
+                else if (loadResult == FMOD.RESULT.ERR_EVENT_ALREADY_LOADED)
+                {
+                    // someone loaded this bank directly using the studio API
+                    // TODO: will the null bank handle be an issue
+                    loadedBank.RefCount = 2;
+                    Instance.loadedBanks.Add(bankName, loadedBank);
+                }
+                else
+                {
+                    throw new BankLoadException(bankName, loadResult);
+                }
+            }
+        }
+
         public static void UnloadBank(string bankName)
         {
             LoadedBank loadedBank;
@@ -525,6 +577,23 @@ namespace FMODUnity
                     Instance.loadedBanks.Remove(bankName);
                 }
             }
+        }
+
+        public static bool AnyBankLoading()
+        {
+            bool loading = false;
+            foreach (LoadedBank bank in Instance.loadedBanks.Values)
+            {
+                FMOD.Studio.LOADING_STATE loadingState;
+                bank.Bank.getSampleLoadingState(out loadingState);
+                loading |= (loadingState == FMOD.Studio.LOADING_STATE.LOADING);
+            }
+            return loading;
+        }
+        
+        public static void WaitForAllLoads()
+        {
+            Instance.studioSystem.flushSampleLoading();
         }
 
         public static Guid PathToGUID(string path)
@@ -683,5 +752,10 @@ namespace FMODUnity
             }
             return vca;
         }
+
+	    #if (UNITY_IOS || UNITY_TVOS) && !UNITY_EDITOR
+	    [DllImport("__Internal")]
+	    private static extern FMOD.RESULT FmodUnityNativePluginInit(IntPtr system);
+	    #endif
     }
 }

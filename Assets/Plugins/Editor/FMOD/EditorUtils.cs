@@ -258,7 +258,11 @@ namespace FMODUnity
             UnityEngine.Debug.Log("FMOD Studio: Creating editor system instance");
             RuntimeUtils.EnforceLibraryOrder();
 
-            CheckResult(FMOD.Debug.Initialize(FMOD.DEBUG_FLAGS.LOG, FMOD.DEBUG_MODE.FILE, null, "fmod_editor.log"));
+            FMOD.RESULT result = FMOD.Debug.Initialize(FMOD.DEBUG_FLAGS.LOG, FMOD.DEBUG_MODE.FILE, null, "fmod_editor.log");
+            if (result != FMOD.RESULT.OK)
+            {
+                UnityEngine.Debug.LogWarning("FMOD Studio: Cannot open fmod_editor.log. Logging will be disabled for importing and previewing");
+            }
 
             CheckResult(FMOD.Studio.System.create(out system));
 
@@ -400,7 +404,14 @@ namespace FMODUnity
             if (load)
             {
                 CheckResult(System.loadBankFile(EventManager.MasterBank.Path, FMOD.Studio.LOAD_BANK_FLAGS.NORMAL, out masterBank));
-                CheckResult(System.loadBankFile(eventRef.Banks[0].Path, FMOD.Studio.LOAD_BANK_FLAGS.NORMAL, out previewBank));
+                if (eventRef.Banks[0] != EventManager.MasterBank)
+                {
+                    CheckResult(System.loadBankFile(eventRef.Banks[0].Path, FMOD.Studio.LOAD_BANK_FLAGS.NORMAL, out previewBank));
+                }
+                else
+                {
+                    previewBank = null;
+                }
 
                 CheckResult(System.getEventByID(eventRef.Guid, out previewEventDesc));
                 CheckResult(previewEventDesc.createInstance(out previewEventInstance));
@@ -451,8 +462,13 @@ namespace FMODUnity
                 previewEventInstance.release();
                 previewEventInstance = null;
                 previewEventDesc = null;
-                previewBank.unload();
+                if (previewBank != null)
+                {
+                    previewBank.unload();
+                }
                 masterBank.unload();
+                masterBank = null;
+                previewBank = null;
                 previewState = PreviewState.Stopped;
             }
         }
