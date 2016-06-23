@@ -272,7 +272,22 @@ public class EnemyController : MonoBehaviour
             anim.SetTrigger("Grab");
             roamming = false;
             combate = false;
+            StartCoroutine(Solta());
         }
+    }
+
+    IEnumerator Solta()
+    {
+        yield return new WaitForSeconds(3);
+        anim.SetBool("isGrab", false);
+        anim.SetTrigger("Idle");
+        player.GetComponent<PlayerEngage>().playercontroller.anim.gameObject.SetActive(true);
+        player.GetComponent<PlayerEngage>().playercontroller.stun = false;
+        player.GetComponent<PlayerEngage>().playercontroller.pegador = null;
+        player.GetComponent<PlayerEngage>().playercontroller.presa = false;
+        anim.SetBool("isGrab", false);
+        anim.SetTrigger("Idle");
+        combate = true;
     }
 
     public void Switch()
