@@ -265,6 +265,9 @@ public class EnemyController : MonoBehaviour
         if((player.GetComponent<PlayerEngage>().playercontroller.transform.position.x > transform.position.x && player.GetComponent<PlayerEngage>().playercontroller.transform.localScale.x > 0) || (player.GetComponent<PlayerEngage>().playercontroller.transform.position.x < transform.position.x && player.GetComponent<PlayerEngage>().playercontroller.transform.localScale.x < 0))
         {
             player.GetComponent<PlayerEngage>().playercontroller.anim.gameObject.SetActive(false);
+            player.GetComponent<PlayerEngage>().playercontroller.stun = true;
+            player.GetComponent<PlayerEngage>().playercontroller.pegador = gameObject;
+            player.GetComponent<PlayerEngage>().playercontroller.presa = true;
             anim.SetBool("isGrab", true);
             anim.SetTrigger("Grab");
             roamming = false;
