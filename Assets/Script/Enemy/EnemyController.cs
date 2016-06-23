@@ -75,6 +75,18 @@ public class EnemyController : MonoBehaviour
 				gameObject.GetComponent<EnemyController> ().enabled = false;
 			}
 
+            if (!stun)
+            {
+                if (Manager.manager.player[0].GetComponent<PlayerController>().transform.position.x > transform.position.x && transform.localScale.x > 0)
+                {
+                    transform.localScale = new Vector3(transform.localScale.x * -1, transform.localScale.y, transform.localScale.z);
+                }
+                else if (Manager.manager.player[0].GetComponent<PlayerController>().transform.position.x < transform.position.x && transform.localScale.x < 0)
+                {
+                    transform.localScale = new Vector3(transform.localScale.x * -1, transform.localScale.y, transform.localScale.z);
+                }
+            }
+
             if (!isWalk && !anim.GetCurrentAnimatorStateInfo(0).IsName("EnemyIdle"))
             {
                 anim.SetTrigger("Idle");
@@ -192,14 +204,14 @@ public class EnemyController : MonoBehaviour
         {
             anim.SetTrigger("Run");
         }
-        if (vel1 > 0 && transform.localScale.x > 0)
+        /*if (vel1 > 0 && transform.localScale.x > 0)
         {
             transform.localScale = new Vector3((transform.localScale.x * -1), transform.localScale.y, transform.localScale.z);
         }
         else if (vel1 < 0 && transform.localScale.x < 0)
         {
             transform.localScale = new Vector3((transform.localScale.x * -1), transform.localScale.y, transform.localScale.z);
-        }
+        }*/
         yield return new WaitForSeconds(1);
         prepare = true;
     }
@@ -214,14 +226,14 @@ public class EnemyController : MonoBehaviour
         if(!stun && dist < 0.5f && combate && !isWalk)
         {
             var temp = player.GetComponent<PlayerEngage>().playercontroller.transform.position;
-            if (temp.x > transform.position.x && transform.localScale.x > 0)
+            /*if (temp.x > transform.position.x && transform.localScale.x > 0)
             {
                 transform.localScale = new Vector3((transform.localScale.x * -1), transform.localScale.y, transform.localScale.z);
             }
             if (temp.x < transform.position.x && transform.localScale.x < 0)
             {
                 transform.localScale = new Vector3((transform.localScale.x * -1), transform.localScale.y, transform.localScale.z);
-            }
+            }*/
             num = probabilidade.ChooseAttack();
 
             switch(num)
@@ -364,16 +376,19 @@ public class EnemyController : MonoBehaviour
             if (!stun)
             {
                 transform.Translate((direction / 25) * Time.deltaTime);
+                if (!anim.GetCurrentAnimatorStateInfo(0).IsName("EnemyRun"))
+                {
+                    anim.SetTrigger("Run");
+                }
             }
-            if (direction.x > 0 && transform.localScale.x > 0)
+            /*if (direction.x > 0 && transform.localScale.x > 0)
             {
                 transform.localScale = new Vector3((transform.localScale.x * -1), transform.localScale.y, transform.localScale.z);
             }
             else if (direction.x < 0 && transform.localScale.x < 0)
             {
                 transform.localScale = new Vector3((transform.localScale.x * -1), transform.localScale.y, transform.localScale.z);
-            }
-            
+            }*/
             dist = Vector3.Distance(player.transform.position, transform.position);
             yield return new WaitForSeconds(0.01f);
         }
