@@ -15,7 +15,6 @@ public class EnemyController : MonoBehaviour
     [HideInInspector]
     public bool dano = true;
     public bool roamming = true;
-    [HideInInspector]
     public bool combate = true;
     [HideInInspector]
     public bool slam;
@@ -44,10 +43,11 @@ public class EnemyController : MonoBehaviour
     bool isRun = true;
     bool block;
     bool isEngage;
+    bool costas = false;
 
     Vector3 direction;
 
-    float dist;
+    public float dist;
     float dist1;
     float dist2;
 
@@ -88,20 +88,35 @@ public class EnemyController : MonoBehaviour
                 }
             }
 
-            if (!isWalk && !anim.GetCurrentAnimatorStateInfo(0).IsName("EnemyIdle") && !isEngage)
+            /*if (!isWalk && !anim.GetCurrentAnimatorStateInfo(0).IsName("EnemyIdle") && !isEngage)
             {
                 anim.SetTrigger("Idle");
-            }
+            }*/
 
             if ((roamming || player == null) && !stun) 
 			{
 				transform.Translate (vel1, 0, vel2);
-                if((vel1 > 0 && transform.localScale.x > 0) || (vel1 < 0 && transform.localScale.x < 0))
+                if(vel1 == 0 && vel2 == 0 && !anim.GetCurrentAnimatorStateInfo(0).IsName("EnemyIdle"))
                 {
+                    anim.SetTrigger("Idle");
+                }
+                else if(!anim.GetCurrentAnimatorStateInfo(0).IsName("EnemyRun") && !costas)
+                {
+                    anim.SetTrigger("Run");
+                }
+                else if (!anim.GetCurrentAnimatorStateInfo(0).IsName("EnemyRunCostas") && costas)
+                {
+                    anim.SetTrigger("Run");
+                }
+
+                if ((vel1 > 0 && transform.localScale.x > 0) || (vel1 < 0 && transform.localScale.x < 0))
+                {
+                    costas = true;
                     anim.SetBool("Costas", true);
                 }
                 else
                 {
+                    costas = false;
                     anim.SetBool("Costas", false);
                 }
 			}
@@ -232,7 +247,7 @@ public class EnemyController : MonoBehaviour
         StartCoroutine("Pode");
         roamming = false;
         int num;
-        if(!stun && dist < 0.5f && combate && !isWalk)
+        if(!stun && dist < 0.54f && combate)
         {
             var temp = player.GetComponent<PlayerEngage>().playercontroller.transform.position;
             /*if (temp.x > transform.position.x && transform.localScale.x > 0)
@@ -245,7 +260,7 @@ public class EnemyController : MonoBehaviour
             }*/
             num = probabilidade.ChooseAttack();
 
-            switch(num)
+            switch (num)
             {
                 case 0:
                     Soco();
@@ -271,6 +286,8 @@ public class EnemyController : MonoBehaviour
                     Soco();
                     break;
             }
+
+            print(num);
         }
         chamei = false;
     }
@@ -348,6 +365,7 @@ public class EnemyController : MonoBehaviour
         yield return new WaitForSeconds(2f);
         combate = true;
         block = false;
+        anim.SetTrigger("Idle");
     }
 
     void Soco2()
@@ -380,7 +398,6 @@ public class EnemyController : MonoBehaviour
             anim.SetTrigger("Run");
             isRun = false;
         }
-        bool costas = false;
         while (dist > 0.5f)
         {
             direction = player.transform.position - transform.position;
@@ -412,18 +429,20 @@ public class EnemyController : MonoBehaviour
             dist = Vector3.Distance(player.transform.position, transform.position);
             yield return new WaitForSeconds(0.01f);
         }
+        combate = true;
         isIdle = true;
         isRun = true;
         isEngage = false;
         anim.SetTrigger("Idle");
-        StopCoroutine("Pode");
         isWalk = false;
+        StopCoroutine("Pode");
         StartCoroutine("Pode");
     }
 
 
     public void DanoAgain()
     {
+        stun = false;
         roamming = false;
         dano = true;
         chamei = false;
@@ -433,6 +452,7 @@ public class EnemyController : MonoBehaviour
     public void Dano(float dmg, bool crit, GameObject obj)
     {
         roamming = false;
+        anim.SetBool("isSlam", true);
         if (dano)
         {
             if (!block)
@@ -487,6 +507,7 @@ public class EnemyController : MonoBehaviour
     {
         roamming = false;
         dano = false;
+        anim.SetBool("isSlam", true);
         slam = true;
         life -= dmg;
         if (crit == true)

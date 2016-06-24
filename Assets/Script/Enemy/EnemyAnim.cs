@@ -53,6 +53,7 @@ public class EnemyAnim : MonoBehaviour
         {
             controller.stun = false;
             controller.slam = false;
+            controller.anim.SetBool("isSlam", false);
         }
     }
 
