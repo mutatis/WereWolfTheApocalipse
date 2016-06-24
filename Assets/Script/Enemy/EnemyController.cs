@@ -96,6 +96,14 @@ public class EnemyController : MonoBehaviour
             if ((roamming || player == null) && !stun) 
 			{
 				transform.Translate (vel1, 0, vel2);
+                if((vel1 > 0 && transform.localScale.x < 0) || (vel1 < 0 && transform.localScale.x > 0))
+                {
+                    anim.SetBool("Costas", true);
+                }
+                else
+                {
+                    anim.SetBool("Costas", false);
+                }
 			}
 
 			if (player != null) 
@@ -372,6 +380,7 @@ public class EnemyController : MonoBehaviour
             anim.SetTrigger("Run");
             isRun = false;
         }
+        bool costas = false;
         while (dist > 0.5f)
         {
             direction = player.transform.position - transform.position;
@@ -380,9 +389,24 @@ public class EnemyController : MonoBehaviour
             {
                 Vector3 deus = (direction / 25);
                 transform.Translate(deus);
-                if (!anim.GetCurrentAnimatorStateInfo(0).IsName("EnemyRun"))
+                if (!anim.GetCurrentAnimatorStateInfo(0).IsName("EnemyRun") && !costas)
                 {
                     anim.SetTrigger("Run");
+                }
+                else if (!anim.GetCurrentAnimatorStateInfo(0).IsName("EnemyRunCostas") && costas)
+                {
+                    anim.SetTrigger("Run");
+                }
+
+                if ((direction.x > 0 && transform.localScale.x < 0) || (direction.x < 0 && transform.localScale.x > 0))
+                {
+                    anim.SetBool("Costas", false);
+                    costas = false;
+                }
+                else
+                {
+                    costas = true;
+                    anim.SetBool("Costas", true);
                 }
             }
             dist = Vector3.Distance(player.transform.position, transform.position);
