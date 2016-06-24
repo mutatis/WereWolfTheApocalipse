@@ -102,11 +102,17 @@ public class PlayerAnimation : MonoBehaviour
         }
     }
 
+    public void Atacando()
+    {
+        anim.SetBool("isAttack", true);
+    }
+
     public void Liberated()
     {
         playerController.Liberated(obj);
         obj = null;
         OkIdle();
+        anim.SetBool("isAttack", false);
     }
 
     public void Dead()

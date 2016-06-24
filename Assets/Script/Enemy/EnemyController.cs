@@ -43,6 +43,7 @@ public class EnemyController : MonoBehaviour
     bool isIdle = true;
     bool isRun = true;
     bool block;
+    bool isEngage;
 
     Vector3 direction;
 
@@ -87,7 +88,7 @@ public class EnemyController : MonoBehaviour
                 }
             }
 
-            if (!isWalk && !anim.GetCurrentAnimatorStateInfo(0).IsName("EnemyIdle"))
+            if (!isWalk && !anim.GetCurrentAnimatorStateInfo(0).IsName("EnemyIdle") && !isEngage)
             {
                 anim.SetTrigger("Idle");
             }
@@ -102,10 +103,10 @@ public class EnemyController : MonoBehaviour
 				dist = Vector3.Distance (player.transform.position, transform.position);
 			}
 
-			if (dist > 1f && player != null) 
-			{
-				StartCoroutine (Engage ());
-				isWalk = true;
+			if (dist > 1f && player != null && !isEngage)
+            {
+                isWalk = true;
+                StartCoroutine (Engage ());
 			} 
 			else if (player != null && dist < 1 && !chamei) 
 			{
@@ -306,6 +307,7 @@ public class EnemyController : MonoBehaviour
     {
         //escolhe outro player
         StopCoroutine("Engage");
+        isEngage = false;
         roamming = true;
         if (player.GetComponent<PlayerEngage>().engage > 0)
         {
@@ -356,6 +358,7 @@ public class EnemyController : MonoBehaviour
 
     IEnumerator Engage()
     {
+        isEngage = true;
         if (isIdle)
         {
             anim.SetTrigger("Idle");
@@ -375,27 +378,22 @@ public class EnemyController : MonoBehaviour
             direction.Normalize();
             if (!stun)
             {
-                transform.Translate((direction / 25) * Time.deltaTime);
+                Vector3 deus = (direction / 25);
+                transform.Translate(deus);
                 if (!anim.GetCurrentAnimatorStateInfo(0).IsName("EnemyRun"))
                 {
                     anim.SetTrigger("Run");
                 }
             }
-            /*if (direction.x > 0 && transform.localScale.x > 0)
-            {
-                transform.localScale = new Vector3((transform.localScale.x * -1), transform.localScale.y, transform.localScale.z);
-            }
-            else if (direction.x < 0 && transform.localScale.x < 0)
-            {
-                transform.localScale = new Vector3((transform.localScale.x * -1), transform.localScale.y, transform.localScale.z);
-            }*/
             dist = Vector3.Distance(player.transform.position, transform.position);
             yield return new WaitForSeconds(0.01f);
         }
-        isWalk = false;
         isIdle = true;
         isRun = true;
+        isEngage = false;
+        anim.SetTrigger("Idle");
         StopCoroutine("Pode");
+        isWalk = false;
         StartCoroutine("Pode");
     }
 
