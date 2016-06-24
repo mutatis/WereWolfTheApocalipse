@@ -109,6 +109,7 @@ public class PlayerAnimation : MonoBehaviour
 
     public void Liberated()
     {
+        playerController.transform.position = new Vector3(transform.position.x, playerController.transform.position.y, playerController.transform.position.z);
         playerController.Liberated(obj);
         obj = null;
         OkIdle();
