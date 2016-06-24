@@ -96,7 +96,7 @@ public class EnemyController : MonoBehaviour
             if ((roamming || player == null) && !stun) 
 			{
 				transform.Translate (vel1, 0, vel2);
-                if((vel1 > 0 && transform.localScale.x < 0) || (vel1 < 0 && transform.localScale.x > 0))
+                if((vel1 > 0 && transform.localScale.x > 0) || (vel1 < 0 && transform.localScale.x < 0))
                 {
                     anim.SetBool("Costas", true);
                 }
