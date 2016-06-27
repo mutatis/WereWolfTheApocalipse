@@ -54,6 +54,7 @@ public class EnemyAnim : MonoBehaviour
             controller.stun = false;
             controller.slam = false;
             controller.anim.SetBool("isSlam", false);
+            controller.transform.position = new Vector3(transform.position.x, controller.transform.position.y, controller.transform.position.z);
         }
     }
 

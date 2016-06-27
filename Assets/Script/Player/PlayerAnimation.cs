@@ -25,6 +25,8 @@ public class PlayerAnimation : MonoBehaviour
    [FMODUnity.EventRef]
     public string socoForte;
 
+    public bool levanta;
+
     GameObject obj;
 
     bool idle = true;
@@ -34,11 +36,6 @@ public class PlayerAnimation : MonoBehaviour
     {
         if ((playerController.x != 0 || playerController.z != 0) && !playerController.jump && !playerController.isGrab)
         {
-            /*if (run)
-            {
-                anim.SetTrigger("Run");
-                run = false;
-            }*/
             if (!anim.GetCurrentAnimatorStateInfo(0).IsName("Run"))
             {
                 playerController.stun = false;
@@ -80,6 +77,12 @@ public class PlayerAnimation : MonoBehaviour
         {
             playerController.transform.position = new Vector3(playerController.transform.position.x + 2f, playerController.transform.position.y, playerController.transform.position.z);
         }
+        levanta = false;
+    }
+
+    public void Cai()
+    {
+        levanta = true;
     }
 
     public void DanoAgain()

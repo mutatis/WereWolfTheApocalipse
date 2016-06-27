@@ -44,6 +44,7 @@ public class EnemyController : MonoBehaviour
     bool block;
     bool isEngage;
     bool costas = false;
+    bool autorizo;
 
     Vector3 direction;
 
@@ -247,7 +248,7 @@ public class EnemyController : MonoBehaviour
         StartCoroutine("Pode");
         roamming = false;
         int num;
-        if(!stun && dist < 0.54f && combate)
+        if(!stun && dist < 0.54f && combate && !player.GetComponent<PlayerEngage>().playercontroller.anim.levanta)
         {
             var temp = player.GetComponent<PlayerEngage>().playercontroller.transform.position;
             /*if (temp.x > transform.position.x && transform.localScale.x > 0)
@@ -358,14 +359,17 @@ public class EnemyController : MonoBehaviour
 
     IEnumerator Defesa()
     {
-        roamming = false;
-        combate = false;
-        anim.SetTrigger("Block");
-        block = true;
-        yield return new WaitForSeconds(2f);
-        combate = true;
-        block = false;
-        anim.SetTrigger("Idle");
+        if (!autorizo)
+        {
+            roamming = false;
+            combate = false;
+            anim.SetTrigger("Block");
+            block = true;
+            yield return new WaitForSeconds(2f);
+            combate = true;
+            block = false;
+            anim.SetTrigger("Idle");
+        }
     }
 
     void Soco2()
@@ -449,10 +453,19 @@ public class EnemyController : MonoBehaviour
         text.text = "";
     }
 
+    IEnumerator Autorizacao()
+    {
+        yield return new WaitForSeconds(1);
+        autorizo = false;
+    }
+
     public void Dano(float dmg, bool crit, GameObject obj)
     {
         roamming = false;
         anim.SetBool("isSlam", true);
+        autorizo = true;
+        StopCoroutine("Autorizacao");
+        StartCoroutine("Autorizacao");
         if (dano)
         {
             if (!block)
@@ -487,10 +500,6 @@ public class EnemyController : MonoBehaviour
             isWalk = false;
             chamei = true;
             StopCoroutine("Pode");
-            if ((player.transform.localScale.x < 0 && transform.localScale.x > 0) || (player.transform.localScale.x > 0 && transform.localScale.x < 0))
-            {
-                transform.localScale = new Vector3((transform.localScale.x * -1), transform.localScale.y, transform.localScale.z);
-            }
             if (!block)
             {
                 anim.SetTrigger("Dano");
@@ -510,6 +519,9 @@ public class EnemyController : MonoBehaviour
         anim.SetBool("isSlam", true);
         slam = true;
         life -= dmg;
+        autorizo = true;
+        StopCoroutine("Autorizacao");
+        StartCoroutine("Autorizacao");
         if (crit == true)
         {
             text.color = Color.red;

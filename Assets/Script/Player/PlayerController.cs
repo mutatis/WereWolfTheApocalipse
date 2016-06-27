@@ -404,10 +404,17 @@ public class PlayerController : MonoBehaviour
         }
     }
 
+    IEnumerator ZeraSlam()
+    {
+        yield return new WaitForSeconds(4);
+        dano = 0;
+    }
+
     public void Dano(float dmg, GameObject inimigo)
     {
         enemy = inimigo;
-
+        StopCoroutine("ZeraSlam");
+        StartCoroutine("ZeraSlam");
         if (!presa)
         {
             if (!apanha)
@@ -454,11 +461,11 @@ public class PlayerController : MonoBehaviour
                 {
                     if (gameObject.GetComponent<PlayerController>().enabled == true)
                     {
-                        if (inimigo.transform.position.x > transform.position.x)
+                        if ((inimigo.transform.position.x > transform.position.x && transform.localScale.x > 0) || (inimigo.transform.position.x < transform.position.x && transform.localScale.x < 0))
                         {
                             anim.anim.SetInteger("Frente", 0);
                         }
-                        else if (inimigo.transform.position.x < transform.position.x)
+                        else if ((inimigo.transform.position.x < transform.position.x && transform.localScale.x > 0) || (inimigo.transform.position.x > transform.position.x && transform.localScale.x < 0))
                         {
                             anim.anim.SetInteger("Frente", 1);
                         }
