@@ -29,7 +29,7 @@ public class PlayerController : MonoBehaviour
 
     [HideInInspector]
     public float rage, gnose, z, x;
-    
+    [HideInInspector]
     public bool isAttack = true;
     [HideInInspector]
     public bool block;
@@ -83,13 +83,15 @@ public class PlayerController : MonoBehaviour
                 }
             }
 
-            if (x != 0)
+            if (x != 0 && !anim.anim.GetCurrentAnimatorStateInfo(0).IsName("Run"))
             {
                 anim.anim.SetInteger("Vel", 1);
+                anim.anim.SetTrigger("Run");
             }
-            else if(z != 0)
+            else if(z != 0 && !anim.anim.GetCurrentAnimatorStateInfo(0).IsName("Run"))
             {
                 anim.anim.SetInteger("Vel", 1);
+                anim.anim.SetTrigger("Run");
             }
             else
             {
