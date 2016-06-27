@@ -42,7 +42,7 @@ public class PlayerController : MonoBehaviour
     public bool isRun = true;
     public bool jump, stun, crinos, call, lunar, apanha, presa;
 
-    public int contador, engage, flooda;
+    public int contador, engage, flooda, solta;
 
     public string nome;
 
@@ -83,7 +83,14 @@ public class PlayerController : MonoBehaviour
                     gameObject.GetComponent<PlayerController>().enabled = false;
                 }
             }
-            
+            if (Input.GetKeyDown(KeyCode.Joystick1Button2) || Input.GetKeyDown(KeyCode.Space))
+            {
+                if (presa)
+                {
+                    solta++;
+                }
+            }
+
             if (!stun && playerStatus.life > 0)
             {
                 if (x > 0 && transform.localScale.x < 0)
@@ -140,11 +147,18 @@ public class PlayerController : MonoBehaviour
                                 }
                                 if (Input.GetKeyDown(KeyCode.Joystick1Button2) || Input.GetKeyDown(KeyCode.Space))
                                 {
-                                    flooda++;
-                                    StopCoroutine("Floodando");
-                                    StartCoroutine("Floodando");
-                                    StopCombo();
-                                    SocoFraco();
+                                    if (presa)
+                                    {
+                                        solta++;
+                                    }
+                                    else
+                                    {
+                                        flooda++;
+                                        StopCoroutine("Floodando");
+                                        StartCoroutine("Floodando");
+                                        StopCombo();
+                                        SocoFraco();
+                                    }
                                 }
                                 else if (Input.GetKeyDown(KeyCode.Joystick1Button3))
                                 {

@@ -38,6 +38,7 @@ public class EnemyController : MonoBehaviour
     bool isWalk = true;
     bool procura = false;
     bool prepare = true;
+    bool taPego;
     bool chamei;
     bool isIdle = true;
     bool isRun = true;
@@ -61,6 +62,11 @@ public class EnemyController : MonoBehaviour
     void Update()
     {
         anim.SetBool("isWalk", isWalk);
+
+        if(taPego && player.GetComponent<PlayerEngage>().playercontroller.solta >= 10)
+        {
+            Solta();
+        }
 
         if (peguei ==  null) 
 		{
@@ -311,22 +317,23 @@ public class EnemyController : MonoBehaviour
             anim.SetTrigger("Grab");
             roamming = false;
             combate = false;
-            StartCoroutine(Solta());
+            taPego = true;
         }
     }
 
-    IEnumerator Solta()
+    void Solta()
     {
-        yield return new WaitForSeconds(3);
         anim.SetBool("isGrab", false);
         anim.SetTrigger("Idle");
         player.GetComponent<PlayerEngage>().playercontroller.anim.gameObject.SetActive(true);
         player.GetComponent<PlayerEngage>().playercontroller.stun = false;
+        player.GetComponent<PlayerEngage>().playercontroller.solta = 0;
         player.GetComponent<PlayerEngage>().playercontroller.pegador = null;
         player.GetComponent<PlayerEngage>().playercontroller.presa = false;
         anim.SetBool("isGrab", false);
         anim.SetTrigger("Idle");
         combate = true;
+        taPego = false;
     }
 
     public void Switch()
