@@ -20,10 +20,8 @@ public class EnemyController : MonoBehaviour
     public bool slam;
 
     public TextMesh text;
-
-    public float tempoResposta;
-    public float life;
-    public float vel1, vel2;
+    
+    public float tempoResposta, life, vel1, vel2, dist;
 
     public int xp;
 
@@ -36,22 +34,14 @@ public class EnemyController : MonoBehaviour
     public GameObject[] obj;
 
     bool isWalk = true;
-    bool procura = false;
     bool prepare = true;
-    bool taPego;
-    bool chamei;
     bool isIdle = true;
     bool isRun = true;
-    bool block;
-    bool isEngage;
-    bool costas = false;
-    bool autorizo;
+    bool taPego, chamei, block, isEngage, costas, autorizo, procura;
 
     Vector3 direction;
-
-    public float dist;
-    float dist1;
-    float dist2;
+    
+    float dist1, dist2;
 
     void Start()
     {
@@ -103,8 +93,9 @@ public class EnemyController : MonoBehaviour
             if ((roamming || player == null) && !stun) 
 			{
 				transform.Translate (vel1, 0, vel2);
-                if(vel1 == 0 && vel2 == 0 && !anim.GetCurrentAnimatorStateInfo(0).IsName("EnemyIdle"))
+                if(vel1 == 0 && vel2 == 0)
                 {
+                    if(!anim.GetCurrentAnimatorStateInfo(0).IsName("EnemyIdle"))
                     anim.SetTrigger("Idle");
                 }
                 else if(!anim.GetCurrentAnimatorStateInfo(0).IsName("EnemyRun") && !costas)
@@ -176,17 +167,10 @@ public class EnemyController : MonoBehaviour
             {
                 transform.localScale = new Vector3(transform.localScale.x * -1, transform.localScale.y, transform.localScale.z);
             }
-            //player = null;
             StopAllCoroutines();
             transform.position = peguei.transform.position;
         }	
     }
-
-    /*IEnumerator Esquece()
-    {
-        yield return new WaitForSeconds(10);
-        Switch();
-    }*/
 
     IEnumerator Procura()
     {

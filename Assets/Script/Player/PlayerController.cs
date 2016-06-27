@@ -83,18 +83,20 @@ public class PlayerController : MonoBehaviour
                 }
             }
 
-            if (x != 0 && !anim.anim.GetCurrentAnimatorStateInfo(0).IsName("Run"))
+            if (x != 0 && !anim.anim.GetCurrentAnimatorStateInfo(0).IsName("Run") && !jump && !isGrab)
             {
                 anim.anim.SetInteger("Vel", 1);
                 anim.anim.SetTrigger("Run");
             }
-            else if(z != 0 && !anim.anim.GetCurrentAnimatorStateInfo(0).IsName("Run"))
+            else if(z != 0 && !anim.anim.GetCurrentAnimatorStateInfo(0).IsName("Run") && !jump && !isGrab)
             {
                 anim.anim.SetInteger("Vel", 1);
                 anim.anim.SetTrigger("Run");
             }
-            else
+
+            if (!anim.anim.GetCurrentAnimatorStateInfo(0).IsName("Idle") && !jump && !isGrab && z == 0 && x == 0 && !stun)
             {
+                anim.anim.SetTrigger("Idle");
                 anim.anim.SetInteger("Vel", 0);
             }
 
