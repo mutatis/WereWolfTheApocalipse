@@ -94,6 +94,7 @@ public class PlayerAnimation : MonoBehaviour
     public void Stun()
     {
         playerController.stun = false;
+        playerController.isAttack = true;
         OkIdle();
     }
 

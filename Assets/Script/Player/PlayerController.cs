@@ -29,8 +29,7 @@ public class PlayerController : MonoBehaviour
 
     [HideInInspector]
     public float rage, gnose, z, x;
-
-    [HideInInspector]
+    
     public bool isAttack = true;
     [HideInInspector]
     public bool block;
@@ -161,18 +160,11 @@ public class PlayerController : MonoBehaviour
                                 }
                                 if (Input.GetKeyDown(KeyCode.Joystick1Button2) || Input.GetKeyDown(KeyCode.Space))
                                 {
-                                    if (presa)
-                                    {
-                                        solta++;
-                                    }
-                                    else
-                                    {
-                                        flooda++;
-                                        StopCoroutine("Floodando");
-                                        StartCoroutine("Floodando");
-                                        StopCombo();
-                                        SocoFraco();
-                                    }
+                                    flooda++;
+                                    StopCoroutine("Floodando");
+                                    StartCoroutine("Floodando");
+                                    StopCombo();
+                                    SocoFraco();                                    
                                 }
                                 else if (Input.GetKeyDown(KeyCode.Joystick1Button3))
                                 {
