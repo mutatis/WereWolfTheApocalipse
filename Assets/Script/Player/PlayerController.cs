@@ -83,6 +83,20 @@ public class PlayerController : MonoBehaviour
                     gameObject.GetComponent<PlayerController>().enabled = false;
                 }
             }
+
+            if (x != 0)
+            {
+                anim.anim.SetInteger("Vel", 1);
+            }
+            else if(z != 0)
+            {
+                anim.anim.SetInteger("Vel", 1);
+            }
+            else
+            {
+                anim.anim.SetInteger("Vel", 0);
+            }
+
             if (Input.GetKeyDown(KeyCode.Joystick1Button2) || Input.GetKeyDown(KeyCode.Space))
             {
                 if (presa)

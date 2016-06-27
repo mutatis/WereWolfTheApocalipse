@@ -11,6 +11,7 @@ public class FBIAudio : MonoBehaviour
 
     void Start()
     {
+        Cursor.visible = false;
         vol = FMODUnity.RuntimeManager.CreateInstance(som);
         vol.start();
     }
