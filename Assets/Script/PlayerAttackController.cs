@@ -7,22 +7,43 @@ public class PlayerAttackController : MonoBehaviour
     public PlayerMovment playerMov;
 
     [HideInInspector]
-    public bool isAttack, bate, mov;
+    public bool isAttack, bate, mov, jumpAttack, block;
 
     public int attackComboNum;
 
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Joystick1Button2) && !isAttack && !playerMov.jump)
+        if (!playerMov.jump)
         {
-            bate = true;
-            if(attackComboNum == 0 && (!playerAnim.anim.GetCurrentAnimatorStateInfo(0).IsName("SocoFraco2Andarilho") || !playerAnim.anim.GetCurrentAnimatorStateInfo(0).IsName("SocoFracoAndarilho")))
+            if(Input.GetKeyDown(KeyCode.Joystick1Button1) && !mov)
             {
-                SocoFraco();
+                playerAnim.anim.SetTrigger("Block");
+                playerAnim.anim.SetBool("isBlock", true);
+                block = true;
             }
-            if (attackComboNum >= 3)
+            else if(Input.GetKeyUp(KeyCode.Joystick1Button1))
             {
-                attackComboNum = 0;
+                playerAnim.anim.SetBool("isBlock", false);
+                block = false;
+            }
+            else if (Input.GetKeyDown(KeyCode.Joystick1Button2) && !isAttack)
+            {
+                bate = true;
+                if (attackComboNum == 0 && (!playerAnim.anim.GetCurrentAnimatorStateInfo(0).IsName("SocoFraco2Andarilho") || !playerAnim.anim.GetCurrentAnimatorStateInfo(0).IsName("SocoFracoAndarilho")))
+                {
+                    SocoFraco();
+                }
+                if (attackComboNum >= 3)
+                {
+                    attackComboNum = 0;
+                }
+            }
+        }
+        else if (playerMov.jump)
+        {
+            if (Input.GetKeyDown(KeyCode.Joystick1Button2))
+            {
+                JumpAttack();
             }
         }
         if(mov)
@@ -34,9 +55,19 @@ public class PlayerAttackController : MonoBehaviour
         }
     }
 
+    void JumpAttack()
+    {
+        if (!jumpAttack)
+        {
+            playerAnim.anim.SetTrigger("JumpAttack");
+            jumpAttack = true;
+        }
+    }
+
     public void Libero()
     {
         mov = false;
+        jumpAttack = false;
         if(bate)
         {
             SocoFraco();

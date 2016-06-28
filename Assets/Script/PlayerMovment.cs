@@ -5,6 +5,7 @@ public class PlayerMovment : MonoBehaviour
 {
     public PlayerStatus playerStatus;
     public PlayerAnimation playerAnim;
+    public PlayerAttackController playerAttack;
 
     public Rigidbody rig;
 
@@ -25,7 +26,7 @@ public class PlayerMovment : MonoBehaviour
         if (!isMov)
         {
             x = Input.GetAxis("HorizontalP1");
-            if (!jump)
+            if (!jump && !playerAttack.block)
             {
                 z = Input.GetAxis("VerticalP1");
                 if (Input.GetKeyDown(KeyCode.Joystick1Button0))
@@ -34,10 +35,15 @@ public class PlayerMovment : MonoBehaviour
                 }
                 playerAnim.anim.SetFloat("RigVel", 0);
             }
-            else
+            else if(jump && !playerAttack.block)
             {
                 z = 0;
                 playerAnim.anim.SetFloat("RigVel", rig.velocity.y);
+            }
+            else if(playerAttack.block)
+            {
+                x = 0;
+                z = 0;
             }
         }
         else
