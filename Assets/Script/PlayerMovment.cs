@@ -9,7 +9,7 @@ public class PlayerMovment : MonoBehaviour
     [HideInInspector]
     public bool isMov;
 
-    public float x, z;
+    float x, z;
 
     void Update()
     {

@@ -95,14 +95,16 @@ public class PlayerAnimation : MonoBehaviour
     public void Atacando()
     {
         playerMov.isMov = true;
+        playerAttack.mov = true;
     }
 
     public void Liberated()
     {
+        playerAttack.Libero();
         playerMov.isMov = false;
-        playerAttack.isAttack = false;
-       /* playerController.transform.position = new Vector3(transform.position.x, playerController.transform.position.y, playerController.transform.position.z);
-        playerController.Liberated(obj);*/
+        playerMov.transform.position = new Vector3(transform.position.x, playerMov.transform.position.y, playerMov.transform.position.z);
+        /* playerController.transform.position = new Vector3(transform.position.x, playerController.transform.position.y, playerController.transform.position.z);
+         playerController.Liberated(obj);*/
         obj = null;
         OkIdle();
     }
@@ -115,7 +117,8 @@ public class PlayerAnimation : MonoBehaviour
     public void Ataca()
     {
         NotIdle();
-       // playerController.Ataca();
+        playerAttack.isAttack = false;
+        // playerController.Ataca();
     }
 
     void Dano(GameObject other)
