@@ -88,6 +88,7 @@ public class PlayerAnimation : MonoBehaviour
     {
         if (obj == null)
         {
+            playerAttack.attackComboNum = 0;
             //playerController.contador = 0;
         }
     }
@@ -180,7 +181,7 @@ public class PlayerAnimation : MonoBehaviour
         int x = Random.Range(0, 100);
         if (x <= playerStatus.critChance)
         {
-           /* if (other.gameObject.tag == "Enemy")
+            /*if (other.gameObject.tag == "Enemy")
             {
                 other.gameObject.GetComponent<EnemyController>().Slam((playerStatus.dmg * 2) + (playerStatus.dmg * 0.25f), true, playerController.gameObject, playerStatus.knockback);
             }
@@ -225,14 +226,14 @@ public class PlayerAnimation : MonoBehaviour
 
     void OnTriggerEnter (Collider other)
     {
-        /*if(other.gameObject.tag == "Enemy")
+        if(other.gameObject.tag == "Enemy")
         {
-            if (playerController.contador <= 2 && other.gameObject.GetComponent<EnemyController>().life > 0 && other.gameObject.GetComponent<EnemyController>().dano)
+            if (playerAttack.attackComboNum <= 2 && other.gameObject.GetComponent<EnemyController>().life > 0 && other.gameObject.GetComponent<EnemyController>().dano)
             {
                 obj = other.gameObject;
                 Dano(obj);
             }
-            if (playerController.contador >= 3 && other.gameObject.GetComponent<EnemyController>().life > 0 && other.gameObject.GetComponent<EnemyController>().dano)
+            if (playerAttack.attackComboNum >= 3 && other.gameObject.GetComponent<EnemyController>().life > 0 && other.gameObject.GetComponent<EnemyController>().dano)
             {
                 obj = other.gameObject;
                 SlamDmg(obj);
@@ -240,12 +241,12 @@ public class PlayerAnimation : MonoBehaviour
         }
         else if (other.gameObject.tag == "EnemyRanged")
         {
-            if (playerController.contador <= 2 && other.gameObject.GetComponent<EnemyRanged>().life > 0 && other.gameObject.GetComponent<EnemyRanged>().dano)
+            if (playerAttack.attackComboNum <= 2 && other.gameObject.GetComponent<EnemyRanged>().life > 0 && other.gameObject.GetComponent<EnemyRanged>().dano)
             {
                 obj = other.gameObject;
                 Dano(obj);
             }
-            if (playerController.contador >= 3 && other.gameObject.GetComponent<EnemyRanged>().life > 0 && other.gameObject.GetComponent<EnemyRanged>().dano)
+            if (playerAttack.attackComboNum >= 3 && other.gameObject.GetComponent<EnemyRanged>().life > 0 && other.gameObject.GetComponent<EnemyRanged>().dano)
             {
                 obj = other.gameObject;
                 SlamDmg(obj);
@@ -253,12 +254,12 @@ public class PlayerAnimation : MonoBehaviour
         }
         else if (other.gameObject.tag == "SubBoss")
         {
-            if (playerController.contador <= 2 && other.gameObject.GetComponent<SubBossController>().life > 0 && other.gameObject.GetComponent<SubBossController>().dano)
+            if (playerAttack.attackComboNum <= 2 && other.gameObject.GetComponent<SubBossController>().life > 0 && other.gameObject.GetComponent<SubBossController>().dano)
             {
                 obj = other.gameObject;
                 Dano(obj);
             }
-            if (playerController.contador >= 3 && other.gameObject.GetComponent<SubBossController>().life > 0 && other.gameObject.GetComponent<SubBossController>().dano)
+            if (playerAttack.attackComboNum >= 3 && other.gameObject.GetComponent<SubBossController>().life > 0 && other.gameObject.GetComponent<SubBossController>().dano)
             {
                 obj = other.gameObject;
                 SlamDmg(obj);
@@ -266,16 +267,16 @@ public class PlayerAnimation : MonoBehaviour
         }
         else if (other.gameObject.tag == "Boss")
         {
-            if (playerController.contador <= 2 && other.gameObject.GetComponent<BossController>().life > 0 && other.gameObject.GetComponent<BossController>().dano)
+            if (playerAttack.attackComboNum <= 2 && other.gameObject.GetComponent<BossController>().life > 0 && other.gameObject.GetComponent<BossController>().dano)
             {
                 obj = other.gameObject;
                 Dano(obj);
             }
-            if (playerController.contador >= 3 && other.gameObject.GetComponent<BossController>().life > 0 && other.gameObject.GetComponent<BossController>().dano)
+            if (playerAttack.attackComboNum >= 3 && other.gameObject.GetComponent<BossController>().life > 0 && other.gameObject.GetComponent<BossController>().dano)
             {
                 obj = other.gameObject;
                 SlamDmg(obj);
             }
-        }*/
+        }
     }
 }

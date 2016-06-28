@@ -5,6 +5,7 @@ public class PlayerAttackController : MonoBehaviour
 {
     public PlayerAnimation playerAnim;
 
+    [HideInInspector]
     public bool isAttack, bate, mov;
 
     public int attackComboNum;
