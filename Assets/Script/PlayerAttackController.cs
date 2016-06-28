@@ -4,6 +4,7 @@ using System.Collections;
 public class PlayerAttackController : MonoBehaviour
 {
     public PlayerAnimation playerAnim;
+    public PlayerMovment playerMov;
 
     [HideInInspector]
     public bool isAttack, bate, mov;
@@ -12,10 +13,10 @@ public class PlayerAttackController : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Joystick1Button2) && !isAttack)
+        if (Input.GetKeyDown(KeyCode.Joystick1Button2) && !isAttack && !playerMov.jump)
         {
             bate = true;
-            if(attackComboNum == 0 && !playerAnim.anim.GetCurrentAnimatorStateInfo(0).IsName("SocoFraco2Andarilho"))
+            if(attackComboNum == 0 && (!playerAnim.anim.GetCurrentAnimatorStateInfo(0).IsName("SocoFraco2Andarilho") || !playerAnim.anim.GetCurrentAnimatorStateInfo(0).IsName("SocoFracoAndarilho")))
             {
                 SocoFraco();
             }
