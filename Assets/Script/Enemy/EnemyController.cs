@@ -53,7 +53,7 @@ public class EnemyController : MonoBehaviour
     {
         anim.SetBool("isWalk", isWalk);
 
-        if(taPego && player.GetComponent<PlayerEngage>().playercontroller.solta >= 10)
+        if(taPego && player.GetComponent<PlayerEngage>().playerAttack.solta >= 10)
         {
             Solta();
         }
@@ -75,11 +75,11 @@ public class EnemyController : MonoBehaviour
 
             if (!stun)
             {
-                if (Manager.manager.player[0].GetComponent<PlayerController>().transform.position.x > transform.position.x && transform.localScale.x > 0)
+                if (Manager.manager.player[0].GetComponent<PlayerMovment>().transform.position.x > transform.position.x && transform.localScale.x > 0)
                 {
                     transform.localScale = new Vector3(transform.localScale.x * -1, transform.localScale.y, transform.localScale.z);
                 }
-                else if (Manager.manager.player[0].GetComponent<PlayerController>().transform.position.x < transform.position.x && transform.localScale.x < 0)
+                else if (Manager.manager.player[0].GetComponent<PlayerMovment>().transform.position.x < transform.position.x && transform.localScale.x < 0)
                 {
                     transform.localScale = new Vector3(transform.localScale.x * -1, transform.localScale.y, transform.localScale.z);
                 }
@@ -238,9 +238,9 @@ public class EnemyController : MonoBehaviour
         StartCoroutine("Pode");
         roamming = false;
         int num;
-        if(!stun && dist < 0.54f && combate && !player.GetComponent<PlayerEngage>().playercontroller.anim.levanta)
+        if(!stun && dist < 0.54f && combate && !player.GetComponent<PlayerEngage>().playerAttack.playerAnim.levanta)
         {
-            var temp = player.GetComponent<PlayerEngage>().playercontroller.transform.position;
+            var temp = player.GetComponent<PlayerEngage>().playerAttack.transform.position;
             /*if (temp.x > transform.position.x && transform.localScale.x > 0)
             {
                 transform.localScale = new Vector3((transform.localScale.x * -1), transform.localScale.y, transform.localScale.z);
@@ -277,8 +277,6 @@ public class EnemyController : MonoBehaviour
                     Soco();
                     break;
             }
-
-            print(num);
         }
         chamei = false;
     }
@@ -291,12 +289,12 @@ public class EnemyController : MonoBehaviour
 
     void Grab()
     {
-        if((player.GetComponent<PlayerEngage>().playercontroller.transform.position.x > transform.position.x && player.GetComponent<PlayerEngage>().playercontroller.transform.localScale.x > 0) || (player.GetComponent<PlayerEngage>().playercontroller.transform.position.x < transform.position.x && player.GetComponent<PlayerEngage>().playercontroller.transform.localScale.x < 0))
+        if((player.GetComponent<PlayerEngage>().playerStats.transform.position.x > transform.position.x && player.GetComponent<PlayerEngage>().playerStats.transform.localScale.x > 0) || (player.GetComponent<PlayerEngage>().playerStats.transform.position.x < transform.position.x && player.GetComponent<PlayerEngage>().playerStats.transform.localScale.x < 0))
         {
-            player.GetComponent<PlayerEngage>().playercontroller.anim.gameObject.SetActive(false);
-            player.GetComponent<PlayerEngage>().playercontroller.stun = true;
-            player.GetComponent<PlayerEngage>().playercontroller.pegador = gameObject;
-            player.GetComponent<PlayerEngage>().playercontroller.presa = true;
+            player.GetComponent<PlayerEngage>().playerAttack.playerAnim.gameObject.SetActive(false);
+            player.GetComponent<PlayerEngage>().playerDano.stun = true;
+            player.GetComponent<PlayerEngage>().playerDano.pegador = gameObject;
+            player.GetComponent<PlayerEngage>().playerAttack.presa = true;
             anim.SetBool("isGrab", true);
             anim.SetTrigger("Grab");
             roamming = false;
@@ -309,11 +307,11 @@ public class EnemyController : MonoBehaviour
     {
         anim.SetBool("isGrab", false);
         anim.SetTrigger("Idle");
-        player.GetComponent<PlayerEngage>().playercontroller.anim.gameObject.SetActive(true);
-        player.GetComponent<PlayerEngage>().playercontroller.stun = false;
-        player.GetComponent<PlayerEngage>().playercontroller.solta = 0;
-        player.GetComponent<PlayerEngage>().playercontroller.pegador = null;
-        player.GetComponent<PlayerEngage>().playercontroller.presa = false;
+        player.GetComponent<PlayerEngage>().playerAttack.playerAnim.gameObject.SetActive(true);
+        player.GetComponent<PlayerEngage>().playerDano.stun = false;
+        player.GetComponent<PlayerEngage>().playerAttack.solta = 0;
+        player.GetComponent<PlayerEngage>().playerDano.pegador = null;
+        player.GetComponent<PlayerEngage>().playerAttack.presa = false;
         anim.SetBool("isGrab", false);
         anim.SetTrigger("Idle");
         combate = true;
@@ -360,6 +358,8 @@ public class EnemyController : MonoBehaviour
             combate = true;
             block = false;
             anim.SetTrigger("Idle");
+            StopCoroutine("Autorizacao");
+            StartCoroutine("Autorizacao");
         }
     }
 

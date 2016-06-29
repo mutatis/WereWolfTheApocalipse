@@ -6,13 +6,23 @@ public class PlayerAttackController : MonoBehaviour
     public PlayerAnimation playerAnim;
     public PlayerMovment playerMov;
 
-    [HideInInspector]
-    public bool isAttack, bate, mov, jumpAttack, block;
+    public bool mov;
 
-    public int attackComboNum;
+    [HideInInspector]
+    public bool bate, isAttack, presa, jumpAttack, block;
+
+    public GameObject obj;
+
+    public int attackComboNum = 0;
+    public int solta;
 
     void Update()
     {
+        if (Input.GetKeyDown(KeyCode.Joystick1Button2) && presa)
+        {
+            solta++;            
+        }
+
         if (!playerMov.jump)
         {
             if(Input.GetKeyDown(KeyCode.Joystick1Button1) && !mov)
@@ -26,17 +36,22 @@ public class PlayerAttackController : MonoBehaviour
                 playerAnim.anim.SetBool("isBlock", false);
                 block = false;
             }
-            else if (Input.GetKeyDown(KeyCode.Joystick1Button2) && !isAttack)
+            else if (Input.GetKeyDown(KeyCode.Joystick1Button2) && !isAttack && !presa)
             {
-                bate = true;
-                if (attackComboNum == 0 && (!playerAnim.anim.GetCurrentAnimatorStateInfo(0).IsName("SocoFraco2Andarilho") || !playerAnim.anim.GetCurrentAnimatorStateInfo(0).IsName("SocoFracoAndarilho")))
+                if (attackComboNum < 4)
                 {
-                    SocoFraco();
+                    attackComboNum++;
                 }
-                if (attackComboNum >= 3)
+                else
                 {
                     attackComboNum = 0;
                 }
+                bate = true;
+                if ((!playerAnim.anim.GetCurrentAnimatorStateInfo(0).IsName("SocoFracoAndarilho")))
+                {
+                    SocoFraco();
+                }
+                isAttack = true;
             }
         }
         else if (playerMov.jump)
@@ -46,6 +61,7 @@ public class PlayerAttackController : MonoBehaviour
                 JumpAttack();
             }
         }
+
         if(mov)
         {
             if(transform.localScale.x > 0)
@@ -80,10 +96,30 @@ public class PlayerAttackController : MonoBehaviour
 
     void SocoFraco()
     {
-        bate = false;
-        attackComboNum++;
+        if (obj == null)
+        {
+            attackComboNum = 1;
+        }
         playerAnim.anim.SetInteger("AttackComboNum", attackComboNum);
-        playerAnim.anim.SetTrigger("SocoFraco");
-        isAttack = true;
+        bate = false;
+        //attackComboNum++;
+        //playerAnim.anim.SetInteger("AttackComboNum", attackComboNum);
+        switch(attackComboNum)
+        {
+            case 1:
+                if(!playerAnim.anim.GetCurrentAnimatorStateInfo(0).IsName("SocoFracoAndarilho"))
+                    playerAnim.anim.SetTrigger("SocoFraco");
+                break;
+
+            case 2:
+                if (!playerAnim.anim.GetCurrentAnimatorStateInfo(0).IsName("SocoFraco1Andarilho"))
+                    playerAnim.anim.SetTrigger("SocoFraco2");
+                break;
+
+            case 3:
+                if (!playerAnim.anim.GetCurrentAnimatorStateInfo(0).IsName("SocoFraco1Andarilho"))
+                    playerAnim.anim.SetTrigger("SocoFraco3");
+                break;
+        }
     }
 }

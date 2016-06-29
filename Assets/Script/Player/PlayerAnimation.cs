@@ -83,33 +83,32 @@ public class PlayerAnimation : MonoBehaviour
         /*playerController.stun = false;
         playerController.isAttack = true;*/
         playerDano.stun = false;
+        playerAttack.isAttack = false;
         anim.SetBool("Stun", false);
         OkIdle();
     }
 
     public void Miss()
     {
-        if (obj == null)
-        {
-            playerAttack.attackComboNum = 0;
-            //playerController.contador = 0;
-        }
+
     }
 
     public void Atacando()
     {
+        obj = null;
         playerMov.isMov = true;
         playerAttack.mov = true;
     }
 
     public void Liberated()
     {
+        playerAttack.obj = obj;
         playerAttack.Libero();
+        playerAttack.mov = false;
         playerMov.isMov = false;
         playerMov.transform.position = new Vector3(transform.position.x, playerMov.transform.position.y, playerMov.transform.position.z);
         /* playerController.transform.position = new Vector3(transform.position.x, playerController.transform.position.y, playerController.transform.position.z);
          playerController.Liberated(obj);*/
-        obj = null;
         OkIdle();
     }
 
@@ -133,46 +132,46 @@ public class PlayerAnimation : MonoBehaviour
         int x = Random.Range(0, 100);
         if(x <= playerStatus.critChance)
         {
-            /*if (other.gameObject.tag == "Enemy")
+            if (other.gameObject.tag == "Enemy")
             {
-                other.gameObject.GetComponent<EnemyController>().Dano(playerStatus.dmg * 2, true, playerController.gameObject);
+                other.gameObject.GetComponent<EnemyController>().Dano(playerStatus.dmg * 2, true, playerMov.gameObject);
             }
             else if (other.gameObject.tag == "EnemyRanged")
             {
-                other.gameObject.GetComponent<EnemyRanged>().Dano(playerStatus.dmg * 2, true, playerController.gameObject);
+                other.gameObject.GetComponent<EnemyRanged>().Dano(playerStatus.dmg * 2, true, playerMov.gameObject);
             }
             else if (other.gameObject.tag == "SubBoss")
             {
-                other.gameObject.GetComponent<SubBossController>().Dano(playerStatus.dmg * 2, true, playerController.gameObject);
+                other.gameObject.GetComponent<SubBossController>().Dano(playerStatus.dmg * 2, true, playerMov.gameObject);
             }
             else if (other.gameObject.tag == "Boss")
             {
-                other.gameObject.GetComponent<BossController>().Dano(playerStatus.dmg * 2, true, playerController.gameObject);
+                other.gameObject.GetComponent<BossController>().Dano(playerStatus.dmg * 2, true, playerMov.gameObject);
             }
-            playerController.rage += playerStatus.rageRegen;*/
+            //playerController.rage += playerStatus.rageRegen;
             audioInstance = FMODUnity.RuntimeManager.CreateInstance(crit);
             audioInstance.setVolume(PlayerPrefs.GetFloat("VolumeFX"));
             audioInstance.start();
         }
         else
         {
-            /*if (other.gameObject.tag == "Enemy")
+            if (other.gameObject.tag == "Enemy")
             {
-                other.gameObject.GetComponent<EnemyController>().Dano(playerStatus.dmg, false, playerController.gameObject);
+                other.gameObject.GetComponent<EnemyController>().Dano(playerStatus.dmg, false, playerMov.gameObject);
             }
             else if (other.gameObject.tag == "EnemyRanged")
             {
-                other.gameObject.GetComponent<EnemyRanged>().Dano(playerStatus.dmg, false, playerController.gameObject);
+                other.gameObject.GetComponent<EnemyRanged>().Dano(playerStatus.dmg, false, playerMov.gameObject);
             }
             else if (other.gameObject.tag == "SubBoss")
             {
-                other.gameObject.GetComponent<SubBossController>().Dano(playerStatus.dmg, false, playerController.gameObject);
+                other.gameObject.GetComponent<SubBossController>().Dano(playerStatus.dmg, false, playerMov.gameObject);
             }
             else if (other.gameObject.tag == "Boss")
             {
-                other.gameObject.GetComponent<BossController>().Dano(playerStatus.dmg, false, playerController.gameObject);
+                other.gameObject.GetComponent<BossController>().Dano(playerStatus.dmg, false, playerMov.gameObject);
             }
-            playerController.rage += playerStatus.rageRegen;*/
+            //playerController.rage += playerStatus.rageRegen;
         }
     }
 
@@ -231,55 +230,55 @@ public class PlayerAnimation : MonoBehaviour
     {
         if(other.gameObject.tag == "Enemy")
         {
-            if (playerAttack.attackComboNum <= 2 && other.gameObject.GetComponent<EnemyController>().life > 0 && other.gameObject.GetComponent<EnemyController>().dano)
+            if (other.gameObject.GetComponent<EnemyController>().life > 0 && other.gameObject.GetComponent<EnemyController>().dano)
             {
                 obj = other.gameObject;
                 Dano(obj);
             }
-            if (playerAttack.attackComboNum >= 3 && other.gameObject.GetComponent<EnemyController>().life > 0 && other.gameObject.GetComponent<EnemyController>().dano)
+            /*if (other.gameObject.GetComponent<EnemyController>().life > 0 && other.gameObject.GetComponent<EnemyController>().dano)
             {
                 obj = other.gameObject;
                 SlamDmg(obj);
-            }
+            }*/
         }
         else if (other.gameObject.tag == "EnemyRanged")
         {
-            if (playerAttack.attackComboNum <= 2 && other.gameObject.GetComponent<EnemyRanged>().life > 0 && other.gameObject.GetComponent<EnemyRanged>().dano)
+            if (other.gameObject.GetComponent<EnemyRanged>().life > 0 && other.gameObject.GetComponent<EnemyRanged>().dano)
             {
                 obj = other.gameObject;
                 Dano(obj);
             }
-            if (playerAttack.attackComboNum >= 3 && other.gameObject.GetComponent<EnemyRanged>().life > 0 && other.gameObject.GetComponent<EnemyRanged>().dano)
+            /*if (other.gameObject.GetComponent<EnemyRanged>().life > 0 && other.gameObject.GetComponent<EnemyRanged>().dano)
             {
                 obj = other.gameObject;
                 SlamDmg(obj);
-            }
+            }*/
         }
         else if (other.gameObject.tag == "SubBoss")
         {
-            if (playerAttack.attackComboNum <= 2 && other.gameObject.GetComponent<SubBossController>().life > 0 && other.gameObject.GetComponent<SubBossController>().dano)
+            if (other.gameObject.GetComponent<SubBossController>().life > 0 && other.gameObject.GetComponent<SubBossController>().dano)
             {
                 obj = other.gameObject;
                 Dano(obj);
             }
-            if (playerAttack.attackComboNum >= 3 && other.gameObject.GetComponent<SubBossController>().life > 0 && other.gameObject.GetComponent<SubBossController>().dano)
+            /*if (other.gameObject.GetComponent<SubBossController>().life > 0 && other.gameObject.GetComponent<SubBossController>().dano)
             {
                 obj = other.gameObject;
                 SlamDmg(obj);
-            }
+            }*/
         }
         else if (other.gameObject.tag == "Boss")
         {
-            if (playerAttack.attackComboNum <= 2 && other.gameObject.GetComponent<BossController>().life > 0 && other.gameObject.GetComponent<BossController>().dano)
+            if (other.gameObject.GetComponent<BossController>().life > 0 && other.gameObject.GetComponent<BossController>().dano)
             {
                 obj = other.gameObject;
                 Dano(obj);
             }
-            if (playerAttack.attackComboNum >= 3 && other.gameObject.GetComponent<BossController>().life > 0 && other.gameObject.GetComponent<BossController>().dano)
+            /*if (other.gameObject.GetComponent<BossController>().life > 0 && other.gameObject.GetComponent<BossController>().dano)
             {
                 obj = other.gameObject;
                 SlamDmg(obj);
-            }
+            }*/
         }
     }
 }

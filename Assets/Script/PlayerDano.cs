@@ -6,24 +6,26 @@ public class PlayerDano : MonoBehaviour
     public PlayerStatus playerStatus;
     public PlayerAnimation playerAnim;
     public PlayerMovment playerMov;
+    public PlayerAttackController playerAttack;
 
     public bool stun;
 
-    void Update()
+    public GameObject pegador;
+    
+    public void Dano(float dmg, GameObject obj)
     {
-        if(Input.GetKeyDown(KeyCode.Space))
+        if (!playerAttack.presa)
         {
-            Dano(1);
+            if (!playerMov.jump)
+            {
+                playerAnim.anim.SetBool("Stun", true);
+                stun = true;
+                playerAnim.anim.SetTrigger("Dano");
+            }
         }
-    }
-
-    public void Dano(float dmg)
-    {
-        if (!playerMov.jump)
+        else
         {
-            playerAnim.anim.SetBool("Stun", true);
-            stun = true;
-            playerAnim.anim.SetTrigger("Dano");
+            pegador.GetComponent<EnemyController>().anim.SetTrigger("Dano");
         }
     }
 }

@@ -5,12 +5,16 @@ public class PlayerEngage : MonoBehaviour
 {
     public int engage;
 
-    public PlayerController playercontroller;
+    public PlayerStats playerStats;
+
+    public PlayerAttackController playerAttack;
+
+    public PlayerDano playerDano;
 
     public string nome;
 
     void Start()
     {
-        nome = playercontroller.nome;
+        nome = playerStats.nome;
     }
 }

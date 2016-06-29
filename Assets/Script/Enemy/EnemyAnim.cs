@@ -107,7 +107,7 @@ public class EnemyAnim : MonoBehaviour
             audioInstance = FMODUnity.RuntimeManager.CreateInstance(socoFracoEnemy);
             audioInstance.setVolume(PlayerPrefs.GetFloat("VolumeFX"));
             audioInstance.start();
-            other.gameObject.GetComponent<PlayerController>().Dano(dmg, gameObject);         
+            other.gameObject.GetComponent<PlayerDano>().Dano(dmg, gameObject);         
         }
         if (other.gameObject.tag == "Parede")
         {
