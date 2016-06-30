@@ -56,14 +56,14 @@ public class PlayerAnimation : MonoBehaviour
 
     public void Levanta()
     {
-        /*if (playerController.transform.localScale.x > 0)
+        if (playerMov.transform.localScale.x > 0)
         {
-            playerController.transform.position = new Vector3(playerController.transform.position.x - 2f, playerController.transform.position.y, playerController.transform.position.z);
+            playerMov.transform.position = new Vector3(playerMov.transform.position.x - 2f, playerMov.transform.position.y, playerMov.transform.position.z);
         }
-        else if (playerController.transform.localScale.x < 0)
+        else if (playerMov.transform.localScale.x < 0)
         {
-            playerController.transform.position = new Vector3(playerController.transform.position.x + 2f, playerController.transform.position.y, playerController.transform.position.z);
-        }*/
+            playerMov.transform.position = new Vector3(playerMov.transform.position.x + 2f, playerMov.transform.position.y, playerMov.transform.position.z);
+        }
         levanta = false;
     }
 

@@ -65,9 +65,9 @@ public class PlayerAttackController : MonoBehaviour
         if(mov)
         {
             if(transform.localScale.x > 0)
-                transform.Translate(0.04f, 0, 0);
+                transform.Translate(0.02f, 0, 0);
             else
-                transform.Translate(-0.04f, 0, 0);
+                transform.Translate(-0.02f, 0, 0);
         }
     }
 
@@ -107,7 +107,7 @@ public class PlayerAttackController : MonoBehaviour
         switch(attackComboNum)
         {
             case 1:
-                if(!playerAnim.anim.GetCurrentAnimatorStateInfo(0).IsName("SocoFracoAndarilho"))
+                if(!playerAnim.anim.GetCurrentAnimatorStateInfo(0).IsName("SocoFracoAndarilho") && !playerAnim.anim.GetCurrentAnimatorStateInfo(0).IsName("SocoFraco1Andarilho") && !playerAnim.anim.GetCurrentAnimatorStateInfo(0).IsName("SocoFraco2Andarilho"))
                     playerAnim.anim.SetTrigger("SocoFraco");
                 break;
 
