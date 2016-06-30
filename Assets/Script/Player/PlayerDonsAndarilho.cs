@@ -5,13 +5,22 @@ public class PlayerDonsAndarilho : MonoBehaviour
 {
     public float[] cost;
 
-    public PlayerController controller;
+    public PlayerStats controller;
+
+    public PlayerDano playerDano;
+
+    public PlayerAnimation playerAnim;
 
     public PlayerDom player;
 
     public GameObject invoque, eletrecute, pack;
 
     public Transform posInvoque;
+
+    [FMODUnity.EventRef]
+    public string uivo;
+
+    FMOD.Studio.EventInstance audioInstanceCreator;
 
     public string nome;
 
@@ -68,13 +77,18 @@ public class PlayerDonsAndarilho : MonoBehaviour
 
     void CalloftheWyld()
     {
+        playerDano.stun = true;
+        playerAnim.anim.SetTrigger("Uivo");
+        audioInstanceCreator = FMODUnity.RuntimeManager.CreateInstance(uivo);
+        audioInstanceCreator.setVolume(PlayerPrefs.GetFloat("VolumeFX"));
+        audioInstanceCreator.start();
         obj = GameObject.FindGameObjectsWithTag("Player");
         for(int i = 0; i < obj.Length; i ++)
         {
-            if(obj[i].GetComponent<PlayerController>().nome != nome)
+            if(obj[i].GetComponent<PlayerStats>().nome != nome)
             {
                 obj[i].GetComponent<PlayerStatus>().call = true;
-                obj[i].GetComponent<PlayerController>().call = true;
+                obj[i].GetComponent<PlayerStats>().call = true;
             }
         }
         StartCoroutine("Call");
@@ -85,10 +99,10 @@ public class PlayerDonsAndarilho : MonoBehaviour
         yield return new WaitForSeconds(3);
         for (int i = 0; i < obj.Length; i++)
         {
-            if (obj[i].GetComponent<PlayerController>().nome != nome)
+            if (obj[i].GetComponent<PlayerStats>().nome != nome)
             {
                 obj[i].GetComponent<PlayerStatus>().call = false;
-                obj[i].GetComponent<PlayerController>().call = false;
+                obj[i].GetComponent<PlayerStats>().call = false;
             }
         }
         StopCoroutine("Call");
@@ -96,8 +110,8 @@ public class PlayerDonsAndarilho : MonoBehaviour
 
     void FabricoftheMind()
     {
-        controller.stun = true;
-        controller.anim.anim.SetTrigger("Summon");
+        playerDano.stun = true;
+        playerAnim.anim.SetTrigger("Summon");
         GameObject temp;
         temp = Instantiate(invoque, posInvoque.position, transform.rotation) as GameObject;
         temp.GetComponent<Pacman>().obj = gameObject;

@@ -5,7 +5,7 @@ public class PlayerStatus : MonoBehaviour
 {
     public string nome;
 
-    public PlayerController player;
+    public PlayerStats player;
 
     [HideInInspector]
     public float strength, dexterity, stamina, charisma, intelligence, spirit; //padrao

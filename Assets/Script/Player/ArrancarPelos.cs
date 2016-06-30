@@ -3,7 +3,9 @@ using System.Collections;
 
 public class ArrancarPelos : MonoBehaviour
 {
-    public PlayerController player;
+    //public PlayerController player;
+
+    public PlayerStats player;
 
     float x;
 

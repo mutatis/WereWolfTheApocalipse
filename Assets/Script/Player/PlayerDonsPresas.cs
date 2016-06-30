@@ -5,7 +5,7 @@ public class PlayerDonsPresas : MonoBehaviour
 {
     public float[] cost;
 
-    public PlayerController controller;
+    public PlayerStats controller;
 
     public PlayerStatus playerStatus;
 

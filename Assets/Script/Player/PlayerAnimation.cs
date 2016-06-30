@@ -18,6 +18,9 @@ public class PlayerAnimation : MonoBehaviour
     public string socoFraco;
 
     [FMODUnity.EventRef]
+    public string miss;
+
+    [FMODUnity.EventRef]
     public string crit;
 
     [FMODUnity.EventRef]
@@ -90,7 +93,9 @@ public class PlayerAnimation : MonoBehaviour
 
     public void Miss()
     {
-
+        audioInstance = FMODUnity.RuntimeManager.CreateInstance(miss);
+        audioInstance.setVolume(PlayerPrefs.GetFloat("VolumeFX"));
+        audioInstance.start();
     }
 
     public void Atacando()

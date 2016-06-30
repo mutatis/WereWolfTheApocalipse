@@ -19,7 +19,7 @@ public class Pacman : MonoBehaviour
 
     void Start()
     {
-        if(obj.GetComponent<PlayerController>().transform.localScale.x < 0)
+        if(obj.GetComponent<PlayerStats>().transform.localScale.x < 0)
         {
             vel *= -1;
         }

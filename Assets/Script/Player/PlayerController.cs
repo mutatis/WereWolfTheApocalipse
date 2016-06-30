@@ -16,15 +16,15 @@ public class PlayerController : MonoBehaviour
 
     public Rigidbody rig;
 
-    public Player player;
-
+    public PlayerContr player;
+    /*
     [FMODUnity.EventRef]
     public string miss;
     [FMODUnity.EventRef]
     public string blockSound;
     [FMODUnity.EventRef]
     public string jumpSound;
-
+    */
     FMOD.Studio.EventInstance audioInstanceCreator;
 
     [HideInInspector]
@@ -39,7 +39,8 @@ public class PlayerController : MonoBehaviour
     public bool isGrab = false;
     [HideInInspector]
     public bool isRun = true;
-    public bool jump, stun, crinos, call, lunar, apanha, presa;
+    public bool jump, stun, crinos, apanha, presa;
+    //public bool call, lunar;
 
     public int contador, engage, flooda, solta;
 
@@ -120,7 +121,7 @@ public class PlayerController : MonoBehaviour
                 }
                 switch (player)
                 {
-                    case Player.Player1:
+                    case PlayerContr.Player1:
                         if (isRun)
                         {
                             x = Input.GetAxis("HorizontalP1");
@@ -218,7 +219,7 @@ public class PlayerController : MonoBehaviour
                         }
                         break;
 
-                    case Player.Player2:
+                    case PlayerContr.Player2:
                         if (isRun)
                         {
                             x = Input.GetAxis("HorizontalP2");
@@ -335,9 +336,6 @@ public class PlayerController : MonoBehaviour
     {
         if (isJump)
         {
-            audioInstanceCreator = FMODUnity.RuntimeManager.CreateInstance(jumpSound);
-            audioInstanceCreator.setVolume(PlayerPrefs.GetFloat("VolumeFX"));
-            audioInstanceCreator.start();
             jump = true;
             anim.anim.SetBool("Jump", jump);
             rig.velocity = new Vector3(rig.velocity.x, 10, rig.velocity.z);
@@ -349,9 +347,6 @@ public class PlayerController : MonoBehaviour
     {
         if (!isGrab)
         {
-            audioInstanceCreator = FMODUnity.RuntimeManager.CreateInstance(miss);
-            audioInstanceCreator.setVolume(PlayerPrefs.GetFloat("VolumeFX"));
-            audioInstanceCreator.start();
             isAttack = false;
             isRun = false;
             anim.anim.SetTrigger("SocoForte");
@@ -376,9 +371,6 @@ public class PlayerController : MonoBehaviour
         }
         isAttack = false;
         isRun = false;
-        audioInstanceCreator = FMODUnity.RuntimeManager.CreateInstance(miss);
-        audioInstanceCreator.setVolume(PlayerPrefs.GetFloat("VolumeFX"));
-        audioInstanceCreator.start();
         switch (contador)
         {
             case 0:
@@ -460,7 +452,6 @@ public class PlayerController : MonoBehaviour
                             if (block)
                             {
                                 dmg = dmg * playerStatus.blockEffect;
-                                audioInstanceCreator = FMODUnity.RuntimeManager.CreateInstance(blockSound);
                                 audioInstanceCreator.setVolume(PlayerPrefs.GetFloat("VolumeFX"));
                                 audioInstanceCreator.start();
                                 anim.anim.SetTrigger("DanoBlock");
@@ -498,7 +489,6 @@ public class PlayerController : MonoBehaviour
                             if (block)
                             {
                                 dmg = dmg * playerStatus.blockEffect;
-                                audioInstanceCreator = FMODUnity.RuntimeManager.CreateInstance(blockSound);
                                 audioInstanceCreator.setVolume(PlayerPrefs.GetFloat("VolumeFX"));
                                 audioInstanceCreator.start();
                                 anim.anim.SetTrigger("DanoBlock");
@@ -558,7 +548,7 @@ public class PlayerController : MonoBehaviour
     }
 }
 
-public enum Player
+public enum PlayerContr
 {
     Player1,
     Player2,

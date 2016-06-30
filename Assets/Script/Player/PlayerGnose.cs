@@ -20,7 +20,7 @@ public class PlayerGnose : MonoBehaviour
         }
         else
         {
-            sli.value = temp.GetComponent<PlayerController>().gnose;
+            sli.value = temp.GetComponent<PlayerStats>().gnose;
         }
     }
 
@@ -33,20 +33,20 @@ public class PlayerGnose : MonoBehaviour
             switch (tipo)
             {
                 case 1:
-                    if (obj[i].GetComponent<PlayerController>().player == Player.Player1)
+                    if (obj[i].GetComponent<PlayerStats>().player == Player.Player1)
                     {
                         temp = obj[i];
                     }
                     break;
                 case 2:
-                    if (obj[i].GetComponent<PlayerController>().player == Player.Player2)
+                    if (obj[i].GetComponent<PlayerStats>().player == Player.Player2)
                     {
                         temp = obj[i];
                     }
                     break;
             }
         }
-        sli.maxValue = temp.GetComponent<PlayerController>().playerStatus.gnosiMax;
+        sli.maxValue = temp.GetComponent<PlayerStats>().playerStatus.gnosiMax;
     }
 }
 

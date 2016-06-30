@@ -20,7 +20,7 @@ public class PlayerRage : MonoBehaviour
         }
         else
         {
-            sli.value = temp.GetComponent<PlayerController>().rage;
+            sli.value = temp.GetComponent<PlayerStats>().rage;
         }
     }
 
@@ -33,19 +33,19 @@ public class PlayerRage : MonoBehaviour
             switch (tipo)
             {
                 case 1:
-                    if (obj[i].GetComponent<PlayerController>().player == Player.Player1)
+                    if (obj[i].GetComponent<PlayerStats>().player == Player.Player1)
                     {
                         temp = obj[i];
                     }
                     break;
                 case 2:
-                    if (obj[i].GetComponent<PlayerController>().player == Player.Player2)
+                    if (obj[i].GetComponent<PlayerStats>().player == Player.Player2)
                     {
                         temp = obj[i];
                     }
                     break;
             }
         }
-        sli.maxValue = temp.GetComponent<PlayerController>().playerStatus.rageMax;
+        sli.maxValue = temp.GetComponent<PlayerStats>().playerStatus.rageMax;
     }
 }
