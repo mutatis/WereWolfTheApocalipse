@@ -10,8 +10,8 @@ public class PlayerController : MonoBehaviour
 
     public PlayerAnimation anim;
 
-    public Animator crinosAnim;
-    public Animator playerAnim;
+    //public Animator crinosAnim;
+    //public Animator playerAnim;
     public Animator grabAnim;
 
     public Rigidbody rig;
@@ -27,8 +27,8 @@ public class PlayerController : MonoBehaviour
     */
     FMOD.Studio.EventInstance audioInstanceCreator;
 
-    [HideInInspector]
-    public float rage, gnose, z, x;
+    [HideInInspector]//rage
+    public float  gnose, z, x;
     [HideInInspector]
     public bool isAttack = true;
     [HideInInspector]
@@ -155,14 +155,14 @@ public class PlayerController : MonoBehaviour
                         {
                             if (!jump)
                             {
-                                if (rage >= playerStatus.rageMax && Input.GetKeyDown(KeyCode.Joystick1Button5) && !crinos)
+                                /*if (rage >= playerStatus.rageMax && Input.GetKeyDown(KeyCode.Joystick1Button5) && !crinos)
                                 {
                                     playerStatus.pode = true;
                                     crinos = true;
                                     anim.GetComponent<SpriteRenderer>().color = Color.blue;
                                     anim.anim.runtimeAnimatorController = crinosAnim.GetComponent<Animator>().runtimeAnimatorController;
                                     StartCoroutine("Crinos");
-                                }
+                                }*/
                                 if (Input.GetKeyDown(KeyCode.Joystick1Button2) || Input.GetKeyDown(KeyCode.Space))
                                 {
                                     flooda++;
@@ -301,14 +301,14 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-    IEnumerator Crinos()
+  /*  IEnumerator Crinos()
     {
         yield return new WaitForSeconds(30);
         anim.anim.runtimeAnimatorController = playerAnim.GetComponent<Animator>().runtimeAnimatorController;
         crinos = false;
         anim.GetComponent<SpriteRenderer>().color = Color.white;
         rage = 0;
-    }
+    }*/
 
     IEnumerator Floodando()
     {
@@ -466,7 +466,7 @@ public class PlayerController : MonoBehaviour
                                     apanha = true;
                                 }
                             }
-                            rage += playerStatus.rageRegen;
+                           // rage += playerStatus.rageRegen;
                             dmg -= playerStatus.dmgTrash;
                         }
                     }
@@ -503,7 +503,7 @@ public class PlayerController : MonoBehaviour
                                     dano++;
                                 }
                             }
-                            rage += playerStatus.rageRegen;
+                            //rage += playerStatus.rageRegen;
                             dmg -= playerStatus.dmgTrash;
                         }
                     }

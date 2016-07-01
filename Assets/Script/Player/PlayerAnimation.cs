@@ -11,6 +11,7 @@ public class PlayerAnimation : MonoBehaviour
     public PlayerMovment playerMov;
     public PlayerAttackController playerAttack;
     public PlayerDano playerDano;
+    public PlayerStats playerStats;
 
     public Animator anim;
 
@@ -153,7 +154,7 @@ public class PlayerAnimation : MonoBehaviour
             {
                 other.gameObject.GetComponent<BossController>().Dano(playerStatus.dmg * 2, true, playerMov.gameObject);
             }
-            //playerController.rage += playerStatus.rageRegen;
+            playerStats.rage += playerStatus.rageRegen;
             audioInstance = FMODUnity.RuntimeManager.CreateInstance(crit);
             audioInstance.setVolume(PlayerPrefs.GetFloat("VolumeFX"));
             audioInstance.start();
@@ -176,7 +177,7 @@ public class PlayerAnimation : MonoBehaviour
             {
                 other.gameObject.GetComponent<BossController>().Dano(playerStatus.dmg, false, playerMov.gameObject);
             }
-            //playerController.rage += playerStatus.rageRegen;
+            playerStats.rage += playerStatus.rageRegen;
         }
     }
 
@@ -204,7 +205,7 @@ public class PlayerAnimation : MonoBehaviour
             {
                 other.gameObject.GetComponent<BossController>().Slam((playerStatus.dmg * 2) + (playerStatus.dmg * 0.25f), true, playerMov.gameObject, playerStatus.knockback);
             }
-            //playerController.rage += playerStatus.rageRegen;
+            playerStats.rage += playerStatus.rageRegen;
             audioInstance = FMODUnity.RuntimeManager.CreateInstance(crit);
             audioInstance.setVolume(PlayerPrefs.GetFloat("VolumeFX"));
             audioInstance.start();
@@ -227,7 +228,7 @@ public class PlayerAnimation : MonoBehaviour
             {
                 other.gameObject.GetComponent<BossController>().Slam((playerStatus.dmg + (playerStatus.dmg * 0.25f)), false, playerMov.gameObject, playerStatus.knockback);
             }
-            //playerController.rage += playerStatus.rageRegen;
+            playerStats.rage += playerStatus.rageRegen;
         }
     }
 
@@ -253,11 +254,11 @@ public class PlayerAnimation : MonoBehaviour
                 obj = other.gameObject;
                 Dano(obj);
             }
-            /*if (other.gameObject.GetComponent<EnemyRanged>().life > 0 && other.gameObject.GetComponent<EnemyRanged>().dano)
+            if (other.gameObject.GetComponent<EnemyRanged>().life > 0 && other.gameObject.GetComponent<EnemyRanged>().dano && (anim.GetCurrentAnimatorStateInfo(0).IsName("SocoFraco1Andarilho") || playerAttack.attackComboNum >= 3))
             {
                 obj = other.gameObject;
                 SlamDmg(obj);
-            }*/
+            }
         }
         else if (other.gameObject.tag == "SubBoss")
         {
@@ -266,11 +267,11 @@ public class PlayerAnimation : MonoBehaviour
                 obj = other.gameObject;
                 Dano(obj);
             }
-            /*if (other.gameObject.GetComponent<SubBossController>().life > 0 && other.gameObject.GetComponent<SubBossController>().dano)
+            if (other.gameObject.GetComponent<SubBossController>().life > 0 && other.gameObject.GetComponent<SubBossController>().dano && (anim.GetCurrentAnimatorStateInfo(0).IsName("SocoFraco1Andarilho") || playerAttack.attackComboNum >= 3))
             {
                 obj = other.gameObject;
                 SlamDmg(obj);
-            }*/
+            }
         }
         else if (other.gameObject.tag == "Boss")
         {
@@ -279,11 +280,11 @@ public class PlayerAnimation : MonoBehaviour
                 obj = other.gameObject;
                 Dano(obj);
             }
-            /*if (other.gameObject.GetComponent<BossController>().life > 0 && other.gameObject.GetComponent<BossController>().dano)
+            if (other.gameObject.GetComponent<BossController>().life > 0 && other.gameObject.GetComponent<BossController>().dano && (anim.GetCurrentAnimatorStateInfo(0).IsName("SocoFraco1Andarilho") || playerAttack.attackComboNum >= 3))
             {
                 obj = other.gameObject;
                 SlamDmg(obj);
-            }*/
+            }
         }
     }
 }

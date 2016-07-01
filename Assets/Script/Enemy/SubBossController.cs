@@ -65,7 +65,7 @@ public class SubBossController : MonoBehaviour
 
         if(sugando)
         {
-            obj.GetComponent<PlayerController>().rage -= 0.5f;
+            obj.GetComponent<PlayerStats>().rage -= 0.5f;
         }
 
         if (!perto)

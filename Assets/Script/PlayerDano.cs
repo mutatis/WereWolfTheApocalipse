@@ -3,6 +3,7 @@ using System.Collections;
 
 public class PlayerDano : MonoBehaviour
 {
+    public PlayerStats playerStats;
     public PlayerStatus playerStatus;
     public PlayerAnimation playerAnim;
     public PlayerMovment playerMov;
@@ -29,8 +30,23 @@ public class PlayerDano : MonoBehaviour
             {
                 if (!playerMov.jump)
                 {
-                    if (slamCont <= 3)
+                    if (slamCont > 3 && !playerAttack.block)
                     {
+                        if ((obj.transform.position.x < transform.position.x && transform.localScale.x > 0) || (obj.transform.position.x > transform.position.x && transform.localScale.x < 0))
+                        {
+                            transform.localScale = new Vector3(transform.localScale.x * -1, transform.localScale.y, transform.localScale.z);
+                        }
+                        playerAnim.anim.SetBool("Stun", true);
+                        stun = true;
+                        playerAnim.anim.SetTrigger("Slam");
+                        slamCont = 0;
+                    }
+                    else
+                    {
+                        if(slamCont > 3)
+                        {
+                            slamCont = 0;
+                        }
                         if (playerAttack.block)
                         {
                             audioInstanceCreator = FMODUnity.RuntimeManager.CreateInstance(blockSound);
@@ -55,17 +71,6 @@ public class PlayerDano : MonoBehaviour
                         stun = true;
                         playerAnim.anim.SetTrigger("Dano");
                     }
-                    else
-                    {
-                        if ((obj.transform.position.x < transform.position.x && transform.localScale.x > 0) || (obj.transform.position.x > transform.position.x && transform.localScale.x < 0))
-                        {
-                            transform.localScale = new Vector3(transform.localScale.x * -1, transform.localScale.y, transform.localScale.z);
-                        }
-                        playerAnim.anim.SetBool("Stun", true);
-                        stun = true;
-                        playerAnim.anim.SetTrigger("Slam");
-                        slamCont = 0;
-                    }
                 }
             }
             else
@@ -74,8 +79,13 @@ public class PlayerDano : MonoBehaviour
             }
             slamCont++;
             dmg -= playerStatus.dmgTrash;
+            if(playerAttack.block)
+            {
+                dmg *= playerStatus.blockEffect;
+            }
             playerStatus.life -= dmg;
-            if(playerStatus.life <= 0)
+            playerStats.rage += playerStatus.rageRegen;
+            if (playerStatus.life <= 0)
             {
                 if ((obj.transform.position.x < transform.position.x && transform.localScale.x > 0) || (obj.transform.position.x > transform.position.x && transform.localScale.x < 0))
                 {
