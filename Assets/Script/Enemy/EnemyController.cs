@@ -43,6 +43,8 @@ public class EnemyController : MonoBehaviour
     
     float dist1, dist2;
 
+    int danoEscolha;
+
     void Start()
     {
         obj = GameObject.FindGameObjectsWithTag("Player");
@@ -458,6 +460,12 @@ public class EnemyController : MonoBehaviour
         autorizo = true;
         StopCoroutine("Autorizacao");
         StartCoroutine("Autorizacao");
+        if(danoEscolha >= 2)
+        {
+            danoEscolha = 0;
+        }
+        danoEscolha++;
+        anim.SetInteger("DanoEscolha", danoEscolha);
         if (dano)
         {
             if (!block)
