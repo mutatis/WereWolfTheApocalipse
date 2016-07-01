@@ -5,6 +5,7 @@ public class PlayerAttackController : MonoBehaviour
 {
     public PlayerAnimation playerAnim;
     public PlayerMovment playerMov;
+    public PlayerDano playerDano;
 
     public bool mov;
 
@@ -38,7 +39,7 @@ public class PlayerAttackController : MonoBehaviour
                     playerAnim.anim.SetBool("isBlock", false);
                     block = false;
                 }
-                else if (Input.GetKeyDown(KeyCode.Joystick1Button2)&& !presa)
+                else if (Input.GetKeyDown(KeyCode.Joystick1Button2) && !presa)
                 {
                     bate = true;
                     if ((!playerAnim.anim.GetCurrentAnimatorStateInfo(0).IsName("SocoFracoAndarilho")) && (attackComboNum == 0 || attackComboNum > 3))
@@ -56,7 +57,7 @@ public class PlayerAttackController : MonoBehaviour
             }
         }
 
-        if(mov)
+        if(mov && !playerDano.stun)
         {
             if(transform.localScale.x > 0)
                 transform.Translate(0.02f, 0, 0);
