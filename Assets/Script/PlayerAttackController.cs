@@ -9,7 +9,7 @@ public class PlayerAttackController : MonoBehaviour
     public bool mov;
 
     [HideInInspector]
-    public bool bate, isAttack, presa, jumpAttack, block;
+    public bool bate, isAttack, presa, jumpAttack, block, pulaBate;
 
     public GameObject obj;
 
@@ -78,7 +78,6 @@ public class PlayerAttackController : MonoBehaviour
     public void Libero()
     {
         mov = false;
-        jumpAttack = false;
         if(bate)
         {
             SocoFraco();

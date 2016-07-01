@@ -26,7 +26,10 @@ public class PlayerMovment : MonoBehaviour
 
         if (!isMov)
         {
-            x = Input.GetAxis("HorizontalP1");
+            if (!playerAttack.jumpAttack)
+            {
+                x = Input.GetAxis("HorizontalP1");
+            }
             if (!jump && !playerAttack.block && !playerDano.stun)
             {
                 z = Input.GetAxis("VerticalP1");
@@ -85,6 +88,7 @@ public class PlayerMovment : MonoBehaviour
 
     void Normal()
     {
+        playerAttack.jumpAttack = false;
         jump = false;
         playerAnim.anim.SetBool("Jump", jump);
     }
