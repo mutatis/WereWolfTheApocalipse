@@ -87,7 +87,6 @@ public class PlayerAnimation : MonoBehaviour
         /*playerController.stun = false;
         playerController.isAttack = true;*/
         playerDano.stun = false;
-        playerAttack.isAttack = false;
         anim.SetBool("Stun", false);
         OkIdle();
     }
@@ -126,7 +125,6 @@ public class PlayerAnimation : MonoBehaviour
     public void Ataca()
     {
         NotIdle();
-        playerAttack.isAttack = false;
         // playerController.Ataca();
     }
 

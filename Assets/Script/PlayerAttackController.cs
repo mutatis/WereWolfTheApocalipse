@@ -9,7 +9,7 @@ public class PlayerAttackController : MonoBehaviour
     public bool mov;
 
     [HideInInspector]
-    public bool bate, isAttack, presa, jumpAttack, block, pulaBate;
+    public bool bate, presa, jumpAttack, block, pulaBate;
 
     public GameObject obj;
 
@@ -38,14 +38,13 @@ public class PlayerAttackController : MonoBehaviour
                     playerAnim.anim.SetBool("isBlock", false);
                     block = false;
                 }
-                else if (Input.GetKeyDown(KeyCode.Joystick1Button2) && !isAttack && !presa)
+                else if (Input.GetKeyDown(KeyCode.Joystick1Button2)&& !presa)
                 {
                     bate = true;
                     if ((!playerAnim.anim.GetCurrentAnimatorStateInfo(0).IsName("SocoFracoAndarilho")) && (attackComboNum == 0 || attackComboNum > 3))
                     {
                         SocoFraco();
                     }
-                    isAttack = true;
                 }
             }
             else if (playerMov.jump)
