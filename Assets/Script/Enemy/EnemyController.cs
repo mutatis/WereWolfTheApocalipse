@@ -238,7 +238,7 @@ public class EnemyController : MonoBehaviour
         StartCoroutine("Pode");
         roamming = false;
         int num;
-        if(!stun && dist < 0.54f && combate && !player.GetComponent<PlayerEngage>().playerAttack.playerAnim.levanta)
+        if(!stun && dist < 0.54f && combate && !player.GetComponent<PlayerEngage>().playerAttack.playerAnim.levanta && !taPego)
         {
             var temp = player.GetComponent<PlayerEngage>().playerAttack.transform.position;
             /*if (temp.x > transform.position.x && transform.localScale.x > 0)
