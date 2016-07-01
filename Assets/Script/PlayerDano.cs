@@ -32,6 +32,9 @@ public class PlayerDano : MonoBehaviour
                 {
                     if (slamCont > 3 && !playerAttack.block)
                     {
+                        audioInstanceCreator = FMODUnity.RuntimeManager.CreateInstance(socoFracoEnemy);
+                        audioInstanceCreator.setVolume(PlayerPrefs.GetFloat("VolumeFX"));
+                        audioInstanceCreator.start();
                         if ((obj.transform.position.x < transform.position.x && transform.localScale.x > 0) || (obj.transform.position.x > transform.position.x && transform.localScale.x < 0))
                         {
                             transform.localScale = new Vector3(transform.localScale.x * -1, transform.localScale.y, transform.localScale.z);

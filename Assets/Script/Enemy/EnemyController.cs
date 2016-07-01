@@ -437,6 +437,7 @@ public class EnemyController : MonoBehaviour
 
     public void DanoAgain()
     {
+        combate = true;
         stun = false;
         roamming = false;
         dano = true;
