@@ -188,46 +188,46 @@ public class PlayerAnimation : MonoBehaviour
         int x = Random.Range(0, 100);
         if (x <= playerStatus.critChance)
         {
-            /*if (other.gameObject.tag == "Enemy")
+            if (other.gameObject.tag == "Enemy")
             {
-                other.gameObject.GetComponent<EnemyController>().Slam((playerStatus.dmg * 2) + (playerStatus.dmg * 0.25f), true, playerController.gameObject, playerStatus.knockback);
+                other.gameObject.GetComponent<EnemyController>().Slam((playerStatus.dmg * 2) + (playerStatus.dmg * 0.25f), true, playerMov.gameObject, playerStatus.knockback);
             }
             else if (other.gameObject.tag == "EnemyRanged")
             {
-                other.gameObject.GetComponent<EnemyRanged>().Slam((playerStatus.dmg * 2) + (playerStatus.dmg * 0.25f), true, playerController.gameObject, playerStatus.knockback);
+                other.gameObject.GetComponent<EnemyRanged>().Slam((playerStatus.dmg * 2) + (playerStatus.dmg * 0.25f), true, playerMov.gameObject, playerStatus.knockback);
             }
             else if (other.gameObject.tag == "SubBoss")
             {
-                other.gameObject.GetComponent<SubBossController>().Slam((playerStatus.dmg * 2) + (playerStatus.dmg * 0.25f), true, playerController.gameObject, playerStatus.knockback);
+                other.gameObject.GetComponent<SubBossController>().Slam((playerStatus.dmg * 2) + (playerStatus.dmg * 0.25f), true, playerMov.gameObject, playerStatus.knockback);
             }
             else if (other.gameObject.tag == "Boss")
             {
-                other.gameObject.GetComponent<BossController>().Slam((playerStatus.dmg * 2) + (playerStatus.dmg * 0.25f), true, playerController.gameObject, playerStatus.knockback);
+                other.gameObject.GetComponent<BossController>().Slam((playerStatus.dmg * 2) + (playerStatus.dmg * 0.25f), true, playerMov.gameObject, playerStatus.knockback);
             }
-            playerController.rage += playerStatus.rageRegen;*/
+            //playerController.rage += playerStatus.rageRegen;
             audioInstance = FMODUnity.RuntimeManager.CreateInstance(crit);
             audioInstance.setVolume(PlayerPrefs.GetFloat("VolumeFX"));
             audioInstance.start();
         }
         else
         {
-            /*if (other.gameObject.tag == "Enemy")
+            if (other.gameObject.tag == "Enemy")
             {
-                other.gameObject.GetComponent<EnemyController>().Slam((playerStatus.dmg + (playerStatus.dmg * 0.25f)), false, playerController.gameObject, playerStatus.knockback);
+                other.gameObject.GetComponent<EnemyController>().Slam((playerStatus.dmg + (playerStatus.dmg * 0.25f)), false, playerMov.gameObject, playerStatus.knockback);
             }
             else if (other.gameObject.tag == "EnemyRanged")
             {
-                other.gameObject.GetComponent<EnemyRanged>().Slam((playerStatus.dmg + (playerStatus.dmg * 0.25f)), false, playerController.gameObject, playerStatus.knockback);
+                other.gameObject.GetComponent<EnemyRanged>().Slam((playerStatus.dmg + (playerStatus.dmg * 0.25f)), false, playerMov.gameObject, playerStatus.knockback);
             }
             else if (other.gameObject.tag == "SubBoss")
             {
-                other.gameObject.GetComponent<SubBossController>().Slam((playerStatus.dmg + (playerStatus.dmg * 0.25f)), false, playerController.gameObject, playerStatus.knockback);
+                other.gameObject.GetComponent<SubBossController>().Slam((playerStatus.dmg + (playerStatus.dmg * 0.25f)), false, playerMov.gameObject, playerStatus.knockback);
             }
             else if (other.gameObject.tag == "Boss")
             {
-                other.gameObject.GetComponent<BossController>().Slam((playerStatus.dmg + (playerStatus.dmg * 0.25f)), false, playerController.gameObject, playerStatus.knockback);
+                other.gameObject.GetComponent<BossController>().Slam((playerStatus.dmg + (playerStatus.dmg * 0.25f)), false, playerMov.gameObject, playerStatus.knockback);
             }
-            playerController.rage += playerStatus.rageRegen;*/
+            //playerController.rage += playerStatus.rageRegen;
         }
     }
 
@@ -235,16 +235,16 @@ public class PlayerAnimation : MonoBehaviour
     {
         if(other.gameObject.tag == "Enemy")
         {
-            if (other.gameObject.GetComponent<EnemyController>().life > 0 && other.gameObject.GetComponent<EnemyController>().dano)
+            if (other.gameObject.GetComponent<EnemyController>().life > 0 && other.gameObject.GetComponent<EnemyController>().dano && playerAttack.attackComboNum < 3)
             {
                 obj = other.gameObject;
                 Dano(obj);
             }
-            /*if (other.gameObject.GetComponent<EnemyController>().life > 0 && other.gameObject.GetComponent<EnemyController>().dano)
+            else if (other.gameObject.GetComponent<EnemyController>().life > 0 && other.gameObject.GetComponent<EnemyController>().dano && (anim.GetCurrentAnimatorStateInfo(0).IsName("SocoFraco1Andarilho") || playerAttack.attackComboNum >= 3))
             {
                 obj = other.gameObject;
                 SlamDmg(obj);
-            }*/
+            }
         }
         else if (other.gameObject.tag == "EnemyRanged")
         {

@@ -40,16 +40,8 @@ public class PlayerAttackController : MonoBehaviour
                 }
                 else if (Input.GetKeyDown(KeyCode.Joystick1Button2) && !isAttack && !presa)
                 {
-                    if (attackComboNum < 4)
-                    {
-                        attackComboNum++;
-                    }
-                    else
-                    {
-                        attackComboNum = 0;
-                    }
                     bate = true;
-                    if ((!playerAnim.anim.GetCurrentAnimatorStateInfo(0).IsName("SocoFracoAndarilho")))
+                    if ((!playerAnim.anim.GetCurrentAnimatorStateInfo(0).IsName("SocoFracoAndarilho")) && (attackComboNum == 0 || attackComboNum > 3))
                     {
                         SocoFraco();
                     }
@@ -99,6 +91,14 @@ public class PlayerAttackController : MonoBehaviour
 
     void SocoFraco()
     {
+        if (attackComboNum < 4)
+        {
+            attackComboNum++;
+        }
+        else
+        {
+            attackComboNum = 0;
+        }
         if (obj == null)
         {
             attackComboNum = 1;
@@ -120,7 +120,7 @@ public class PlayerAttackController : MonoBehaviour
                 break;
 
             case 3:
-                if (!playerAnim.anim.GetCurrentAnimatorStateInfo(0).IsName("SocoFraco1Andarilho"))
+                if (!playerAnim.anim.GetCurrentAnimatorStateInfo(0).IsName("SocoFraco2Andarilho"))
                     playerAnim.anim.SetTrigger("SocoFraco3");
                 break;
         }
