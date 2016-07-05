@@ -16,9 +16,10 @@ public class PlayerMovment : MonoBehaviour
     public string jumpSound;
 
     [HideInInspector]
-    public bool isMov, jump;
+    public bool isMov, jump, isGrab;
 
-    float x, z;
+    [HideInInspector]
+    public float x, z;
 
     void Update()
     {

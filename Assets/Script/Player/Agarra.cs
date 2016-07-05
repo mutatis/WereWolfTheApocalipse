@@ -3,7 +3,12 @@ using System.Collections;
 
 public class Agarra : MonoBehaviour 
 {
-    public PlayerController player;
+    //public PlayerController player;
+    public PlayerStatus playerStatus;
+    public PlayerMovment playerMov;
+    public PlayerAttackController playerAttack;
+    public PlayerAnimation playerAnim;
+    public PlayerDano playerDano;
 
     [FMODUnity.EventRef]
     public string pega;
@@ -22,24 +27,24 @@ public class Agarra : MonoBehaviour
         agarraAudioInstance = FMODUnity.RuntimeManager.CreateInstance(joga);
         agarraAudioInstance.setVolume(PlayerPrefs.GetFloat("VolumeFX"));
         agarraAudioInstance.start();
-        enemy.GetComponent<EnemyController>().Slam(player.playerStatus.dmg, false, gameObject, 5);
+        enemy.GetComponent<EnemyController>().Slam(playerStatus.dmg, false, gameObject, 5);
         End();
     }
 
 	IEnumerator GO()
 	{
-        player.isGrab = true;
-        player.enemy = enemy;
-        player.anim.anim.SetBool("Grab", true);
-        if ((player.x != 0 || player.z != 0))
+        playerMov.isGrab = true;
+        playerAttack.enemy = enemy;
+        playerAnim.anim.SetBool("Grab", true);
+        if ((playerMov.x != 0 || playerMov.z != 0))
         {
-            player.anim.anim.SetTrigger("Run");            
+            playerAnim.anim.SetTrigger("Run");            
         }
         else
         {
-            player.anim.anim.SetTrigger("Idle");
+            playerAnim.anim.SetTrigger("Idle");
         }
-        player.isJump = false;
+        playerMov.jump = false;
 		enemy.GetComponent<EnemyController> ().peguei = gameObject;
 		yield return new WaitForSeconds (1.5f);
         End();
@@ -47,19 +52,19 @@ public class Agarra : MonoBehaviour
 
     void End()
     {
-        player.isGrab = false;
-        player.anim.anim.SetBool("Grab", false);
-        if ((player.x != 0 || player.z != 0) && !player.jump)
+        playerMov.isGrab = false;
+        playerAnim.anim.SetBool("Grab", false);
+        if ((playerMov.x != 0 || playerMov.z != 0) && !playerMov.jump)
         {
-            player.anim.anim.SetTrigger("Run");
+            playerAnim.anim.SetTrigger("Run");
         }
         else
         {
-            player.anim.anim.SetTrigger("Idle");
+            playerAnim.anim.SetTrigger("Idle");
         }
         enemy.GetComponent<EnemyController>().peguei = null;
         pego = false;
-        player.isJump = true;
+        playerMov.jump = false;
         enemy.GetComponent<EnemyController>().Switch();
         enemy = null;
         StopCoroutine("GO");
@@ -69,7 +74,7 @@ public class Agarra : MonoBehaviour
 	{
 		if(other.gameObject.tag == "Enemy")
 		{
-			if (!pego && !player.stun && player.isAttack && other.gameObject.GetComponent<EnemyController>().life > 0 && !other.gameObject.GetComponent<EnemyController>().slam && (player.x > 0 || player.x < 0) && !player.jump)
+			if (!pego && !playerDano.stun && other.gameObject.GetComponent<EnemyController>().life > 0 && !other.gameObject.GetComponent<EnemyController>().slam && (playerMov.x > 0 || playerMov.x < 0) && !playerMov.jump)
             {
                 agarraAudioInstance = FMODUnity.RuntimeManager.CreateInstance(pega);
                 agarraAudioInstance.setVolume(PlayerPrefs.GetFloat("VolumeFX"));

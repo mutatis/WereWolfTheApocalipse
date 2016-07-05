@@ -6,11 +6,16 @@ public class PlayerAttackController : MonoBehaviour
     public PlayerAnimation playerAnim;
     public PlayerMovment playerMov;
     public PlayerDano playerDano;
+    public PlayerStatus playerStatus;
+
+    public Animator grabAnim;
 
     public bool mov;
 
     [HideInInspector]
     public bool bate, presa, jumpAttack, block, pulaBate;
+
+    public GameObject enemy;
 
     public GameObject obj;
 
@@ -90,47 +95,59 @@ public class PlayerAttackController : MonoBehaviour
 
     void SocoFraco()
     {
-        if(attackComboNum >= 3)
+        if (!playerMov.isGrab)
         {
-            attackComboNum = 0;
-        }
-        if (attackComboNum < 3)
-        {
-            attackComboNum++;
+            if (attackComboNum >= 3)
+            {
+                attackComboNum = 0;
+            }
+            if (attackComboNum < 3)
+            {
+                attackComboNum++;
+            }
+            else
+            {
+                attackComboNum = 0;
+            }
+            if (obj == null || attackComboNum > 3)
+            {
+                attackComboNum = 1;
+            }
+            playerAnim.anim.SetInteger("AttackComboNum", attackComboNum);
+            bate = false;
+            //attackComboNum++;
+            //playerAnim.anim.SetInteger("AttackComboNum", attackComboNum);
+            switch (attackComboNum)
+            {
+                case 1:
+                    if (!playerAnim.anim.GetCurrentAnimatorStateInfo(0).IsName("SocoFracoAndarilho") && !playerAnim.anim.GetCurrentAnimatorStateInfo(0).IsName("SocoFraco1Andarilho") && !playerAnim.anim.GetCurrentAnimatorStateInfo(0).IsName("SocoFraco2Andarilho"))
+                        playerAnim.anim.SetTrigger("SocoFraco");
+                    break;
+
+                case 2:
+                    if (!playerAnim.anim.GetCurrentAnimatorStateInfo(0).IsName("SocoFraco1Andarilho"))
+                        playerAnim.anim.SetTrigger("SocoFraco2");
+                    break;
+
+                case 3:
+                    if (!playerAnim.anim.GetCurrentAnimatorStateInfo(0).IsName("SocoFraco2Andarilho"))
+                        playerAnim.anim.SetTrigger("SocoFraco3");
+                    break;
+
+                default:
+                    if (!playerAnim.anim.GetCurrentAnimatorStateInfo(0).IsName("SocoFracoAndarilho") && !playerAnim.anim.GetCurrentAnimatorStateInfo(0).IsName("SocoFraco1Andarilho") && !playerAnim.anim.GetCurrentAnimatorStateInfo(0).IsName("SocoFraco2Andarilho"))
+                        playerAnim.anim.SetTrigger("SocoFraco");
+                    break;
+            }
         }
         else
         {
-            attackComboNum = 0;
-        }
-        if (obj == null || attackComboNum > 3)
-        {
-            attackComboNum = 1;
-        }
-        playerAnim.anim.SetInteger("AttackComboNum", attackComboNum);
-        bate = false;
-        //attackComboNum++;
-        //playerAnim.anim.SetInteger("AttackComboNum", attackComboNum);
-        switch (attackComboNum)
-        {
-            case 1:
-                if(!playerAnim.anim.GetCurrentAnimatorStateInfo(0).IsName("SocoFracoAndarilho") && !playerAnim.anim.GetCurrentAnimatorStateInfo(0).IsName("SocoFraco1Andarilho") && !playerAnim.anim.GetCurrentAnimatorStateInfo(0).IsName("SocoFraco2Andarilho"))
-                    playerAnim.anim.SetTrigger("SocoFraco");
-                break;
-
-            case 2:
-                if (!playerAnim.anim.GetCurrentAnimatorStateInfo(0).IsName("SocoFraco1Andarilho"))
-                    playerAnim.anim.SetTrigger("SocoFraco2");
-                break;
-
-            case 3:
-                if (!playerAnim.anim.GetCurrentAnimatorStateInfo(0).IsName("SocoFraco2Andarilho"))
-                    playerAnim.anim.SetTrigger("SocoFraco3");
-                break;
-
-            default:
-                if (!playerAnim.anim.GetCurrentAnimatorStateInfo(0).IsName("SocoFracoAndarilho") && !playerAnim.anim.GetCurrentAnimatorStateInfo(0).IsName("SocoFraco1Andarilho") && !playerAnim.anim.GetCurrentAnimatorStateInfo(0).IsName("SocoFraco2Andarilho"))
-                    playerAnim.anim.SetTrigger("SocoFraco");
-                break;
+            grabAnim.SetTrigger("GrabAttack");
+            playerAnim.anim.SetTrigger("GrabAttack");
+            enemy.GetComponent<EnemyController>().Dano(playerStatus.dmg, false, gameObject);
+            playerAnim.audioInstance = FMODUnity.RuntimeManager.CreateInstance(playerAnim.socoFraco);
+            playerAnim.audioInstance.setVolume(PlayerPrefs.GetFloat("VolumeFX"));
+            playerAnim.audioInstance.start();
         }
     }
 }
