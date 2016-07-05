@@ -23,6 +23,8 @@ public class SpriteRowCreator : MonoBehaviour
     [SerializeField] private SpriteRenderer[] spriteRenderers;
     private float positionToNextInstance = 0;
 
+    public float zPosition;
+
     public void Start ()
     {
         if (isRuntime)
@@ -60,6 +62,11 @@ public class SpriteRowCreator : MonoBehaviour
                 {
 				    newInstance = Instantiate(gameObjectToBeCreated[index], transform.position + new Vector3 (i*distance,0,0), gameObjectToBeCreated[index].transform.rotation) as GameObject;
                     break;
+                }
+                case RowCreatorOptions.fixedDistanceZDisance:
+                {
+                        newInstance = Instantiate(gameObjectToBeCreated[index], transform.position + new Vector3(i * distance, 0, i * zPosition), gameObjectToBeCreated[index].transform.rotation) as GameObject;
+                        break;
                 }
                 case RowCreatorOptions.fixedDistanceWithHeightVariation:
                 {
@@ -123,7 +130,8 @@ public enum RowCreatorOptions
 	fixedDistance,
 	variableDistance,
     fixedDistanceWithHeightVariation,
-    variableDistanceWithHeightVariation
+    variableDistanceWithHeightVariation,
+    fixedDistanceZDisance
 }
 
 #if UNITY_EDITOR
@@ -170,6 +178,10 @@ public class SpriteRowCreatorInspector : Editor
         {
             case RowCreatorOptions.fixedDistance:
                 myScript.distance = EditorGUILayout.FloatField("Distance:", myScript.distance);
+                break;
+            case RowCreatorOptions.fixedDistanceZDisance:
+                myScript.distance = EditorGUILayout.FloatField("Distance:", myScript.distance);
+                myScript.zPosition = EditorGUILayout.FloatField("ZDistance:", myScript.zPosition);
                 break;
             case RowCreatorOptions.variableDistance:
                 myScript.minDistance = EditorGUILayout.FloatField("Min Distance:", myScript.minDistance);
