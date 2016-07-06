@@ -44,7 +44,7 @@ public class FollowTarget : MonoBehaviour
             obj[cont].SetActive(true);
         }
 
-        if (segue && quant <= 0 && enemy <= 0 && target.GetComponent<PlayerController>().x >= 0)
+        if (segue && quant <= 0 && enemy <= 0 && target.GetComponent<PlayerMovment>().x >= 0)
         {
             xPosition = target.transform.position.x + offset.x;
             yPosition = offset.y;

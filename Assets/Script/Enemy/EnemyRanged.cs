@@ -69,8 +69,8 @@ public class EnemyRanged : MonoBehaviour
             anim.SetTrigger("Dead");
             if (player != null)
             {
-                enemyanim.nome = player.GetComponent<PlayerController>().nome;
-                player.GetComponent<PlayerController>().engage--;
+                enemyanim.nome = player.GetComponent<PlayerStats>().nome;
+                //player.GetComponent<PlayerController>().engage--;
             }
             dano = false;
             gameObject.GetComponent<EnemyRanged>().enabled = false;
@@ -80,7 +80,7 @@ public class EnemyRanged : MonoBehaviour
         {
             var x = Random.Range(0, Manager.manager.player.Length);
                 player = Manager.manager.player[x];
-                player.GetComponent<PlayerController>().engage++;
+                //player.GetComponent<PlayerController>().engage++;
            
         }
     }
@@ -128,7 +128,7 @@ public class EnemyRanged : MonoBehaviour
         int num;
         if (!stun)
         {
-            var temp = player.GetComponent<PlayerController>().transform.position;
+            var temp = player.GetComponent<PlayerMovment>().transform.position;
             if (temp.x > transform.position.x && transform.localScale.x > 0)
             {
                 transform.localScale = new Vector3((transform.localScale.x * -1), transform.localScale.y, transform.localScale.z);
@@ -199,7 +199,7 @@ public class EnemyRanged : MonoBehaviour
     {
         //escolhe outro player
         roamming = false;
-        player.GetComponent<PlayerController>().engage--;
+        //player.GetComponent<PlayerController>().engage--;
         player = null;
         procura = true;
     }

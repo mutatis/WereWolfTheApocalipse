@@ -68,6 +68,7 @@ public class EnemyController : MonoBehaviour
 			if (life <= 0) 
 			{
 				StopAllCoroutines ();
+                anim.SetBool("Morreu", true);
 				anim.SetTrigger ("Dead");
 				if (player != null) 
 				{

@@ -153,12 +153,15 @@ public class PlayerAttackController : MonoBehaviour
         else
         {
             bate = false;
-            grabAnim.SetTrigger("GrabAttack");
-            playerAnim.anim.SetTrigger("GrabAttack");            
-            enemy.GetComponent<EnemyController>().Dano(playerStatus.dmg, false, gameObject);
-            playerAnim.audioInstance = FMODUnity.RuntimeManager.CreateInstance(playerAnim.socoFraco);
-            playerAnim.audioInstance.setVolume(PlayerPrefs.GetFloat("VolumeFX"));
-            playerAnim.audioInstance.start();
+            if (!playerAnim.anim.GetCurrentAnimatorStateInfo(0).IsName("GrabAttackAndarilho"))
+            {
+                grabAnim.SetTrigger("GrabAttack");
+                playerAnim.anim.SetTrigger("GrabAttack");
+                enemy.GetComponent<EnemyController>().Dano(playerStatus.dmg, false, gameObject);
+                playerAnim.audioInstance = FMODUnity.RuntimeManager.CreateInstance(playerAnim.socoFraco);
+                playerAnim.audioInstance.setVolume(PlayerPrefs.GetFloat("VolumeFX"));
+                playerAnim.audioInstance.start();
+            }
         }
     }
 }
