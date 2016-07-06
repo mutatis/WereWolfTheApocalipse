@@ -3,7 +3,6 @@ using System.Collections;
 
 public class Agarra : MonoBehaviour 
 {
-    //public PlayerController player;
     public PlayerStatus playerStatus;
     public PlayerMovment playerMov;
     public PlayerAttackController playerAttack;
@@ -44,7 +43,7 @@ public class Agarra : MonoBehaviour
         {
             playerAnim.anim.SetTrigger("Idle");
         }
-        playerMov.jump = false;
+        playerMov.isJump = true;
 		enemy.GetComponent<EnemyController> ().peguei = gameObject;
 		yield return new WaitForSeconds (1.5f);
         End();
@@ -64,7 +63,7 @@ public class Agarra : MonoBehaviour
         }
         enemy.GetComponent<EnemyController>().peguei = null;
         pego = false;
-        playerMov.jump = false;
+        playerMov.isJump = false;
         enemy.GetComponent<EnemyController>().Switch();
         enemy = null;
         StopCoroutine("GO");

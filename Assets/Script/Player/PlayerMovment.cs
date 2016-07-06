@@ -16,7 +16,7 @@ public class PlayerMovment : MonoBehaviour
     public string jumpSound;
 
     [HideInInspector]
-    public bool isMov, jump, isGrab;
+    public bool isMov, jump, isGrab, isJump;
 
     [HideInInspector]
     public float x, z;
@@ -34,7 +34,7 @@ public class PlayerMovment : MonoBehaviour
             if (!jump && !playerAttack.block && !playerDano.stun)
             {
                 z = Input.GetAxis("VerticalP1");
-                if (Input.GetKeyDown(KeyCode.Joystick1Button0) && !Input.GetKey(KeyCode.Joystick1Button5))
+                if (Input.GetKeyDown(KeyCode.Joystick1Button0) && !Input.GetKey(KeyCode.Joystick1Button5) && !isJump)
                 {
                     Jump();
                 }
@@ -57,11 +57,11 @@ public class PlayerMovment : MonoBehaviour
             z = 0;
         }
 
-        if((x != 0 || z != 0) && !playerAnim.anim.GetCurrentAnimatorStateInfo(0).IsName("RunAndarilho"))
+        if((x != 0 || z != 0) && ((!playerAnim.anim.GetCurrentAnimatorStateInfo(0).IsName("RunAndarilho") && !isGrab) || (!playerAnim.anim.GetCurrentAnimatorStateInfo(0).IsName("GrabWalkAndarilho") && isGrab)))
         {
             playerAnim.anim.SetTrigger("Run");
         }
-        else if(x == 0 && z == 0 && !playerAnim.anim.GetCurrentAnimatorStateInfo(0).IsName("IdleAndarilho"))
+        else if(x == 0 && z == 0 && ((!playerAnim.anim.GetCurrentAnimatorStateInfo(0).IsName("IdleAndarilho") && !isGrab) || (!playerAnim.anim.GetCurrentAnimatorStateInfo(0).IsName("GrabIdleAndarilho") && isGrab)))
         {
             playerAnim.anim.SetTrigger("Idle");
         }

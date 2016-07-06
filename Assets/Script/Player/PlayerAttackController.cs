@@ -47,7 +47,7 @@ public class PlayerAttackController : MonoBehaviour
                 else if (Input.GetKeyDown(KeyCode.Joystick1Button2) && !presa && !playerAnim.anim.GetCurrentAnimatorStateInfo(0).IsName("SocoFraco2Andarilho"))
                 {
                     bate = true;
-                    if ((!playerAnim.anim.GetCurrentAnimatorStateInfo(0).IsName("SocoFracoAndarilho")) && (attackComboNum == 0 || attackComboNum > 3))
+                    if (((!playerAnim.anim.GetCurrentAnimatorStateInfo(0).IsName("SocoFracoAndarilho")) && (attackComboNum == 0 || attackComboNum > 3)) || playerMov.isGrab && !playerAnim.anim.GetCurrentAnimatorStateInfo(0).IsName("GrabAttackAndarilho"))
                     {
                         SocoFraco();
                     }
@@ -62,7 +62,7 @@ public class PlayerAttackController : MonoBehaviour
             }
         }
 
-        if(mov && !playerDano.stun)
+        if(mov && !playerDano.stun && !playerMov.isGrab)
         {
             if(transform.localScale.x > 0)
                 transform.Translate(0.02f, 0, 0);
@@ -142,8 +142,9 @@ public class PlayerAttackController : MonoBehaviour
         }
         else
         {
+            bate = false;
             grabAnim.SetTrigger("GrabAttack");
-            playerAnim.anim.SetTrigger("GrabAttack");
+            playerAnim.anim.SetTrigger("GrabAttack");            
             enemy.GetComponent<EnemyController>().Dano(playerStatus.dmg, false, gameObject);
             playerAnim.audioInstance = FMODUnity.RuntimeManager.CreateInstance(playerAnim.socoFraco);
             playerAnim.audioInstance.setVolume(PlayerPrefs.GetFloat("VolumeFX"));
