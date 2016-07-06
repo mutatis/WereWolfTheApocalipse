@@ -62,11 +62,11 @@ public class PlayerDano : MonoBehaviour
                             audioInstanceCreator.setVolume(PlayerPrefs.GetFloat("VolumeFX"));
                             audioInstanceCreator.start();
                         }
-                        if (obj.transform.position.x > transform.position.x)
+                        if ((obj.transform.position.x > transform.position.x && transform.localScale.x > 0) || obj.transform.position.x < transform.position.x && transform.localScale.x > 0)
                         {
                             playerAnim.anim.SetBool("Costas", false);
                         }
-                        else if (obj.transform.position.x < transform.position.x)
+                        else if ((obj.transform.position.x < transform.position.x && transform.localScale.x < 0) || obj.transform.position.x > transform.position.x && transform.localScale.x < 0)
                         {
                             playerAnim.anim.SetBool("Costas", true);
                         }

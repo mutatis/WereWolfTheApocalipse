@@ -399,6 +399,7 @@ public class BossController : MonoBehaviour
                 transform.localScale = new Vector3((transform.localScale.x * -1), transform.localScale.y, transform.localScale.z);
             }
             anim.SetTrigger("Dano");
+            anim.SetInteger("DanoEscolha", 1);
             dano = false;
         }
     }
