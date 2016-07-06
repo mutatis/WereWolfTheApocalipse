@@ -11,6 +11,8 @@ public class EnemyController : MonoBehaviour
 
     public EnemyAnim enemyanim;
 
+    public Vector3 deus;
+
     public bool stun;
     [HideInInspector]
     public bool dano = true;
@@ -18,6 +20,7 @@ public class EnemyController : MonoBehaviour
     public bool combate = true;
     [HideInInspector]
     public bool slam;
+    public bool isEngage;
 
     public TextMesh text;
     
@@ -37,7 +40,7 @@ public class EnemyController : MonoBehaviour
     bool prepare = true;
     bool isIdle = true;
     bool isRun = true;
-    bool taPego, chamei, block, isEngage, costas, autorizo, procura;
+    bool taPego, chamei, block, costas, autorizo, procura;
 
     Vector3 direction;
     
@@ -129,7 +132,7 @@ public class EnemyController : MonoBehaviour
 			if (dist > 1f && player != null && !isEngage)
             {
                 isWalk = true;
-                StartCoroutine (Engage ());
+                StartCoroutine ("Engage");
 			} 
 			else if (player != null && dist < 1 && !chamei) 
 			{
@@ -395,45 +398,68 @@ public class EnemyController : MonoBehaviour
             anim.SetTrigger("Run");
             isRun = false;
         }
-        while (dist > 0.5f)
+        if (player != null)
         {
-            direction = player.transform.position - transform.position;
-            direction.Normalize();
-            if (!stun)
+            while (dist > 0.5f)
             {
-                Vector3 deus = (direction / 25);
-                transform.Translate(deus);
-                if (!anim.GetCurrentAnimatorStateInfo(0).IsName("EnemyRun") && !costas)
+                if (player != null)
                 {
-                    anim.SetTrigger("Run");
-                }
-                else if (!anim.GetCurrentAnimatorStateInfo(0).IsName("EnemyRunCostas") && costas)
-                {
-                    anim.SetTrigger("Run");
-                }
+                    direction = player.transform.position - transform.position;
+                    direction.Normalize();
+                    if (!stun)
+                    {
+                        deus = (direction / 25);
+                        transform.Translate(deus);
+                        if (!anim.GetCurrentAnimatorStateInfo(0).IsName("EnemyRun") && !costas)
+                        {
+                            anim.SetTrigger("Run");
+                        }
+                        else if (!anim.GetCurrentAnimatorStateInfo(0).IsName("EnemyRunCostas") && costas)
+                        {
+                            anim.SetTrigger("Run");
+                        }
 
-                if ((direction.x > 0 && transform.localScale.x < 0) || (direction.x < 0 && transform.localScale.x > 0))
-                {
-                    anim.SetBool("Costas", false);
-                    costas = false;
+                        if ((direction.x > 0 && transform.localScale.x < 0) || (direction.x < 0 && transform.localScale.x > 0))
+                        {
+                            anim.SetBool("Costas", false);
+                            costas = false;
+                        }
+                        else
+                        {
+                            costas = true;
+                            anim.SetBool("Costas", true);
+                        }
+                        combate = false;
+                    }
+                    dist = Vector3.Distance(player.transform.position, transform.position);
+                    yield return new WaitForSeconds(0.01f);
                 }
                 else
                 {
-                    costas = true;
-                    anim.SetBool("Costas", true);
+                    var x = Random.Range(0, Manager.manager.playerEngage.Length);
+                    if (Manager.manager.playerEngage[x].GetComponent<PlayerEngage>().engage < 1)
+                    {
+                        player = Manager.manager.playerEngage[x];
+                        player.GetComponent<PlayerEngage>().engage++;
+                    }
                 }
             }
-            dist = Vector3.Distance(player.transform.position, transform.position);
-            yield return new WaitForSeconds(0.01f);
+            combate = true;
+            isIdle = true;
+            isRun = true;
+            deus = new Vector3(0, 0, 0);
+            isEngage = false;
+            anim.SetTrigger("Idle");
+            isWalk = false;
+            StopCoroutine("Pode");
+            StartCoroutine("Pode");
         }
-        combate = true;
-        isIdle = true;
-        isRun = true;
-        isEngage = false;
-        anim.SetTrigger("Idle");
-        isWalk = false;
-        StopCoroutine("Pode");
-        StartCoroutine("Pode");
+        else
+        {
+            isEngage = false;
+            StopCoroutine("Procura");
+            StartCoroutine("Procura");
+        }
     }
 
 
