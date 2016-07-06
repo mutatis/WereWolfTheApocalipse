@@ -52,6 +52,10 @@ public class PlayerAttackController : MonoBehaviour
                         SocoFraco();
                     }
                 }
+                else if(Input.GetKeyDown(KeyCode.Joystick1Button3) && !presa && playerMov.isGrab)
+                {
+                    GrabThrow();
+                }
             }
             else if (playerMov.jump)
             {
@@ -69,6 +73,12 @@ public class PlayerAttackController : MonoBehaviour
             else
                 transform.Translate(-0.02f, 0, 0);
         }
+    }
+
+    void GrabThrow()
+    {
+        grabAnim.SetTrigger("GrabThrow");
+        playerAnim.anim.SetTrigger("GrabThrow");
     }
 
     void JumpAttack()
