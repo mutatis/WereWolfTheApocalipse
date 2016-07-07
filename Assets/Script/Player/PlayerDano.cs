@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using XInputDotNetPure;
 
 public class PlayerDano : MonoBehaviour
 {
@@ -8,7 +9,8 @@ public class PlayerDano : MonoBehaviour
     public PlayerAnimation playerAnim;
     public PlayerMovment playerMov;
     public PlayerAttackController playerAttack;
-
+    public Agarra agarra;
+    
     public bool stun;
 
     [FMODUnity.EventRef]
@@ -26,6 +28,10 @@ public class PlayerDano : MonoBehaviour
     {
         if (playerStatus.life > 0 && !playerAnim.levanta)
         {
+            if(playerMov.isGrab)
+            {
+                agarra.End();
+            }
             if (!playerAttack.presa)
             {
                 if (!playerMov.jump)
@@ -97,6 +103,14 @@ public class PlayerDano : MonoBehaviour
                 stun = true;
                 playerAnim.anim.SetTrigger("Dead");
             }
+            StartCoroutine(Vibrar());
         }
+    }
+
+    IEnumerator Vibrar()
+    {
+        GamePad.SetVibration(0, 1f, 1f);
+        yield return new WaitForSeconds(0.2f);
+        GamePad.SetVibration(0, 0, 0);
     }
 }

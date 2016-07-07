@@ -47,11 +47,11 @@ public class Agarra : MonoBehaviour
         }
         playerMov.isJump = true;
 		enemy.GetComponent<EnemyController> ().peguei = gameObject;
-		yield return new WaitForSeconds (1.5f);
+		yield return new WaitForSeconds (2f);
         End();
 	}
 
-    void End()
+    public void End()
     {
         enemy.GetComponent<EnemyController>().enemyAnim.SetActive(true);
         playerMov.isGrab = false;
