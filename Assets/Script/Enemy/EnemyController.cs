@@ -9,6 +9,8 @@ public class EnemyController : MonoBehaviour
 
     public ProbabilidadeEnemy probabilidade;
 
+    public GameObject enemyAnim;
+
     public EnemyAnim enemyanim;
 
     public Vector3 deus;

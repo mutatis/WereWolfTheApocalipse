@@ -34,6 +34,7 @@ public class Agarra : MonoBehaviour
 	{
         playerMov.isGrab = true;
         playerAttack.enemy = enemy;
+        enemy.GetComponent<EnemyController>().enemyAnim.SetActive(false);
         playerAnim.anim.SetBool("Grab", true);
         playerAnim.anim.SetTrigger("GrabInicio");
         if ((playerMov.x != 0 || playerMov.z != 0))
@@ -52,6 +53,7 @@ public class Agarra : MonoBehaviour
 
     void End()
     {
+        enemy.GetComponent<EnemyController>().enemyAnim.SetActive(true);
         playerMov.isGrab = false;
         playerAnim.anim.SetBool("Grab", false);
         if ((playerMov.x != 0 || playerMov.z != 0) && !playerMov.jump)
