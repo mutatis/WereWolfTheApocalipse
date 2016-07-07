@@ -35,6 +35,7 @@ public class Agarra : MonoBehaviour
         playerMov.isGrab = true;
         playerAttack.enemy = enemy;
         playerAnim.anim.SetBool("Grab", true);
+        playerAnim.anim.SetTrigger("GrabInicio");
         if ((playerMov.x != 0 || playerMov.z != 0))
         {
             playerAnim.anim.SetTrigger("Run");            
