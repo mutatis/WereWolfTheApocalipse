@@ -506,6 +506,7 @@ public class EnemyController : MonoBehaviour
 
     public void Dano(float dmg, bool crit, GameObject obj)
     {
+        Solta();
         roamming = false;
         anim.SetBool("isSlam", true);
         autorizo = true;

@@ -7,6 +7,8 @@ public class PlayerDonsAndarilho : MonoBehaviour
 
     public PlayerStats controller;
 
+    public PlayerAttackController playerAttack;
+
     public PlayerDano playerDano;
 
     public PlayerAnimation playerAnim;
@@ -30,7 +32,7 @@ public class PlayerDonsAndarilho : MonoBehaviour
 
     void Update()
     {
-        if (!playerDano.stun || !playerMov.isGrab)
+        if (!playerDano.stun && !playerMov.isGrab && !playerAttack.presa)
         {
             switch (player)
             {

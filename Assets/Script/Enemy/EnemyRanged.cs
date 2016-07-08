@@ -43,7 +43,6 @@ public class EnemyRanged : MonoBehaviour
     {
         Wait();
         StartCoroutine("Pode");
-        //Combate();
     }
 
     void Update()
