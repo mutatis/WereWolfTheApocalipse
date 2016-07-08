@@ -297,17 +297,23 @@ public class EnemyController : MonoBehaviour
 
     void Grab()
     {
-        if((player.GetComponent<PlayerEngage>().playerStats.transform.position.x > transform.position.x && player.GetComponent<PlayerEngage>().playerStats.transform.localScale.x > 0) || (player.GetComponent<PlayerEngage>().playerStats.transform.position.x < transform.position.x && player.GetComponent<PlayerEngage>().playerStats.transform.localScale.x < 0))
+        if((player.GetComponent<PlayerEngage>().playerStats.transform.position.x > transform.position.x && 
+            player.GetComponent<PlayerEngage>().playerStats.transform.localScale.x > 0) || 
+            (player.GetComponent<PlayerEngage>().playerStats.transform.position.x < transform.position.x && 
+            player.GetComponent<PlayerEngage>().playerStats.transform.localScale.x < 0))
         {
-            player.GetComponent<PlayerEngage>().playerAttack.playerAnim.gameObject.SetActive(false);
-            player.GetComponent<PlayerEngage>().playerDano.stun = true;
-            player.GetComponent<PlayerEngage>().playerDano.pegador = gameObject;
-            player.GetComponent<PlayerEngage>().playerAttack.presa = true;
-            anim.SetBool("isGrab", true);
-            anim.SetTrigger("Grab");
-            roamming = false;
-            combate = false;
-            taPego = true;
+            if (!player.GetComponent<PlayerEngage>().playerMov.isGrab)
+            {
+                player.GetComponent<PlayerEngage>().playerAttack.playerAnim.gameObject.SetActive(false);
+                player.GetComponent<PlayerEngage>().playerDano.stun = true;
+                player.GetComponent<PlayerEngage>().playerDano.pegador = gameObject;
+                player.GetComponent<PlayerEngage>().playerAttack.presa = true;
+                anim.SetBool("isGrab", true);
+                anim.SetTrigger("Grab");
+                roamming = false;
+                combate = false;
+                taPego = true;
+            }
         }
     }
 

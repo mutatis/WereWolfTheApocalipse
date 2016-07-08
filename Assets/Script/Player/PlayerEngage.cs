@@ -11,6 +11,8 @@ public class PlayerEngage : MonoBehaviour
 
     public PlayerDano playerDano;
 
+    public PlayerMovment playerMov;
+
     public string nome;
 
     void Start()
