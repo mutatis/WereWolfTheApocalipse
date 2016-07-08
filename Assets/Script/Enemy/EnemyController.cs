@@ -1,4 +1,4 @@
-﻿    using UnityEngine;
+﻿using UnityEngine;
 using System.Collections;
 
 public class EnemyController : MonoBehaviour
@@ -346,20 +346,20 @@ public class EnemyController : MonoBehaviour
         int y = Random.Range(1, 3);
         if (y == 1)
         {
-            vel1 = 0.05f;
+            vel1 = 0.03f;
         }
         else
         {
-            vel1 = -0.05f;
+            vel1 = -0.03f;
         }
         int x = Random.Range(1, 3);
         if (x == 1)
         {
-            vel2 = 0.05f;
+            vel2 = 0.03f;
         }
         else
         {
-            vel2 = -0.05f;
+            vel2 = -0.03f;
         }
     }
 
@@ -411,7 +411,7 @@ public class EnemyController : MonoBehaviour
         }
         StopCoroutine("Procura");
         roamming = false;
-        yield return new WaitForSeconds(1);
+        yield return new WaitForSeconds(0.5f);
         if (isRun)
         {
             anim.SetTrigger("Run");
@@ -597,29 +597,29 @@ public class EnemyController : MonoBehaviour
     {
         if (other.gameObject.tag == "Parede1")
         {
-            vel1 = -0.05f;
+            vel1 = -0.03f;
             int x = Random.Range(1, 3);
             if(x == 1)
             {
-                vel2 = 0.05f;
+                vel2 = 0.03f;
             }
             else
             {
-                vel2 = -0.05f;
+                vel2 = -0.03f;
             }
         }
         if (other.gameObject.tag == "Parede2")
         {
             print("P2");
-            vel1 = 0.05f;
+            vel1 = 0.03f;
             int x = Random.Range(1, 3);
             if (x == 1)
             {
-                vel2 = 0.05f;
+                vel2 = 0.03f;
             }
             else
             {
-                vel2 = -0.05f;
+                vel2 = -0.03f;
             }
         }
     }
@@ -628,28 +628,28 @@ public class EnemyController : MonoBehaviour
     {
         if (other.gameObject.tag == "Parede1")
         {
-            vel1 = -0.05f;
+            vel1 = -0.03f;
             int x = Random.Range(1, 3);
             if (x == 1)
             {
-                vel2 = 0.05f;
+                vel2 = 0.03f;
             }
             else
             {
-                vel2 = -0.05f;
+                vel2 = -0.03f;
             }
         }
         if (other.gameObject.tag == "Parede2")
         {
-            vel1 = 0.05f;
+            vel1 = 0.03f;
             int x = Random.Range(1, 3);
             if (x == 1)
             {
-                vel2 = 0.05f;
+                vel2 = 0.03f;
             }
             else
             {
-                vel2 = -0.05f;
+                vel2 = -0.03f;
             }
         }
     }

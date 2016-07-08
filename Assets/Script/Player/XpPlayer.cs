@@ -3,7 +3,7 @@ using System.Collections;
 
 public class XpPlayer : MonoBehaviour
 {
-    public PlayerController player;
+    public PlayerStats player;
 
     public int[] xp;
 

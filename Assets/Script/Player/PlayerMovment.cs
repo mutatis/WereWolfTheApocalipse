@@ -3,12 +3,15 @@ using System.Collections;
 
 public class PlayerMovment : MonoBehaviour
 {
+    public PlayerStats playerStats;
     public PlayerStatus playerStatus;
     public PlayerAnimation playerAnim;
     public PlayerAttackController playerAttack;
     public PlayerDano playerDano;
 
     public Rigidbody rig;
+
+    public SpriteRenderer sprite;
 
     FMOD.Studio.EventInstance audioInstanceCreator;
 
@@ -24,6 +27,15 @@ public class PlayerMovment : MonoBehaviour
     void Update()
     {
         transform.Translate(new Vector3((x * playerStatus.speed), 0, (z * playerStatus.speed)));
+
+        if(playerStats.crinos && !sprite.flipX)
+        {
+            sprite.flipX = true;
+        }
+        else if(!playerStats.crinos && sprite.flipX)
+        {
+            sprite.flipX = false;
+        }
 
         if (!isMov)
         {
