@@ -343,8 +343,24 @@ public class EnemyController : MonoBehaviour
     public void Wait()
     {
         roamming = true;
-        vel1 = 0.05f * Random.Range(-2, 2);
-        vel2 = 0.05f * Random.Range(-1, 2);
+        int y = Random.Range(1, 3);
+        if (y == 1)
+        {
+            vel1 = 0.05f;
+        }
+        else
+        {
+            vel1 = -0.05f;
+        }
+        int x = Random.Range(1, 3);
+        if (x == 1)
+        {
+            vel2 = 0.05f;
+        }
+        else
+        {
+            vel2 = -0.05f;
+        }
     }
 
     void SpecialMove()
@@ -411,7 +427,7 @@ public class EnemyController : MonoBehaviour
                     direction.Normalize();
                     if (!stun)
                     {
-                        deus = (direction / 25);
+                        deus = (direction / 7);
                         transform.Translate(deus);
                         if (!anim.GetCurrentAnimatorStateInfo(0).IsName("EnemyRun") && !costas)
                         {
@@ -581,14 +597,30 @@ public class EnemyController : MonoBehaviour
     {
         if (other.gameObject.tag == "Parede1")
         {
-            vel1 = 0.05f * Random.Range(-2, -0.2f);
-            vel2 = 0.05f * Random.Range(-1, 2);
+            vel1 = -0.05f;
+            int x = Random.Range(1, 3);
+            if(x == 1)
+            {
+                vel2 = 0.05f;
+            }
+            else
+            {
+                vel2 = -0.05f;
+            }
         }
         if (other.gameObject.tag == "Parede2")
         {
             print("P2");
-            vel1 = 0.05f * Random.Range(0.2f, 2);
-            vel2 = 0.05f * Random.Range(-1, 2);
+            vel1 = 0.05f;
+            int x = Random.Range(1, 3);
+            if (x == 1)
+            {
+                vel2 = 0.05f;
+            }
+            else
+            {
+                vel2 = -0.05f;
+            }
         }
     }
 
@@ -596,13 +628,29 @@ public class EnemyController : MonoBehaviour
     {
         if (other.gameObject.tag == "Parede1")
         {
-            vel1 = 0.05f * Random.Range(-2, -0.2f);
-            vel2 = 0.05f * Random.Range(-1, 2);
+            vel1 = -0.05f;
+            int x = Random.Range(1, 3);
+            if (x == 1)
+            {
+                vel2 = 0.05f;
+            }
+            else
+            {
+                vel2 = -0.05f;
+            }
         }
         if (other.gameObject.tag == "Parede2")
         {
-            vel1 = 0.05f * Random.Range(0.2f, 2);
-            vel2 = 0.05f * Random.Range(-1, 2);
+            vel1 = 0.05f;
+            int x = Random.Range(1, 3);
+            if (x == 1)
+            {
+                vel2 = 0.05f;
+            }
+            else
+            {
+                vel2 = -0.05f;
+            }
         }
     }
 }
