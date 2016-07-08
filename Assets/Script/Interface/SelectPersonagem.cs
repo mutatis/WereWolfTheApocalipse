@@ -12,6 +12,7 @@ public class SelectPersonagem : MonoBehaviour
     public Animator[] player;
 
     public GameObject[] atributos;
+    public GameObject loading;
 
     [HideInInspector]
     public int select;
@@ -53,6 +54,7 @@ public class SelectPersonagem : MonoBehaviour
         {
             if(startP1 && startP2)
             {
+                loading.SetActive(true);
                 musica.Mudo();
                 if (select == 0)
                 {
@@ -67,6 +69,7 @@ public class SelectPersonagem : MonoBehaviour
         }
         else if(startP1)
         {
+            loading.SetActive(true);
             musica.Mudo();
             if (select == 0)
             {

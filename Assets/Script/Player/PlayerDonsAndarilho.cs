@@ -11,6 +11,8 @@ public class PlayerDonsAndarilho : MonoBehaviour
 
     public PlayerAnimation playerAnim;
 
+    public PlayerMovment playerMov;
+
     public PlayerDom player;
 
     public GameObject invoque, eletrecute, pack;
@@ -28,7 +30,7 @@ public class PlayerDonsAndarilho : MonoBehaviour
 
     void Update()
     {
-        if (!playerDano.stun)
+        if (!playerDano.stun || !playerMov.isGrab)
         {
             switch (player)
             {
