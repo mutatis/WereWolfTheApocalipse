@@ -30,7 +30,6 @@ public class EnemyProbController : MonoBehaviour
                 {
                     if (elem.attack == "Defesa")
                     {
-                        print("sdiluhsdkhfkashlsdhfja");
                         elem.probalidade = tempProbabilidade;
                     }
                 }
