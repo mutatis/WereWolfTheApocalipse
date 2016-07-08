@@ -12,6 +12,7 @@ public class EnemyRanged : MonoBehaviour
     public EnemyAnim enemyanim;
 
     public bool stun;
+    public bool combate = true;
     [HideInInspector]
     public bool dano = true;
     [HideInInspector]
@@ -138,7 +139,7 @@ public class EnemyRanged : MonoBehaviour
         StartCoroutine("Pode");
         roamming = false;
         int num;
-        if (!stun)
+        if (!stun && combate)
         {
             var temp = player.GetComponent<PlayerMovment>().transform.position;
             if (temp.x > transform.position.x && transform.localScale.x > 0)
@@ -236,18 +237,21 @@ public class EnemyRanged : MonoBehaviour
 
     void SpecialMove()
     {
+        combate = false;
         roamming = false;
         anim.SetTrigger("SocoFraco2");
     }
 
     void Defesa()
     {
+        combate = false;
         roamming = false;
         anim.SetTrigger("SocoForte");
     }
 
     void Soco()
     {
+        combate = false;
         roamming = false;
         anim.SetTrigger("SocoFraco0");
     }
@@ -278,15 +282,18 @@ public class EnemyRanged : MonoBehaviour
             }
             yield return new WaitForEndOfFrame();
         }
-        Attack();
+        StartCoroutine(Attack());
         Wait();
         marcado = 0;
         StopCoroutine("Engage");
     }
 
-    void Attack()
+    IEnumerator Attack()
     {
+        combate = false;
         anim.SetTrigger("Tiro");
+        yield return new WaitForSeconds(1.5f);
+        combate = true;
     }
 
     public void Atira()

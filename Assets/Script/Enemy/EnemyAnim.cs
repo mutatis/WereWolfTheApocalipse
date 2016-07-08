@@ -22,7 +22,14 @@ public class EnemyAnim : MonoBehaviour
 
     public void Liberated()
     {
-        controller.combate = true;
+        if (tipo == 1)
+        {
+            controller2.combate = true;
+        }
+        else
+        {
+            controller.combate = true;
+        }
     }
 
     public void Tiro()

@@ -8,6 +8,8 @@ public class EnemyRangedController : MonoBehaviour
     public float dist1;
     public float dist2;
 
+    bool podeCombate;
+
     public GameObject[] player;
 
     void Update()
@@ -21,9 +23,15 @@ public class EnemyRangedController : MonoBehaviour
         if (dist1 > 3f || dist2 > 3f)
         {
             longe.perto = false;
+            podeCombate = false;
         }
         else
         {
+            if (!podeCombate)
+            {
+                longe.combate = true;
+                podeCombate = true;
+            }
             longe.perto = true;
             if (dist1 < 1f)
                 longe.player = player[0];
