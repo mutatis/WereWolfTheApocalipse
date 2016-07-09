@@ -118,7 +118,7 @@ public class ManagerPlayer : MonoBehaviour
     public void Um()
     {
         PlayerPrefs.SetInt("Players", 1);
-        SceneManager.LoadScene("SelecaoPersonagem");
+        Application.LoadLevel("SelecaoPersonagem");
     }
 
     public void Dois()

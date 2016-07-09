@@ -14,7 +14,8 @@ public class EnemyProbController : MonoBehaviour
         if (enemyController.player != null)
         {
             if (transform.position.x > enemyController.player.transform.position.x && Manager.manager.player[0].GetComponent<PlayerMovment>().transform.localScale.x < 0 ||
-                transform.position.x < enemyController.player.transform.position.x && Manager.manager.player[0].GetComponent<PlayerMovment>().transform.localScale.x > 0)
+                transform.position.x < enemyController.player.transform.position.x && Manager.manager.player[0].GetComponent<PlayerMovment>().transform.localScale.x > 0 ||
+                Manager.manager.player[0].GetComponent<PlayerAttackController>().presa)
             {
                 foreach (Attack elem in probEnemy.attack)
                 {
