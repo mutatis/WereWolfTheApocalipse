@@ -134,7 +134,6 @@ public class PlayerAnimation : MonoBehaviour
         audioInstance = FMODUnity.RuntimeManager.CreateInstance(socoFraco);
         audioInstance.setVolume(PlayerPrefs.GetFloat("VolumeFX"));
         audioInstance.start();
-        StartCoroutine(Vibrar());
         int x = Random.Range(0, 100);
         if(x <= playerStatus.critChance)
         {
@@ -179,6 +178,7 @@ public class PlayerAnimation : MonoBehaviour
             }
             playerStats.rage += playerStatus.rageRegen;
         }
+        StartCoroutine(Vibrar());
     }
 
     public void SlamDmg(GameObject other)
@@ -186,7 +186,6 @@ public class PlayerAnimation : MonoBehaviour
         audioInstance = FMODUnity.RuntimeManager.CreateInstance(socoForte);
         audioInstance.setVolume(PlayerPrefs.GetFloat("VolumeFX"));
         audioInstance.start();
-        StartCoroutine(Vibrar());
         int x = Random.Range(0, 100);
         if (x <= playerStatus.critChance)
         {
@@ -231,6 +230,7 @@ public class PlayerAnimation : MonoBehaviour
             }
             playerStats.rage += playerStatus.rageRegen;
         }
+        StartCoroutine(Vibrar());
     }
 
     IEnumerator Vibrar()

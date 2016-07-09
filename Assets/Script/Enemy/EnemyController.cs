@@ -22,7 +22,7 @@ public class EnemyController : MonoBehaviour
     public bool combate = true;
     [HideInInspector]
     public bool slam;
-    public bool isEngage;
+    public bool isEngage, procura;
 
     public TextMesh text;
     
@@ -42,7 +42,7 @@ public class EnemyController : MonoBehaviour
     bool prepare = true;
     bool isIdle = true;
     bool isRun = true;
-    bool taPego, chamei, block, costas, autorizo, procura;
+    bool taPego, chamei, block, costas, autorizo, denovo;
 
     Vector3 direction;
     
@@ -72,9 +72,10 @@ public class EnemyController : MonoBehaviour
 				StopAllCoroutines ();
                 anim.SetBool("Morreu", true);
 				anim.SetTrigger ("Dead");
-				if (player != null) 
-				{
-					player.GetComponent<PlayerEngage> ().engage--;
+				if (player != null)
+                {
+                    player.GetComponent<PlayerEngage>().enemy = null;
+                    player.GetComponent<PlayerEngage>().engage--;
 					enemyanim.nome = player.GetComponent<PlayerEngage> ().nome;
 				}
 				dano = false;
@@ -92,11 +93,6 @@ public class EnemyController : MonoBehaviour
                     transform.localScale = new Vector3(transform.localScale.x * -1, transform.localScale.y, transform.localScale.z);
                 }
             }
-
-            /*if (!isWalk && !anim.GetCurrentAnimatorStateInfo(0).IsName("EnemyIdle") && !isEngage)
-            {
-                anim.SetTrigger("Idle");
-            }*/
 
             if ((roamming || player == null) && !stun) 
 			{
@@ -142,9 +138,10 @@ public class EnemyController : MonoBehaviour
 				StartCoroutine ("Pode");
 				chamei = true;
 			} 
-			else if (isWalk && player != null && dist > 2) 
-			{
-				player.GetComponent<PlayerEngage> ().engage--;
+			else if (isWalk && player != null && dist > 2)
+            {
+                player.GetComponent<PlayerEngage>().enemy = null;
+                player.GetComponent<PlayerEngage> ().engage--;
 				player = null;
 				StopCoroutine ("Pode");
 				StartCoroutine ("Pode");
@@ -161,8 +158,10 @@ public class EnemyController : MonoBehaviour
 				if (Manager.manager.playerEngage [x].GetComponent<PlayerEngage> ().engage < 1) 
 				{
 					player = Manager.manager.playerEngage [x];
-					player.GetComponent<PlayerEngage> ().engage++;
-				}
+                    player.GetComponent<PlayerEngage>().enemy = gameObject;
+                    player.GetComponent<PlayerEngage>().engage++;
+
+                }
 			}
 		}	
         else
@@ -185,24 +184,7 @@ public class EnemyController : MonoBehaviour
         procura = false;
         var tempo = Random.Range(2f, 3f);
         yield return new WaitForSeconds(tempo);
-        var ran = Random.value;
-        if (ran > 0.3f)
-        {
-            procura = true;
-        }
-        else
-        {
-            roamming = true;
-            if(player != null)
-                player.GetComponent<PlayerEngage>().engage--;
-            player = null;
-            Denovo();
-        }
-    }
-
-    void Denovo()
-    {
-        StartCoroutine("Procura");
+        procura = true;
     }
 
     public void Prepare()
@@ -241,12 +223,11 @@ public class EnemyController : MonoBehaviour
 
     public void Combate()
     {
-        StopCoroutine("Procura");
         StopCoroutine("Pode");
         StartCoroutine("Pode");
         roamming = false;
         int num;
-        if(!stun && dist < 0.54f && combate && !player.GetComponent<PlayerEngage>().playerAttack.playerAnim.levanta && !taPego)
+        if(!stun && dist < 0.57f && combate && !player.GetComponent<PlayerEngage>().playerAttack.playerAnim.levanta && !taPego)
         {
             var temp = player.GetComponent<PlayerEngage>().playerAttack.transform.position;
             /*if (temp.x > transform.position.x && transform.localScale.x > 0)
@@ -340,6 +321,7 @@ public class EnemyController : MonoBehaviour
         roamming = true;
         if (player.GetComponent<PlayerEngage>().engage > 0)
         {
+            player.GetComponent<PlayerEngage>().enemy = null;
             player.GetComponent<PlayerEngage>().engage--;
         }
         player = null;
@@ -415,7 +397,6 @@ public class EnemyController : MonoBehaviour
             anim.SetTrigger("Idle");
             isIdle = false;
         }
-        StopCoroutine("Procura");
         roamming = false;
         yield return new WaitForSeconds(0.5f);
         if (isRun)
@@ -465,6 +446,7 @@ public class EnemyController : MonoBehaviour
                     if (Manager.manager.playerEngage[x].GetComponent<PlayerEngage>().engage < 1)
                     {
                         player = Manager.manager.playerEngage[x];
+                        player.GetComponent<PlayerEngage>().enemy = gameObject;
                         player.GetComponent<PlayerEngage>().engage++;
                     }
                 }
@@ -482,8 +464,6 @@ public class EnemyController : MonoBehaviour
         else
         {
             isEngage = false;
-            StopCoroutine("Procura");
-            StartCoroutine("Procura");
         }
     }
 
@@ -506,7 +486,10 @@ public class EnemyController : MonoBehaviour
 
     public void Dano(float dmg, bool crit, GameObject obj)
     {
-        Solta();
+        if (taPego)
+        {
+            Solta();
+        }
         roamming = false;
         anim.SetBool("isSlam", true);
         autorizo = true;
