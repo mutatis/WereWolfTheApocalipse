@@ -23,9 +23,17 @@ public class PlayerDano : MonoBehaviour
     public GameObject pegador;
 
     int slamCont;
+
+    IEnumerator GO()
+    {
+        yield return new WaitForSeconds(1);
+        slamCont = 0;
+    }
     
     public void Dano(float dmg, GameObject obj)
     {
+        StopCoroutine("GO");
+        StartCoroutine("GO");
         if (playerStatus.life > 0 && !playerAnim.levanta)
         {
             if(playerMov.isGrab)
