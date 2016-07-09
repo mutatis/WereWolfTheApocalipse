@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 using UnityEngine.SceneManagement;
+using XInputDotNetPure;
 
 public class PlayerAnimation : MonoBehaviour
 {
@@ -133,6 +134,7 @@ public class PlayerAnimation : MonoBehaviour
         audioInstance = FMODUnity.RuntimeManager.CreateInstance(socoFraco);
         audioInstance.setVolume(PlayerPrefs.GetFloat("VolumeFX"));
         audioInstance.start();
+        StartCoroutine(Vibrar());
         int x = Random.Range(0, 100);
         if(x <= playerStatus.critChance)
         {
@@ -184,6 +186,7 @@ public class PlayerAnimation : MonoBehaviour
         audioInstance = FMODUnity.RuntimeManager.CreateInstance(socoForte);
         audioInstance.setVolume(PlayerPrefs.GetFloat("VolumeFX"));
         audioInstance.start();
+        StartCoroutine(Vibrar());
         int x = Random.Range(0, 100);
         if (x <= playerStatus.critChance)
         {
@@ -228,6 +231,13 @@ public class PlayerAnimation : MonoBehaviour
             }
             playerStats.rage += playerStatus.rageRegen;
         }
+    }
+
+    IEnumerator Vibrar()
+    {
+        GamePad.SetVibration(0, 0.15f, 0.15f);
+        yield return new WaitForSeconds(0.1f);
+        GamePad.SetVibration(0, 0, 0);
     }
 
     void OnTriggerEnter (Collider other)
