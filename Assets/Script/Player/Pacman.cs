@@ -61,6 +61,10 @@ public class Pacman : MonoBehaviour
         {
             other.gameObject.GetComponent<EnemyRanged>().Dano(dmg, false, gameObject);
         }
+        else if (other.gameObject.tag == "Boss")
+        {
+            other.gameObject.GetComponent<BossController>().Dano(dmg, false, gameObject);
+        }
 
     }
 
@@ -86,6 +90,16 @@ public class Pacman : MonoBehaviour
         else if (other.gameObject.tag == "EnemyRanged")
         {
             if (other.gameObject.GetComponent<EnemyRanged>().life > 0 && other.gameObject.GetComponent<EnemyRanged>().dano)
+            {
+                vol = FMODUnity.RuntimeManager.CreateInstance(dano);
+                vol.setVolume(PlayerPrefs.GetFloat("VolumeFX"));
+                vol.start();
+                Dano(other.gameObject);
+            }
+        }
+        else if (other.gameObject.tag == "Boss")
+        {
+            if (other.gameObject.GetComponent<BossController>().life > 0 && other.gameObject.GetComponent<BossController>().dano)
             {
                 vol = FMODUnity.RuntimeManager.CreateInstance(dano);
                 vol.setVolume(PlayerPrefs.GetFloat("VolumeFX"));
