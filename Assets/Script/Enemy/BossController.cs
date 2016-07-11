@@ -46,6 +46,8 @@ public class BossController : MonoBehaviour
 
     float lifeMax;
 
+    Vector2 temp;
+
     bool isWalk = true;
     bool procura = true;
     bool prepare = true;
@@ -55,6 +57,7 @@ public class BossController : MonoBehaviour
 
     void Start()
     {
+        temp = transform.position;
         lifeMax = life;
         summon = Manager.manager.summoner;
         Wait();
@@ -96,6 +99,20 @@ public class BossController : MonoBehaviour
             {
                 transform.localScale = new Vector3(transform.localScale.x * -1, transform.localScale.y, transform.localScale.z);
             }
+        }
+
+        if (!perto && marcado == 0)
+        {
+            if (vel1 == 0 && vel2 == 0 || (transform.position.x == temp.x && transform.position.y == temp.y))
+            {
+                if (!anim.GetCurrentAnimatorStateInfo(0).IsName("EnemyIdle"))
+                    anim.SetTrigger("Idle");
+            }
+            else if (!anim.GetCurrentAnimatorStateInfo(0).IsName("EnemyRun"))
+            {
+                anim.SetTrigger("Run");
+            }
+            temp = transform.position;
         }
 
         if (!perto)
