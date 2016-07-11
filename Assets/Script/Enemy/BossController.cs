@@ -101,24 +101,20 @@ public class BossController : MonoBehaviour
             }
         }
 
-        if (!perto && marcado == 0)
-        {
-            if (vel1 == 0 && vel2 == 0 || (transform.position.x == temp.x && transform.position.y == temp.y))
-            {
-                if (!anim.GetCurrentAnimatorStateInfo(0).IsName("EnemyIdle"))
-                    anim.SetTrigger("Idle");
-            }
-            else if (!anim.GetCurrentAnimatorStateInfo(0).IsName("EnemyRun"))
-            {
-                anim.SetTrigger("Run");
-            }
-            temp = transform.position;
-        }
-
         if (!perto)
         {
             if (marcado == 0)
             {
+                if (vel1 == 0 && vel2 == 0 || (transform.position.x == temp.x && transform.position.y == temp.y))
+                {
+                    if (!anim.GetCurrentAnimatorStateInfo(0).IsName("EnemyIdle"))
+                        anim.SetTrigger("Idle");
+                }
+                else if (!anim.GetCurrentAnimatorStateInfo(0).IsName("EnemyRun"))
+                {
+                    anim.SetTrigger("Run");
+                }
+                temp = transform.position;
                 transform.Translate(vel1, 0, vel2);
             }
 
@@ -130,6 +126,11 @@ public class BossController : MonoBehaviour
             {
                 transform.Translate(new Vector3(0.001f, 0, 0.1f));
             }
+        }
+        else
+        {
+            if (!anim.GetCurrentAnimatorStateInfo(0).IsName("EnemyIdle") && life > 0 && roamming)
+                anim.SetTrigger("Idle");
         }
 
         if (life <= 0)

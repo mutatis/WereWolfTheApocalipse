@@ -29,7 +29,6 @@ public class PlayerStats : MonoBehaviour
         {
             playerStatus.pode = true;
             crinos = true;
-            anim.anim.GetComponent<SpriteRenderer>().color = Color.blue;
             anim.anim.runtimeAnimatorController = crinosAnim.GetComponent<Animator>().runtimeAnimatorController;
             StartCoroutine("Crinos");
         }

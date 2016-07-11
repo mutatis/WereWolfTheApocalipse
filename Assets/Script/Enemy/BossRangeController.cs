@@ -5,6 +5,8 @@ public class BossRangeController : MonoBehaviour
 {
     public BossController longe;
 
+    public Animator anim;
+
     public float dist1;
     public float dist2;
 
@@ -27,6 +29,10 @@ public class BossRangeController : MonoBehaviour
         else if (denovo)
         {
             longe.perto = true;
+
+            if (!anim.GetCurrentAnimatorStateInfo(0).IsName("EnemyIdle") && longe.life > 0)
+                    anim.SetTrigger("Idle");
+            
             if (dist1 < 1f)
                 longe.player = player[0];
             if (dist2 < 1f && PlayerPrefs.GetInt("Players") > 1)
