@@ -163,12 +163,12 @@ public class PlayerDonsAndarilho : MonoBehaviour
             Eletrecute();
             controller.gnose -= cost[2];
         }
-        else if (PlayerPrefs.GetInt(nome + player + "ButtonA") == 3 && controller.gnose >= cost[3])
+        else if (PlayerPrefs.GetInt(nome + player + "ButtonA") == 3 && controller.gnose >= cost[3] && Manager.manager.player.Length > 1)
         {
             ArrancarPelos();
             controller.gnose -= cost[3];
         }
-        else if (PlayerPrefs.GetInt(nome + player + "ButtonA") == 4 && controller.gnose >= cost[4])
+        else if (PlayerPrefs.GetInt(nome + player + "ButtonA") == 4 && controller.gnose >= cost[4] && Manager.manager.player.Length > 1)
         {
             SlamDunk();
             controller.gnose -= cost[4];
@@ -192,12 +192,12 @@ public class PlayerDonsAndarilho : MonoBehaviour
             Eletrecute();
             controller.gnose -= cost[2];
         }
-        else if (PlayerPrefs.GetInt(nome + player + "ButtonB") == 3 && controller.gnose >= cost[3])
+        else if (PlayerPrefs.GetInt(nome + player + "ButtonB") == 3 && controller.gnose >= cost[3] && Manager.manager.player.Length > 1)
         {
             ArrancarPelos();
             controller.gnose -= cost[3];
         }
-        else if (PlayerPrefs.GetInt(nome + player + "ButtonB") == 4 && controller.gnose >= cost[4])
+        else if (PlayerPrefs.GetInt(nome + player + "ButtonB") == 4 && controller.gnose >= cost[4] && Manager.manager.player.Length > 1)
         {
             SlamDunk();
             controller.gnose -= cost[4];
@@ -221,12 +221,12 @@ public class PlayerDonsAndarilho : MonoBehaviour
             Eletrecute();
             controller.gnose -= cost[2];
         }
-        else if (PlayerPrefs.GetInt(nome + player + "ButtonX") == 3 && controller.gnose >= cost[3])
+        else if (PlayerPrefs.GetInt(nome + player + "ButtonX") == 3 && controller.gnose >= cost[3] && Manager.manager.player.Length > 1)
         {
             ArrancarPelos();
             controller.gnose -= cost[3];
         }
-        else if (PlayerPrefs.GetInt(nome + player + "ButtonX") == 4 && controller.gnose >= cost[4])
+        else if (PlayerPrefs.GetInt(nome + player + "ButtonX") == 4 && controller.gnose >= cost[4] && Manager.manager.player.Length > 1)
         {
             SlamDunk();
             controller.gnose -= cost[4];
@@ -250,12 +250,12 @@ public class PlayerDonsAndarilho : MonoBehaviour
             Eletrecute();
             controller.gnose -= cost[2];
         }
-        else if (PlayerPrefs.GetInt(nome + player + "ButtonY") == 3 && controller.gnose >= cost[3])
+        else if (PlayerPrefs.GetInt(nome + player + "ButtonY") == 3 && controller.gnose >= cost[3] && Manager.manager.player.Length > 1)
         {
             ArrancarPelos();
             controller.gnose -= cost[3];
         }
-        else if (PlayerPrefs.GetInt(nome + player + "ButtonY") == 4 && controller.gnose >= cost[4])
+        else if (PlayerPrefs.GetInt(nome + player + "ButtonY") == 4 && controller.gnose >= cost[4] && Manager.manager.player.Length > 1)
         {
             SlamDunk();
             controller.gnose -= cost[4];

@@ -127,11 +127,6 @@ public class BossController : MonoBehaviour
                 transform.Translate(new Vector3(0.001f, 0, 0.1f));
             }
         }
-        else
-        {
-            if (!anim.GetCurrentAnimatorStateInfo(0).IsName("EnemyIdle") && life > 0 && roamming)
-                anim.SetTrigger("Idle");
-        }
 
         if (life <= 0)
         {
