@@ -365,11 +365,13 @@ public class BossController : MonoBehaviour
         }
         else
         {
+            //yield return new WaitForSeconds(1);
             salto.SetActive(false);
             marcado = 0;
             StartCoroutine("Volta");
             StopCoroutine("Attack");
         }
+
     }
 
     IEnumerator Volta()

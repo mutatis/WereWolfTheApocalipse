@@ -1,2 +1,0 @@
-# WhereWolfTheApocalipse
-Lobisomem

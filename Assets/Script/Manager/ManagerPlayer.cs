@@ -24,7 +24,7 @@ public class ManagerPlayer : MonoBehaviour
         {
             if (i == x)
             {
-                select[i].color = new Color(0.27f, 0.27f, 0.27f, 1);
+                select[i].color = new Color(1f, 0.68f, 0.41f, 1);
             }
             else
             {
@@ -87,7 +87,7 @@ public class ManagerPlayer : MonoBehaviour
         {
             if (i == x)
             {
-                select[i].color = new Color(0.27f, 0.27f, 0.27f, 1);
+                select[i].color = new Color(1f, 0.68f, 0.41f, 1);
             }
             else
             {
@@ -106,7 +106,7 @@ public class ManagerPlayer : MonoBehaviour
         {
             if (i == x)
             {
-                select[i].color = new Color(0.27f, 0.27f, 0.27f, 1);
+                select[i].color = new Color(1f, 0.68f, 0.41f, 1);
             }
             else
             {

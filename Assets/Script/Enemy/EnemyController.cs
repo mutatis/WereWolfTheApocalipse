@@ -46,9 +46,9 @@ public class EnemyController : MonoBehaviour
 
     Vector3 direction;
     
-    float dist1, dist2;
+    float dist1, dist2, distOportunidade;
 
-    int danoEscolha;
+    int danoEscolha, oportunidade;
 
     void Start()
     {
@@ -96,19 +96,34 @@ public class EnemyController : MonoBehaviour
 
             if ((roamming || player == null) && !stun) 
 			{
-				transform.Translate (vel1, 0, vel2);
-                if(vel1 == 0 && vel2 == 0)
+                distOportunidade = Vector3.Distance(Manager.manager.player[0].transform.position, transform.position);
+
+                if(distOportunidade > 1)
                 {
-                    if(!anim.GetCurrentAnimatorStateInfo(0).IsName("EnemyIdle"))
-                    anim.SetTrigger("Idle");
+                    oportunidade = 0;
                 }
-                else if(!anim.GetCurrentAnimatorStateInfo(0).IsName("EnemyRun") && !costas)
+
+                if (distOportunidade > 1 || oportunidade > 0)
                 {
-                    anim.SetTrigger("Run");
+                    transform.Translate(vel1, 0, vel2);
+                    if (vel1 == 0 && vel2 == 0)
+                    {
+                        if (!anim.GetCurrentAnimatorStateInfo(0).IsName("EnemyIdle"))
+                            anim.SetTrigger("Idle");
+                    }
+                    else if (!anim.GetCurrentAnimatorStateInfo(0).IsName("EnemyRun") && !costas)
+                    {
+                        anim.SetTrigger("Run");
+                    }
+                    else if (!anim.GetCurrentAnimatorStateInfo(0).IsName("EnemyRunCostas") && costas)
+                    {
+                        anim.SetTrigger("Run");
+                    }
                 }
-                else if (!anim.GetCurrentAnimatorStateInfo(0).IsName("EnemyRunCostas") && costas)
+                else if(oportunidade < 1)
                 {
-                    anim.SetTrigger("Run");
+                    anim.SetTrigger("SocoFraco0");
+                    distOportunidade++;
                 }
 
                 if ((vel1 > 0 && transform.localScale.x > 0) || (vel1 < 0 && transform.localScale.x < 0))
