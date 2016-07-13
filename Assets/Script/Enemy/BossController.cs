@@ -365,8 +365,12 @@ public class BossController : MonoBehaviour
         }
         else
         {
-            //yield return new WaitForSeconds(1);
+            vel1 = 0;
+            vel2 = 0;
             salto.SetActive(false);
+            yield return new WaitForSeconds(2);
+            vel1 = 0.05f * Random.Range(-2, 2);
+            vel2 = 0.05f * Random.Range(-1, 2);
             marcado = 0;
             StartCoroutine("Volta");
             StopCoroutine("Attack");
