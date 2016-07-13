@@ -7,7 +7,7 @@ public class BossController : MonoBehaviour
 
     public Rigidbody rig;
 
-    public GameObject sprt, salto;
+    public GameObject sprt, salto, tiro;
 
     public ProbabilidadeEnemy probabilidade;
 
@@ -41,8 +41,9 @@ public class BossController : MonoBehaviour
 
     GameObject obj;
 
+    int contTiro = 0;
     int dir;
-    int contSalto, contSaltoMax;
+    int contSalto, contSaltoMax, quantTiro;
 
     float lifeMax;
 
@@ -328,8 +329,62 @@ public class BossController : MonoBehaviour
         }
         sprt.SetActive(true);
         dano = true;
-        StartCoroutine("Attack");
+        StartCoroutine("Tiro");
+        //StartCoroutine("Attack");
         StopCoroutine("Engage");
+    }
+
+    IEnumerator Tiro()
+    {
+        sprt.SetActive(true);
+        StopCoroutine("Pode");
+        roamming = false;
+        dir = contTiro;
+
+        if(contTiro < Manager.manager.tiroBoss1.Length)
+            player = Manager.manager.tiroBoss1[contTiro];
+
+        dist = Vector3.Distance(player.transform.position, transform.position);
+
+        if (contTiro < Manager.manager.tiroBoss1.Length)
+        {
+            while (dist > 0.5f)
+            {
+                direction = player.transform.position - transform.position;
+                direction.Normalize();
+                transform.Translate((direction * 20) * Time.deltaTime);
+                if (direction.x > 0 && transform.localScale.x > 0)
+                {
+                    transform.localScale = new Vector3((transform.localScale.x * -1), transform.localScale.y, transform.localScale.z);
+                }
+                else if (direction.x < 0 && transform.localScale.x < 0)
+                {
+                    transform.localScale = new Vector3((transform.localScale.x * -1), transform.localScale.y, transform.localScale.z);
+                }
+
+                dist = Vector3.Distance(player.transform.position, transform.position);
+                yield return new WaitForEndOfFrame();
+            }
+            GameObject obj = Instantiate(tiro);
+            obj.GetComponent<TiroEnemy>().transform.position = transform.position;
+            obj.GetComponent<TiroEnemy>().obj = player;
+            contTiro += 1;
+            StartCoroutine("Tiro");
+        }
+        else
+        {
+            vel1 = 0;
+            vel2 = 0;
+            salto.SetActive(false);
+            yield return new WaitForSeconds(2);
+            contTiro = 0;
+            vel1 = 0.05f * Random.Range(-2, 2);
+            vel2 = 0.05f * Random.Range(-1, 2);
+            marcado = 0;
+            StartCoroutine("Volta");
+            StopCoroutine("Tiro");
+        }
+
     }
 
     IEnumerator Attack()

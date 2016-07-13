@@ -33,6 +33,8 @@ public class Agarra : MonoBehaviour
 	IEnumerator GO()
 	{
         playerMov.isGrab = true;
+        enemy.GetComponent<EnemyController>().head.enabled = false;
+        enemy.GetComponent<EnemyController>().head.gameObject.SetActive(true);
         playerAttack.enemy = enemy;
         enemy.GetComponent<EnemyController>().enemyAnim.SetActive(false);
         playerAnim.anim.SetBool("Grab", true);
@@ -53,6 +55,8 @@ public class Agarra : MonoBehaviour
 
     public void End()
     {
+        enemy.GetComponent<EnemyController>().head.gameObject.SetActive(false);
+        enemy.GetComponent<EnemyController>().head.enabled = false;
         enemy.GetComponent<EnemyController>().enemyAnim.SetActive(true);
         playerMov.isGrab = false;
         playerAnim.anim.SetBool("Grab", false);

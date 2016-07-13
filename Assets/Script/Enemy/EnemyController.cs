@@ -4,6 +4,9 @@ using System.Collections;
 public class EnemyController : MonoBehaviour
 {
     public Animator anim;
+    public Animator animHead;
+
+    public SpriteRenderer head;
 
     public Rigidbody rig;
 
@@ -63,6 +66,12 @@ public class EnemyController : MonoBehaviour
         if(taPego && player.GetComponent<PlayerEngage>().playerAttack.solta >= 10)
         {
             Solta();
+        }
+
+        if (peguei == null)
+        {
+            anim.gameObject.SetActive(true);
+            head.enabled = false;
         }
 
         if (peguei ==  null) 
@@ -510,11 +519,19 @@ public class EnemyController : MonoBehaviour
         autorizo = true;
         StopCoroutine("Autorizacao");
         StartCoroutine("Autorizacao");
-        if(danoEscolha >= 2)
+        if (peguei == null)
         {
-            danoEscolha = 0;
+            if (danoEscolha >= 2)
+            {
+                danoEscolha = 0;
+            }
+            danoEscolha++;
         }
-        danoEscolha++;
+        else
+        {
+            anim.gameObject.SetActive(true);
+            danoEscolha = 3;
+        }
         anim.SetInteger("DanoEscolha", danoEscolha);
         if (dano)
         {
@@ -552,6 +569,10 @@ public class EnemyController : MonoBehaviour
             StopCoroutine("Pode");
             if (!block)
             {
+                if(danoEscolha == 3)
+                {
+                    animHead.SetTrigger("Dano");
+                }
                 anim.SetTrigger("Dano");
             }
             else

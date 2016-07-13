@@ -11,6 +11,7 @@ public class Manager : MonoBehaviour
     public GameObject[] subBoss;
     public GameObject[] boss;
     public GameObject[] posSubBoss;
+    public GameObject[] tiroBoss1;
 
     public SpriteRowCreator summoner;
 

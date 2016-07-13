@@ -41,6 +41,11 @@ public class PlayerAnimation : MonoBehaviour
     bool idle = true;
     bool run;
     
+    public void GrabIdle()
+    {
+        playerAttack.enemy.GetComponent<EnemyController>().head.enabled = false;
+        playerAttack.enemy.GetComponent<EnemyController>().anim.gameObject.SetActive(false);
+    }
 
     public void Queda()
     {

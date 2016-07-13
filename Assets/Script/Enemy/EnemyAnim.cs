@@ -20,6 +20,11 @@ public class EnemyAnim : MonoBehaviour
     [HideInInspector]
     public string nome;
 
+    public void Desliga()
+    {
+        gameObject.SetActive(false);
+    }
+
     public void Liberated()
     {
         if (tipo == 1)

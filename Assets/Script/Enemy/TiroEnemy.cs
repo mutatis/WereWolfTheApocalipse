@@ -26,7 +26,7 @@ public class TiroEnemy : MonoBehaviour
     {
         if(obj != null && !foi)
         {
-            if ((transform.position.x - obj.transform.position.x) > 0)
+            if (obj.transform.localScale.x < 0)
             {
                 velocityX *= -1;
             }
