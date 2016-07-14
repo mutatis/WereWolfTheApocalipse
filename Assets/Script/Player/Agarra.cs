@@ -21,6 +21,15 @@ public class Agarra : MonoBehaviour
 
 	bool pego;
 
+    public void Ativa()
+    {
+        if (enemy != null)
+        {
+            enemy.GetComponent<EnemyController>().anim.gameObject.SetActive(true);
+            enemy.GetComponent<EnemyController>().anim.SetTrigger("Slam");
+        }
+    }
+
     public void Joga()
     {
         agarraAudioInstance = FMODUnity.RuntimeManager.CreateInstance(joga);

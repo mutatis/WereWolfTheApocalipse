@@ -199,7 +199,7 @@ public class EnemyController : MonoBehaviour
                 transform.localScale = new Vector3(transform.localScale.x * -1, transform.localScale.y, transform.localScale.z);
             }
             StopAllCoroutines();
-            transform.position = peguei.transform.position;
+            transform.position = new Vector3(peguei.transform.position.x, transform.position.y, peguei.transform.position.z);
         }	
     }
 
@@ -343,10 +343,13 @@ public class EnemyController : MonoBehaviour
         StopCoroutine("Engage");
         isEngage = false;
         roamming = true;
-        if (player.GetComponent<PlayerEngage>().engage > 0)
+        if (player != null)
         {
-            player.GetComponent<PlayerEngage>().enemy = null;
-            player.GetComponent<PlayerEngage>().engage--;
+            if (player.GetComponent<PlayerEngage>().engage > 0)
+            {
+                player.GetComponent<PlayerEngage>().enemy = null;
+                player.GetComponent<PlayerEngage>().engage--;
+            }
         }
         player = null;
         procura = true;
@@ -588,6 +591,13 @@ public class EnemyController : MonoBehaviour
         roamming = false;
         dano = false;
         anim.SetBool("isSlam", true);
+        if (anim.gameObject.active)
+        {
+            while (!anim.GetCurrentAnimatorStateInfo(0).IsName("EnemySlam"))
+            {
+                anim.SetTrigger("Slam");
+            }
+        }
         slam = true;
         life -= dmg;
         autorizo = true;
@@ -615,7 +625,6 @@ public class EnemyController : MonoBehaviour
         StopCoroutine("Pode");
         chamei = true;
         stun = true;
-        anim.SetTrigger("Slam");
         Switch();
     }
 
