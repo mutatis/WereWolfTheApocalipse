@@ -19,7 +19,7 @@ public class Agarra : MonoBehaviour
 
     GameObject enemy;
 
-	bool pego;
+	public bool pego;
 
     public void Ativa()
     {

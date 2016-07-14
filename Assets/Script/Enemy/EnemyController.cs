@@ -23,7 +23,6 @@ public class EnemyController : MonoBehaviour
     public bool dano = true;
     public bool roamming = true;
     public bool combate = true;
-    [HideInInspector]
     public bool slam;
     public bool isEngage, procura;
 
@@ -62,6 +61,11 @@ public class EnemyController : MonoBehaviour
     void Update()
     {
         anim.SetBool("isWalk", isWalk);
+
+        if(!anim.GetCurrentAnimatorStateInfo(0).IsName("EnemySlam"))
+        {
+            slam = false;
+        }    
 
         if(taPego && player.GetComponent<PlayerEngage>().playerAttack.solta >= 10)
         {
