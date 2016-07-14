@@ -32,7 +32,7 @@ public class PlayerDonsAndarilho : MonoBehaviour
 
     void Update()
     {
-        if (!playerDano.stun && !playerMov.isGrab && !playerAttack.presa)
+        if (!playerDano.stun && !playerMov.isGrab && !playerAttack.presa && !playerMov.jump)
         {
             switch (player)
             {

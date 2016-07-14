@@ -144,6 +144,6 @@ public class PlayerStatus : MonoBehaviour
         critChance = critChance * 2;
         critDamage = critDamage * 2;
         resistances = resistances * 2;
-        speed = speed * 2;
+        speed = speed * 1.5f;
     }
 }

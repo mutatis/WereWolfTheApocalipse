@@ -18,11 +18,14 @@ public class PlayerMovment : MonoBehaviour
     [FMODUnity.EventRef]
     public string jumpSound;
 
+    public bool run;
     [HideInInspector]
     public bool isMov, jump, isGrab, isJump;
 
     [HideInInspector]
     public float x, z;
+
+    public int contInput, xRun = 1;
 
     void Update()
     {
@@ -39,11 +42,16 @@ public class PlayerMovment : MonoBehaviour
 
         if (!isMov)
         {
+            playerAnim.anim.SetInteger("ContInput", xRun);
             if (!playerAttack.jumpAttack)
             {
-                x = Input.GetAxis("HorizontalP1");
+                x = Input.GetAxis("HorizontalP1") * xRun;
+                if((x > 0 || x < 0) && !run && contInput == 0 && playerStats.crinos)
+                {
+                    StartCoroutine("Run");
+                }
             }
-            if (!jump && !playerAttack.block && !playerDano.stun)
+            if (!jump && !playerAttack.block && !playerDano.stun && xRun == 1)
             {
                 z = Input.GetAxis("VerticalP1") * 2;
                 if (Input.GetKeyDown(KeyCode.Joystick1Button0) && !Input.GetKey(KeyCode.Joystick1Button5) && !isJump)
@@ -86,6 +94,38 @@ public class PlayerMovment : MonoBehaviour
         {
             transform.localScale = new Vector3(transform.localScale.x * -1, transform.localScale.y, transform.localScale.z);
         }
+
+        if(run && x == 0)
+        {
+            contInput = 1;
+        }
+
+        if(run && (x > 0 || x < 0) && contInput == 1)
+        {
+            Corre();
+        }
+
+        if(xRun > 1 && x == 0)
+        {
+            xRun = 1;
+            run = false;
+            contInput = 0;
+        }
+    }
+
+    void Corre()
+    {
+        run = false;
+        contInput = 0;
+        xRun = 2;
+    }
+
+    IEnumerator Run()
+    {
+        run = true;
+        yield return new WaitForSeconds(0.5f);
+        contInput = 0;
+        run = false;
     }
 
     void Jump()
