@@ -11,6 +11,8 @@ public class EnemyAnim : MonoBehaviour
 
     public BossController boss;
 
+    public Animator headAnim;
+
     public GameObject obj;
 
     public int tipo;
@@ -19,6 +21,11 @@ public class EnemyAnim : MonoBehaviour
 
     [HideInInspector]
     public string nome;
+
+    public void Run()
+    {
+        headAnim.SetTrigger("Run");
+    }
 
     public void Desliga()
     {
