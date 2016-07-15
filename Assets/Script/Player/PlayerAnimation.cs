@@ -47,6 +47,11 @@ public class PlayerAnimation : MonoBehaviour
         playerAttack.enemy.GetComponent<EnemyController>().anim.gameObject.SetActive(false);
     }
 
+    public void GrabWalk()
+    {
+        playerAttack.enemy.GetComponent<EnemyController>().head.enabled = false;
+    }
+
     public void Queda()
     {
         audioInstance = FMODUnity.RuntimeManager.CreateInstance(queda);

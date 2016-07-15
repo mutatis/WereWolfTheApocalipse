@@ -25,6 +25,7 @@ public class Agarra : MonoBehaviour
     {
         if (enemy != null)
         {
+            enemy.GetComponent<EnemyController>().anim.SetBool("Preso", false);
             enemy.GetComponent<EnemyController>().anim.gameObject.SetActive(true);
             enemy.GetComponent<EnemyController>().anim.SetTrigger("Slam");
         }
@@ -40,7 +41,8 @@ public class Agarra : MonoBehaviour
     }
 
 	IEnumerator GO()
-	{
+    {
+        enemy.GetComponent<EnemyController>().anim.SetBool("Preso", true);
         playerMov.isGrab = true;
         enemy.GetComponent<EnemyController>().head.enabled = false;
         enemy.GetComponent<EnemyController>().head.gameObject.SetActive(true);
@@ -64,6 +66,7 @@ public class Agarra : MonoBehaviour
 
     public void End()
     {
+        enemy.GetComponent<EnemyController>().anim.SetBool("Preso", false);
         enemy.GetComponent<EnemyController>().head.gameObject.SetActive(false);
         enemy.GetComponent<EnemyController>().head.enabled = false;
         enemy.GetComponent<EnemyController>().enemyAnim.SetActive(true);

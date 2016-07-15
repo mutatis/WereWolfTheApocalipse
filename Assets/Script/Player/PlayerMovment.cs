@@ -77,13 +77,28 @@ public class PlayerMovment : MonoBehaviour
             z = 0;
         }
 
-        if((x != 0 || z != 0) && ((!playerAnim.anim.GetCurrentAnimatorStateInfo(0).IsName("RunAndarilho") && !isGrab) || (!playerAnim.anim.GetCurrentAnimatorStateInfo(0).IsName("GrabWalkAndarilho") && isGrab)))
+        if(playerAnim.anim.GetCurrentAnimatorStateInfo(0).IsName("GrabWalkAndarilho"))
+        {
+            if (playerAttack.enemy != null)
+            {
+                playerAttack.enemy.GetComponent<EnemyController>().anim.SetBool("Preso", true);
+                playerAttack.enemy.GetComponent<EnemyController>().anim.gameObject.SetActive(true);
+            }
+        }
+
+        if((x != 0 || z != 0) && ((!playerAnim.anim.GetCurrentAnimatorStateInfo(0).IsName("RunAndarilho") && !isGrab) || 
+            (!playerAnim.anim.GetCurrentAnimatorStateInfo(0).IsName("GrabWalkAndarilho") && isGrab)))
         {
             playerAnim.anim.SetTrigger("Run");
         }
-        else if(x == 0 && z == 0 && ((!playerAnim.anim.GetCurrentAnimatorStateInfo(0).IsName("IdleAndarilho") && !isGrab) || (!playerAnim.anim.GetCurrentAnimatorStateInfo(0).IsName("GrabIdleAndarilho") && isGrab)))
+        else if(x == 0 && z == 0 && ((!playerAnim.anim.GetCurrentAnimatorStateInfo(0).IsName("IdleAndarilho") && !isGrab) || 
+            (!playerAnim.anim.GetCurrentAnimatorStateInfo(0).IsName("GrabIdleAndarilho") && isGrab)))
         {
             playerAnim.anim.SetTrigger("Idle");
+            if (playerAttack.enemy != null)
+            {
+                playerAttack.enemy.GetComponent<EnemyController>().anim.gameObject.SetActive(false);
+            }
         }
 
         if(x > 0 && transform.localScale.x < 0)

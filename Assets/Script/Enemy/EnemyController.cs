@@ -65,7 +65,7 @@ public class EnemyController : MonoBehaviour
         if(!anim.GetCurrentAnimatorStateInfo(0).IsName("EnemySlam"))
         {
             slam = false;
-        }    
+        }
 
         if(taPego && player.GetComponent<PlayerEngage>().playerAttack.solta >= 10)
         {
