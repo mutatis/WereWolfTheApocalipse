@@ -3,6 +3,7 @@ using System.Collections;
 
 public class PlayerStats : MonoBehaviour
 {
+    public PlayerMovment playerMov;
     public PlayerStatus playerStatus;
     public PlayerAnimation anim;
 
@@ -25,7 +26,7 @@ public class PlayerStats : MonoBehaviour
 
     void Update()
     {
-        if (rage >= playerStatus.rageMax && Input.GetKeyDown(KeyCode.Joystick1Button5) && !crinos)
+        if (rage >= playerStatus.rageMax && Input.GetKeyDown(KeyCode.Joystick1Button5) && !crinos && !playerMov.isGrab)
         {
             playerStatus.pode = true;
             crinos = true;

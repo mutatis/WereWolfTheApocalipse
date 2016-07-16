@@ -597,7 +597,7 @@ public class EnemyController : MonoBehaviour
         anim.SetBool("isSlam", true);
         if (anim.gameObject.active)
         {
-            while (!anim.GetCurrentAnimatorStateInfo(0).IsName("EnemySlam"))
+            if (!anim.GetCurrentAnimatorStateInfo(0).IsName("EnemySlam"))
             {
                 anim.SetTrigger("Slam");
             }
