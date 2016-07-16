@@ -51,9 +51,9 @@ public class PlayerMovment : MonoBehaviour
                     StartCoroutine("Run");
                 }
             }
-            if (!jump && !playerAttack.block && !playerDano.stun && xRun == 1)
+            if (!jump && !playerAttack.block && !playerDano.stun)
             {
-                z = Input.GetAxis("VerticalP1") * 2;
+                z = Input.GetAxis("VerticalP1") * 2 * xRun;
                 if (Input.GetKeyDown(KeyCode.Joystick1Button0) && !Input.GetKey(KeyCode.Joystick1Button5) && !isJump)
                 {
                     Jump();
