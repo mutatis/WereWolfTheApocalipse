@@ -92,7 +92,9 @@ public class Agarra : MonoBehaviour
 	{
 		if(other.gameObject.tag == "Enemy")
 		{
-			if (!pego && !playerDano.stun && other.gameObject.GetComponent<EnemyController>().life > 0 && !other.gameObject.GetComponent<EnemyController>().slam && (playerMov.x > 0 || playerMov.x < 0) && !playerMov.jump)
+			if (!pego && !playerDano.stun && other.gameObject.GetComponent<EnemyController>().life > 0 && 
+                !other.gameObject.GetComponent<EnemyController>().slam && (playerMov.x > 0 || playerMov.x < 0) && 
+                !playerMov.jump && !playerMov.playerStats.crinos)
             {
                 agarraAudioInstance = FMODUnity.RuntimeManager.CreateInstance(pega);
                 agarraAudioInstance.setVolume(PlayerPrefs.GetFloat("VolumeFX"));

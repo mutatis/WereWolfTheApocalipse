@@ -29,7 +29,10 @@ public class PlayerMovment : MonoBehaviour
 
     void Update()
     {
-        transform.Translate(new Vector3((x * playerStatus.speed), 0, (z * playerStatus.speed)));
+        if (Time.timeScale != 0)
+        {
+            transform.Translate(new Vector3((x * playerStatus.speed), 0, (z * playerStatus.speed)));
+        }
 
         if(playerStats.crinos && !sprite.flipX)
         {
@@ -54,7 +57,7 @@ public class PlayerMovment : MonoBehaviour
             if (!jump && !playerAttack.block && !playerDano.stun)
             {
                 z = Input.GetAxis("VerticalP1") * 2 * xRun;
-                if (Input.GetKeyDown(KeyCode.Joystick1Button0) && !Input.GetKey(KeyCode.Joystick1Button5) && !isJump)
+                if (Input.GetKeyDown(KeyCode.Joystick1Button0) && !Input.GetKey(KeyCode.Joystick1Button5) && !isJump && Time.timeScale != 0)
                 {
                     Jump();
                 }

@@ -118,7 +118,10 @@ public class EnemyController : MonoBehaviour
 
                 if (distOportunidade > 1 || oportunidade > 0)
                 {
-                    transform.Translate(vel1, 0, vel2);
+                    if (Time.timeScale != 0)
+                    {
+                        transform.Translate(vel1, 0, vel2);
+                    }
                     if (vel1 == 0 && vel2 == 0)
                     {
                         if (!anim.GetCurrentAnimatorStateInfo(0).IsName("EnemyIdle"))
@@ -446,7 +449,10 @@ public class EnemyController : MonoBehaviour
                     if (!stun)
                     {
                         deus = (direction / 7);
-                        transform.Translate(deus);
+                        if (Time.timeScale != 0)
+                        {
+                            transform.Translate(deus);
+                        }
                         if (!anim.GetCurrentAnimatorStateInfo(0).IsName("EnemyRun") && !costas)
                         {
                             anim.SetTrigger("Run");
