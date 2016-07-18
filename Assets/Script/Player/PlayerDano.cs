@@ -24,6 +24,16 @@ public class PlayerDano : MonoBehaviour
 
     int slamCont;
 
+    void Update()
+    {
+        if(playerAttack.presa && playerStatus.life <= 0 && !playerAnim.anim.GetCurrentAnimatorStateInfo(0).IsName("PlayerDeadAndarilho"))
+        {
+            pegador.GetComponent<EnemyController>().Solta();            
+            stun = true;
+            playerAnim.anim.SetTrigger("Dead");
+        }
+    }
+
     IEnumerator GO()
     {
         yield return new WaitForSeconds(1);
