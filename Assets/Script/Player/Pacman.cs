@@ -3,6 +3,8 @@ using System.Collections;
 
 public class Pacman : MonoBehaviour
 {
+    public Animator anim;
+
     public float dmg;
 
     public GameObject obj;
@@ -15,12 +17,13 @@ public class Pacman : MonoBehaviour
 
     public float vel;
 
-    int contador, temp;
+    int contador, temp, mato;
 
     void Start()
     {
         if(obj.GetComponent<PlayerStats>().transform.localScale.x < 0)
         {
+            transform.localScale = new Vector3(transform.localScale.x * -1, transform.localScale.y, transform.localScale.z);
             vel *= -1;
         }
         volInicio = FMODUnity.RuntimeManager.CreateInstance(inicio);
@@ -47,12 +50,15 @@ public class Pacman : MonoBehaviour
     {
         yield return new WaitForSeconds(1);
         transform.position = new Vector3(transform.position.x, obj.transform.position.y, obj.transform.position.z);
+        transform.localScale = new Vector3(transform.localScale.x * -1, transform.localScale.y, transform.localScale.z);
         vel *= -1;
         contador = 0;
     }
 
     void Dano(GameObject other)
     {
+        mato++;
+        anim.SetInteger("Mato", mato);
         if (other.gameObject.tag == "Enemy")
         {
             other.gameObject.GetComponent<EnemyController>().Dano(dmg, false, gameObject);

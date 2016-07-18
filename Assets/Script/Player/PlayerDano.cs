@@ -123,7 +123,10 @@ public class PlayerDano : MonoBehaviour
                     transform.localScale = new Vector3(transform.localScale.x * -1, transform.localScale.y, transform.localScale.z);
                 }
                 stun = true;
-                playerAnim.anim.SetTrigger("Dead");
+                if (!playerAnim.anim.GetCurrentAnimatorStateInfo(0).IsName("PlayerDeadAndarilho"))
+                {
+                    playerAnim.anim.SetTrigger("Dead");
+                }
             }
             StartCoroutine(Vibrar());
         }
