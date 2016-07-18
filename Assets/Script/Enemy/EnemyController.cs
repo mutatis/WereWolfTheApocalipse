@@ -312,7 +312,7 @@ public class EnemyController : MonoBehaviour
         if((player.GetComponent<PlayerEngage>().playerStats.transform.position.x > transform.position.x && 
             player.GetComponent<PlayerEngage>().playerStats.transform.localScale.x > 0) || 
             (player.GetComponent<PlayerEngage>().playerStats.transform.position.x < transform.position.x && 
-            player.GetComponent<PlayerEngage>().playerStats.transform.localScale.x < 0))
+            player.GetComponent<PlayerEngage>().playerStats.transform.localScale.x < 0) && player.GetComponent<PlayerEngage>().playerStats.playerStatus.life > 0)
         {
             if (!player.GetComponent<PlayerEngage>().playerMov.isGrab)
             {
@@ -329,7 +329,7 @@ public class EnemyController : MonoBehaviour
         }
     }
 
-    void Solta()
+    public void Solta()
     {
         anim.SetBool("isGrab", false);
         anim.SetTrigger("Idle");

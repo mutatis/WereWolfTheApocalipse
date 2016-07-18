@@ -104,6 +104,10 @@ public class PlayerDano : MonoBehaviour
             playerStats.rage += playerStatus.rageRegen;
             if (playerStatus.life <= 0)
             {
+                if(playerAttack.presa)
+                {
+                    pegador.GetComponent<EnemyController>().Solta();
+                }
                 if ((obj.transform.position.x < transform.position.x && transform.localScale.x > 0) || (obj.transform.position.x > transform.position.x && transform.localScale.x < 0))
                 {
                     transform.localScale = new Vector3(transform.localScale.x * -1, transform.localScale.y, transform.localScale.z);
