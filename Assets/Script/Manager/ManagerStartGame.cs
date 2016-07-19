@@ -17,7 +17,7 @@ public class ManagerStartGame : MonoBehaviour
             }
             else if (PlayerPrefs.GetInt("Escolha") == 2)
             {
-                Instantiate(presas, new Vector3(0, 0, 0), transform.rotation);
+				Instantiate(presas, new Vector3(0, 0, 0), transform.rotation);
             }
         }
         else

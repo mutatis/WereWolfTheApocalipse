@@ -78,14 +78,7 @@ public class EnemyRanged : MonoBehaviour
 
         if (life <= 0)
         {
-            anim.SetTrigger("Dead");
-            if (player != null)
-            {
-                enemyanim.nome = player.GetComponent<PlayerStats>().nome;
-                //player.GetComponent<PlayerController>().engage--;
-            }
-            dano = false;
-            gameObject.GetComponent<EnemyRanged>().enabled = false;
+            Morreu();
         }
 
         if (player == null && procura)
@@ -95,6 +88,18 @@ public class EnemyRanged : MonoBehaviour
                 //player.GetComponent<PlayerController>().engage++;
            
         }
+    }
+
+    void Morreu()
+    {
+        anim.SetTrigger("Dead");
+        if (player != null)
+        {
+            enemyanim.nome = player.GetComponent<PlayerStats>().nome;
+            //player.GetComponent<PlayerController>().engage--;
+        }
+        dano = false;
+        gameObject.GetComponent<EnemyRanged>().enabled = false;
     }
 
     IEnumerator Procura()
