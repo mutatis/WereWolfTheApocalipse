@@ -28,11 +28,11 @@ public class AtributoTroca : MonoBehaviour
         {
             if (podeDpad)
             {
-                if (Input.GetKeyDown(KeyCode.RightArrow) || Input.GetAxisRaw("DpadXP1") > 0)
+				if (Input.GetKeyDown(KeyCode.RightArrow) || Input.GetAxisRaw("DpadXP1") > 0 || Input.GetKeyDown(KeyCode.JoystickButton5))
                 {
                     Proximo();
                 }
-                else if (Input.GetKeyDown(KeyCode.LeftArrow) || Input.GetAxisRaw("DpadXP1") < 0)
+				else if (Input.GetKeyDown(KeyCode.LeftArrow) || Input.GetAxisRaw("DpadXP1") < 0 || Input.GetKeyDown(KeyCode.JoystickButton4))
                 {
                     Anterior();
                 }
@@ -42,11 +42,11 @@ public class AtributoTroca : MonoBehaviour
         {
             if (podeDpad2)
             {
-                if (Input.GetKeyDown(KeyCode.RightArrow) || Input.GetAxisRaw("DpadXP2") > 0)
+				if (Input.GetKeyDown(KeyCode.RightArrow) || Input.GetAxisRaw("DpadXP2") > 0 || Input.GetKeyDown(KeyCode.JoystickButton5))
                 {
                     Proximo();
                 }
-                else if (Input.GetKeyDown(KeyCode.LeftArrow) || Input.GetAxisRaw("DpadXP2") < 0)
+				else if (Input.GetKeyDown(KeyCode.LeftArrow) || Input.GetAxisRaw("DpadXP2") < 0 || Input.GetKeyDown(KeyCode.JoystickButton4))
                 {
                     Anterior();
                 }

@@ -25,7 +25,7 @@ public class AtributaSetinha : MonoBehaviour
             {
                 if (tipo == 0)
                 {
-                    if (Input.GetKeyDown(KeyCode.RightArrow) || Input.GetAxisRaw("DpadXP1") > 0)
+					if (Input.GetKeyDown(KeyCode.RightArrow) || Input.GetAxisRaw("DpadXP1") > 0 || Input.GetKeyDown(KeyCode.JoystickButton5))
                     {
                         anim.SetTrigger("Aperto");
                         heal = FMODUnity.RuntimeManager.CreateInstance(socoFraco);
@@ -35,7 +35,7 @@ public class AtributaSetinha : MonoBehaviour
                 }
                 else if (tipo == 1)
                 {
-                    if (Input.GetKeyDown(KeyCode.LeftArrow) || Input.GetAxisRaw("DpadXP1") < 0)
+					if (Input.GetKeyDown(KeyCode.LeftArrow) || Input.GetAxisRaw("DpadXP1") < 0 || Input.GetKeyDown(KeyCode.JoystickButton4))
                     {
                         anim.SetTrigger("Aperto");
                         heal = FMODUnity.RuntimeManager.CreateInstance(socoFraco);
@@ -52,14 +52,14 @@ public class AtributaSetinha : MonoBehaviour
             {
                 if (tipo == 0)
                 {
-                    if (Input.GetKeyDown(KeyCode.RightArrow) || Input.GetAxisRaw("DpadXP2") > 0)
+					if (Input.GetKeyDown(KeyCode.RightArrow) || Input.GetAxisRaw("DpadXP2") > 0 || Input.GetKeyDown(KeyCode.JoystickButton5))
                     {
                         anim.SetTrigger("Aperto");
                     }
                 }
                 else if (tipo == 1)
                 {
-                    if (Input.GetKeyDown(KeyCode.LeftArrow) || Input.GetAxisRaw("DpadXP2") < 0)
+					if (Input.GetKeyDown(KeyCode.LeftArrow) || Input.GetAxisRaw("DpadXP2") < 0 || Input.GetKeyDown(KeyCode.JoystickButton4))
                     {
                         anim.SetTrigger("Aperto");
                     }
