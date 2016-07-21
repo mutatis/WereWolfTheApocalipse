@@ -24,7 +24,7 @@ public class EnemyController : MonoBehaviour
     public bool roamming = true;
     public bool combate = true;
     public bool slam;
-    public bool isEngage, procura;
+    public bool isEngage, procura, ativacao;
 
     public TextMesh text;
     
@@ -82,17 +82,7 @@ public class EnemyController : MonoBehaviour
 		{
 			if (life <= 0) 
 			{
-				StopAllCoroutines ();
-                anim.SetBool("Morreu", true);
-				anim.SetTrigger ("Dead");
-				if (player != null)
-                {
-                    player.GetComponent<PlayerEngage>().enemy = null;
-                    player.GetComponent<PlayerEngage>().engage--;
-					enemyanim.nome = player.GetComponent<PlayerEngage> ().nome;
-				}
-				dano = false;
-				gameObject.GetComponent<EnemyController> ().enabled = false;
+                Morreu();
 			}
 
             if (!stun)
@@ -206,16 +196,39 @@ public class EnemyController : MonoBehaviour
                 transform.localScale = new Vector3(transform.localScale.x * -1, transform.localScale.y, transform.localScale.z);
             }
             StopAllCoroutines();
-            transform.position = new Vector3(peguei.transform.position.x, transform.position.y, peguei.transform.position.z + 0.5f);
-        }	
+            transform.position = new Vector3(peguei.transform.position.x, peguei.transform.position.y, peguei.transform.position.z + 0.5f);
+        }
+
+        if(!procura && !ativacao)
+        {
+            StartCoroutine(Procura());
+        }
+    }
+
+    public void Morreu()
+    {
+        StopAllCoroutines();
+        anim.SetBool("Morreu", true);
+        anim.SetTrigger("Dead");
+        if (player != null)
+        {
+            player.GetComponent<PlayerEngage>().enemy = null;
+            player.GetComponent<PlayerEngage>().engage--;
+            enemyanim.nome = player.GetComponent<PlayerEngage>().nome;
+        }
+        dano = false;
+        gameObject.GetComponent<EnemyController>().enabled = false;
+
     }
 
     IEnumerator Procura()
     {
+        ativacao = true;
         procura = false;
         var tempo = Random.Range(2f, 3f);
         yield return new WaitForSeconds(tempo);
         procura = true;
+        ativacao = false;
     }
 
     public void Prepare()

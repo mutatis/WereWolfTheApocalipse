@@ -65,7 +65,7 @@ public class Pacman : MonoBehaviour
         }
         else if (other.gameObject.tag == "EnemyRanged")
         {
-            other.gameObject.GetComponent<EnemyRanged>().Dano(dmg, false, gameObject);
+			other.gameObject.GetComponent<EnemyRanged>().Dano(dmg, false, gameObject);;
         }
         else if (other.gameObject.tag == "Boss")
         {
