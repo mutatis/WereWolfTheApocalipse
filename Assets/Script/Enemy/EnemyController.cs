@@ -196,7 +196,7 @@ public class EnemyController : MonoBehaviour
                 transform.localScale = new Vector3(transform.localScale.x * -1, transform.localScale.y, transform.localScale.z);
             }
             StopAllCoroutines();
-            transform.position = new Vector3(peguei.transform.position.x, transform.position.y, peguei.transform.position.z + 0.5f);
+            transform.position = new Vector3(peguei.transform.position.x, peguei.transform.position.y, peguei.transform.position.z + 0.5f);
         }
 
         if(!procura && !ativacao)
