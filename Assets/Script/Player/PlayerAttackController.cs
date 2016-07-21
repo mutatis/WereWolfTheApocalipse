@@ -66,6 +66,12 @@ public class PlayerAttackController : MonoBehaviour
             }
         }
 
+		if (Input.GetKeyUp(KeyCode.Joystick1Button1))
+		{
+			playerAnim.anim.SetBool("isBlock", false);
+			block = false;
+		}
+
         if(mov && !playerDano.stun && !playerMov.isGrab)
         {
             if(transform.localScale.x > 0)
