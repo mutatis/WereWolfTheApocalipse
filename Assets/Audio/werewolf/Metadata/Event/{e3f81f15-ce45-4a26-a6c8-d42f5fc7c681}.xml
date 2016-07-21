@@ -256,6 +256,8 @@
     <object class="MixerBusEffectChain" id="{92d52377-4073-43d5-81cf-cdfea4ce934e}">
         <relationship name="effects">
             <destination>{747d0a1a-da5c-434a-8264-c82a21bfaac7}</destination>
+            <destination>{eff2a46a-3a04-4525-ad14-f71baefd198f}</destination>
+            <destination>{b34c164f-1d7d-4f97-adfe-a8781893dab1}</destination>
         </relationship>
     </object>
     <object class="MixerBusPanner" id="{2ff52fd7-a872-420c-9e06-b74f94e9106c}"/>
@@ -271,6 +273,7 @@
         <relationship name="effects">
             <destination>{9e10e21e-4240-4fae-abca-4b44b7cff5df}</destination>
             <destination>{2203574a-daec-41b6-9619-a428c38c0582}</destination>
+            <destination>{4efd18d5-157c-4049-a079-cbf8c5adef50}</destination>
         </relationship>
     </object>
     <object class="MixerBusPanner" id="{75220064-b5d3-4c9f-8f77-5692f1f9090d}"/>
@@ -317,16 +320,50 @@
         </relationship>
     </object>
     <object class="MixerBusFader" id="{747d0a1a-da5c-434a-8264-c82a21bfaac7}"/>
+    <object class="ThreeEQEffect" id="{eff2a46a-3a04-4525-ad14-f71baefd198f}">
+        <property name="lowGain">
+            <value>8.5</value>
+        </property>
+    </object>
+    <object class="CompressorEffect" id="{b34c164f-1d7d-4f97-adfe-a8781893dab1}">
+        <property name="threshold">
+            <value>-25</value>
+        </property>
+        <property name="gain">
+            <value>6</value>
+        </property>
+    </object>
     <object class="MixerBusFader" id="{9e10e21e-4240-4fae-abca-4b44b7cff5df}"/>
     <object class="LowpassEffect" id="{2203574a-daec-41b6-9619-a428c38c0582}">
+        <property name="bypass">
+            <value>true</value>
+        </property>
         <property name="cutoff">
-            <value>2100</value>
+            <value>8000</value>
         </property>
         <property name="resonance">
-            <value>1.45999992</value>
+            <value>1.39999998</value>
+        </property>
+    </object>
+    <object class="ThreeEQEffect" id="{4efd18d5-157c-4049-a079-cbf8c5adef50}">
+        <property name="lowGain">
+            <value>-6</value>
+        </property>
+        <property name="midGain">
+            <value>6</value>
+        </property>
+        <property name="highGain">
+            <value>3</value>
         </property>
     </object>
     <object class="LowpassEffect" id="{2d93ba5b-4cbd-408d-83d9-1a4021568a98}"/>
     <object class="MixerBusFader" id="{7f110c38-ca9e-46d5-a115-54c6e22c41d9}"/>
-    <object class="ThreeEQEffect" id="{0dbceb25-8d8c-4f0d-8e05-3f78b527161a}"/>
+    <object class="ThreeEQEffect" id="{0dbceb25-8d8c-4f0d-8e05-3f78b527161a}">
+        <property name="midGain">
+            <value>5</value>
+        </property>
+        <property name="highGain">
+            <value>6.5</value>
+        </property>
+    </object>
 </objects>
