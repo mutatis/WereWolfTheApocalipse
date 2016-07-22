@@ -154,7 +154,6 @@
         <relationship name="effects">
             <destination>{1bf3e930-9be2-4092-9e7a-d76c7d47630d}</destination>
             <destination>{e765b983-aeca-473e-890b-81052a7de82a}</destination>
-            <destination>{f47f32a7-ca3d-483e-9d8a-6dc63d1c216f}</destination>
             <destination>{395f3c69-2b82-47cd-bb51-44233d8173dd}</destination>
         </relationship>
     </object>
@@ -199,7 +198,7 @@
     </object>
     <object class="ThreeEQEffect" id="{1bf3e930-9be2-4092-9e7a-d76c7d47630d}">
         <property name="lowGain">
-            <value>2.5</value>
+            <value>6</value>
         </property>
         <property name="midGain">
             <value>-9</value>
@@ -208,30 +207,19 @@
             <value>-80</value>
         </property>
         <property name="lowCrossover">
-            <value>950</value>
+            <value>280</value>
         </property>
         <property name="highCrossover">
-            <value>2500</value>
+            <value>2300</value>
         </property>
     </object>
     <object class="MixerBusFader" id="{e765b983-aeca-473e-890b-81052a7de82a}"/>
-    <object class="LimiterEffect" id="{f47f32a7-ca3d-483e-9d8a-6dc63d1c216f}">
-        <property name="boost">
-            <value>2.89999986</value>
-        </property>
-        <property name="ceiling">
-            <value>-5.89999962</value>
-        </property>
-    </object>
     <object class="CompressorEffect" id="{395f3c69-2b82-47cd-bb51-44233d8173dd}">
-        <property name="bypass">
-            <value>true</value>
-        </property>
         <property name="threshold">
-            <value>-30</value>
+            <value>-27.5</value>
         </property>
         <property name="ratio">
-            <value>9.19999981</value>
+            <value>5</value>
         </property>
         <property name="attackTime">
             <value>10</value>

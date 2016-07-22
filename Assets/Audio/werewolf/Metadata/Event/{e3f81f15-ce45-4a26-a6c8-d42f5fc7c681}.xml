@@ -274,6 +274,7 @@
             <destination>{9e10e21e-4240-4fae-abca-4b44b7cff5df}</destination>
             <destination>{2203574a-daec-41b6-9619-a428c38c0582}</destination>
             <destination>{4efd18d5-157c-4049-a079-cbf8c5adef50}</destination>
+            <destination>{1ee3311e-b865-4a71-b762-e961c9ab7fc5}</destination>
         </relationship>
     </object>
     <object class="MixerBusPanner" id="{75220064-b5d3-4c9f-8f77-5692f1f9090d}"/>
@@ -287,6 +288,7 @@
             <destination>{2d93ba5b-4cbd-408d-83d9-1a4021568a98}</destination>
             <destination>{7f110c38-ca9e-46d5-a115-54c6e22c41d9}</destination>
             <destination>{0dbceb25-8d8c-4f0d-8e05-3f78b527161a}</destination>
+            <destination>{2cd74b8c-bbe9-4347-b683-b2ae25a56bd9}</destination>
         </relationship>
     </object>
     <object class="MixerBusPanner" id="{d5ff5595-38c8-4dd1-905e-ad390f7d166d}"/>
@@ -356,6 +358,14 @@
             <value>3</value>
         </property>
     </object>
+    <object class="CompressorEffect" id="{1ee3311e-b865-4a71-b762-e961c9ab7fc5}">
+        <property name="threshold">
+            <value>-42.5</value>
+        </property>
+        <property name="ratio">
+            <value>6.20000029</value>
+        </property>
+    </object>
     <object class="LowpassEffect" id="{2d93ba5b-4cbd-408d-83d9-1a4021568a98}"/>
     <object class="MixerBusFader" id="{7f110c38-ca9e-46d5-a115-54c6e22c41d9}"/>
     <object class="ThreeEQEffect" id="{0dbceb25-8d8c-4f0d-8e05-3f78b527161a}">
@@ -364,6 +374,14 @@
         </property>
         <property name="highGain">
             <value>6.5</value>
+        </property>
+    </object>
+    <object class="CompressorEffect" id="{2cd74b8c-bbe9-4347-b683-b2ae25a56bd9}">
+        <property name="threshold">
+            <value>-52</value>
+        </property>
+        <property name="ratio">
+            <value>4.29999971</value>
         </property>
     </object>
 </objects>
