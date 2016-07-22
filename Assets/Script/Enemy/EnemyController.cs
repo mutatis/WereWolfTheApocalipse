@@ -28,7 +28,7 @@ public class EnemyController : MonoBehaviour
 
     public TextMesh text;
     
-    public float tempoResposta, life, vel1, vel2, dist;
+	public float tempoResposta, life, vel1, vel2, dist, distOportunidade;
 
     public int xp;
 
@@ -48,7 +48,7 @@ public class EnemyController : MonoBehaviour
 
     Vector3 direction;
     
-    float dist1, dist2, distOportunidade;
+    float dist1, dist2;
 
     int danoEscolha, oportunidade;
 
@@ -101,12 +101,12 @@ public class EnemyController : MonoBehaviour
 			{
                 distOportunidade = Vector3.Distance(Manager.manager.player[0].transform.position, transform.position);
 
-                if(distOportunidade > 1)
+                if(distOportunidade > 4.5f)
                 {
                     oportunidade = 0;
                 }
 
-                if (distOportunidade > 1 || oportunidade > 0)
+				if (distOportunidade > 4.5f || oportunidade > 1)
                 {
                     if (Time.timeScale != 0)
                     {
@@ -126,10 +126,10 @@ public class EnemyController : MonoBehaviour
                         anim.SetTrigger("Run");
                     }
                 }
-                else if(oportunidade < 1)
+				else if(distOportunidade < 4.5f && !anim.GetCurrentAnimatorStateInfo(0).IsName("SocoFracoEnemy"))
                 {
                     anim.SetTrigger("SocoFraco0");
-                    distOportunidade++;
+					oportunidade++;
                 }
 
                 if ((vel1 > 0 && transform.localScale.x > 0) || (vel1 < 0 && transform.localScale.x < 0))
