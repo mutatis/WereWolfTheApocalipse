@@ -198,7 +198,7 @@
     </object>
     <object class="ThreeEQEffect" id="{1bf3e930-9be2-4092-9e7a-d76c7d47630d}">
         <property name="lowGain">
-            <value>6</value>
+            <value>1</value>
         </property>
         <property name="midGain">
             <value>-9</value>
@@ -207,7 +207,7 @@
             <value>-80</value>
         </property>
         <property name="lowCrossover">
-            <value>280</value>
+            <value>340</value>
         </property>
         <property name="highCrossover">
             <value>2300</value>
@@ -216,16 +216,16 @@
     <object class="MixerBusFader" id="{e765b983-aeca-473e-890b-81052a7de82a}"/>
     <object class="CompressorEffect" id="{395f3c69-2b82-47cd-bb51-44233d8173dd}">
         <property name="threshold">
-            <value>-27.5</value>
+            <value>-28</value>
         </property>
         <property name="ratio">
-            <value>5</value>
+            <value>3.0999999</value>
         </property>
         <property name="attackTime">
             <value>10</value>
         </property>
         <property name="gain">
-            <value>3.5</value>
+            <value>10.5</value>
         </property>
     </object>
 </objects>

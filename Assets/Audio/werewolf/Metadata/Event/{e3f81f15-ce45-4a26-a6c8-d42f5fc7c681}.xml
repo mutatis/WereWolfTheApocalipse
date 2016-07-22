@@ -61,9 +61,6 @@
     <object class="EventAutomatableProperties" id="{d2ad0449-da7f-4539-a055-42d9936c6336}"/>
     <object class="MarkerTrack" id="{58ff2090-b72e-4759-b229-c77ec57a514c}"/>
     <object class="GroupTrack" id="{d72ff79d-69d2-4a51-8f94-6cad42eba410}">
-        <relationship name="modules">
-            <destination>{7ef6ce68-a387-43da-8b7c-7e8f8a7ec860}</destination>
-        </relationship>
         <relationship name="mixerGroup">
             <destination>{d06cae66-a931-4aaf-9fd3-4e526c02ea81}</destination>
         </relationship>
@@ -91,7 +88,6 @@
         <relationship name="modules">
             <destination>{75d28251-36b0-48f3-acb7-299c64f104dd}</destination>
             <destination>{d1f10023-24f7-4f01-80e7-77c6fd46fabc}</destination>
-            <destination>{7ef6ce68-a387-43da-8b7c-7e8f8a7ec860}</destination>
         </relationship>
         <relationship name="automationCurves">
             <destination>{02595a87-f6f8-4f04-abd1-639fea3b6a33}</destination>
@@ -114,29 +110,6 @@
         </relationship>
     </object>
     <object class="MixerBusPanner" id="{24294ba1-8fa9-45f1-9121-6c2bb5babac7}"/>
-    <object class="SingleSound" id="{7ef6ce68-a387-43da-8b7c-7e8f8a7ec860}">
-        <property name="start">
-            <value>0.97999999999999998</value>
-        </property>
-        <property name="length">
-            <value>0.4708465452545737</value>
-        </property>
-        <property name="timelockedOffset">
-            <value>0.22627845474542629</value>
-        </property>
-        <property name="volume">
-            <value>-10</value>
-        </property>
-        <property name="pitch">
-            <value>-5.5</value>
-        </property>
-        <relationship name="modulators">
-            <destination>{765ce5ea-14e9-47ff-b218-4f4f7aa9d38b}</destination>
-        </relationship>
-        <relationship name="audioFile">
-            <destination>{9eaa4f02-b935-4149-b2f0-41b00bbde69b}</destination>
-        </relationship>
-    </object>
     <object class="EventMixerGroup" id="{d06cae66-a931-4aaf-9fd3-4e526c02ea81}">
         <property name="name">
             <value>Audio 1</value>
@@ -245,14 +218,6 @@
     </object>
     <object class="MixerBusPanner" id="{eefee572-2178-4fe8-b335-3f7a9e394060}"/>
     <object class="MixerBusFader" id="{7d8d0b2a-e47b-45d0-9bcc-7aadc89a0c3b}"/>
-    <object class="RandomizerModulator" id="{765ce5ea-14e9-47ff-b218-4f4f7aa9d38b}">
-        <property name="nameOfPropertyBeingModulated">
-            <value>pitch</value>
-        </property>
-        <property name="amount">
-            <value>14</value>
-        </property>
-    </object>
     <object class="MixerBusEffectChain" id="{92d52377-4073-43d5-81cf-cdfea4ce934e}">
         <relationship name="effects">
             <destination>{747d0a1a-da5c-434a-8264-c82a21bfaac7}</destination>
@@ -324,7 +289,10 @@
     <object class="MixerBusFader" id="{747d0a1a-da5c-434a-8264-c82a21bfaac7}"/>
     <object class="ThreeEQEffect" id="{eff2a46a-3a04-4525-ad14-f71baefd198f}">
         <property name="lowGain">
-            <value>8.5</value>
+            <value>6.5</value>
+        </property>
+        <property name="lowCrossover">
+            <value>220</value>
         </property>
     </object>
     <object class="CompressorEffect" id="{b34c164f-1d7d-4f97-adfe-a8781893dab1}">
@@ -332,7 +300,7 @@
             <value>-25</value>
         </property>
         <property name="gain">
-            <value>6</value>
+            <value>4</value>
         </property>
     </object>
     <object class="MixerBusFader" id="{9e10e21e-4240-4fae-abca-4b44b7cff5df}"/>
@@ -355,7 +323,7 @@
             <value>6</value>
         </property>
         <property name="highGain">
-            <value>3</value>
+            <value>4</value>
         </property>
     </object>
     <object class="CompressorEffect" id="{1ee3311e-b865-4a71-b762-e961c9ab7fc5}">
@@ -371,9 +339,6 @@
     <object class="ThreeEQEffect" id="{0dbceb25-8d8c-4f0d-8e05-3f78b527161a}">
         <property name="midGain">
             <value>5</value>
-        </property>
-        <property name="highGain">
-            <value>6.5</value>
         </property>
     </object>
     <object class="CompressorEffect" id="{2cd74b8c-bbe9-4347-b683-b2ae25a56bd9}">
