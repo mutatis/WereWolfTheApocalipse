@@ -34,7 +34,11 @@ public class FollowTarget : MonoBehaviour
 
 	void FixedUpdate ()
 	{
-        target = Manager.manager.player[0];
+		if (Manager.manager.player.Length > 0) 
+		{
+			target = Manager.manager.player [0];
+		}
+
         num = transform.position.x;
         enemy = Manager.manager.enemy.Length + Manager.manager.subBoss.Length + Manager.manager.boss.Length;
 

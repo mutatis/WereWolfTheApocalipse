@@ -34,7 +34,7 @@ TextureImporter:
   cubemapConvolutionExponent: 1.5
   seamlessCubemap: 0
   textureFormat: -1
-  maxTextureSize: 2048
+  maxTextureSize: 512
   textureSettings:
     filterMode: -1
     aniso: 16
@@ -56,8 +56,10 @@ TextureImporter:
   textureType: 8
   buildTargetSettings: []
   spriteSheet:
+    serializedVersion: 2
     sprites:
-    - name: xbox-controller-buttons-md_0
+    - serializedVersion: 2
+      name: xbox-controller-buttons-md_0
       rect:
         serializedVersion: 2
         x: 0
@@ -67,17 +69,9 @@ TextureImporter:
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-      outline:
-      - - {x: -37.5, y: 51}
-        - {x: -50.5, y: 41}
-        - {x: -50.5, y: -32}
-        - {x: -42.5, y: -51}
-        - {x: 20.5, y: -51}
-        - {x: 43.5, y: -41}
-        - {x: 50.5, y: -22}
-        - {x: 50.5, y: 30}
-        - {x: 34.5, y: 51}
-    - name: xbox-controller-buttons-md_1
+      outline: []
+    - serializedVersion: 2
+      name: xbox-controller-buttons-md_1
       rect:
         serializedVersion: 2
         x: 108
@@ -87,17 +81,9 @@ TextureImporter:
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-      outline:
-      - - {x: -26, y: 50.5}
-        - {x: -43, y: 37.5}
-        - {x: -52, y: 28.5}
-        - {x: -52, y: -38.5}
-        - {x: -27, y: -50.5}
-        - {x: 33, y: -50.5}
-        - {x: 52, y: -31.5}
-        - {x: 52, y: 22.5}
-        - {x: 30, y: 50.5}
-    - name: xbox-controller-buttons-md_2
+      outline: []
+    - serializedVersion: 2
+      name: xbox-controller-buttons-md_2
       rect:
         serializedVersion: 2
         x: 199
@@ -107,16 +93,9 @@ TextureImporter:
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-      outline:
-      - - {x: -28.5, y: 51}
-        - {x: -50.5, y: 29}
-        - {x: -50.5, y: -24}
-        - {x: -30.5, y: -51}
-        - {x: 40.5, y: -51}
-        - {x: 50.5, y: -33}
-        - {x: 50.5, y: 43}
-        - {x: 38.5, y: 51}
-    - name: xbox-controller-buttons-md_3
+      outline: []
+    - serializedVersion: 2
+      name: xbox-controller-buttons-md_3
       rect:
         serializedVersion: 2
         x: 108
@@ -126,15 +105,7 @@ TextureImporter:
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-      outline:
-      - - {x: -33, y: 50.5}
-        - {x: -52, y: 31.5}
-        - {x: -52, y: -30.5}
-        - {x: -35, y: -50.5}
-        - {x: 33, y: -50.5}
-        - {x: 52, y: -30.5}
-        - {x: 52, y: 23.5}
-        - {x: 34, y: 50.5}
+      outline: []
     outline: []
   spritePackingTag: 
   userData: 

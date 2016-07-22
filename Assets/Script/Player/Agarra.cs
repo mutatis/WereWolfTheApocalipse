@@ -17,7 +17,8 @@ public class Agarra : MonoBehaviour
 
     FMOD.Studio.EventInstance agarraAudioInstance;
 
-    GameObject enemy;
+	[HideInInspector]
+    public GameObject enemy;
 
 	public bool pego;
 

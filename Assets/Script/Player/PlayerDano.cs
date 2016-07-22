@@ -47,9 +47,15 @@ public class PlayerDano : MonoBehaviour
         if (playerStatus.life > 0 && !playerAnim.levanta)
         {
             if(playerMov.isGrab)
-            {
+			{
                 agarra.End();
             }
+
+			for (int i = 0; i < Manager.manager.enemy.Length; i++) 
+			{
+				Manager.manager.enemy[i].GetComponent<EnemyController>().anim.SetBool("Preso", false);
+			}
+
             if (!playerAttack.presa)
             {
                 if (!playerMov.jump)

@@ -17,10 +17,13 @@ public class XpPlayer : MonoBehaviour
 
     void Update()
     {
-        if(PlayerPrefs.GetInt(player.nome + "XP") >= xp[lvl])
-        {
-            Upo();
-        }
+		if (lvl < xp.Length) 
+		{
+			if (PlayerPrefs.GetInt (player.nome + "XP") >= xp [lvl]) 
+			{
+				Upo ();
+			}
+		}
     } 
 
     void Upo()

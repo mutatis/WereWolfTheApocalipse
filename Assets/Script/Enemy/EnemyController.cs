@@ -28,7 +28,7 @@ public class EnemyController : MonoBehaviour
 
     public TextMesh text;
     
-    public float tempoResposta, life, vel1, vel2, dist;
+	public float tempoResposta, life, vel1, vel2, dist, distOportunidade;
 
     public int xp;
 
@@ -48,7 +48,7 @@ public class EnemyController : MonoBehaviour
 
     Vector3 direction;
     
-    float dist1, dist2, distOportunidade;
+    float dist1, dist2;
 
     int danoEscolha, oportunidade;
 
@@ -101,12 +101,12 @@ public class EnemyController : MonoBehaviour
 			{
                 distOportunidade = Vector3.Distance(Manager.manager.player[0].transform.position, transform.position);
 
-                if(distOportunidade > 1)
+                if(distOportunidade > 4.5f)
                 {
                     oportunidade = 0;
                 }
 
-                if (distOportunidade > 1 || oportunidade > 0)
+				if (distOportunidade > 4.5f || oportunidade > 1)
                 {
                     if (Time.timeScale != 0)
                     {
@@ -126,10 +126,10 @@ public class EnemyController : MonoBehaviour
                         anim.SetTrigger("Run");
                     }
                 }
-                else if(oportunidade < 1)
+				else if(distOportunidade < 4.5f && !anim.GetCurrentAnimatorStateInfo(0).IsName("SocoFracoEnemy"))
                 {
                     anim.SetTrigger("SocoFraco0");
-                    distOportunidade++;
+					oportunidade++;
                 }
 
                 if ((vel1 > 0 && transform.localScale.x > 0) || (vel1 < 0 && transform.localScale.x < 0))
@@ -253,14 +253,6 @@ public class EnemyController : MonoBehaviour
         {
             anim.SetTrigger("Run");
         }
-        /*if (vel1 > 0 && transform.localScale.x > 0)
-        {
-            transform.localScale = new Vector3((transform.localScale.x * -1), transform.localScale.y, transform.localScale.z);
-        }
-        else if (vel1 < 0 && transform.localScale.x < 0)
-        {
-            transform.localScale = new Vector3((transform.localScale.x * -1), transform.localScale.y, transform.localScale.z);
-        }*/
         yield return new WaitForSeconds(1);
         prepare = true;
     }
@@ -274,14 +266,6 @@ public class EnemyController : MonoBehaviour
         if(!stun && dist < 0.57f && combate && !player.GetComponent<PlayerEngage>().playerAttack.playerAnim.levanta && !taPego)
         {
             var temp = player.GetComponent<PlayerEngage>().playerAttack.transform.position;
-            /*if (temp.x > transform.position.x && transform.localScale.x > 0)
-            {
-                transform.localScale = new Vector3((transform.localScale.x * -1), transform.localScale.y, transform.localScale.z);
-            }
-            if (temp.x < transform.position.x && transform.localScale.x < 0)
-            {
-                transform.localScale = new Vector3((transform.localScale.x * -1), transform.localScale.y, transform.localScale.z);
-            }*/
             num = probabilidade.ChooseAttack();
 
             switch (num)
