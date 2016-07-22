@@ -39,20 +39,29 @@ public class FollowTarget : MonoBehaviour
 			target = Manager.manager.player [0];
 		}
 
-        num = transform.position.x;
+		/*num = transform.position.x;
         enemy = Manager.manager.enemy.Length + Manager.manager.subBoss.Length + Manager.manager.boss.Length;
 
         if (num >= pos[cont])
         {
             segue = false;
             obj[cont].SetActive(true);
-        }
+        }*/
 
-        if (segue && quant <= 0 && enemy <= 0 && target.GetComponent<PlayerMovment>().x > 0)
+		if (target.GetComponent<PlayerMovment> ().x > 0 && transform.position.x < 5.8f) 
+		{
+			transform.Translate (target.GetComponent<PlayerMovment> ().x, 0, 0);
+		}
+		else if(target.GetComponent<PlayerMovment> ().x < 0 && transform.position.x > -5.8f)
+		{
+			transform.Translate (target.GetComponent<PlayerMovment> ().x, 0, 0);
+		}
+
+       /* if (segue && quant <= 0 && enemy <= 0 && target.GetComponent<PlayerMovment>().x > 0)
         {
             xPosition = target.transform.position.x + offset.x;
             yPosition = offset.y;
             transform.position = Vector3.SmoothDamp(transform.position, new Vector3(xPosition, transform.position.y, transform.position.z), ref velocity, smoothTime);
-        }
+        }*/
 	}
 }
