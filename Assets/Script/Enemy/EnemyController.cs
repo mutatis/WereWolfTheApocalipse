@@ -253,14 +253,6 @@ public class EnemyController : MonoBehaviour
         {
             anim.SetTrigger("Run");
         }
-        /*if (vel1 > 0 && transform.localScale.x > 0)
-        {
-            transform.localScale = new Vector3((transform.localScale.x * -1), transform.localScale.y, transform.localScale.z);
-        }
-        else if (vel1 < 0 && transform.localScale.x < 0)
-        {
-            transform.localScale = new Vector3((transform.localScale.x * -1), transform.localScale.y, transform.localScale.z);
-        }*/
         yield return new WaitForSeconds(1);
         prepare = true;
     }
@@ -274,14 +266,6 @@ public class EnemyController : MonoBehaviour
         if(!stun && dist < 0.57f && combate && !player.GetComponent<PlayerEngage>().playerAttack.playerAnim.levanta && !taPego)
         {
             var temp = player.GetComponent<PlayerEngage>().playerAttack.transform.position;
-            /*if (temp.x > transform.position.x && transform.localScale.x > 0)
-            {
-                transform.localScale = new Vector3((transform.localScale.x * -1), transform.localScale.y, transform.localScale.z);
-            }
-            if (temp.x < transform.position.x && transform.localScale.x < 0)
-            {
-                transform.localScale = new Vector3((transform.localScale.x * -1), transform.localScale.y, transform.localScale.z);
-            }*/
             num = probabilidade.ChooseAttack();
 
             switch (num)

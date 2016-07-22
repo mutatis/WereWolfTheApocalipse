@@ -84,11 +84,11 @@ public class PlayerMovment : MonoBehaviour
         {
             if (playerAttack.enemy != null)
             {
-                playerAttack.enemy.GetComponent<EnemyController>().anim.SetBool("Preso", true);
                 playerAttack.enemy.GetComponent<EnemyController>().anim.gameObject.SetActive(true);
                 playerAttack.enemy.GetComponent<EnemyController>().head.enabled = true;
                 if (!playerAttack.enemy.GetComponent<EnemyController>().anim.GetCurrentAnimatorStateInfo(0).IsName("EnemyInGrabRun"))
-                {
+				{
+					playerAttack.enemy.GetComponent<EnemyController>().anim.SetBool("Preso", true);
                     playerAttack.enemy.GetComponent<EnemyController>().anim.SetTrigger("Run");
                     playerAttack.enemy.GetComponent<EnemyController>().animHead.SetTrigger("Run");
                 }
