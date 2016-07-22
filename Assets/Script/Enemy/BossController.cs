@@ -11,7 +11,12 @@ public class BossController : MonoBehaviour
 
     public ProbabilidadeEnemy probabilidade;
 
-    public ProbabilidadeEnemy probabilidade2;
+	public ProbabilidadeEnemy probabilidade2; 
+
+	[FMODUnity.EventRef]
+	public string tiroSound;
+
+	FMOD.Studio.EventInstance volBoss;
 
     [HideInInspector]
     public SpriteRowCreator summon;
@@ -365,6 +370,9 @@ public class BossController : MonoBehaviour
                 dist = Vector3.Distance(player.transform.position, transform.position);
                 yield return new WaitForEndOfFrame();
             }
+			volBoss = FMODUnity.RuntimeManager.CreateInstance(tiroSound);
+			volBoss.setVolume(PlayerPrefs.GetFloat("VolumeFX"));
+			volBoss.start();
             GameObject obj = Instantiate(tiro);
             obj.GetComponent<TiroEnemy>().transform.position = transform.position;
             obj.GetComponent<TiroEnemy>().obj = player;
