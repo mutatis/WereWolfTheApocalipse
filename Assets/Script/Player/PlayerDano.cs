@@ -60,7 +60,7 @@ public class PlayerDano : MonoBehaviour
             {
                 if (!playerMov.jump)
                 {
-                    if (slamCont > 3 && !playerAttack.block)
+                    if (slamCont > 4 && !playerAttack.block)
                     {
                         audioInstanceCreator = FMODUnity.RuntimeManager.CreateInstance(socoFracoEnemy);
                         audioInstanceCreator.setVolume(PlayerPrefs.GetFloat("VolumeFX"));
@@ -96,7 +96,7 @@ public class PlayerDano : MonoBehaviour
                         {
                             playerAnim.anim.SetBool("Costas", false);
                         }
-                        else if ((obj.transform.position.x < transform.position.x && transform.localScale.x < 0) || obj.transform.position.x > transform.position.x && transform.localScale.x < 0)
+						if ((obj.transform.position.x < transform.position.x && transform.localScale.x < 0) || obj.transform.position.x > transform.position.x && transform.localScale.x < 0)
                         {
                             playerAnim.anim.SetBool("Costas", true);
                         }
@@ -134,7 +134,7 @@ public class PlayerDano : MonoBehaviour
                     playerAnim.anim.SetTrigger("Dead");
                 }
             }
-            StartCoroutine(Vibrar());
+            //StartCoroutine(Vibrar());
         }
     }
 
@@ -143,5 +143,5 @@ public class PlayerDano : MonoBehaviour
         GamePad.SetVibration(0, 1f, 1f);
         yield return new WaitForSeconds(0.2f);
         GamePad.SetVibration(0, 0, 0);
-    }
+	}
 }
