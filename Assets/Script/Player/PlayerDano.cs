@@ -22,7 +22,7 @@ public class PlayerDano : MonoBehaviour
 
     public GameObject pegador;
 
-    int slamCont;
+    public int slamCont;
 
     void Update()
     {
@@ -36,7 +36,7 @@ public class PlayerDano : MonoBehaviour
 
     IEnumerator GO()
     {
-        yield return new WaitForSeconds(1);
+        yield return new WaitForSeconds(4);
         slamCont = 0;
     }
     
@@ -76,7 +76,7 @@ public class PlayerDano : MonoBehaviour
                     }
                     else
                     {
-                        if(slamCont > 3)
+                        if(slamCont > 4)
                         {
                             slamCont = 0;
                         }

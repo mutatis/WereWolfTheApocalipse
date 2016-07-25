@@ -24,7 +24,7 @@ public class EnemyController : MonoBehaviour
     public bool roamming = true;
     public bool combate = true;
     public bool slam;
-    public bool isEngage, procura, ativacao;
+    public bool isEngage, procura, ativacao, combo;
 
     public TextMesh text;
     
@@ -263,7 +263,7 @@ public class EnemyController : MonoBehaviour
         StartCoroutine("Pode");
         roamming = false;
         int num;
-        if(!stun && dist < 0.57f && combate && !player.GetComponent<PlayerEngage>().playerAttack.playerAnim.levanta && !taPego)
+		if(!stun && dist < 0.57f && combate && !player.GetComponent<PlayerEngage>().playerAttack.playerAnim.levanta && !taPego && !combo)
         {
             var temp = player.GetComponent<PlayerEngage>().playerAttack.transform.position;
             num = probabilidade.ChooseAttack();
@@ -289,6 +289,10 @@ public class EnemyController : MonoBehaviour
                 case 4:
                     Grab();
                     break;
+
+				case 6:
+					StartCoroutine (Combo ());
+					break;
 
                 default:
                     Soco();
@@ -419,6 +423,19 @@ public class EnemyController : MonoBehaviour
         combate = false;
         anim.SetTrigger("SocoFraco0");
     }
+
+	IEnumerator Combo()
+	{
+		print ("COMBO");
+		combo = true;
+		anim.SetTrigger("SocoFraco0");
+		yield return new WaitForSeconds (0.3f);
+		anim.SetTrigger("SocoFraco0");
+		yield return new WaitForSeconds (0.3f);
+		anim.SetTrigger("SocoFraco1");
+		yield return new WaitForSeconds (2f);
+		combo = false;
+	}
 
     IEnumerator Engage()
     {
