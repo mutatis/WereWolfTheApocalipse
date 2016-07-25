@@ -60,7 +60,7 @@ public class PlayerDano : MonoBehaviour
             {
                 if (!playerMov.jump)
                 {
-                    if (slamCont > 4 && !playerAttack.block)
+                    if (slamCont > 2 && !playerAttack.block)
                     {
                         audioInstanceCreator = FMODUnity.RuntimeManager.CreateInstance(socoFracoEnemy);
                         audioInstanceCreator.setVolume(PlayerPrefs.GetFloat("VolumeFX"));
@@ -76,7 +76,7 @@ public class PlayerDano : MonoBehaviour
                     }
                     else
                     {
-                        if(slamCont > 4)
+                        if(slamCont > 2)
                         {
                             slamCont = 0;
                         }
@@ -92,11 +92,11 @@ public class PlayerDano : MonoBehaviour
                             audioInstanceCreator.setVolume(PlayerPrefs.GetFloat("VolumeFX"));
                             audioInstanceCreator.start();
                         }
-                        if ((obj.transform.position.x > transform.position.x && transform.localScale.x > 0) || obj.transform.position.x < transform.position.x && transform.localScale.x > 0)
+                        if ((obj.transform.position.x > transform.position.x && transform.localScale.x > 0) || obj.transform.position.x < transform.position.x && transform.localScale.x < 0)
                         {
                             playerAnim.anim.SetBool("Costas", false);
                         }
-						if ((obj.transform.position.x < transform.position.x && transform.localScale.x < 0) || obj.transform.position.x > transform.position.x && transform.localScale.x < 0)
+						else //if ((obj.transform.position.x < transform.position.x && transform.localScale.x < 0) || obj.transform.position.x > transform.position.x && transform.localScale.x < 0)
                         {
                             playerAnim.anim.SetBool("Costas", true);
                         }
