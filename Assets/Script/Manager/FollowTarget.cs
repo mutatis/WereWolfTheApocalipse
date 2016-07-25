@@ -10,6 +10,8 @@ public class FollowTarget : MonoBehaviour
 
     public GameObject[] obj;
 
+	public Transform[] maxMin;
+
     public float smoothTime = 0.3f; //Makes this behaviour smooth
     public float[] pos;
     
@@ -48,11 +50,11 @@ public class FollowTarget : MonoBehaviour
             obj[cont].SetActive(true);
         }*/
 
-		if (target.GetComponent<PlayerMovment> ().x > 0 && transform.position.x < 5.8f) 
+		if (target.GetComponent<PlayerMovment> ().x > 0 && transform.position.x < 5.8f && target.transform.position.x >= maxMin[0].position.x) 
 		{
 			transform.Translate (target.GetComponent<PlayerMovment> ().x, 0, 0);
 		}
-		else if(target.GetComponent<PlayerMovment> ().x < 0 && transform.position.x > -5.8f)
+		else if(target.GetComponent<PlayerMovment> ().x < 0 && transform.position.x > -5.8f && target.transform.position.x <= maxMin[1].position.x)
 		{
 			transform.Translate (target.GetComponent<PlayerMovment> ().x, 0, 0);
 		}

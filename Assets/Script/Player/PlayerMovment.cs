@@ -16,7 +16,7 @@ public class PlayerMovment : MonoBehaviour
     FMOD.Studio.EventInstance audioInstanceCreator;
 
     [FMODUnity.EventRef]
-    public string jumpSound;
+    public string jumpSound, jumpEnd;
 
     public bool run;
     [HideInInspector]
@@ -160,7 +160,10 @@ public class PlayerMovment : MonoBehaviour
     }
 
     void Normal()
-    {
+	{
+		audioInstanceCreator = FMODUnity.RuntimeManager.CreateInstance(jumpEnd);
+		audioInstanceCreator.setVolume(PlayerPrefs.GetFloat("VolumeFX"));
+		audioInstanceCreator.start();
         playerAttack.jumpAttack = false;
         jump = false;
         playerAnim.anim.SetBool("Jump", jump);
