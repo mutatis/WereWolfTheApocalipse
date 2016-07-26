@@ -29,108 +29,106 @@ public class PlayerMovment : MonoBehaviour
 
     void Update()
     {
-        if (Time.timeScale != 0)
-        {
-            transform.Translate(new Vector3((x * playerStatus.speed), 0, (z * playerStatus.speed)));
-        }
+		if (Time.timeScale != 0)
+		{
+			transform.Translate (new Vector3 ((x * playerStatus.speed), 0, (z * playerStatus.speed)));        
 
-        if(playerStats.crinos && !sprite.flipX)
-        {
-            sprite.flipX = true;
-        }
-        else if(!playerStats.crinos && sprite.flipX)
-        {
-            sprite.flipX = false;
-        }
+			if (playerStats.crinos && !sprite.flipX)
+			{
+				sprite.flipX = true;
+			} 
+			else if (!playerStats.crinos && sprite.flipX) 
+			{
+				sprite.flipX = false;
+			}
 
-        if (!isMov)
-        {
-            playerAnim.anim.SetInteger("ContInput", xRun);
-            if (!playerAttack.jumpAttack)
-            {
-                x = Input.GetAxis("HorizontalP1") * xRun;
-                if((x > 0 || x < 0) && !run && contInput == 0 && playerStats.crinos)
-                {
-                    StartCoroutine("Run");
-                }
-            }
-            if (!jump && !playerAttack.block && !playerDano.stun)
-            {
-                z = Input.GetAxis("VerticalP1") * 2 * xRun;
-                if (Input.GetKeyDown(KeyCode.Joystick1Button0) && !Input.GetKey(KeyCode.Joystick1Button5) && !isJump && Time.timeScale != 0)
-                {
-                    Jump();
-                }
-                playerAnim.anim.SetFloat("RigVel", 0);
-            }
-            else if(jump && !playerAttack.block && !playerDano.stun)
-            {
-                z = 0;
-                playerAnim.anim.SetFloat("RigVel", rig.velocity.y);
-            }
-            else if(playerAttack.block || playerDano.stun)
-            {
-                x = 0;
-                z = 0;
-            }
-        }
-        else
-        {
-            x = 0;
-            z = 0;
-        }
-
-        if(playerAnim.anim.GetCurrentAnimatorStateInfo(0).IsName("GrabWalkAndarilho"))
-        {
-            if (playerAttack.enemy != null)
-            {
-                playerAttack.enemy.GetComponent<EnemyController>().anim.gameObject.SetActive(true);
-                playerAttack.enemy.GetComponent<EnemyController>().head.enabled = true;
-                if (!playerAttack.enemy.GetComponent<EnemyController>().anim.GetCurrentAnimatorStateInfo(0).IsName("EnemyInGrabRun"))
+			if (!isMov) 
+			{
+				playerAnim.anim.SetInteger ("ContInput", xRun);
+				if (!playerAttack.jumpAttack) 
 				{
-					playerAttack.enemy.GetComponent<EnemyController>().anim.SetBool("Preso", true);
-                    playerAttack.enemy.GetComponent<EnemyController>().anim.SetTrigger("Run");
-                    playerAttack.enemy.GetComponent<EnemyController>().animHead.SetTrigger("Run");
-                }
-            }
-        }
+					x = Input.GetAxis ("HorizontalP1") * xRun;
+					if ((x > 0 || x < 0) && !run && contInput == 0 && playerStats.crinos) 
+					{
+						StartCoroutine ("Run");
+					}
+				}
+				if (!jump && !playerAttack.block && !playerDano.stun) 
+				{
+					z = Input.GetAxis ("VerticalP1") * 2 * xRun;
+					if (Input.GetKeyDown (KeyCode.Joystick1Button0) && !Input.GetKey (KeyCode.Joystick1Button5) && !isJump && Time.timeScale != 0) 
+					{
+						Jump ();
+					}
+					playerAnim.anim.SetFloat ("RigVel", 0);
+				} 
+				else if (jump && !playerAttack.block && !playerDano.stun) 
+				{
+					z = 0;
+					playerAnim.anim.SetFloat ("RigVel", rig.velocity.y);
+				} 
+				else if (playerAttack.block || playerDano.stun) 
+				{
+					x = 0;
+					z = 0;
+				}
+			} 
+			else 
+			{
+				x = 0;
+				z = 0;
+			}
 
-        if((x != 0 || z != 0) && ((!playerAnim.anim.GetCurrentAnimatorStateInfo(0).IsName("RunAndarilho") && !isGrab) || 
-            (!playerAnim.anim.GetCurrentAnimatorStateInfo(0).IsName("GrabWalkAndarilho") && isGrab)))
-        {
-            playerAnim.anim.SetTrigger("Run");
-        }
-        else if(x == 0 && z == 0 && ((!playerAnim.anim.GetCurrentAnimatorStateInfo(0).IsName("IdleAndarilho") && !isGrab) || 
-            (!playerAnim.anim.GetCurrentAnimatorStateInfo(0).IsName("GrabIdleAndarilho") && isGrab)))
-        {
-            playerAnim.anim.SetTrigger("Idle");
-        }
+			if (playerAnim.anim.GetCurrentAnimatorStateInfo (0).IsName ("GrabWalkAndarilho")) 
+			{
+				if (playerAttack.enemy != null) {
+					playerAttack.enemy.GetComponent<EnemyController> ().anim.gameObject.SetActive (true);
+					playerAttack.enemy.GetComponent<EnemyController> ().head.enabled = true;
+					if (!playerAttack.enemy.GetComponent<EnemyController> ().anim.GetCurrentAnimatorStateInfo (0).IsName ("EnemyInGrabRun")) {
+						playerAttack.enemy.GetComponent<EnemyController> ().anim.SetBool ("Preso", true);
+						playerAttack.enemy.GetComponent<EnemyController> ().anim.SetTrigger ("Run");
+						playerAttack.enemy.GetComponent<EnemyController> ().animHead.SetTrigger ("Run");
+					}
+				}
+			}
 
-        if(x > 0 && transform.localScale.x < 0)
-        {
-            transform.localScale = new Vector3(transform.localScale.x * -1, transform.localScale.y, transform.localScale.z);
-        }
-        else if (x < 0 && transform.localScale.x > 0)
-        {
-            transform.localScale = new Vector3(transform.localScale.x * -1, transform.localScale.y, transform.localScale.z);
-        }
+			if ((x != 0 || z != 0) && ((!playerAnim.anim.GetCurrentAnimatorStateInfo (0).IsName ("RunAndarilho") && !isGrab) ||
+			        (!playerAnim.anim.GetCurrentAnimatorStateInfo (0).IsName ("GrabWalkAndarilho") && isGrab))) 
+			{
+				playerAnim.anim.SetTrigger ("Run");
+			} 
+			else if (x == 0 && z == 0 && ((!playerAnim.anim.GetCurrentAnimatorStateInfo (0).IsName ("IdleAndarilho") && !isGrab) ||
+			             (!playerAnim.anim.GetCurrentAnimatorStateInfo (0).IsName ("GrabIdleAndarilho") && isGrab))) 
+			{
+				playerAnim.anim.SetTrigger ("Idle");
+			}
 
-        if(run && x == 0)
-        {
-            contInput = 1;
-        }
+			if (x > 0 && transform.localScale.x < 0) 
+			{
+				transform.localScale = new Vector3 (transform.localScale.x * -1, transform.localScale.y, transform.localScale.z);
+			} 
+			else if (x < 0 && transform.localScale.x > 0) 
+			{
+				transform.localScale = new Vector3 (transform.localScale.x * -1, transform.localScale.y, transform.localScale.z);
+			}
 
-        if(run && (x > 0 || x < 0) && contInput == 1)
-        {
-            Corre();
-        }
+			if (run && x == 0) 
+			{
+				contInput = 1;
+			}
 
-        if(xRun > 1 && x == 0)
-        {
-            xRun = 1;
-            run = false;
-            contInput = 0;
-        }
+			if (run && (x > 0 || x < 0) && contInput == 1) 
+			{
+				Corre ();
+			}
+
+			if (xRun > 1 && x == 0) 
+			{
+				xRun = 1;
+				run = false;
+				contInput = 0;
+			}
+		}
     }
 
     void Corre()

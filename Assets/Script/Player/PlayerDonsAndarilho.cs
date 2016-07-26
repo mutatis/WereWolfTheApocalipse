@@ -90,6 +90,7 @@ public class PlayerDonsAndarilho : MonoBehaviour
         audioInstanceCreator.setVolume(PlayerPrefs.GetFloat("VolumeFX"));
         audioInstanceCreator.start();
         obj = GameObject.FindGameObjectsWithTag("Player");
+
         for(int i = 0; i < obj.Length; i ++)
         {
             if(obj[i].GetComponent<PlayerStats>().nome != nome)
