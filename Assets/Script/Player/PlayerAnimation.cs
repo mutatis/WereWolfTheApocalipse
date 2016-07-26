@@ -49,8 +49,8 @@ public class PlayerAnimation : MonoBehaviour
 
     public void GrabWalk()
 	{
+		playerAttack.enemy.GetComponent<EnemyController>().head.enabled = true;
 		playerAttack.enemy.GetComponent<EnemyController>().anim.gameObject.SetActive(true);
-        playerAttack.enemy.GetComponent<EnemyController>().head.enabled = true;
     }
 
     public void Queda()

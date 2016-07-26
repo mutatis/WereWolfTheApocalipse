@@ -263,7 +263,7 @@ public class EnemyController : MonoBehaviour
         StartCoroutine("Pode");
         roamming = false;
         int num;
-		if(!stun && dist < 0.7f && combate && !taPego && !combo)//&& !player.GetComponent<PlayerEngage>().playerAttack.playerAnim.levanta
+		if(!stun && dist < 0.75f && combate && !taPego && !combo)//&& !player.GetComponent<PlayerEngage>().playerAttack.playerAnim.levanta
         {
             var temp = player.GetComponent<PlayerEngage>().playerAttack.transform.position;
             num = probabilidade.ChooseAttack();
