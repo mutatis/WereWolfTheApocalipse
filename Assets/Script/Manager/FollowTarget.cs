@@ -55,16 +55,20 @@ public class FollowTarget : MonoBehaviour
 			transform.Translate (target.GetComponent<PlayerMovment> ().x, 0, 0);
 		}
 
-		if (target.GetComponent<PlayerMovment> ().x > 0 && transform.position.x < 5.8f && target.transform.position.x >= maxMin [0].position.x ||
-		    target.GetComponent<PlayerMovment> ().x < 0 && transform.position.x > -5.8f && target.transform.position.x <= maxMin [1].position.x) 
+		if (target != null) 
 		{
-			segue = true;
-		}	
+			if (target.GetComponent<PlayerMovment> ().x > 0 && transform.position.x < 5.8f && target.transform.position.x >= maxMin [0].position.x ||
+			    target.GetComponent<PlayerMovment> ().x < 0 && transform.position.x > -5.8f && target.transform.position.x <= maxMin [1].position.x) 
+			{
+				segue = true;
+			}	
 
-		if (target.GetComponent<PlayerMovment> ().x == 0 || target.GetComponent<PlayerMovment> ().x > 0 && transform.position.x > 5.8f ||
-			target.GetComponent<PlayerMovment> ().x < 0 && transform.position.x < -5.8f) 
-		{
-			segue = false;
+			if (target.GetComponent<PlayerMovment> ().x == 0 || 
+				target.GetComponent<PlayerMovment> ().x > 0 && transform.position.x > 5.8f ||
+			    target.GetComponent<PlayerMovment> ().x < 0 && transform.position.x < -5.8f) 
+			{
+				segue = false;
+			}
 		}
 
        /* if (segue && quant <= 0 && enemy <= 0 && target.GetComponent<PlayerMovment>().x > 0)
