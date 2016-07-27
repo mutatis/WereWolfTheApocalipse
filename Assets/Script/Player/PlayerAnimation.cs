@@ -7,8 +7,6 @@ public class PlayerAnimation : MonoBehaviour
 {
     public PlayerStatus playerStatus;
 
-    //public PlayerController playerController;
-
     public PlayerMovment playerMov;
     public PlayerAttackController playerAttack;
     public PlayerDano playerDano;
@@ -88,16 +86,8 @@ public class PlayerAnimation : MonoBehaviour
         levanta = true;
     }
 
-    public void DanoAgain()
-    {
-        /*playerController.apanha = false;
-        playerController.jump = false;*/
-    }
-
     public void Stun()
     {
-        /*playerController.stun = false;
-        playerController.isAttack = true;*/
         playerDano.stun = false;
         anim.SetBool("Stun", false);
         OkIdle();
@@ -124,8 +114,6 @@ public class PlayerAnimation : MonoBehaviour
         playerAttack.mov = false;
         playerMov.isMov = false;
         playerMov.transform.position = new Vector3(transform.position.x, playerMov.transform.position.y, playerMov.transform.position.z);
-        /* playerController.transform.position = new Vector3(transform.position.x, playerController.transform.position.y, playerController.transform.position.z);
-         playerController.Liberated(obj);*/
         OkIdle();
     }
 
@@ -137,7 +125,6 @@ public class PlayerAnimation : MonoBehaviour
     public void Ataca()
     {
         NotIdle();
-        // playerController.Ataca();
     }
 
     void Dano(GameObject other)
