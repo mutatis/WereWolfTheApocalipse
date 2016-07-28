@@ -30,7 +30,7 @@ public class EnemyController : MonoBehaviour
     
 	public float tempoResposta, life, vel1, vel2, dist, distOportunidade;
 
-    public int xp;
+    public int xp, tipo;
 
     public string[] attack;
 

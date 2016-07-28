@@ -98,7 +98,8 @@ public class PlayerMovment : MonoBehaviour
 				playerAnim.anim.SetTrigger ("Run");
 			} 
 			else if (x == 0 && z == 0 && ((!playerAnim.anim.GetCurrentAnimatorStateInfo (0).IsName ("IdleAndarilho") && !isGrab) ||
-			             (!playerAnim.anim.GetCurrentAnimatorStateInfo (0).IsName ("GrabIdleAndarilho") && isGrab))) 
+			             (!playerAnim.anim.GetCurrentAnimatorStateInfo (0).IsName ("GrabIdleAndarilho") && isGrab) ||
+							(!playerAnim.anim.GetCurrentAnimatorStateInfo (0).IsName ("GrabIdleFomor") && isGrab))) 
 			{
 				playerAnim.anim.SetTrigger ("Idle");
 			}

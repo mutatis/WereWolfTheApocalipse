@@ -33,17 +33,20 @@ public class Pacman : MonoBehaviour
 
     void Update()
     {
-        if(contador == 0)
-        transform.Translate(vel, 0, 0);
-        
-        if(temp == 2)
-        {
-            volInicio.stop(FMOD.Studio.STOP_MODE.IMMEDIATE);
-            vol = FMODUnity.RuntimeManager.CreateInstance(fim);
-            vol.setVolume(PlayerPrefs.GetFloat("VolumeFX"));
-            vol.start();
-            Destroy(gameObject);
-        }
+		if (Time.timeScale != 0) 
+		{
+			if (contador == 0)
+				transform.Translate (vel, 0, 0);
+	        
+			if (temp == 2) 
+			{
+				volInicio.stop (FMOD.Studio.STOP_MODE.IMMEDIATE);
+				vol = FMODUnity.RuntimeManager.CreateInstance (fim);
+				vol.setVolume (PlayerPrefs.GetFloat ("VolumeFX"));
+				vol.start ();
+				Destroy (gameObject);
+			}
+		}
     }
 
     IEnumerator GO()

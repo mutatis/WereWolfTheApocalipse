@@ -43,6 +43,7 @@ public class Agarra : MonoBehaviour
 
 	IEnumerator GO()
     {
+		playerAnim.anim.SetInteger ("Tipo", enemy.GetComponent<EnemyController>().tipo);
         enemy.GetComponent<EnemyController>().anim.SetBool("Preso", true);
         playerMov.isGrab = true;
         enemy.GetComponent<EnemyController>().head.enabled = false;

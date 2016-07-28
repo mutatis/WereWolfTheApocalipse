@@ -32,54 +32,57 @@ public class PlayerDonsAndarilho : MonoBehaviour
 
     void Update()
     {
-        if (!playerDano.stun && !playerMov.isGrab && !playerAttack.presa && !playerMov.jump && !controller.crinos)
-        {
-            switch (player)
-            {
-                case PlayerDom.Player1:
-                    if (Input.GetKey(KeyCode.Joystick1Button5))
-                    {
-                        if (Input.GetKeyDown(KeyCode.Joystick1Button0))
-                        {
-                            PressButtonA("P1");
-                        }
-                        else if (Input.GetKeyDown(KeyCode.Joystick1Button1))
-                        {
-                            PressButtonB("P1");
-                        }
-                        else if (Input.GetKeyDown(KeyCode.Joystick1Button2))
-                        {
-                            PressButtonX("P1");
-                        }
-                        else if (Input.GetKeyDown(KeyCode.Joystick1Button3))
-                        {
-                            PressButtonY("P1");
-                        }
-                    }
-                    break;
-                case PlayerDom.Player2:
-                    if (Input.GetKey(KeyCode.Joystick2Button5))
-                    {
-                        if (Input.GetKeyDown(KeyCode.Joystick2Button0))
-                        {
-                            PressButtonA("P2");
-                        }
-                        else if (Input.GetKeyDown(KeyCode.Joystick2Button1))
-                        {
-                            PressButtonB("P2");
-                        }
-                        else if (Input.GetKeyDown(KeyCode.Joystick2Button2))
-                        {
-                            PressButtonX("P2");
-                        }
-                        else if (Input.GetKeyDown(KeyCode.Joystick2Button3))
-                        {
-                            PressButtonY("P2");
-                        }
-                    }
-                    break;
-            }
-        }
+		if (Time.timeScale != 0) 
+		{
+			if (!playerDano.stun && !playerMov.isGrab && !playerAttack.presa && !playerMov.jump && !controller.crinos) 
+			{
+				switch (player)
+				{
+					case PlayerDom.Player1:
+						if (Input.GetKey (KeyCode.Joystick1Button5)) 
+						{
+							if (Input.GetKeyDown (KeyCode.Joystick1Button0)) 
+							{
+								PressButtonA ("P1");
+							} 
+							else if (Input.GetKeyDown (KeyCode.Joystick1Button1)) 
+							{
+								PressButtonB ("P1");
+							} 
+							else if (Input.GetKeyDown (KeyCode.Joystick1Button2)) 
+							{
+								PressButtonX ("P1");
+							} 
+							else if (Input.GetKeyDown (KeyCode.Joystick1Button3)) 
+							{
+								PressButtonY ("P1");
+							}
+						}
+					break;
+					case PlayerDom.Player2:
+						if (Input.GetKey (KeyCode.Joystick2Button5)) 
+						{
+							if (Input.GetKeyDown (KeyCode.Joystick2Button0)) 
+							{
+								PressButtonA ("P2");
+							} 
+							else if (Input.GetKeyDown (KeyCode.Joystick2Button1)) 
+							{
+								PressButtonB ("P2");
+							} 
+							else if (Input.GetKeyDown (KeyCode.Joystick2Button2)) 
+							{
+								PressButtonX ("P2");
+							} 
+							else if (Input.GetKeyDown (KeyCode.Joystick2Button3)) 
+							{
+								PressButtonY ("P2");
+							}
+						}
+					break;
+				}
+			}
+		}
     }
 
     void CalloftheWyld()
