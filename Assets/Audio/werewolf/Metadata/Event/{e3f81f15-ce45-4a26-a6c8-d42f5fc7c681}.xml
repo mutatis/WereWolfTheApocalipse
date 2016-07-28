@@ -211,6 +211,7 @@
     </object>
     <object class="MixerBusEffectChain" id="{037222f6-0305-4974-9f95-bfb7e6b9cef9}">
         <relationship name="effects">
+            <destination>{a8b00dd6-b6af-4afc-839f-33baed930728}</destination>
             <destination>{a435e078-e3cd-4f1a-a4de-3ceeed41ec58}</destination>
             <destination>{365cc7c2-9663-4075-b4d5-aa0d36b7e02e}</destination>
             <destination>{1740a8a2-d408-42ea-98cc-c9261ced47f2}</destination>
@@ -275,6 +276,11 @@
         <property name="value">
             <value>-80</value>
         </property>
+    </object>
+    <object class="PluginEffect" id="{a8b00dd6-b6af-4afc-839f-33baed930728}">
+        <relationship name="plugin">
+            <destination>{3656354b-b3a9-40c0-8aeb-b298a424411c}</destination>
+        </relationship>
     </object>
     <object class="MixerBusFader" id="{a435e078-e3cd-4f1a-a4de-3ceeed41ec58}"/>
     <object class="SpatialiserEffect" id="{365cc7c2-9663-4075-b4d5-aa0d36b7e02e}"/>
@@ -347,6 +353,32 @@
         </property>
         <property name="ratio">
             <value>4.29999971</value>
+        </property>
+    </object>
+    <object class="Plugin" id="{3656354b-b3a9-40c0-8aeb-b298a424411c}">
+        <property name="identifier">
+            <value>FMOD Distortion</value>
+        </property>
+        <property name="uiName">
+            <value>Distortion</value>
+        </property>
+        <relationship name="pluginParameters">
+            <destination>{aeb9138d-8ce7-43d8-89f2-00d1496c8d48}</destination>
+        </relationship>
+    </object>
+    <object class="FloatPluginParameter" id="{aeb9138d-8ce7-43d8-89f2-00d1496c8d48}">
+        <property name="name">
+            <value>Level</value>
+        </property>
+        <property name="units"/>
+        <property name="curve">
+            <value>LinearCurveStrategy{(0.000000,0.000000)(1.000000,1.000000)}</value>
+        </property>
+        <property name="defaultValue">
+            <value>0.5</value>
+        </property>
+        <property name="value">
+            <value>0.0950000063</value>
         </property>
     </object>
 </objects>
