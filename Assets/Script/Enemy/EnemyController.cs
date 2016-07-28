@@ -325,8 +325,8 @@ public class EnemyController : MonoBehaviour
                 anim.SetTrigger("Grab");
                 roamming = false;
                 combate = false;
-                taPego = true;
-            }
+				taPego = true;
+			}
         }
     }
 
