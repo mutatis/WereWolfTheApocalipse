@@ -250,8 +250,8 @@ namespace FMODUnity
                     // Add a "64" suffix and try again
                     if (result == FMOD.RESULT.ERR_FILE_BAD || result == FMOD.RESULT.ERR_FILE_NOTFOUND)
                     {
-                        pluginPath = RuntimeUtils.GetPluginPath(pluginName + "64");
-                        result = lowlevelSystem.loadPlugin(pluginPath, out handle);
+                        string pluginPath64 = RuntimeUtils.GetPluginPath(pluginName + "64");
+                        result = lowlevelSystem.loadPlugin(pluginPath64, out handle);
                     }
                     #endif
                     CheckInitResult(result, String.Format("Loading plugin '{0}' from '{1}'", pluginName, pluginPath));
@@ -449,6 +449,8 @@ namespace FMODUnity
         {
             if (studioSystem != null && studioSystem.isValid())
 			{
+                PauseAllEvents(pauseStatus);
+
 				if (pauseStatus)
 				{
 					lowlevelSystem.mixerSuspend();
@@ -736,7 +738,7 @@ namespace FMODUnity
             result = StudioSystem.getBus(path, out bus);
             if (result != FMOD.RESULT.OK)
             {
-
+                throw new BusNotFoundException(path);
             }
             return bus;
         }
@@ -748,9 +750,27 @@ namespace FMODUnity
             result = StudioSystem.getVCA(path, out vca);
             if (result != FMOD.RESULT.OK)
             {
-
+                throw new VCANotFoundException(path);
             }
             return vca;
+        }
+
+        public static void PauseAllEvents(bool paused)
+        {
+            GetBus("bus:/").setPaused(paused);
+        }
+
+        public static void MuteAllEvents(bool muted)
+        {
+            GetBus("bus:/").setMute(muted);
+            }
+
+        public static bool IsInitialized
+        {
+            get
+            {
+                return instance != null && instance.studioSystem != null;
+            }
         }
 
 	    #if (UNITY_IOS || UNITY_TVOS) && !UNITY_EDITOR

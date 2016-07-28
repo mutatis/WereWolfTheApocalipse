@@ -22,7 +22,7 @@ public class EletrocuteDon : MonoBehaviour
 
     IEnumerator GO()
     {
-		yield return new WaitForSeconds(2);
+		yield return new WaitForSeconds(1);
 		audioInstance.stop(FMOD.Studio.STOP_MODE.IMMEDIATE);
         Destroy(gameObject);
     }
