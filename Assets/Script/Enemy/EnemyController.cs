@@ -110,7 +110,7 @@ public class EnemyController : MonoBehaviour
                 {
                     if (Time.timeScale != 0)
                     {
-                        transform.Translate(vel1, 0, vel2);
+						transform.Translate(vel1, 0, vel2, Space.World);
                     }
                     if (vel1 == 0 && vel2 == 0)
                     {
@@ -253,7 +253,7 @@ public class EnemyController : MonoBehaviour
         {
             anim.SetTrigger("Run");
         }
-        yield return new WaitForSeconds(1);
+        yield return new WaitForSeconds(4);
         prepare = true;
     }
 
@@ -467,7 +467,7 @@ public class EnemyController : MonoBehaviour
                         deus = (direction / 7);
                         if (Time.timeScale != 0)
                         {
-                            transform.Translate(deus);
+							transform.Translate(deus, Space.World);
                         }
                         if (!anim.GetCurrentAnimatorStateInfo(0).IsName("EnemyRun") && !costas)
                         {
