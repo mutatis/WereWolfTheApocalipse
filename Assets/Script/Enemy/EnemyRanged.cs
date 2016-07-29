@@ -51,16 +51,16 @@ public class EnemyRanged : MonoBehaviour
         {
             if (marcado == 0)
             {
-                transform.Translate(vel1, 0, vel2);
+				transform.Translate(vel1, 0, vel2, Space.World);
             }
 
             if (marcado == 1)
             {
-                transform.Translate(new Vector3(0.001f, 0, -0.1f));
+				transform.Translate(new Vector3(0.001f, 0, -0.1f), Space.World);
             }
             else if (marcado == 2)
             {
-                transform.Translate(new Vector3(0.001f, 0, 0.1f));
+				transform.Translate(new Vector3(0.001f, 0, 0.1f), Space.World);
             }
         }
 

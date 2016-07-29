@@ -75,9 +75,9 @@ public class PlayerAttackController : MonoBehaviour
         if(mov && !playerDano.stun && !playerMov.isGrab)
         {
             if(transform.localScale.x > 0)
-                transform.Translate(0.02f, 0, 0);
+				transform.Translate(0.02f, 0, 0, Space.World);
             else
-                transform.Translate(-0.02f, 0, 0);
+				transform.Translate(-0.02f, 0, 0, Space.World);
         }
     }
 

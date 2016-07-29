@@ -121,16 +121,16 @@ public class BossController : MonoBehaviour
                     anim.SetTrigger("Run");
                 }
                 temp = transform.position;
-                transform.Translate(vel1, 0, vel2);
+				transform.Translate(vel1, 0, vel2, Space.World);
             }
 
             if (marcado == 1)
             {
-                transform.Translate(new Vector3(0.001f, 0, -0.1f));
+				transform.Translate(new Vector3(0.001f, 0, -0.1f), Space.World);
             }
             else if (marcado == 2)
             {
-                transform.Translate(new Vector3(0.001f, 0, 0.1f));
+				transform.Translate(new Vector3(0.001f, 0, 0.1f), Space.World);
             }
         }
 
@@ -319,7 +319,7 @@ public class BossController : MonoBehaviour
             sprt.SetActive(false);
             direction = player.transform.position - transform.position;
             direction.Normalize();
-            transform.Translate((direction * 10) * Time.deltaTime);
+			transform.Translate((direction * 10) * Time.deltaTime, Space.World);
             if (direction.x > 0 && transform.localScale.x > 0)
             {
                 transform.localScale = new Vector3((transform.localScale.x * -1), transform.localScale.y, transform.localScale.z);
@@ -357,7 +357,7 @@ public class BossController : MonoBehaviour
             {
                 direction = player.transform.position - transform.position;
                 direction.Normalize();
-                transform.Translate((direction * 20) * Time.deltaTime);
+				transform.Translate((direction * 20) * Time.deltaTime, Space.World);
                 if (direction.x > 0 && transform.localScale.x > 0)
                 {
                     transform.localScale = new Vector3((transform.localScale.x * -1), transform.localScale.y, transform.localScale.z);
@@ -410,7 +410,7 @@ public class BossController : MonoBehaviour
             {
                 direction = player.transform.position - transform.position;
                 direction.Normalize();
-                transform.Translate((direction * 20) * Time.deltaTime);
+				transform.Translate((direction * 20) * Time.deltaTime, Space.World);
                 if (direction.x > 0 && transform.localScale.x > 0)
                 {
                     transform.localScale = new Vector3((transform.localScale.x * -1), transform.localScale.y, transform.localScale.z);

@@ -36,7 +36,7 @@ public class Pacman : MonoBehaviour
 		if (Time.timeScale != 0) 
 		{
 			if (contador == 0)
-				transform.Translate (vel, 0, 0);
+				transform.Translate (vel, 0, 0, Space.World);
 	        
 			if (temp == 2) 
 			{

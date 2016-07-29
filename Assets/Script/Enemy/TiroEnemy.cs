@@ -32,7 +32,7 @@ public class TiroEnemy : MonoBehaviour
             }
             foi = true;
         }
-        transform.Translate(new Vector3(velocityX, 0, 0));
+		transform.Translate(new Vector3(velocityX, 0, 0), Space.World);
     }
 
     IEnumerator GO()
