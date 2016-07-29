@@ -22,7 +22,6 @@ public class PlayerMovment : MonoBehaviour
     [HideInInspector]
     public bool isMov, jump, isGrab, isJump;
 
-    [HideInInspector]
     public float x, z;
 
     public int contInput, xRun = 1;
@@ -31,7 +30,7 @@ public class PlayerMovment : MonoBehaviour
     {
 		if (Time.timeScale != 0)
 		{
-			transform.Translate (new Vector3 ((x * playerStatus.speed), 0, (z * playerStatus.speed)));        
+			transform.Translate (new Vector3 ((x * playerStatus.speed), 0, (z * playerStatus.speed)), Space.World);        
 
 			if (playerStats.crinos && !sprite.flipX)
 			{
