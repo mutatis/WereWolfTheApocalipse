@@ -12,40 +12,40 @@ MonoBehaviour:
   m_Name: FMODStudioCache
   m_EditorClassIdentifier: 
   EditorBanks:
-  - {fileID: 114000013803257990}
-  - {fileID: 114000013458143010}
+  - {fileID: 114000012578111778}
+  - {fileID: 114000010797368824}
   EditorEvents:
-  - {fileID: 114000010853084364}
-  - {fileID: 114000011871852502}
-  - {fileID: 114000012383507690}
-  - {fileID: 114000011641703560}
-  - {fileID: 114000013984410256}
-  - {fileID: 114000013073587800}
-  - {fileID: 114000010948422882}
-  - {fileID: 114000011299390028}
-  - {fileID: 114000014001509154}
-  - {fileID: 114000011488650680}
-  - {fileID: 114000014196063950}
-  - {fileID: 114000010049214600}
-  - {fileID: 114000013130252776}
-  - {fileID: 114000011719378738}
-  - {fileID: 114000010726714256}
-  - {fileID: 114000012447598090}
-  - {fileID: 114000014182994578}
-  - {fileID: 114000012243803900}
-  - {fileID: 114000010294142100}
-  - {fileID: 114000010358521720}
-  - {fileID: 114000011208788502}
-  - {fileID: 114000013528151794}
-  - {fileID: 114000012118709582}
-  - {fileID: 114000013868544222}
-  - {fileID: 114000014157832684}
-  - {fileID: 114000012951490592}
-  - {fileID: 114000013650904652}
-  - {fileID: 114000010456851146}
-  - {fileID: 114000010914813570}
-  MasterBankRef: {fileID: 114000013458143010}
-  StringsBankRef: {fileID: 114000013803257990}
+  - {fileID: 114000010151032470}
+  - {fileID: 114000012071000232}
+  - {fileID: 114000014127610498}
+  - {fileID: 114000011728144266}
+  - {fileID: 114000011840891858}
+  - {fileID: 114000010399908150}
+  - {fileID: 114000010914732522}
+  - {fileID: 114000011554567828}
+  - {fileID: 114000011004529390}
+  - {fileID: 114000010544917960}
+  - {fileID: 114000013932388794}
+  - {fileID: 114000010459716922}
+  - {fileID: 114000010203486254}
+  - {fileID: 114000011460250594}
+  - {fileID: 114000011506454670}
+  - {fileID: 114000013363505818}
+  - {fileID: 114000011314113200}
+  - {fileID: 114000012275373220}
+  - {fileID: 114000010311861464}
+  - {fileID: 114000011449341766}
+  - {fileID: 114000012837142210}
+  - {fileID: 114000013836802682}
+  - {fileID: 114000010529800594}
+  - {fileID: 114000014290905252}
+  - {fileID: 114000012910698432}
+  - {fileID: 114000011451372340}
+  - {fileID: 114000011718811534}
+  - {fileID: 114000010122084380}
+  - {fileID: 114000013955468894}
+  MasterBankRef: {fileID: 114000010797368824}
+  StringsBankRef: {fileID: 114000012578111778}
   stringsBankWriteTime: 636048044474461916
   cacheVersion: 2
 --- !u!114 &11403528
@@ -1632,6 +1632,84 @@ MonoBehaviour:
   Parameters: []
   MinDistance: 1
   MaxDistance: 20
+--- !u!114 &114000010122084380
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: FMODStudioCache
+  m_EditorClassIdentifier: 
+  Path: "event:/Title Screen/trov\xE3o"
+  guid: f644802d1d5b8246a83c70950b546497
+  Banks:
+  - {fileID: 114000010797368824}
+  IsStream: 0
+  Is3D: 1
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+--- !u!114 &114000010125755200
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: FMODStudioCache
+  m_EditorClassIdentifier: 
+  Name: transition_final
+  Min: 0
+  Max: 100
+  Default: 0
+--- !u!114 &114000010151032470
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: FMODStudioCache
+  m_EditorClassIdentifier: 
+  Path: event:/Skills/Electrocute
+  guid: 01c39a86f508e842b37c80d07ff8a23d
+  Banks:
+  - {fileID: 114000010797368824}
+  IsStream: 1
+  Is3D: 1
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+--- !u!114 &114000010203486254
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: FMODStudioCache
+  m_EditorClassIdentifier: 
+  Path: event:/SplashScreens/Tellus
+  guid: 6225320eab516943bb6c3b316f4bf5c4
+  Banks:
+  - {fileID: 114000010797368824}
+  IsStream: 0
+  Is3D: 1
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
 --- !u!114 &114000010294142100
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1647,6 +1725,27 @@ MonoBehaviour:
   guid: 937928cce12bcf468d4470e77c75fc95
   Banks:
   - {fileID: 114000013458143010}
+  IsStream: 0
+  Is3D: 1
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+--- !u!114 &114000010311861464
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: FMODStudioCache
+  m_EditorClassIdentifier: 
+  Path: event:/Golpes/Land
+  guid: 937928cce12bcf468d4470e77c75fc95
+  Banks:
+  - {fileID: 114000010797368824}
   IsStream: 0
   Is3D: 1
   IsOneShot: 1
@@ -1689,6 +1788,27 @@ MonoBehaviour:
   Parameters: []
   MinDistance: 1
   MaxDistance: 20
+--- !u!114 &114000010399908150
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: FMODStudioCache
+  m_EditorClassIdentifier: 
+  Path: event:/Golpes/soco_fraco_fmod
+  guid: 17f5d0f30518534380acc56433c2fd77
+  Banks:
+  - {fileID: 114000010797368824}
+  IsStream: 0
+  Is3D: 1
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
 --- !u!114 &114000010456851146
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1698,7 +1818,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
-  m_Name: 
+  m_Name: FMODStudioCache
   m_EditorClassIdentifier: 
   Path: "event:/Title Screen/trov\xE3o"
   guid: f644802d1d5b8246a83c70950b546497
@@ -1707,6 +1827,69 @@ MonoBehaviour:
   IsStream: 0
   Is3D: 1
   IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+--- !u!114 &114000010459716922
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: FMODStudioCache
+  m_EditorClassIdentifier: 
+  Path: event:/Interface/Lapis
+  guid: 5fc068022791894d9faa160da19c8272
+  Banks:
+  - {fileID: 114000010797368824}
+  IsStream: 0
+  Is3D: 1
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+--- !u!114 &114000010529800594
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: FMODStudioCache
+  m_EditorClassIdentifier: 
+  Path: "event:/Character Selection/Televis\xE3o"
+  guid: e3054dcc876d8249b1bffa51b3bebba8
+  Banks:
+  - {fileID: 114000010797368824}
+  IsStream: 0
+  Is3D: 1
+  IsOneShot: 0
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+--- !u!114 &114000010544917960
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: FMODStudioCache
+  m_EditorClassIdentifier: 
+  Path: event:/Character Selection/Rua
+  guid: 3d00aaa3bac92549bc6bc59fe4a7c96c
+  Banks:
+  - {fileID: 114000010797368824}
+  IsStream: 0
+  Is3D: 1
+  IsOneShot: 0
   Parameters: []
   MinDistance: 1
   MaxDistance: 20
@@ -1731,6 +1914,24 @@ MonoBehaviour:
   Parameters: []
   MinDistance: 1
   MaxDistance: 20
+--- !u!114 &114000010797368824
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
+  m_Name: FMODStudioCache
+  m_EditorClassIdentifier: 
+  Path: Assets\Audio\werewolf\Build\Desktop\Master Bank.bank
+  lastModified: 636053155134325694
+  LoadResult: 0
+  FileSizes:
+  - Name: Desktop
+    Value: 12366560
+  Exists: 1
 --- !u!114 &114000010853084364
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1747,6 +1948,27 @@ MonoBehaviour:
   Banks:
   - {fileID: 114000013458143010}
   IsStream: 1
+  Is3D: 1
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+--- !u!114 &114000010914732522
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: FMODStudioCache
+  m_EditorClassIdentifier: 
+  Path: event:/Interface/Papel
+  guid: 19c74a7345c8ac46be1da219bbee89be
+  Banks:
+  - {fileID: 114000010797368824}
+  IsStream: 0
   Is3D: 1
   IsOneShot: 1
   Parameters: []
@@ -1794,6 +2016,27 @@ MonoBehaviour:
   Parameters: []
   MinDistance: 1
   MaxDistance: 20
+--- !u!114 &114000011004529390
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Path: event:/Music/Stage1
+  guid: 2974035cc7815f498e08a852e50e7d86
+  Banks:
+  - {fileID: 114000010797368824}
+  IsStream: 1
+  Is3D: 1
+  IsOneShot: 0
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
 --- !u!114 &114000011208788502
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1815,6 +2058,21 @@ MonoBehaviour:
   Parameters: []
   MinDistance: 1
   MaxDistance: 20
+--- !u!114 &114000011225760322
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Name: barulho
+  Min: 0
+  Max: 100
+  Default: 0
 --- !u!114 &114000011299390028
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1851,6 +2109,91 @@ MonoBehaviour:
   Min: 0
   Max: 1
   Default: 0
+--- !u!114 &114000011314113200
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Path: event:/Music/Music
+  guid: 7a0b241bdb75d54ca3499b889e58b4e7
+  Banks:
+  - {fileID: 114000010797368824}
+  IsStream: 1
+  Is3D: 1
+  IsOneShot: 0
+  Parameters:
+  - {fileID: 114000012789439176}
+  MinDistance: 1
+  MaxDistance: 20
+--- !u!114 &114000011449341766
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Path: event:/Golpes/Enemy/Pistol
+  guid: a76d72adc4f3cd41884f2f706a77ae0c
+  Banks:
+  - {fileID: 114000010797368824}
+  IsStream: 0
+  Is3D: 1
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+--- !u!114 &114000011451372340
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Path: event:/Skills/Howl
+  guid: f0dfe820d3b8f5418247115494af0181
+  Banks:
+  - {fileID: 114000010797368824}
+  IsStream: 0
+  Is3D: 1
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+--- !u!114 &114000011460250594
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: FMODStudioCache
+  m_EditorClassIdentifier: 
+  Path: event:/Skills/Fabric of the Mind/Pacman Fim
+  guid: 70fe9cd4a1e8ec44af34176671d03b19
+  Banks:
+  - {fileID: 114000010797368824}
+  IsStream: 0
+  Is3D: 1
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
 --- !u!114 &114000011488650680
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1872,6 +2215,48 @@ MonoBehaviour:
   Parameters: []
   MinDistance: 1
   MaxDistance: 20
+--- !u!114 &114000011506454670
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Path: event:/Skills/Fabric of the Mind/Pacman Movimento
+  guid: 78a5b4f8b0f45448a350ac8c5f20f89c
+  Banks:
+  - {fileID: 114000010797368824}
+  IsStream: 0
+  Is3D: 1
+  IsOneShot: 0
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+--- !u!114 &114000011554567828
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Path: event:/Golpes/Grab
+  guid: 23b06b9cef13eb4e82c620918a32dc84
+  Banks:
+  - {fileID: 114000010797368824}
+  IsStream: 0
+  Is3D: 1
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
 --- !u!114 &114000011641703560
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1887,6 +2272,27 @@ MonoBehaviour:
   guid: 151ff8e345ce264aa6c8d42f5fc7c681
   Banks:
   - {fileID: 114000013458143010}
+  IsStream: 0
+  Is3D: 1
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+--- !u!114 &114000011718811534
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Path: event:/Interface/SkillAssign
+  guid: f47874a478cc3740821d7e0627b2b637
+  Banks:
+  - {fileID: 114000010797368824}
   IsStream: 0
   Is3D: 1
   IsOneShot: 1
@@ -1914,6 +2320,48 @@ MonoBehaviour:
   Parameters: []
   MinDistance: 1
   MaxDistance: 20
+--- !u!114 &114000011728144266
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: FMODStudioCache
+  m_EditorClassIdentifier: 
+  Path: event:/Golpes/Jump
+  guid: 151ff8e345ce264aa6c8d42f5fc7c681
+  Banks:
+  - {fileID: 114000010797368824}
+  IsStream: 0
+  Is3D: 1
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+--- !u!114 &114000011840891858
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: FMODStudioCache
+  m_EditorClassIdentifier: 
+  Path: event:/Skills/Wall of Granite
+  guid: 161604600cf0b947827124632a89b1db
+  Banks:
+  - {fileID: 114000010797368824}
+  IsStream: 0
+  Is3D: 1
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
 --- !u!114 &114000011871852502
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1935,6 +2383,27 @@ MonoBehaviour:
   Parameters: []
   MinDistance: 1
   MaxDistance: 20
+--- !u!114 &114000012071000232
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: FMODStudioCache
+  m_EditorClassIdentifier: 
+  Path: event:/Golpes/critical
+  guid: 06a34006067110409f02f9ecb62dc796
+  Banks:
+  - {fileID: 114000010797368824}
+  IsStream: 0
+  Is3D: 1
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
 --- !u!114 &114000012118709582
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1944,7 +2413,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
-  m_Name: 
+  m_Name: FMODStudioCache
   m_EditorClassIdentifier: 
   Path: "event:/Character Selection/Televis\xE3o"
   guid: e3054dcc876d8249b1bffa51b3bebba8
@@ -1976,6 +2445,28 @@ MonoBehaviour:
   IsOneShot: 0
   Parameters:
   - {fileID: 114000010343622856}
+  MinDistance: 1
+  MaxDistance: 20
+--- !u!114 &114000012275373220
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Path: event:/Character Selection/Guitar
+  guid: 801cb382e259364895183fa7b7a92afc
+  Banks:
+  - {fileID: 114000010797368824}
+  IsStream: 0
+  Is3D: 1
+  IsOneShot: 0
+  Parameters:
+  - {fileID: 114000010125755200}
   MinDistance: 1
   MaxDistance: 20
 --- !u!114 &114000012383507690
@@ -2020,7 +2511,40 @@ MonoBehaviour:
   Parameters: []
   MinDistance: 1
   MaxDistance: 20
---- !u!114 &114000012951490592
+--- !u!114 &114000012578111778
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Path: Assets\Audio\werewolf\Build\Desktop\Master Bank.strings.bank
+  lastModified: 636048044474461916
+  LoadResult: 0
+  FileSizes:
+  - Name: Desktop
+    Value: 1964
+  Exists: 1
+--- !u!114 &114000012789439176
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Name: volume
+  Min: 0
+  Max: 1
+  Default: 0
+--- !u!114 &114000012837142210
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
@@ -2030,6 +2554,48 @@ MonoBehaviour:
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
   m_Name: 
+  m_EditorClassIdentifier: 
+  Path: event:/Golpes/Throw
+  guid: ac88315ab85e33438de1aeaa6f157fc2
+  Banks:
+  - {fileID: 114000010797368824}
+  IsStream: 0
+  Is3D: 1
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+--- !u!114 &114000012910698432
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Path: event:/Interface/SkillSelect
+  guid: edcb9f59932bcf4db41dd6e3998c1301
+  Banks:
+  - {fileID: 114000010797368824}
+  IsStream: 0
+  Is3D: 1
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+--- !u!114 &114000012951490592
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: FMODStudioCache
   m_EditorClassIdentifier: 
   Path: event:/Skills/Howl
   guid: f0dfe820d3b8f5418247115494af0181
@@ -2077,6 +2643,27 @@ MonoBehaviour:
   guid: 6225320eab516943bb6c3b316f4bf5c4
   Banks:
   - {fileID: 114000013458143010}
+  IsStream: 0
+  Is3D: 1
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+--- !u!114 &114000013363505818
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Path: event:/Golpes/Golpe_forte
+  guid: 79d867f4b75dce4aac60b2a1dc1d305f
+  Banks:
+  - {fileID: 114000010797368824}
   IsStream: 0
   Is3D: 1
   IsOneShot: 1
@@ -2132,7 +2719,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
-  m_Name: 
+  m_Name: FMODStudioCache
   m_EditorClassIdentifier: 
   Path: event:/Interface/SkillAssign
   guid: f47874a478cc3740821d7e0627b2b637
@@ -2162,7 +2749,7 @@ MonoBehaviour:
   - Name: Desktop
     Value: 1964
   Exists: 1
---- !u!114 &114000013868544222
+--- !u!114 &114000013836802682
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
@@ -2173,10 +2760,74 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Path: event:/SplashScreens/Tecnocracia
+  guid: b10be743d6d4eb43a9dfb2cc1338c461
+  Banks:
+  - {fileID: 114000010797368824}
+  IsStream: 0
+  Is3D: 1
+  IsOneShot: 1
+  Parameters:
+  - {fileID: 114000011225760322}
+  MinDistance: 1
+  MaxDistance: 20
+--- !u!114 &114000013868544222
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: FMODStudioCache
+  m_EditorClassIdentifier: 
   Path: event:/Skills/Fabric of the Mind/Pacman Hit
   guid: e7d69d628a74c7418ee778a507035f82
   Banks:
   - {fileID: 114000013458143010}
+  IsStream: 0
+  Is3D: 1
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+--- !u!114 &114000013932388794
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Path: event:/Golpes/Block
+  guid: 5c16a3a0e11a1f4490019c06a9ba4077
+  Banks:
+  - {fileID: 114000010797368824}
+  IsStream: 0
+  Is3D: 1
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+--- !u!114 &114000013955468894
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: FMODStudioCache
+  m_EditorClassIdentifier: 
+  Path: event:/Golpes/miss1
+  guid: f90846ced57cb94b99401eeff9c8b007
+  Banks:
+  - {fileID: 114000010797368824}
   IsStream: 0
   Is3D: 1
   IsOneShot: 1
@@ -2234,12 +2885,33 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
-  m_Name: 
+  m_Name: FMODStudioCache
   m_EditorClassIdentifier: 
   Name: barulho
   Min: 0
   Max: 100
   Default: 0
+--- !u!114 &114000014127610498
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: FMODStudioCache
+  m_EditorClassIdentifier: 
+  Path: event:/Golpes/queda
+  guid: 0ad98b698b01e84e981fe94cd9aa04fa
+  Banks:
+  - {fileID: 114000010797368824}
+  IsStream: 0
+  Is3D: 1
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
 --- !u!114 &114000014157832684
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2249,7 +2921,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
-  m_Name: 
+  m_Name: FMODStudioCache
   m_EditorClassIdentifier: 
   Path: event:/Interface/SkillSelect
   guid: edcb9f59932bcf4db41dd6e3998c1301
@@ -2298,6 +2970,27 @@ MonoBehaviour:
   guid: 5c16a3a0e11a1f4490019c06a9ba4077
   Banks:
   - {fileID: 114000013458143010}
+  IsStream: 0
+  Is3D: 1
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+--- !u!114 &114000014290905252
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: FMODStudioCache
+  m_EditorClassIdentifier: 
+  Path: event:/Skills/Fabric of the Mind/Pacman Hit
+  guid: e7d69d628a74c7418ee778a507035f82
+  Banks:
+  - {fileID: 114000010797368824}
   IsStream: 0
   Is3D: 1
   IsOneShot: 1

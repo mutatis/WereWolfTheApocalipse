@@ -298,7 +298,7 @@ public class BossController : MonoBehaviour
     void Defesa()
     {
         roamming = false;
-        anim.SetTrigger("SocoForte");
+		anim.SetTrigger("SocoFraco1");
     }
 
     void Soco()
