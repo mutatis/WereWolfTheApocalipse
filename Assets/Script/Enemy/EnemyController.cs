@@ -574,7 +574,7 @@ public class EnemyController : MonoBehaviour
                 }
                 else
                 {
-                    text.color = Color.white;
+					text.color = Color.black;
                     text.text = dmg.ToString();
                 }
             }

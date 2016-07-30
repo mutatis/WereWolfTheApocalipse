@@ -7,7 +7,7 @@ public class EnemyDmgText : MonoBehaviour
 
     public EnemyRanged enemyR;
 
-    public SubBossController subBoss;
+	public BossController boss;
 
     public int tipo;
 
@@ -31,7 +31,7 @@ public class EnemyDmgText : MonoBehaviour
 
         if (tipo == 2)
         {
-            if ((subBoss.transform.localScale.x < 0 && transform.localScale.x > 0) || (subBoss.transform.localScale.x > 0 && transform.localScale.x < 0))
+			if ((boss.transform.localScale.x < 0 && transform.localScale.x > 0) || (boss.transform.localScale.x > 0 && transform.localScale.x < 0))
             {
                 transform.localScale = new Vector3((transform.localScale.x * -1), transform.localScale.y, transform.localScale.z);
             }

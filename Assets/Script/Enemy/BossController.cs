@@ -139,7 +139,7 @@ public class BossController : MonoBehaviour
             StopAllCoroutines();
             anim.SetTrigger("Dead");
             dano = false;
-            gameObject.GetComponent<SubBossController>().enabled = false;
+			gameObject.GetComponent<BossController>().enabled = false;
         }
 
         if (player == null && procura)
@@ -214,7 +214,6 @@ public class BossController : MonoBehaviour
                 case 2:
                     Summoner();
                     break;
-
             }
         }
         else
@@ -238,7 +237,7 @@ public class BossController : MonoBehaviour
                     break;
 
                 case 3:
-                    Wait();
+					StartCoroutine("Tiro");
                     break;
 
                 case 4:
@@ -316,7 +315,7 @@ public class BossController : MonoBehaviour
         while (dist > 0.5f)
         {
             dano = false;
-            sprt.SetActive(false);
+            //sprt.SetActive(false);
             direction = player.transform.position - transform.position;
             direction.Normalize();
 			transform.Translate((direction * 10) * Time.deltaTime, Space.World);
@@ -334,8 +333,7 @@ public class BossController : MonoBehaviour
         }
         sprt.SetActive(true);
         dano = true;
-        StartCoroutine("Tiro");
-        //StartCoroutine("Attack");
+        StartCoroutine("Attack");
         StopCoroutine("Engage");
     }
 
