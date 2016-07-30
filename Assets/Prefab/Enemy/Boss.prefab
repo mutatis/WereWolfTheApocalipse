@@ -265,7 +265,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemy: {fileID: 0}
   enemyR: {fileID: 0}
-  subBoss: {fileID: 0}
+  boss: {fileID: 11435248}
   tipo: 2
 --- !u!114 &11423020
 MonoBehaviour:
@@ -366,6 +366,8 @@ MonoBehaviour:
   - attack: Defensa
     probalidade: 50
   - attack: Engage
+    probalidade: 100
+  - attack: Tiro
     probalidade: 100
 --- !u!114 &11463872
 MonoBehaviour:

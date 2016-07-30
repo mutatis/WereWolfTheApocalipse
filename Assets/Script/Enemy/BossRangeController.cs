@@ -18,7 +18,11 @@ public class BossRangeController : MonoBehaviour
     {
         player = Manager.manager.player;
 
-        dist1 = Vector3.Distance(player[0].transform.position, transform.position);
+		if (player.Length > 0) 
+		{
+			dist1 = Vector3.Distance (player [0].transform.position, transform.position);
+		}
+
         if (PlayerPrefs.GetInt("Players") > 1)
             dist2 = Vector3.Distance(player[1].transform.position, transform.position);
 
