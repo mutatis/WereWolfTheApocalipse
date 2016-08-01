@@ -95,6 +95,15 @@ public class BossController : MonoBehaviour
             contSaltoMax = 6;
         }
 
+        if ((vel1 > 0 && transform.localScale.x > 0) || (vel1 < 0 && transform.localScale.x < 0))
+        {
+            anim.SetBool("Costas", true);
+        }
+        else
+        {
+            anim.SetBool("Costas", false);
+        }
+
         if (!stun)
         {
             if (Manager.manager.player[0].GetComponent<PlayerMovment>().transform.position.x > transform.position.x && transform.localScale.x > 0)
@@ -116,7 +125,7 @@ public class BossController : MonoBehaviour
                     if (!anim.GetCurrentAnimatorStateInfo(0).IsName("EnemyIdle"))
                         anim.SetTrigger("Idle");
                 }
-                else if (!anim.GetCurrentAnimatorStateInfo(0).IsName("EnemyRun"))
+                else if (!anim.GetCurrentAnimatorStateInfo(0).IsName("EnemyRun") && !anim.GetCurrentAnimatorStateInfo(0).IsName("EnemyRunCostas") && !perto)
                 {
                     anim.SetTrigger("Run");
                 }
@@ -312,10 +321,9 @@ public class BossController : MonoBehaviour
         StopCoroutine("Pode");
         roamming = false;
         dano = false;
-        while (dist > 0.5f)
+        while (dist > 0.7f)
         {
             dano = false;
-            //sprt.SetActive(false);
             direction = player.transform.position - transform.position;
             direction.Normalize();
 			transform.Translate((direction * 10) * Time.deltaTime, Space.World);
@@ -351,7 +359,7 @@ public class BossController : MonoBehaviour
 
         if (contTiro < Manager.manager.tiroBoss1.Length)
         {
-            while (dist > 0.5f)
+            while (dist > 0.6f)
             {
                 direction = player.transform.position - transform.position;
                 direction.Normalize();
@@ -404,7 +412,7 @@ public class BossController : MonoBehaviour
         dist = Vector3.Distance(player.transform.position, transform.position);
         if (contSalto <= contSaltoMax)
         {
-            while (dist > 0.5f)
+            while (dist > 0.7f)
             {
                 direction = player.transform.position - transform.position;
                 direction.Normalize();
