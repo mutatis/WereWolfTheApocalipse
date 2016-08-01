@@ -52,8 +52,6 @@ public class BossController : MonoBehaviour
 
     float lifeMax;
 
-    Vector2 temp;
-
     bool isWalk = true;
     bool procura = true;
     bool prepare = true;
@@ -63,7 +61,6 @@ public class BossController : MonoBehaviour
 
     void Start()
     {
-        temp = transform.position;
         lifeMax = life;
         summon = Manager.manager.summoner;
         Wait();
@@ -120,7 +117,7 @@ public class BossController : MonoBehaviour
         {
             if (marcado == 0)
             {
-                if (vel1 == 0 && vel2 == 0 || (transform.position.x == temp.x && transform.position.y == temp.y))
+                if (vel1 == 0 && vel2 == 0)
                 {
                     if (!anim.GetCurrentAnimatorStateInfo(0).IsName("EnemyIdle"))
                         anim.SetTrigger("Idle");
@@ -129,7 +126,6 @@ public class BossController : MonoBehaviour
                 {
                     anim.SetTrigger("Run");
                 }
-                temp = transform.position;
 				transform.Translate(vel1, 0, vel2, Space.World);
             }
 
