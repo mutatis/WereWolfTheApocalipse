@@ -44,9 +44,11 @@ MonoBehaviour:
   - {fileID: 114000011718811534}
   - {fileID: 114000010122084380}
   - {fileID: 114000013955468894}
+  - {fileID: 114000011621084930}
+  - {fileID: 114000010858307954}
   MasterBankRef: {fileID: 114000010797368824}
   StringsBankRef: {fileID: 114000012578111778}
-  stringsBankWriteTime: 636048044474461916
+  stringsBankWriteTime: 636056623146830352
   cacheVersion: 2
 --- !u!114 &11403528
 MonoBehaviour:
@@ -1914,6 +1916,21 @@ MonoBehaviour:
   Parameters: []
   MinDistance: 1
   MaxDistance: 20
+--- !u!114 &114000010744850892
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: FMODStudioCache
+  m_EditorClassIdentifier: 
+  Name: volume
+  Min: 0
+  Max: 1
+  Default: 0
 --- !u!114 &114000010797368824
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1926,11 +1943,11 @@ MonoBehaviour:
   m_Name: FMODStudioCache
   m_EditorClassIdentifier: 
   Path: Assets\Audio\werewolf\Build\Desktop\Master Bank.bank
-  lastModified: 636053155134325694
+  lastModified: 636056623146785322
   LoadResult: 0
   FileSizes:
   - Name: Desktop
-    Value: 12366560
+    Value: 12388192
   Exists: 1
 --- !u!114 &114000010853084364
 MonoBehaviour:
@@ -1948,6 +1965,27 @@ MonoBehaviour:
   Banks:
   - {fileID: 114000013458143010}
   IsStream: 1
+  Is3D: 1
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+--- !u!114 &114000010858307954
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: FMODStudioCache
+  m_EditorClassIdentifier: 
+  Path: event:/Golpes/Werewolf/golpe
+  guid: 72da35534305f040a21a80f54c25cbab
+  Banks:
+  - {fileID: 114000010797368824}
+  IsStream: 0
   Is3D: 1
   IsOneShot: 1
   Parameters: []
@@ -2128,7 +2166,7 @@ MonoBehaviour:
   Is3D: 1
   IsOneShot: 0
   Parameters:
-  - {fileID: 114000012789439176}
+  - {fileID: 114000010744850892}
   MinDistance: 1
   MaxDistance: 20
 --- !u!114 &114000011449341766
@@ -2249,6 +2287,27 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Path: event:/Golpes/Grab
   guid: 23b06b9cef13eb4e82c620918a32dc84
+  Banks:
+  - {fileID: 114000010797368824}
+  IsStream: 0
+  Is3D: 1
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+--- !u!114 &114000011621084930
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: FMODStudioCache
+  m_EditorClassIdentifier: 
+  Path: event:/Golpes/Werewolf/mordida
+  guid: 6693a26f8a621e468da4481905f73e9c
   Banks:
   - {fileID: 114000010797368824}
   IsStream: 0
@@ -2466,7 +2525,7 @@ MonoBehaviour:
   Is3D: 1
   IsOneShot: 0
   Parameters:
-  - {fileID: 114000010125755200}
+  - {fileID: 114000012953621088}
   MinDistance: 1
   MaxDistance: 20
 --- !u!114 &114000012383507690
@@ -2523,11 +2582,11 @@ MonoBehaviour:
   m_Name: FMODStudioCache
   m_EditorClassIdentifier: 
   Path: Assets\Audio\werewolf\Build\Desktop\Master Bank.strings.bank
-  lastModified: 636048044474461916
+  lastModified: 636056623146830352
   LoadResult: 0
   FileSizes:
   - Name: Desktop
-    Value: 1964
+    Value: 2058
   Exists: 1
 --- !u!114 &114000012789439176
 MonoBehaviour:
@@ -2543,6 +2602,21 @@ MonoBehaviour:
   Name: volume
   Min: 0
   Max: 1
+  Default: 0
+--- !u!114 &114000012810932252
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: FMODStudioCache
+  m_EditorClassIdentifier: 
+  Name: barulho
+  Min: 0
+  Max: 100
   Default: 0
 --- !u!114 &114000012837142210
 MonoBehaviour:
@@ -2607,6 +2681,21 @@ MonoBehaviour:
   Parameters: []
   MinDistance: 1
   MaxDistance: 20
+--- !u!114 &114000012953621088
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: FMODStudioCache
+  m_EditorClassIdentifier: 
+  Name: transition_final
+  Min: 0
+  Max: 100
+  Default: 0
 --- !u!114 &114000013073587800
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2768,7 +2857,7 @@ MonoBehaviour:
   Is3D: 1
   IsOneShot: 1
   Parameters:
-  - {fileID: 114000011225760322}
+  - {fileID: 114000012810932252}
   MinDistance: 1
   MaxDistance: 20
 --- !u!114 &114000013868544222

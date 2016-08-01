@@ -7,6 +7,7 @@ public class PlayerAttackController : MonoBehaviour
     public PlayerMovment playerMov;
     public PlayerDano playerDano;
     public PlayerStatus playerStatus;
+    public PlayerStats playerStats;
 
     public Animator grabAnim;
 
@@ -72,7 +73,7 @@ public class PlayerAttackController : MonoBehaviour
 			block = false;
 		}
 
-        if(mov && !playerDano.stun && !playerMov.isGrab)
+        if(mov && !playerDano.stun && !playerMov.isGrab && !playerStats.crinos)
         {
             if(transform.localScale.x > 0)
 				transform.Translate(0.02f, 0, 0, Space.World);
