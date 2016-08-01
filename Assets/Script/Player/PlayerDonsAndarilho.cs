@@ -17,7 +17,7 @@ public class PlayerDonsAndarilho : MonoBehaviour
 
     public PlayerDom player;
 
-    public GameObject invoque, eletrecute, pack;
+    public GameObject invoque, eletrecute, pack, pacman;
 
     public Transform posInvoque;
 
@@ -120,12 +120,15 @@ public class PlayerDonsAndarilho : MonoBehaviour
     }
 
     void FabricoftheMind()
-    {
-        playerDano.stun = true;
-        playerAnim.anim.SetTrigger("Summon");
-        GameObject temp;
-        temp = Instantiate(invoque, posInvoque.position, transform.rotation) as GameObject;
-        temp.GetComponent<Pacman>().obj = gameObject;
+	{
+		if (pacman == null) 
+		{
+			controller.gnose -= cost [1];
+			playerDano.stun = true;
+			playerAnim.anim.SetTrigger ("Summon");
+			pacman = Instantiate (invoque, posInvoque.position, transform.rotation) as GameObject;
+			pacman.GetComponent<Pacman> ().obj = gameObject;
+		}
     }
 
     void Eletrecute()
@@ -160,7 +163,6 @@ public class PlayerDonsAndarilho : MonoBehaviour
         else if (PlayerPrefs.GetInt(nome + player + "ButtonA") == 1 && controller.gnose >= cost[1])
         {
             FabricoftheMind();
-            controller.gnose -= cost[1];
         }
         else if (PlayerPrefs.GetInt(nome + player + "ButtonA") == 2 && controller.gnose >= cost[2])
         {
@@ -189,7 +191,6 @@ public class PlayerDonsAndarilho : MonoBehaviour
         else if (PlayerPrefs.GetInt(nome + player + "ButtonB") == 1 && controller.gnose >= cost[1])
         {
             FabricoftheMind();
-            controller.gnose -= cost[1];
         }
         else if (PlayerPrefs.GetInt(nome + player + "ButtonB") == 2 && controller.gnose >= cost[2])
         {
@@ -218,7 +219,6 @@ public class PlayerDonsAndarilho : MonoBehaviour
         else if (PlayerPrefs.GetInt(nome + player + "ButtonX") == 1 && controller.gnose >= cost[1])
         {
             FabricoftheMind();
-            controller.gnose -= cost[1];
         }
         else if (PlayerPrefs.GetInt(nome + player + "ButtonX") == 2 && controller.gnose >= cost[2])
         {
@@ -247,7 +247,6 @@ public class PlayerDonsAndarilho : MonoBehaviour
         else if (PlayerPrefs.GetInt(nome + player + "ButtonY") == 1 && controller.gnose >= cost[1])
         {
             FabricoftheMind();
-            controller.gnose -= cost[1];
         }
         else if (PlayerPrefs.GetInt(nome + player + "ButtonY") == 2 && controller.gnose >= cost[2])
         {
