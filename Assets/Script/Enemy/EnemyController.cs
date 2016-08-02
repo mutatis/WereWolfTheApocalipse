@@ -467,7 +467,7 @@ public class EnemyController : MonoBehaviour
                         deus = (direction / 7);
                         if (Time.timeScale != 0)
                         {
-							transform.Translate(deus, Space.World);
+							transform.Translate(deus.x, 0, deus.z, Space.World);
                         }
                         if (!anim.GetCurrentAnimatorStateInfo(0).IsName("EnemyRun") && !costas)
                         {

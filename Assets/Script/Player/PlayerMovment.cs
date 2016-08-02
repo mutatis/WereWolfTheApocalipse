@@ -55,7 +55,7 @@ public class PlayerMovment : MonoBehaviour
 				if (!jump && !playerAttack.block && !playerDano.stun) 
 				{
 					z = Input.GetAxis ("VerticalP1") * 2 * xRun;
-					if (Input.GetKeyDown (KeyCode.Joystick1Button0) && !Input.GetKey (KeyCode.Joystick1Button5) && !isJump && Time.timeScale != 0) 
+					if (Input.GetKeyDown (KeyCode.Joystick1Button0) && !Input.GetKey (KeyCode.Joystick1Button5) && !isJump && Time.timeScale != 0 && !playerStats.crinos) 
 					{
 						Jump ();
 					}

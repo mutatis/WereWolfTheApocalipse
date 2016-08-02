@@ -84,6 +84,7 @@ public class PlayerAttackController : MonoBehaviour
 
     void GrabThrow()
     {
+        playerStats.rage += playerStatus.rageRegen;
         grabAnim.SetTrigger("GrabThrow");
         playerAnim.anim.SetTrigger("GrabThrow");
     }
@@ -162,6 +163,7 @@ public class PlayerAttackController : MonoBehaviour
             bate = false;
             if (!playerAnim.anim.GetCurrentAnimatorStateInfo(0).IsName("GrabAttackAndarilho"))
             {
+                playerStats.rage += playerStatus.rageRegen;
                 grabAnim.SetTrigger("GrabAttack");
                 playerAnim.anim.SetTrigger("GrabAttack");
                 enemy.GetComponent<EnemyController>().Dano(playerStatus.dmg, false, gameObject);
