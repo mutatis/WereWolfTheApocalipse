@@ -680,7 +680,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 22412984, guid: 0b075b9c12da14449aff84690836a025, type: 2}
       propertyPath: m_SizeDelta.y
-      value: 0
+      value: 556
       objectReference: {fileID: 0}
     - target: {fileID: 22487306, guid: 0b075b9c12da14449aff84690836a025, type: 2}
       propertyPath: m_AnchorMin.y
@@ -1865,7 +1865,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 408692, guid: 9c61d15c9c87920418edfdaef0f11d2c, type: 2}
       propertyPath: m_LocalPosition.y
-      value: 3.06
+      value: 3.5
       objectReference: {fileID: 0}
     - target: {fileID: 408692, guid: 9c61d15c9c87920418edfdaef0f11d2c, type: 2}
       propertyPath: m_LocalPosition.z
@@ -1894,6 +1894,18 @@ Prefab:
     - target: {fileID: 120186, guid: 9c61d15c9c87920418edfdaef0f11d2c, type: 2}
       propertyPath: m_Name
       value: Main Camera
+      objectReference: {fileID: 0}
+    - target: {fileID: 120186, guid: 9c61d15c9c87920418edfdaef0f11d2c, type: 2}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2095094, guid: 9c61d15c9c87920418edfdaef0f11d2c, type: 2}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2095094, guid: 9c61d15c9c87920418edfdaef0f11d2c, type: 2}
+      propertyPath: field of view
+      value: 6
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 9c61d15c9c87920418edfdaef0f11d2c, type: 2}
@@ -6057,6 +6069,18 @@ Prefab:
     - target: {fileID: 130714, guid: 81441a67809cfed478111525c733845a, type: 2}
       propertyPath: m_Name
       value: Background
+      objectReference: {fileID: 0}
+    - target: {fileID: 492056, guid: 81441a67809cfed478111525c733845a, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: -2.79
+      objectReference: {fileID: 0}
+    - target: {fileID: 492056, guid: 81441a67809cfed478111525c733845a, type: 2}
+      propertyPath: m_LocalScale.x
+      value: 0.92874306
+      objectReference: {fileID: 0}
+    - target: {fileID: 492056, guid: 81441a67809cfed478111525c733845a, type: 2}
+      propertyPath: m_LocalScale.y
+      value: 0.92874354
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 81441a67809cfed478111525c733845a, type: 2}

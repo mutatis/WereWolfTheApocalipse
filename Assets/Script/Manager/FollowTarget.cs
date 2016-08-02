@@ -40,16 +40,7 @@ public class FollowTarget : MonoBehaviour
 		{
 			target = Manager.manager.player [0];
 		}
-
-		/*num = transform.position.x;
-        enemy = Manager.manager.enemy.Length + Manager.manager.subBoss.Length + Manager.manager.boss.Length;
-
-        if (num >= pos[cont])
-        {
-            segue = false;
-            obj[cont].SetActive(true);
-        }*/
-
+        
 		if (segue) 
 		{
 			transform.Translate (target.GetComponent<PlayerMovment> ().x, 0, 0);
@@ -70,12 +61,14 @@ public class FollowTarget : MonoBehaviour
 				segue = false;
 			}
 		}
-
-       /* if (segue && quant <= 0 && enemy <= 0 && target.GetComponent<PlayerMovment>().x > 0)
+        
+        if(transform.position.y < 4.1f && target.GetComponent<PlayerMovment>().z > 0 && target.transform.position.z <= 3.76f)
         {
-            xPosition = target.transform.position.x + offset.x;
-            yPosition = offset.y;
-            transform.position = Vector3.SmoothDamp(transform.position, new Vector3(xPosition, transform.position.y, transform.position.z), ref velocity, smoothTime);
-        }*/
+            transform.Translate(0, target.GetComponent<PlayerMovment>().z / 17, 0);
+        }
+        else if(transform.position.y > 1.7f && target.GetComponent<PlayerMovment>().z < 0 && target.transform.position.z > -11.6f)
+        {
+            transform.Translate(0, target.GetComponent<PlayerMovment>().z / 17, 0);
+        }
 	}
 }

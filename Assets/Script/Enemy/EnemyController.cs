@@ -315,7 +315,7 @@ public class EnemyController : MonoBehaviour
             (player.GetComponent<PlayerEngage>().playerStats.transform.position.x < transform.position.x && 
             player.GetComponent<PlayerEngage>().playerStats.transform.localScale.x < 0) && player.GetComponent<PlayerEngage>().playerStats.playerStatus.life > 0)
         {
-            if (!player.GetComponent<PlayerEngage>().playerMov.isGrab)
+            if (!player.GetComponent<PlayerEngage>().playerMov.isGrab && !player.GetComponent<PlayerEngage>().playerStats.crinos)
             {
                 player.GetComponent<PlayerEngage>().playerAttack.playerAnim.gameObject.SetActive(false);
                 player.GetComponent<PlayerEngage>().playerDano.stun = true;
@@ -467,7 +467,7 @@ public class EnemyController : MonoBehaviour
                         deus = (direction / 7);
                         if (Time.timeScale != 0)
                         {
-							transform.Translate(deus.x, 0, deus.z, Space.World);
+							transform.Translate(deus, Space.World);
                         }
                         if (!anim.GetCurrentAnimatorStateInfo(0).IsName("EnemyRun") && !costas)
                         {
