@@ -48,15 +48,15 @@ public class FollowTarget : MonoBehaviour
 
 		if (target != null) 
 		{
-			if (target.GetComponent<PlayerMovment> ().x > 0 && transform.position.x < 5.8f && target.transform.position.x >= maxMin [0].position.x ||
-			    target.GetComponent<PlayerMovment> ().x < 0 && transform.position.x > -5.8f && target.transform.position.x <= maxMin [1].position.x) 
+			if (target.GetComponent<PlayerMovment> ().x > 0 && transform.position.x < 7.3f && target.transform.position.x >= maxMin [0].position.x ||
+			    target.GetComponent<PlayerMovment> ().x < 0 && transform.position.x > -7.3f && target.transform.position.x <= maxMin [1].position.x) 
 			{
 				segue = true;
 			}	
 
 			if (target.GetComponent<PlayerMovment> ().x == 0 || 
-				target.GetComponent<PlayerMovment> ().x > 0 && transform.position.x > 5.8f ||
-			    target.GetComponent<PlayerMovment> ().x < 0 && transform.position.x < -5.8f) 
+				target.GetComponent<PlayerMovment> ().x > 0 && transform.position.x > 7.3f ||
+			    target.GetComponent<PlayerMovment> ().x < 0 && transform.position.x < -7.3f) 
 			{
 				segue = false;
 			}
