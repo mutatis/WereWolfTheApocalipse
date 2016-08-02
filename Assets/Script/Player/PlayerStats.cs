@@ -42,6 +42,7 @@ public class PlayerStats : MonoBehaviour
         crinos = false;
         anim.GetComponent<SpriteRenderer>().color = Color.white;
         rage = 0;
+        playerMov.xRun = 1;
     }
 
     IEnumerator GnoseStart()
