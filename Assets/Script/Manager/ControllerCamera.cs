@@ -3,7 +3,7 @@ using System.Collections;
 
 public class ControllerCamera : MonoBehaviour
 {
-    public FollowTarget camera;
+    public FollowTarget gameCamera;
 
     bool pode;
 
@@ -11,8 +11,8 @@ public class ControllerCamera : MonoBehaviour
     {
         if (!pode)
         {
-            camera.cont++;
-            camera.segue = true;
+            gameCamera.cont++;
+            gameCamera.segue = true;
             pode = true;
         }
     }
