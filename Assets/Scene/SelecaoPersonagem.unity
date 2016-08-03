@@ -501,7 +501,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 22471266, guid: aff4508aef75a6d40ab3583894964eb1, type: 2}
       propertyPath: m_SizeDelta.y
-      value: 0
+      value: 580.3
       objectReference: {fileID: 0}
     - target: {fileID: 11478932, guid: aff4508aef75a6d40ab3583894964eb1, type: 2}
       propertyPath: meuNumero
@@ -3379,7 +3379,7 @@ Canvas:
   m_RenderMode: 1
   m_Camera: {fileID: 1805510880}
   m_PlaneDistance: 100
-  m_PixelPerfect: 1
+  m_PixelPerfect: 0
   m_ReceivesEvents: 1
   m_OverrideSorting: 0
   m_OverridePixelPerfect: 0
@@ -4055,7 +4055,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 22454466, guid: aff4508aef75a6d40ab3583894964eb1, type: 2}
       propertyPath: m_SizeDelta.y
-      value: 0
+      value: -246.75
       objectReference: {fileID: 0}
     - target: {fileID: 22489060, guid: aff4508aef75a6d40ab3583894964eb1, type: 2}
       propertyPath: m_AnchorMin.y
@@ -4395,7 +4395,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 22471266, guid: aff4508aef75a6d40ab3583894964eb1, type: 2}
       propertyPath: m_SizeDelta.y
-      value: 0
+      value: 580.3
       objectReference: {fileID: 0}
     - target: {fileID: 11427420, guid: aff4508aef75a6d40ab3583894964eb1, type: 2}
       propertyPath: m_FontData.m_RichText
@@ -6303,11 +6303,11 @@ MonoBehaviour:
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_FontData:
-    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
-    m_FontSize: 14
+    m_Font: {fileID: 12800000, guid: 576dc0281ecfa854ab2ee29cde2147c4, type: 3}
+    m_FontSize: 60
     m_FontStyle: 0
-    m_BestFit: 1
-    m_MinSize: 10
+    m_BestFit: 0
+    m_MinSize: 0
     m_MaxSize: 300
     m_Alignment: 2
     m_AlignByGeometry: 0
