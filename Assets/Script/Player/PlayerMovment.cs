@@ -26,6 +26,11 @@ public class PlayerMovment : MonoBehaviour
 
     public int contInput, xRun = 1;
 
+    void Start()
+    {
+        JumpStart(7, 19);
+    }
+
     void Update()
     {
 		if (Time.timeScale != 0)
@@ -57,7 +62,7 @@ public class PlayerMovment : MonoBehaviour
 					z = Input.GetAxis ("VerticalP1") * 2 * xRun;
 					if (Input.GetKeyDown (KeyCode.Joystick1Button0) && !Input.GetKey (KeyCode.Joystick1Button5) && !isJump && Time.timeScale != 0 && !playerStats.crinos) 
 					{
-						Jump ();
+						Jump (10);
 					}
 					playerAnim.anim.SetFloat ("RigVel", 0);
 				} 
@@ -146,7 +151,7 @@ public class PlayerMovment : MonoBehaviour
         run = false;
     }
 
-    void Jump()
+    void JumpStart(float forceX, float forceY)
     {
         audioInstanceCreator = FMODUnity.RuntimeManager.CreateInstance(jumpSound);
         audioInstanceCreator.setVolume(PlayerPrefs.GetFloat("VolumeFX"));
@@ -154,7 +159,18 @@ public class PlayerMovment : MonoBehaviour
         jump = true;
         playerAnim.anim.SetTrigger("Pulo");
         playerAnim.anim.SetBool("Jump", jump);
-        rig.velocity = new Vector3(rig.velocity.x, 10, rig.velocity.z);
+        rig.velocity = new Vector3(forceX, forceY, rig.velocity.z);
+    }
+
+    void Jump(float force)
+    {
+        audioInstanceCreator = FMODUnity.RuntimeManager.CreateInstance(jumpSound);
+        audioInstanceCreator.setVolume(PlayerPrefs.GetFloat("VolumeFX"));
+        audioInstanceCreator.start();
+        jump = true;
+        playerAnim.anim.SetTrigger("Pulo");
+        playerAnim.anim.SetBool("Jump", jump);
+        rig.velocity = new Vector3(rig.velocity.x, force, rig.velocity.z);
     }
 
     void Normal()
@@ -172,6 +188,7 @@ public class PlayerMovment : MonoBehaviour
         if(other.gameObject.tag == "Chao" && jump)
         {
             Normal();
+            Manager.manager.parede.SetActive(true);
         }
     }
 }

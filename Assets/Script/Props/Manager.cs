@@ -12,6 +12,7 @@ public class Manager : MonoBehaviour
     public GameObject[] boss;
     public GameObject[] posSubBoss;
     public GameObject[] tiroBoss1;
+    public GameObject parede;
 
     public SpriteRowCreator summoner;
 

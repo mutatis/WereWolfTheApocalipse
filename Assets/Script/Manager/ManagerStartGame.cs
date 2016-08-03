@@ -13,11 +13,11 @@ public class ManagerStartGame : MonoBehaviour
         {
             if (PlayerPrefs.GetInt("Escolha") == 1)
             {
-                Instantiate(andarilho, new Vector3(0, 0, 0), transform.rotation);
+                Instantiate(andarilho, new Vector3(-25, 0, 0), transform.rotation);
             }
             else if (PlayerPrefs.GetInt("Escolha") == 2)
             {
-				Instantiate(presas, new Vector3(0, 0, 0), transform.rotation);
+				Instantiate(presas, new Vector3(-25, 0, 0), transform.rotation);
             }
         }
         else
