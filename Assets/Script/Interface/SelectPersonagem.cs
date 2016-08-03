@@ -46,6 +46,11 @@ public class SelectPersonagem : MonoBehaviour
             player[1].enabled = true;
             select2 = 1;
         }
+
+        for(int i = 0; i < atributos.Length; i++)
+        {
+            atributos[i].SetActive(false);
+        }
     }
 
     void Update()

@@ -18,6 +18,9 @@ public class PlayerAnimation : MonoBehaviour
     public string socoFraco;
 
     [FMODUnity.EventRef]
+    public string socoCrinos;
+
+    [FMODUnity.EventRef]
     public string miss;
 
     [FMODUnity.EventRef]
@@ -95,9 +98,18 @@ public class PlayerAnimation : MonoBehaviour
 
     public void Miss()
     {
-        audioInstance = FMODUnity.RuntimeManager.CreateInstance(miss);
-        audioInstance.setVolume(PlayerPrefs.GetFloat("VolumeFX"));
-        audioInstance.start();
+        if (!playerStats.crinos)
+        {
+            audioInstance = FMODUnity.RuntimeManager.CreateInstance(miss);
+            audioInstance.setVolume(PlayerPrefs.GetFloat("VolumeFX"));
+            audioInstance.start();
+        }
+        else
+        {
+            audioInstance = FMODUnity.RuntimeManager.CreateInstance(socoCrinos);
+            audioInstance.setVolume(PlayerPrefs.GetFloat("VolumeFX"));
+            audioInstance.start();
+        }
     }
 
     public void Atacando()
@@ -132,6 +144,7 @@ public class PlayerAnimation : MonoBehaviour
         audioInstance = FMODUnity.RuntimeManager.CreateInstance(socoFraco);
         audioInstance.setVolume(PlayerPrefs.GetFloat("VolumeFX"));
         audioInstance.start();
+
         int x = Random.Range(0, 100);
         if(x <= playerStatus.critChance)
         {

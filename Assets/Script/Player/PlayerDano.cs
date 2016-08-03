@@ -60,7 +60,7 @@ public class PlayerDano : MonoBehaviour
             {
                 if (!playerMov.jump)
                 {
-                    if (slamCont > 2 && !playerAttack.block)
+                    if (slamCont > 2 && !playerAttack.block && !playerStats.crinos)
                     {
                         audioInstanceCreator = FMODUnity.RuntimeManager.CreateInstance(socoFracoEnemy);
                         audioInstanceCreator.setVolume(PlayerPrefs.GetFloat("VolumeFX"));
