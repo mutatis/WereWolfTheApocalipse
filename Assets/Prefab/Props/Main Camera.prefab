@@ -334,7 +334,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 120186}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 3.06, z: -112}
+  m_LocalPosition: {x: -7.87, y: 4.02, z: -112}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children:
@@ -384,7 +384,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 130326}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 8.5, y: -0.086330414, z: 112}
+  m_LocalPosition: {x: 7.58, y: -0.086330414, z: 112}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children: []
@@ -436,7 +436,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 119612}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -8.5, y: -0.086330414, z: 112}
+  m_LocalPosition: {x: -7.58, y: -0.086330414, z: 112}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children: []
@@ -584,7 +584,7 @@ Camera:
     height: 1
   near clip plane: 0.3
   far clip plane: 150
-  field of view: 7.3
+  field of view: 6
   orthographic: 0
   orthographic size: 5
   m_Depth: -1
@@ -812,6 +812,7 @@ MonoBehaviour:
   - {fileID: 153060}
   - {fileID: 122594}
   - {fileID: 127222}
+  parede: {fileID: 0}
   summoner: {fileID: 11428180}
 --- !u!114 &11428180
 MonoBehaviour:
