@@ -20,11 +20,20 @@ public class PlayerAttackController : MonoBehaviour
 
     public GameObject obj;
 
-    public int attackComboNum = 0;
+    public int attackComboNum = 0, maxCombo;
     public int solta;
 
     void Update()
     {
+        if(playerStats.crinos)
+        {
+            maxCombo = 3;
+        }
+        else
+        {
+            maxCombo = 4;
+        }
+
         if (!Input.GetKey(KeyCode.Joystick1Button5))
         {
             if (Input.GetKeyDown(KeyCode.Joystick1Button2) && presa)
@@ -128,11 +137,11 @@ public class PlayerAttackController : MonoBehaviour
         {
             if(!socoForte)
             { 
-                if (attackComboNum >= 4)
+                if (attackComboNum >= maxCombo)
                 {
                     attackComboNum = 0;
                 }
-                if (attackComboNum < 4)
+                if (attackComboNum < maxCombo)
                 {
                     attackComboNum++;
                 }
@@ -140,7 +149,7 @@ public class PlayerAttackController : MonoBehaviour
                 {
                     attackComboNum = 0;
                 }
-                if (obj == null || attackComboNum > 4)
+                if (obj == null || attackComboNum > maxCombo)
                 {
                     attackComboNum = 1;
                 }
@@ -162,8 +171,14 @@ public class PlayerAttackController : MonoBehaviour
                         break;
 
                     case 3:
-                        if (!playerAnim.anim.GetCurrentAnimatorStateInfo(0).IsName("SocoFraco2Andarilho"))
+                        if (!playerAnim.anim.GetCurrentAnimatorStateInfo(0).IsName("SocoFraco2Andarilho") && !playerStats.crinos)
+                        {
                             playerAnim.anim.SetTrigger("SocoFraco2");
+                        }
+                        else if(!playerAnim.anim.GetCurrentAnimatorStateInfo(0).IsName("SocoFraco2Andarilho"))
+                        { 
+                            playerAnim.anim.SetTrigger("SocoFraco3");
+                        }
                         break;
 
                     case 4:

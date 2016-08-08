@@ -18,7 +18,7 @@ public class PlayerMovment : MonoBehaviour
     [FMODUnity.EventRef]
     public string jumpSound, jumpEnd;
 
-    public bool run;
+    public bool run, toca, toca2;
     [HideInInspector]
     public bool isMov, jump, isGrab, isJump;
 
@@ -120,14 +120,14 @@ public class PlayerMovment : MonoBehaviour
 				}
 			}
 
-			if ((x != 0 || z != 0) && ((!playerAnim.anim.GetCurrentAnimatorStateInfo (0).IsName ("RunAndarilho") && !isGrab) ||
-			        (!playerAnim.anim.GetCurrentAnimatorStateInfo (0).IsName ("GrabWalkAndarilho") && isGrab))) 
+			if (((x != 0 || z != 0) && ((!playerAnim.anim.GetCurrentAnimatorStateInfo (0).IsName ("RunAndarilho") && !isGrab) ||
+			        (!playerAnim.anim.GetCurrentAnimatorStateInfo (0).IsName ("GrabWalkAndarilho") && isGrab))) && ((!toca || toca && !toca2 && z != 0) && (!toca2 || !toca && toca2 && x != 0))) 
 			{
 				playerAnim.anim.SetTrigger ("Run");
 			} 
-			else if (x == 0 && z == 0 && ((!playerAnim.anim.GetCurrentAnimatorStateInfo (0).IsName ("IdleAndarilho") && !isGrab) ||
+			else if ((x == 0 && z == 0 && ((!playerAnim.anim.GetCurrentAnimatorStateInfo (0).IsName ("IdleAndarilho") && !isGrab) ||
 			             (!playerAnim.anim.GetCurrentAnimatorStateInfo (0).IsName ("GrabIdleAndarilho") && isGrab) ||
-							(!playerAnim.anim.GetCurrentAnimatorStateInfo (0).IsName ("GrabIdleFomor") && isGrab))) 
+							(!playerAnim.anim.GetCurrentAnimatorStateInfo (0).IsName ("GrabIdleFomor") && isGrab))) || (toca && z == 0 || toca2 && x == 0)) 
 			{
 				playerAnim.anim.SetTrigger ("Idle");
 			}
@@ -213,6 +213,42 @@ public class PlayerMovment : MonoBehaviour
         {
             Normal();
             Manager.manager.parede.SetActive(true);
+        }
+
+        if(other.gameObject.tag == "Parede")
+        {
+            toca = true;
+        }
+
+        if(other.gameObject.tag == "Parede4")
+        {
+            toca2 = true;
+        }
+    }
+
+    void OnCollisionStay(Collision other)
+    {
+        if (other.gameObject.tag == "Parede")
+        {
+            toca = true;
+        }
+
+        if (other.gameObject.tag == "Parede4")
+        {
+            toca2 = true;
+        }
+    }
+
+    void OnCollisionExit(Collision other)
+    {
+        if (other.gameObject.tag == "Parede")
+        {
+            toca = false;
+        }
+
+        if (other.gameObject.tag == "Parede4")
+        {
+            toca2 = false;
         }
     }
 }

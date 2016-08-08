@@ -61,14 +61,17 @@ public class FollowTarget : MonoBehaviour
 				segue = false;
 			}
 		}
-        
-        if(transform.position.y < 4.1f && target.GetComponent<PlayerMovment>().z > 0 && target.transform.position.z <= 3.76f)
+
+        if (target != null)
         {
-            transform.Translate(0, target.GetComponent<PlayerMovment>().z / 17, 0);
-        }
-        else if(transform.position.y > 1.7f && target.GetComponent<PlayerMovment>().z < 0 && target.transform.position.z > -11.6f)
-        {
-            transform.Translate(0, target.GetComponent<PlayerMovment>().z / 17, 0);
+            if (transform.position.y < 4.1f && target.GetComponent<PlayerMovment>().z > 0 && target.transform.position.z <= 3.76f)
+            {
+                transform.Translate(0, target.GetComponent<PlayerMovment>().z / 17, 0);
+            }
+            else if (transform.position.y > 1.7f && target.GetComponent<PlayerMovment>().z < 0 && target.transform.position.z > -11.6f)
+            {
+                transform.Translate(0, target.GetComponent<PlayerMovment>().z / 17, 0);
+            }
         }
 	}
 }

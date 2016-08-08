@@ -465,7 +465,7 @@ public class EnemyController : MonoBehaviour
                     if (!stun)
                     {
                         deus = (direction / 7);
-                        if (Time.timeScale != 0)
+                        if (Time.timeScale != 0 && !stun)
                         {
 							transform.Translate(deus, Space.World);
                         }
