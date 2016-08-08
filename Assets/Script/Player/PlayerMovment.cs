@@ -22,7 +22,7 @@ public class PlayerMovment : MonoBehaviour
     [HideInInspector]
     public bool isMov, jump, isGrab, isJump;
 
-    public float x, z;
+    public float x, z, xButton, zButton;
 
     public int contInput, xRun = 1;
 
@@ -51,7 +51,19 @@ public class PlayerMovment : MonoBehaviour
 				playerAnim.anim.SetInteger ("ContInput", xRun);
 				if (!playerAttack.jumpAttack) 
 				{
-					x = Input.GetAxis ("HorizontalP1") * xRun;
+                    if(Input.GetAxisRaw("DpadXP1") > 0)
+                    {
+                        xButton = 0.13f;
+                    }
+                    else if(Input.GetAxisRaw("DpadXP1") < 0)
+                    {
+                        xButton = -0.13f;
+                    }
+                    else
+                    {
+                        xButton = 0;
+                    }
+					x = (Input.GetAxis ("HorizontalP1") + xButton) * xRun;
 					if ((x > 0 || x < 0) && !run && contInput == 0 && playerStats.crinos) 
 					{
 						StartCoroutine ("Run");
@@ -59,7 +71,19 @@ public class PlayerMovment : MonoBehaviour
 				}
 				if (!jump && !playerAttack.block && !playerDano.stun) 
 				{
-					z = Input.GetAxis ("VerticalP1") * 2 * xRun;
+                    if (Input.GetAxisRaw("DpadYP1") > 0)
+                    {
+                        zButton = 0.38f;
+                    }
+                    else if (Input.GetAxisRaw("DpadYP1") < 0)
+                    {
+                        zButton = -0.38f;
+                    }
+                    else
+                    {
+                        zButton = 0;
+                    }
+                    z = (Input.GetAxis ("VerticalP1") + zButton) * 2 * xRun;
 					if (Input.GetKeyDown (KeyCode.Joystick1Button0) && !Input.GetKey (KeyCode.Joystick1Button5) && !isJump && Time.timeScale != 0 && !playerStats.crinos) 
 					{
 						Jump (10);
