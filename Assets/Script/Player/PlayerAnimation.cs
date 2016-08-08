@@ -256,12 +256,13 @@ public class PlayerAnimation : MonoBehaviour
         if(other.gameObject.tag == "Enemy")
         {
             if (other.gameObject.GetComponent<EnemyController>().life > 0 && other.gameObject.GetComponent<EnemyController>().dano && 
-                (anim.GetCurrentAnimatorStateInfo(0).IsName("SocoFraco2Andarilho") || playerAttack.attackComboNum >= 3))
+                (anim.GetCurrentAnimatorStateInfo(0).IsName("SocoForte") || anim.GetCurrentAnimatorStateInfo(0).IsName("SocoFraco2Andarilho") ||
+                playerAttack.attackComboNum >= 4))
             {
                 obj = other.gameObject;
                 SlamDmg(obj);
             }
-            if (other.gameObject.GetComponent<EnemyController>().life > 0 && other.gameObject.GetComponent<EnemyController>().dano && playerAttack.attackComboNum < 3)
+            if (other.gameObject.GetComponent<EnemyController>().life > 0 && other.gameObject.GetComponent<EnemyController>().dano && playerAttack.attackComboNum < 4)
             {
                 obj = other.gameObject;
                 Dano(obj);
@@ -270,7 +271,8 @@ public class PlayerAnimation : MonoBehaviour
         else if (other.gameObject.tag == "EnemyRanged")
         {
             if (other.gameObject.GetComponent<EnemyRanged>().life > 0 && other.gameObject.GetComponent<EnemyRanged>().dano && 
-                (anim.GetCurrentAnimatorStateInfo(0).IsName("SocoFraco2Andarilho") || playerAttack.attackComboNum >= 3))
+                (anim.GetCurrentAnimatorStateInfo(0).IsName("SocoForte") || anim.GetCurrentAnimatorStateInfo(0).IsName("SocoFraco2Andarilho") || 
+                playerAttack.attackComboNum >= 4))
             {
                 obj = other.gameObject;
                 SlamDmg(obj);
@@ -284,7 +286,8 @@ public class PlayerAnimation : MonoBehaviour
         else if (other.gameObject.tag == "SubBoss")
         {
             if (other.gameObject.GetComponent<SubBossController>().life > 0 && other.gameObject.GetComponent<SubBossController>().dano && 
-                (anim.GetCurrentAnimatorStateInfo(0).IsName("SocoFraco2Andarilho") || playerAttack.attackComboNum >= 3))
+                (anim.GetCurrentAnimatorStateInfo(0).IsName("SocoForte") || anim.GetCurrentAnimatorStateInfo(0).IsName("SocoFraco2Andarilho") || 
+                playerAttack.attackComboNum >= 4))
             {
                 obj = other.gameObject;
                 SlamDmg(obj);
@@ -298,7 +301,8 @@ public class PlayerAnimation : MonoBehaviour
         else if (other.gameObject.tag == "Boss")
         {
             if (other.gameObject.GetComponent<BossController>().life > 0 && other.gameObject.GetComponent<BossController>().dano && 
-                (anim.GetCurrentAnimatorStateInfo(0).IsName("SocoFraco2Andarilho") || playerAttack.attackComboNum >= 3))
+                (anim.GetCurrentAnimatorStateInfo(0).IsName("SocoForte") || anim.GetCurrentAnimatorStateInfo(0).IsName("SocoFraco2Andarilho") || 
+                playerAttack.attackComboNum >= 4))
             {
                 obj = other.gameObject;
                 SlamDmg(obj);
