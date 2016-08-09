@@ -214,7 +214,7 @@ public class BossController : MonoBehaviour
                     StartCoroutine("Engage");
                     break;
                 case 1:
-                    StartCoroutine("Engage");
+                    StartCoroutine("Tiro");
                     break;
                 case 2:
                     Summoner();
@@ -239,6 +239,7 @@ public class BossController : MonoBehaviour
                     dir = esco;
                     player = Manager.manager.posSubBoss[esco];
                     StartCoroutine("Engage");
+                    print("porra");
                     break;
 
                 case 3:
