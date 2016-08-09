@@ -7,15 +7,17 @@ public class TimeCreator : MonoBehaviour
 
     public SpriteRowCreator[] creator;
 
-    public Vector2 quant;
+    public int[] quant;
+
+    public float[] tempo;
 
     int num;
 
-    int x;
+    public int x, controllerTempo;
 
 	void Start ()
     {
-        num = Random.Range((int)quant.x, (int)quant.y);
+        num = quant[0];
         FollowTarget.follow.quant = num;
         StartCoroutine("GO");
 	}
@@ -34,21 +36,26 @@ public class TimeCreator : MonoBehaviour
         }
         else
         {
-            for (int i = 0; i < creator.Length; i++)
+            for (int i = 0; i < num; i++)
             {
                 x++;
                 if (x <= num)
                 {
-                    creator[i].CreateSprites();
+                    creator[Random.Range(0, creator.Length)].CreateSprites();
                 }
             }
-            Denovo();
         }
+        StartCoroutine("Denovo");
     }
 
-    void Denovo()
+    IEnumerator Denovo()
     {
+        yield return new WaitForSeconds(tempo[controllerTempo]);
+        controllerTempo++;
+        num = quant[controllerTempo];
+        x = 0;
         StopCoroutine("GO");
         StartCoroutine("GO");
+        StopCoroutine("Denovo");
     }
 }
