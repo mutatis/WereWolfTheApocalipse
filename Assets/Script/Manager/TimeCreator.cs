@@ -24,7 +24,7 @@ public class TimeCreator : MonoBehaviour
 
     IEnumerator GO()
     {
-        yield return new WaitForSeconds(2);
+        yield return new WaitForSeconds(tempo[controllerTempo]);
         if (x > num)
         {
             camera.GG();
@@ -45,12 +45,11 @@ public class TimeCreator : MonoBehaviour
                 }
             }
         }
-        StartCoroutine("Denovo");
+        Denovo();
     }
 
-    IEnumerator Denovo()
+    void Denovo()
     {
-        yield return new WaitForSeconds(tempo[controllerTempo]);
         controllerTempo++;
         num = quant[controllerTempo];
         x = 0;

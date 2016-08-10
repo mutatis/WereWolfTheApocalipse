@@ -131,7 +131,15 @@ public class PlayerAnimation : MonoBehaviour
 
     public void Dead()
     {
-        SceneManager.LoadScene("Dead");
+        if (playerStatus.vidas < 2)
+        {
+            SceneManager.LoadScene("Dead");
+        }
+        else
+        {
+            playerStatus.life = playerStatus.lifeMax;
+            playerStatus.vidas--;
+        }
     }
 
     public void Ataca()

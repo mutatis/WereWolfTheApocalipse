@@ -461,7 +461,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 125222, guid: 1ddcb0ff8c60b0d459a5b469f9e4cae6, type: 2}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 10296472, guid: 1ddcb0ff8c60b0d459a5b469f9e4cae6, type: 2}
       propertyPath: m_Text
@@ -947,7 +947,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 185666, guid: 3bfc9775421f9e145916af49a73e8e77, type: 2}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 9550724, guid: 3bfc9775421f9e145916af49a73e8e77, type: 2}
       propertyPath: m_Controller
@@ -991,6 +991,10 @@ Prefab:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 11459672, guid: bc7f2737a86586b40b05fa449aadf981, type: 2}
+      propertyPath: tempo.Array.size
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 469016, guid: bc7f2737a86586b40b05fa449aadf981, type: 2}
       propertyPath: m_LocalPosition.x
       value: 9.762018
@@ -1026,6 +1030,10 @@ Prefab:
     - target: {fileID: 100734, guid: bc7f2737a86586b40b05fa449aadf981, type: 2}
       propertyPath: m_IsActive
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 11459672, guid: bc7f2737a86586b40b05fa449aadf981, type: 2}
+      propertyPath: tempo.Array.data[4]
+      value: 0.1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: bc7f2737a86586b40b05fa449aadf981, type: 2}

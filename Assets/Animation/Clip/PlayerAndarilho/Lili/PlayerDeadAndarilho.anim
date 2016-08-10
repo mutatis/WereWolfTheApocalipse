@@ -96,6 +96,11 @@ AnimationClip:
         inSlope: Infinity
         outSlope: Infinity
         tangentMode: 31
+      - time: 1.3055556
+        value: 1
+        inSlope: Infinity
+        outSlope: Infinity
+        tangentMode: 31
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
@@ -177,6 +182,10 @@ AnimationClip:
       value: {fileID: 21300068, guid: 593f27afa39b9804dab38fae8784f60d, type: 3}
     - time: 0.97222257
       value: {fileID: 21300070, guid: 593f27afa39b9804dab38fae8784f60d, type: 3}
+    - time: 1.3055556
+      value: {fileID: 21300000, guid: 0d955defed42daf4b90125deb1649c92, type: 3}
+    - time: 1.3888888
+      value: {fileID: 21300000, guid: 3ab6b45caf5017c43813912cee333713, type: 3}
     attribute: m_Sprite
     path: 
     classID: 212
@@ -249,12 +258,14 @@ AnimationClip:
     - {fileID: 21300066, guid: 593f27afa39b9804dab38fae8784f60d, type: 3}
     - {fileID: 21300068, guid: 593f27afa39b9804dab38fae8784f60d, type: 3}
     - {fileID: 21300070, guid: 593f27afa39b9804dab38fae8784f60d, type: 3}
+    - {fileID: 21300000, guid: 0d955defed42daf4b90125deb1649c92, type: 3}
+    - {fileID: 21300000, guid: 3ab6b45caf5017c43813912cee333713, type: 3}
   m_AnimationClipSettings:
     serializedVersion: 2
     m_AdditiveReferencePoseClip: {fileID: 0}
     m_AdditiveReferencePoseTime: 0
     m_StartTime: 0
-    m_StopTime: 1.2777778
+    m_StopTime: 1.4166666
     m_OrientationOffsetY: 0
     m_Level: 0
     m_CycleOffset: 0
@@ -333,6 +344,11 @@ AnimationClip:
         inSlope: Infinity
         outSlope: Infinity
         tangentMode: 31
+      - time: 1.3055556
+        value: 1
+        inSlope: Infinity
+        outSlope: Infinity
+        tangentMode: 31
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
@@ -405,6 +421,13 @@ AnimationClip:
   m_HasMotionFloatCurves: 0
   m_GenerateMotionCurves: 0
   m_Events:
+  - time: 0
+    functionName: Cai
+    data: 
+    objectReferenceParameter: {fileID: 0}
+    floatParameter: 0
+    intParameter: 0
+    messageOptions: 0
   - time: 0.41666666
     functionName: Queda
     data: 
@@ -414,6 +437,20 @@ AnimationClip:
     messageOptions: 0
   - time: 0.9444444
     functionName: Dead
+    data: 
+    objectReferenceParameter: {fileID: 0}
+    floatParameter: 0
+    intParameter: 0
+    messageOptions: 0
+  - time: 1.25
+    functionName: Levanta
+    data: 
+    objectReferenceParameter: {fileID: 0}
+    floatParameter: 0
+    intParameter: 0
+    messageOptions: 0
+  - time: 1.25
+    functionName: Liberated
     data: 
     objectReferenceParameter: {fileID: 0}
     floatParameter: 0

@@ -543,6 +543,7 @@ MonoBehaviour:
   rangedDmg: 100
   life: 10000
   lifeMax: 0
+  vidas: 2
   regen: 2
   dmgTrash: 5
   resistances: 0.5
@@ -609,6 +610,8 @@ MonoBehaviour:
   jumpSound: event:/Golpes/Jump
   jumpEnd: event:/Golpes/Land
   run: 0
+  toca: 0
+  toca2: 0
   isMov: 0
   jump: 0
   isGrab: 0
@@ -818,6 +821,7 @@ MonoBehaviour:
   enemy: {fileID: 0}
   obj: {fileID: 0}
   attackComboNum: 0
+  maxCombo: 0
   solta: 0
 --- !u!114 &11494366
 MonoBehaviour:

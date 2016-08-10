@@ -26,9 +26,10 @@ public class TiroEnemy : MonoBehaviour
     {
         if(obj != null && !foi)
         {
-            if (obj.transform.localScale.x < 0)
+            if (obj.transform.localScale.x > 0)
             {
                 velocityX *= -1;
+                gameObject.GetComponent<SpriteRenderer>().flipX = true;    
             }
             foi = true;
         }

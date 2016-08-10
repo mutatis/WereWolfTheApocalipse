@@ -304,7 +304,7 @@ public class EnemyRanged : MonoBehaviour
     {
         GameObject obj = Instantiate(tiro);
         obj.GetComponent<TiroEnemy>().transform.position = transform.position;
-        obj.GetComponent<TiroEnemy>().obj = player;
+        obj.GetComponent<TiroEnemy>().obj = gameObject;
         StopCoroutine("Pode");
         StartCoroutine("Volta");
         roamming = true;
