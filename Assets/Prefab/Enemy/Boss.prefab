@@ -223,7 +223,7 @@ Animator:
   m_GameObject: {fileID: 189900}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 2a44c16a7babb26459879bc0b45af011, type: 2}
+  m_Controller: {fileID: 9100000, guid: f85683fb6dd390041bc2bf701b0547ca, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -297,10 +297,10 @@ MonoBehaviour:
   attack:
   - attack: SaltoDilacerante
     probalidade: 100
-  - attack: SugaFuria
-    probalidade: 50
+  - attack: Tiro
+    probalidade: 100
   - attack: Summon
-    probalidade: 1
+    probalidade: 20
 --- !u!114 &11435248
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -362,11 +362,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   attack:
   - attack: Soco
-    probalidade: 50
+    probalidade: 0
   - attack: Defensa
-    probalidade: 50
+    probalidade: 0
   - attack: Engage
-    probalidade: 100
+    probalidade: 0
   - attack: Tiro
     probalidade: 100
 --- !u!114 &11463872

@@ -19,6 +19,8 @@ public class SelectPersonagem : MonoBehaviour
     [HideInInspector]
     public int select2 = 1;
 
+    public string cena;
+
     bool podeP1 = true;
     bool podeP2 = true;
     bool podeDpad = true;
@@ -69,7 +71,7 @@ public class SelectPersonagem : MonoBehaviour
                 {
                     PlayerPrefs.SetInt("Escolha", 2);
                 }
-                SceneManager.LoadScene("Jogo");
+                SceneManager.LoadScene(cena);
             }
         }
         else if(startP1)
@@ -84,7 +86,7 @@ public class SelectPersonagem : MonoBehaviour
             {
                 PlayerPrefs.SetInt("Escolha", 2);
             }
-            SceneManager.LoadScene("Jogo");
+            SceneManager.LoadScene(cena);
         }
 
         if(Input.GetKeyDown(KeyCode.Joystick1Button7))
