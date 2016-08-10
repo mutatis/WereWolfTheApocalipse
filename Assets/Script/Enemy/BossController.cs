@@ -378,7 +378,7 @@ public class BossController : MonoBehaviour
 			volBoss.start();
             GameObject obj = Instantiate(tiro);
             obj.GetComponent<TiroEnemy>().transform.position = transform.position;
-            obj.GetComponent<TiroEnemy>().obj = player;
+            obj.GetComponent<TiroEnemy>().obj = gameObject;
             contTiro += 1;
             StartCoroutine("Tiro");
         }
