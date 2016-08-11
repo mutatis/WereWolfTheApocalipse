@@ -3,6 +3,10 @@ using System.Collections;
 
 public class PacmanGame : MonoBehaviour
 {
+    public SpriteRenderer sprite;
+
+    public Transform pos;
+
     public float velocity;
 
     float x, z;
@@ -15,6 +19,8 @@ public class PacmanGame : MonoBehaviour
 
         if (Input.GetAxisRaw("DpadXP1") > 0)
         {
+            pos.transform.eulerAngles = new Vector3(90, 0, 0);
+            sprite.flipX = false;
             right = true;
             left = false;
             up = false;
@@ -22,6 +28,8 @@ public class PacmanGame : MonoBehaviour
         }
         else if(Input.GetAxisRaw("DpadXP1") < 0)
         {
+            pos.transform.eulerAngles = new Vector3(90, 0, 0);
+            sprite.flipX = true;
             right = false;
             left = true;
             up = false;
@@ -29,6 +37,8 @@ public class PacmanGame : MonoBehaviour
         }
         else if (Input.GetAxisRaw("DpadYP1") < 0)
         {
+            pos.transform.eulerAngles = new Vector3(90, 90, 0);
+            sprite.flipX = false;
             right = false;
             left = false;
             up = false;
@@ -36,6 +46,8 @@ public class PacmanGame : MonoBehaviour
         }
         else if (Input.GetAxisRaw("DpadYP1") > 0)
         {
+            pos.transform.eulerAngles = new Vector3(90, -90, 0);
+            sprite.flipX = false;
             right = false;
             left = false;
             up = true;
