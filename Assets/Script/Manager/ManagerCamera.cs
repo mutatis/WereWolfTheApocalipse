@@ -20,7 +20,6 @@ public class ManagerCamera : MonoBehaviour
         vol = FMODUnity.RuntimeManager.CreateInstance(musica1);
         vol.setVolume(PlayerPrefs.GetFloat("VolumeFX"));
         vol.start();
-
     }
 
     void Update()

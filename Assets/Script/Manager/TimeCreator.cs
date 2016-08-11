@@ -55,6 +55,5 @@ public class TimeCreator : MonoBehaviour
         x = 0;
         StopCoroutine("GO");
         StartCoroutine("GO");
-        StopCoroutine("Denovo");
     }
 }
