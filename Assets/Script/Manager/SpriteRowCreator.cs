@@ -23,7 +23,7 @@ public class SpriteRowCreator : MonoBehaviour
     [SerializeField] private SpriteRenderer[] spriteRenderers;
     private float positionToNextInstance = 0;
 
-    public float zPosition;
+    public float zPosition, yPosition;
 
     public void Start ()
     {
@@ -63,10 +63,15 @@ public class SpriteRowCreator : MonoBehaviour
 				    newInstance = Instantiate(gameObjectToBeCreated[index], transform.position + new Vector3 (i*distance,0,0), gameObjectToBeCreated[index].transform.rotation) as GameObject;
                     break;
                 }
-                case RowCreatorOptions.fixedDistanceZDisance:
+                case RowCreatorOptions.fixedDistanceZDistance:
                 {
                         newInstance = Instantiate(gameObjectToBeCreated[index], transform.position + new Vector3(i * distance, 0, i * zPosition), gameObjectToBeCreated[index].transform.rotation) as GameObject;
                         break;
+                }
+                case RowCreatorOptions.fixedDistanceY:
+                {
+                    newInstance = Instantiate(gameObjectToBeCreated[index], transform.position + new Vector3(i * distance, i * yPosition, 0), gameObjectToBeCreated[index].transform.rotation) as GameObject;
+                    break;
                 }
                 case RowCreatorOptions.fixedDistanceWithHeightVariation:
                 {
@@ -131,7 +136,8 @@ public enum RowCreatorOptions
 	variableDistance,
     fixedDistanceWithHeightVariation,
     variableDistanceWithHeightVariation,
-    fixedDistanceZDisance
+    fixedDistanceZDistance,
+    fixedDistanceY
 }
 
 #if UNITY_EDITOR
@@ -179,9 +185,13 @@ public class SpriteRowCreatorInspector : Editor
             case RowCreatorOptions.fixedDistance:
                 myScript.distance = EditorGUILayout.FloatField("Distance:", myScript.distance);
                 break;
-            case RowCreatorOptions.fixedDistanceZDisance:
+            case RowCreatorOptions.fixedDistanceZDistance:
                 myScript.distance = EditorGUILayout.FloatField("Distance:", myScript.distance);
                 myScript.zPosition = EditorGUILayout.FloatField("ZDistance:", myScript.zPosition);
+                break;
+            case RowCreatorOptions.fixedDistanceY:
+                myScript.distance = EditorGUILayout.FloatField("Distance:", myScript.distance);
+                myScript.yPosition = EditorGUILayout.FloatField("YDistance:", myScript.yPosition);
                 break;
             case RowCreatorOptions.variableDistance:
                 myScript.minDistance = EditorGUILayout.FloatField("Min Distance:", myScript.minDistance);

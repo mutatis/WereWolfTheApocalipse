@@ -75,4 +75,12 @@ public class PacmanGame : MonoBehaviour
             x = 0;
         }
     }
+
+    void OnTriggerEnter(Collider other)
+    {
+        if(other.gameObject.tag == "Pozinho")
+        {
+            Destroy(other.gameObject);
+        }
+    }
 }
