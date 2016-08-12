@@ -3,15 +3,15 @@ using System.Collections;
 
 public class PacmanGame : MonoBehaviour
 {
-    public SpriteRenderer sprite;
+    public SpriteRenderer sprite, olho;
 
-    public Transform pos;
+    public Transform pos, olhoPos;
 
     public float velocity;
 
     float x, z;
 
-    bool up, down, right, left;
+    bool up, down, right, left, duro;
 
 	void Update ()
     {
@@ -20,7 +20,9 @@ public class PacmanGame : MonoBehaviour
         if (Input.GetAxisRaw("DpadXP1") > 0)
         {
             pos.transform.eulerAngles = new Vector3(90, 0, 0);
+            olhoPos.transform.eulerAngles = new Vector3(90, 0, 0);
             sprite.flipX = false;
+            olho.flipX = false;
             right = true;
             left = false;
             up = false;
@@ -29,7 +31,9 @@ public class PacmanGame : MonoBehaviour
         else if(Input.GetAxisRaw("DpadXP1") < 0)
         {
             pos.transform.eulerAngles = new Vector3(90, 0, 0);
+            olhoPos.transform.eulerAngles = new Vector3(90, 0, 0);
             sprite.flipX = true;
+            olho.flipX = true;
             right = false;
             left = true;
             up = false;
@@ -38,7 +42,9 @@ public class PacmanGame : MonoBehaviour
         else if (Input.GetAxisRaw("DpadYP1") < 0)
         {
             pos.transform.eulerAngles = new Vector3(90, 90, 0);
+            olhoPos.transform.eulerAngles = new Vector3(90, 90, 0);
             sprite.flipX = false;
+            olho.flipX = false;
             right = false;
             left = false;
             up = false;
@@ -47,7 +53,9 @@ public class PacmanGame : MonoBehaviour
         else if (Input.GetAxisRaw("DpadYP1") > 0)
         {
             pos.transform.eulerAngles = new Vector3(90, -90, 0);
+            olhoPos.transform.eulerAngles = new Vector3(90, -90, 0);
             sprite.flipX = false;
+            olho.flipX = false;
             right = false;
             left = false;
             up = true;
@@ -76,11 +84,33 @@ public class PacmanGame : MonoBehaviour
         }
     }
 
+    IEnumerator Excitado()
+    {
+        yield return new WaitForSeconds(5);
+        duro = false;
+        sprite.color = Color.white;
+    }
+
     void OnTriggerEnter(Collider other)
     {
         if(other.gameObject.tag == "Pozinho")
         {
             Destroy(other.gameObject);
+        }
+        else if(other.gameObject.tag == "Viagra")
+        {
+            sprite.color = Color.black;
+            duro = true;
+            StartCoroutine("Excitado");
+            Destroy(other.gameObject);
+        }
+    }
+
+    void OnCollisionEnter(Collision other)
+    {
+        if (other.gameObject.tag == "Fantasma" && duro)
+        {
+            other.gameObject.GetComponent<Mulher>().Sexo();
         }
     }
 }
