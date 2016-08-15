@@ -3,13 +3,17 @@ using System.Collections;
 
 public class PacmanGame : MonoBehaviour
 {
-    public SpriteRenderer sprite, olho;
+    public SpriteRenderer sprite;
 
-    public Transform pos, olhoPos;
+    public Animator anim;
+
+    public Transform pos;
 
     public float velocity;
 
     float x, z;
+
+    int cheirada;
 
     bool up, down, right, left, duro;
 
@@ -17,12 +21,23 @@ public class PacmanGame : MonoBehaviour
     {
         transform.Translate(x, 0, z, Space.World);
 
+        if (cheirada < ManagerCocaina.cocaina.pozinho.Length / 3)
+        {
+            anim.SetInteger("Cheiro", 1);
+        }
+        else if(cheirada < (ManagerCocaina.cocaina.pozinho.Length / 3) * 2)
+        {
+            anim.SetInteger("Cheiro", 2);
+        }
+        else
+        {
+            anim.SetInteger("Cheiro", 3);
+        }
+
         if (Input.GetAxisRaw("DpadXP1") > 0)
         {
             pos.transform.eulerAngles = new Vector3(90, 0, 0);
-            olhoPos.transform.eulerAngles = new Vector3(90, 0, 0);
             sprite.flipX = false;
-            olho.flipX = false;
             right = true;
             left = false;
             up = false;
@@ -31,9 +46,7 @@ public class PacmanGame : MonoBehaviour
         else if(Input.GetAxisRaw("DpadXP1") < 0)
         {
             pos.transform.eulerAngles = new Vector3(90, 0, 0);
-            olhoPos.transform.eulerAngles = new Vector3(90, 0, 0);
             sprite.flipX = true;
-            olho.flipX = true;
             right = false;
             left = true;
             up = false;
@@ -42,9 +55,7 @@ public class PacmanGame : MonoBehaviour
         else if (Input.GetAxisRaw("DpadYP1") < 0)
         {
             pos.transform.eulerAngles = new Vector3(90, 90, 0);
-            olhoPos.transform.eulerAngles = new Vector3(90, 90, 0);
             sprite.flipX = false;
-            olho.flipX = false;
             right = false;
             left = false;
             up = false;
@@ -53,9 +64,7 @@ public class PacmanGame : MonoBehaviour
         else if (Input.GetAxisRaw("DpadYP1") > 0)
         {
             pos.transform.eulerAngles = new Vector3(90, -90, 0);
-            olhoPos.transform.eulerAngles = new Vector3(90, -90, 0);
             sprite.flipX = false;
-            olho.flipX = false;
             right = false;
             left = false;
             up = true;
@@ -95,6 +104,8 @@ public class PacmanGame : MonoBehaviour
     {
         if(other.gameObject.tag == "Pozinho")
         {
+            anim.SetTrigger("Cheiradinha");
+            cheirada++;
             Destroy(other.gameObject);
         }
         else if(other.gameObject.tag == "Viagra")
