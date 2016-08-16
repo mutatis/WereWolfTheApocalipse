@@ -6,9 +6,11 @@ public class Mulher : MonoBehaviour
 {
     public GameObject pacman, posInicial;
 
-    public NavMeshAgent agent;
+    public Animator anim;
 
     public Vector2 vel;
+
+    public int tipo;
 
     GameObject target;
 
@@ -16,7 +18,7 @@ public class Mulher : MonoBehaviour
 
     Vector2 velInicial;
 
-    public bool roamming = true, volta;
+    bool roamming = true, volta;
 
     void Start()
     {

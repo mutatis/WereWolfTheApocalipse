@@ -12,15 +12,25 @@ public class PacmanGame : MonoBehaviour
 
     public float velocity;
 
+    public GameObject[] obj;
+
     float x, z;
 
     int cheirada;
 
-    bool up, down, right, left, duro;
+    bool up, down, right, left, duro, dead;
+
+    void Start()
+    {
+        obj = GameObject.FindGameObjectsWithTag("Fantasma");
+    }
 
     void Update ()
     {
-        transform.Translate(x, z, 0, Space.World);
+        if (!dead)
+        {
+            transform.Translate(x, z, 0, Space.World);
+        }
 
         if (cheirada < ManagerCocaina.cocaina.pozinho.Length / 3)
         {
@@ -96,7 +106,15 @@ public class PacmanGame : MonoBehaviour
 
     IEnumerator Excitado()
     {
+        for(int i = 0; i < obj.Length; i++)
+        {
+            obj[i].GetComponent<Mulher>().anim.SetBool("Sexo", true);
+        }
         yield return new WaitForSeconds(5);
+        for (int i = 0; i < obj.Length; i++)
+        {
+            obj[i].GetComponent<Mulher>().anim.SetBool("Sexo", false);
+        }
         duro = false;
         sprite.color = Color.white;
     }
@@ -111,7 +129,7 @@ public class PacmanGame : MonoBehaviour
         }
         else if(other.gameObject.tag == "Viagra")
         {
-            sprite.color = Color.black;
+            sprite.color = Color.blue;
             duro = true;
             StartCoroutine("Excitado");
             Destroy(other.gameObject);
@@ -124,7 +142,15 @@ public class PacmanGame : MonoBehaviour
             }
             else
             {
-                Destroy(gameObject);
+                pos.transform.eulerAngles = new Vector3(0, 0, 0);
+                sprite.flipX = false;
+                for (int i = 0; i < obj.Length; i++)
+                {
+                    obj[i].GetComponent<Mulher>().vel = new Vector2(0, 0);
+                    obj[i].GetComponent<Mulher>().transform.position = new Vector3(transform.position.x + 1, transform.position.y + 0.5f, transform.position.z);
+                }
+                dead = true;
+                anim.SetTrigger("Dead");
             }
         }
     }
