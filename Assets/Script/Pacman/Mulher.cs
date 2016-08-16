@@ -8,6 +8,8 @@ public class Mulher : MonoBehaviour
 
     public Animator anim;
 
+    public SpriteRenderer sprite;
+
     public Vector2 vel;
 
     public int tipo;
@@ -48,6 +50,8 @@ public class Mulher : MonoBehaviour
 
     public void Sexo()
     {
+        transform.position = posInicial.transform.position;
+        vel = velInicial;
         target = posInicial;
         volta = true;
     }

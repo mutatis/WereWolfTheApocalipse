@@ -14,11 +14,13 @@ public class PacmanGame : MonoBehaviour
 
     public GameObject[] obj;
 
+    GameObject enemy;
+
     float x, z;
 
     int cheirada;
 
-    bool up, down, right, left, duro, dead;
+    bool up, down, right, left, duro, dead, cheirando;
 
     void Start()
     {
@@ -102,6 +104,25 @@ public class PacmanGame : MonoBehaviour
             z = velocity * -1;
             x = 0;
         }
+
+        if(cheirando)
+        {
+            enemy.GetComponent<Mulher>().transform.position = new Vector3(transform.position.x + 1, transform.position.y + 0.5f, transform.position.z);
+            enemy.GetComponent<Mulher>().vel = new Vector2(0, 0);
+        }
+    }
+
+    public void Gozo()
+    {
+        enemy.GetComponent<Mulher>().sprite.enabled = true;
+        enemy.gameObject.GetComponent<Mulher>().Sexo();
+    }
+
+    void Cheirando()
+    {
+        anim.SetInteger("Fantasma", enemy.GetComponent<Mulher>().tipo);
+        anim.SetTrigger("Comeu");
+        enemy.GetComponent<Mulher>().sprite.enabled = false;
     }
 
     IEnumerator Excitado()
@@ -110,13 +131,13 @@ public class PacmanGame : MonoBehaviour
         {
             obj[i].GetComponent<Mulher>().anim.SetBool("Sexo", true);
         }
-        yield return new WaitForSeconds(5);
+        yield return new WaitForSeconds(15);
         for (int i = 0; i < obj.Length; i++)
         {
             obj[i].GetComponent<Mulher>().anim.SetBool("Sexo", false);
         }
         duro = false;
-        sprite.color = Color.white;
+        anim.SetBool("Woow", false);
     }
 
     void OnTriggerEnter2D(Collider2D other)
@@ -129,8 +150,10 @@ public class PacmanGame : MonoBehaviour
         }
         else if(other.gameObject.tag == "Viagra")
         {
-            sprite.color = Color.blue;
+            anim.SetBool("Woow", true);
+            anim.SetTrigger("Locao");
             duro = true;
+            StopCoroutine("Excitado");
             StartCoroutine("Excitado");
             Destroy(other.gameObject);
         }
@@ -138,7 +161,8 @@ public class PacmanGame : MonoBehaviour
         {
             if (duro)
             {
-                other.gameObject.GetComponent<Mulher>().Sexo();
+                enemy = other.gameObject;
+                Cheirando();
             }
             else
             {
