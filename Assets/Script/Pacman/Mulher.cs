@@ -1,40 +1,64 @@
 ﻿using UnityEngine;
 using System.Collections;
+using UnityEditor;
 
 public class Mulher : MonoBehaviour
 {
-    public GameObject target;
+    public GameObject pacman, posInicial;
 
     public NavMeshAgent agent;
 
-    Vector3 posInicial;
+    public Vector2 vel;
 
-    bool roamming = true;
+    GameObject target;
+
+    bool roamming = true, volta;
     
     void Start()
     {
-        target = ManagerRoamming.roamming.posicao[Random.Range(0, ManagerRoamming.roamming.posicao.Length)];
-        posInicial = transform.position;
+        //StartCoroutine("GO");
+        //target = ManagerRoamming.roamming.posicao[Random.Range(0, ManagerRoamming.roamming.posicao.Length)];
     }
 
 	void Update ()
     {
-        if(roamming && Vector3.Distance(transform.position, target.transform.position) < 1f)
+        transform.Translate(vel, Space.World);
+        /*if(volta && Vector3.Distance(transform.position, target.transform.position) < 1f)
+        {
+            volta = false;
+        }
+
+        if(roamming && Vector3.Distance(transform.position, target.transform.position) < 1f && !volta)
         {
             target = ManagerRoamming.roamming.posicao[Random.Range(0, ManagerRoamming.roamming.posicao.Length)];
         }
+        else if(!roamming && !volta)
+        {
+            target = pacman;
+        }
 
-        agent.destination = target.transform.position;
+        agent.destination = target.transform.position;*/
 	}
 
-    IEnumerator GO()
+    /*IEnumerator GO()
     {
         yield return new WaitForSeconds(15);
+        print("sdçvjsdoivhsirj");
         roamming = false;
-    }
+    }*/
 
     public void Sexo()
     {
-        transform.position = posInicial;
+        target = posInicial;
+        volta = true;
+    }
+
+    void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.gameObject.tag == "Roamming")
+        {
+            transform.position = other.gameObject.transform.position;
+            vel = other.gameObject.GetComponent<DirecaoGhost>().vel[Random.Range(0, other.gameObject.GetComponent<DirecaoGhost>().vel.Length)];
+        }
     }
 }

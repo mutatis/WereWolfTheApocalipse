@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using UnityEditor;
 
 public class PacmanGame : MonoBehaviour
 {
@@ -17,9 +18,9 @@ public class PacmanGame : MonoBehaviour
 
     bool up, down, right, left, duro;
 
-	void Update ()
+    void Update ()
     {
-        transform.Translate(x, 0, z, Space.World);
+        transform.Translate(x, z, 0, Space.World);
 
         if (cheirada < ManagerCocaina.cocaina.pozinho.Length / 3)
         {
@@ -36,7 +37,7 @@ public class PacmanGame : MonoBehaviour
 
         if (Input.GetAxisRaw("DpadXP1") > 0)
         {
-            pos.transform.eulerAngles = new Vector3(90, 0, 0);
+            pos.transform.eulerAngles = new Vector3(0, 0, 0);
             sprite.flipX = false;
             right = true;
             left = false;
@@ -45,7 +46,7 @@ public class PacmanGame : MonoBehaviour
         }
         else if(Input.GetAxisRaw("DpadXP1") < 0)
         {
-            pos.transform.eulerAngles = new Vector3(90, 0, 0);
+            pos.transform.eulerAngles = new Vector3(0, 0, 0);
             sprite.flipX = true;
             right = false;
             left = true;
@@ -54,7 +55,7 @@ public class PacmanGame : MonoBehaviour
         }
         else if (Input.GetAxisRaw("DpadYP1") < 0)
         {
-            pos.transform.eulerAngles = new Vector3(90, 90, 0);
+            pos.transform.eulerAngles = new Vector3(0, 0, 90);
             sprite.flipX = false;
             right = false;
             left = false;
@@ -63,7 +64,7 @@ public class PacmanGame : MonoBehaviour
         }
         else if (Input.GetAxisRaw("DpadYP1") > 0)
         {
-            pos.transform.eulerAngles = new Vector3(90, -90, 0);
+            pos.transform.eulerAngles = new Vector3(0, 0, -90);
             sprite.flipX = false;
             right = false;
             left = false;
@@ -100,7 +101,7 @@ public class PacmanGame : MonoBehaviour
         sprite.color = Color.white;
     }
 
-    void OnTriggerEnter(Collider other)
+    void OnTriggerEnter2D(Collider2D other)
     {
         if(other.gameObject.tag == "Pozinho")
         {
@@ -115,13 +116,22 @@ public class PacmanGame : MonoBehaviour
             StartCoroutine("Excitado");
             Destroy(other.gameObject);
         }
+        else if (other.gameObject.tag == "Fantasma")
+        {
+            if (duro)
+            {
+                other.gameObject.GetComponent<Mulher>().Sexo();
+            }
+            else
+            {
+                Destroy(gameObject);
+            }
+        }
     }
 
     void OnCollisionEnter(Collision other)
     {
-        if (other.gameObject.tag == "Fantasma" && duro)
-        {
-            other.gameObject.GetComponent<Mulher>().Sexo();
-        }
+
     }
-}
+
+}   
