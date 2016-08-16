@@ -12,40 +12,37 @@ public class Mulher : MonoBehaviour
 
     GameObject target;
 
-    bool roamming = true, volta;
-    
+    Vector3 direction;
+
+    Vector2 velInicial;
+
+    public bool roamming = true, volta;
+
     void Start()
     {
-        //StartCoroutine("GO");
-        //target = ManagerRoamming.roamming.posicao[Random.Range(0, ManagerRoamming.roamming.posicao.Length)];
+        velInicial = vel;
     }
 
 	void Update ()
     {
-        transform.Translate(vel, Space.World);
-        /*if(volta && Vector3.Distance(transform.position, target.transform.position) < 1f)
+        if(volta)
         {
-            volta = false;
+            if(Vector3.Distance(transform.position, posInicial.transform.position) > 1)
+            {
+                direction = posInicial.transform.position - transform.position;
+                direction.Normalize();
+                transform.Translate(direction, Space.World);
+            }
+            else
+            {
+                volta = false;
+            }
         }
-
-        if(roamming && Vector3.Distance(transform.position, target.transform.position) < 1f && !volta)
+        else
         {
-            target = ManagerRoamming.roamming.posicao[Random.Range(0, ManagerRoamming.roamming.posicao.Length)];
+            transform.Translate(vel, Space.World);
         }
-        else if(!roamming && !volta)
-        {
-            target = pacman;
-        }
-
-        agent.destination = target.transform.position;*/
 	}
-
-    /*IEnumerator GO()
-    {
-        yield return new WaitForSeconds(15);
-        print("sdçvjsdoivhsirj");
-        roamming = false;
-    }*/
 
     public void Sexo()
     {

@@ -55,7 +55,7 @@ public class PacmanGame : MonoBehaviour
         }
         else if (Input.GetAxisRaw("DpadYP1") < 0)
         {
-            pos.transform.eulerAngles = new Vector3(0, 0, 90);
+            pos.transform.eulerAngles = new Vector3(0, 0, -90);
             sprite.flipX = false;
             right = false;
             left = false;
@@ -64,7 +64,7 @@ public class PacmanGame : MonoBehaviour
         }
         else if (Input.GetAxisRaw("DpadYP1") > 0)
         {
-            pos.transform.eulerAngles = new Vector3(0, 0, -90);
+            pos.transform.eulerAngles = new Vector3(0, 0, 90);
             sprite.flipX = false;
             right = false;
             left = false;
