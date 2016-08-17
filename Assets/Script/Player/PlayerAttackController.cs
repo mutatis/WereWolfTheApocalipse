@@ -23,6 +23,8 @@ public class PlayerAttackController : MonoBehaviour
     public int attackComboNum = 0, maxCombo;
     public int solta;
 
+    float ataque;
+
     void Update()
     {
         if(playerStats.crinos)
@@ -96,9 +98,9 @@ public class PlayerAttackController : MonoBehaviour
         if(mov && !playerDano.stun && !playerMov.isGrab && !playerStats.crinos)
         {
             if(transform.localScale.x > 0)
-				transform.Translate(0.01f, 0, 0, Space.World);
+				transform.Translate(ataque, 0, 0, Space.World);
             else
-				transform.Translate(-0.01f, 0, 0, Space.World);
+				transform.Translate(ataque * -1, 0, 0, Space.World);
         }
     }
 
@@ -158,47 +160,64 @@ public class PlayerAttackController : MonoBehaviour
                 switch (attackComboNum)
                 {
                     case 1:
-                        if (!playerAnim.anim.GetCurrentAnimatorStateInfo(0).IsName("SocoFracoAndarilho") && 
-                            !playerAnim.anim.GetCurrentAnimatorStateInfo(0).IsName("SocoFraco1Andarilho") && 
+                        if (!playerAnim.anim.GetCurrentAnimatorStateInfo(0).IsName("SocoFracoAndarilho") &&
+                            !playerAnim.anim.GetCurrentAnimatorStateInfo(0).IsName("SocoFraco1Andarilho") &&
                             !playerAnim.anim.GetCurrentAnimatorStateInfo(0).IsName("SocoFraco2Andarilho") &&
                             !playerAnim.anim.GetCurrentAnimatorStateInfo(0).IsName("SocoForte"))
+                        {
                             playerAnim.anim.SetTrigger("SocoFraco");
+                            ataque = 0.01f;
+                        }
                         break;
 
                     case 2:
                         if (!playerAnim.anim.GetCurrentAnimatorStateInfo(0).IsName("SocoFraco1Andarilho"))
+                        {
                             playerAnim.anim.SetTrigger("SocoFraco2");
+                            ataque = 0.01f;
+                        }
                         break;
 
                     case 3:
                         if (!playerAnim.anim.GetCurrentAnimatorStateInfo(0).IsName("SocoFraco2Andarilho") && !playerStats.crinos)
                         {
                             playerAnim.anim.SetTrigger("SocoFraco2");
+                            ataque = 0.01f;
                         }
                         else if(!playerAnim.anim.GetCurrentAnimatorStateInfo(0).IsName("SocoFraco2Andarilho"))
                         { 
                             playerAnim.anim.SetTrigger("SocoFraco3");
+                            ataque = 0.01f;
                         }
                         break;
 
                     case 4:
                         if (!playerAnim.anim.GetCurrentAnimatorStateInfo(0).IsName("SocoFraco2Andarilho"))
+                        {
                             playerAnim.anim.SetTrigger("SocoFraco3");
+                            ataque = 0.01f;
+                        }
                         break;
 
                     default:
-                        if (!playerAnim.anim.GetCurrentAnimatorStateInfo(0).IsName("SocoFracoAndarilho") && 
-                            playerAnim.anim.GetCurrentAnimatorStateInfo(0).IsName("SocoFraco1Andarilho") && 
+                        if (!playerAnim.anim.GetCurrentAnimatorStateInfo(0).IsName("SocoFracoAndarilho") &&
+                            playerAnim.anim.GetCurrentAnimatorStateInfo(0).IsName("SocoFraco1Andarilho") &&
                             !playerAnim.anim.GetCurrentAnimatorStateInfo(0).IsName("SocoFraco2Andarilho") &&
                             !playerAnim.anim.GetCurrentAnimatorStateInfo(0).IsName("SocoForte"))
+                        {
                             playerAnim.anim.SetTrigger("SocoFraco");
+                            ataque = 0.01f;
+                        }
                         break;
                 }
             }
             else
             {
                 if (!playerAnim.anim.GetCurrentAnimatorStateInfo(0).IsName("SocoForte"))
-                       playerAnim.anim.SetTrigger("SocoForte");                
+                {
+                    playerAnim.anim.SetTrigger("SocoForte");
+                    ataque = 0.04f;
+                }
             }
         }
         else
