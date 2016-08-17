@@ -167,10 +167,10 @@ public class PacmanGame : MonoBehaviour
             {
                 pos.transform.eulerAngles = new Vector3(0, 0, 0);
                 sprite.flipX = false;
+                other.gameObject.GetComponent<Mulher>().transform.position = new Vector3(transform.position.x + 0.5f, transform.position.y + 0.5f, transform.position.z);
                 for (int i = 0; i < obj.Length; i++)
                 {
                     obj[i].GetComponent<Mulher>().vel = new Vector2(0, 0);
-                    obj[i].GetComponent<Mulher>().transform.position = new Vector3(transform.position.x + 1, transform.position.y + 0.5f, transform.position.z);
                 }
                 dead = true;
                 anim.SetTrigger("Dead");
