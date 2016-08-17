@@ -13,13 +13,13 @@ public class Mulher : MonoBehaviour
 
     public int tipo;
 
-    GameObject target;
+    GameObject target, encontro;
 
     Vector3 direction;
 
     Vector2 velInicial;
 
-    bool roamming = true, volta;
+    bool roamming = true, volta, mudar;
 
     void Start()
     {
@@ -45,6 +45,16 @@ public class Mulher : MonoBehaviour
         {
             transform.Translate(vel, Space.World);
         }
+
+        if(mudar)
+        {
+            if(Vector2.Distance(transform.position, encontro.transform.position) < 0.5f)
+            {
+                transform.position = encontro.gameObject.transform.position;
+                vel = encontro.gameObject.GetComponent<DirecaoGhost>().vel[Random.Range(0, encontro.gameObject.GetComponent<DirecaoGhost>().vel.Length)];
+                mudar = false;
+            }
+        }
 	}
 
     public void Sexo()
@@ -59,8 +69,8 @@ public class Mulher : MonoBehaviour
     {
         if (other.gameObject.tag == "Roamming")
         {
-            transform.position = other.gameObject.transform.position;
-            vel = other.gameObject.GetComponent<DirecaoGhost>().vel[Random.Range(0, other.gameObject.GetComponent<DirecaoGhost>().vel.Length)];
+            encontro = other.gameObject;
+            mudar = true;
         }
     }
 }
