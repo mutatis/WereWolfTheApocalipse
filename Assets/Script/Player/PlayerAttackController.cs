@@ -216,7 +216,7 @@ public class PlayerAttackController : MonoBehaviour
                 if (!playerAnim.anim.GetCurrentAnimatorStateInfo(0).IsName("SocoForte"))
                 {
                     playerAnim.anim.SetTrigger("SocoForte");
-                    ataque = 0.04f;
+                    ataque = 0.06f;
                 }
             }
         }

@@ -84,6 +84,11 @@ public class PlayerAnimation : MonoBehaviour
         levanta = false;
     }
 
+    public void SocoForte()
+    {
+        playerAttack.mov = false;
+    }
+
     public void Cai()
     {
         levanta = true;
