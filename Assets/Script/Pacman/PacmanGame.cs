@@ -130,7 +130,12 @@ public class PacmanGame : MonoBehaviour
         {
             obj[i].GetComponent<Mulher>().anim.SetBool("Sexo", true);
         }
-        yield return new WaitForSeconds(15);
+        yield return new WaitForSeconds(12);
+        for (int i = 0; i < obj.Length; i++)
+        {
+            obj[i].GetComponent<Mulher>().anim.SetTrigger("Acabando");
+        }
+        yield return new WaitForSeconds(3);
         for (int i = 0; i < obj.Length; i++)
         {
             obj[i].GetComponent<Mulher>().anim.SetBool("Sexo", false);
