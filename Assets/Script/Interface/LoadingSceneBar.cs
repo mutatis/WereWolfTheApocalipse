@@ -25,14 +25,15 @@ public class LoadingSceneBar : MonoBehaviour
         {
             // [0, 0.9] > [0, 1]
             float progress = Mathf.Clamp01(ao.progress / 0.9f);
-            text.text = (progress * 100).ToString();
+            text.text = ("Loading progress: " + (progress * 100) + "%");
+                //progress * 100).ToString();
             Debug.Log("Loading progress: " + (progress * 100) + "%");
 
             // Loading completed
             if (ao.progress == 0.9f)
             {
                 Debug.Log("Press a key to start");
-                if (Input.GetKeyDown(KeyCode.A))
+                if (Input.GetKeyDown(KeyCode.Joystick1Button0))
                     ao.allowSceneActivation = true;
             }
 

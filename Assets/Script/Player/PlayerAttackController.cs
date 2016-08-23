@@ -56,7 +56,7 @@ public class PlayerAttackController : MonoBehaviour
                     playerAnim.anim.SetBool("isBlock", false);
                     block = false;
                 }
-                else if (Input.GetKeyDown(KeyCode.Joystick1Button2) && !presa && !playerAnim.anim.GetCurrentAnimatorStateInfo(0).IsName("SocoFraco2Andarilho"))
+                else if (Input.GetKeyDown(KeyCode.Joystick1Button2) && !presa && !playerAnim.anim.GetCurrentAnimatorStateInfo(0).IsName("SocoFraco2Andarilho") && !block)
                 {
                     bate = true;
                     if (((!playerAnim.anim.GetCurrentAnimatorStateInfo(0).IsName("SocoFracoAndarilho")) && (attackComboNum == 0 || attackComboNum > 4)) || 
@@ -66,7 +66,7 @@ public class PlayerAttackController : MonoBehaviour
                         SocoFraco();
                     }
                 }
-                else if(Input.GetKeyDown(KeyCode.Joystick1Button3) && !presa && !playerAnim.anim.GetCurrentAnimatorStateInfo(0).IsName("SocoFraco2Andarilho"))
+                else if(Input.GetKeyDown(KeyCode.Joystick1Button3) && !presa && !playerAnim.anim.GetCurrentAnimatorStateInfo(0).IsName("SocoFraco2Andarilho") && !block)
                 {
                     if (((!playerAnim.anim.GetCurrentAnimatorStateInfo(0).IsName("SocoFracoAndarilho"))) ||
                          playerMov.isGrab && !playerAnim.anim.GetCurrentAnimatorStateInfo(0).IsName("GrabAttackAndarilho") &&
@@ -97,10 +97,16 @@ public class PlayerAttackController : MonoBehaviour
 
         if(mov && !playerDano.stun && !playerMov.isGrab && !playerStats.crinos)
         {
-            if(transform.localScale.x > 0)
-				transform.Translate(ataque, 0, 0, Space.World);
+            if (transform.localScale.x > 0)
+            {
+                transform.Translate(ataque, 0, 0, Space.World);
+                playerMov.x = ataque;
+            }
             else
-				transform.Translate(ataque * -1, 0, 0, Space.World);
+            {
+                transform.Translate(ataque * -1, 0, 0, Space.World);
+                playerMov.x = ataque * -1;
+            }
         }
     }
 
