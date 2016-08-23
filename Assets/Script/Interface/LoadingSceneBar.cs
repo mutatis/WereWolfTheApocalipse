@@ -1,20 +1,26 @@
 ﻿using UnityEngine;
 using System.Collections;
 using UnityEngine.SceneManagement;
-using UnityEngine.UI;
+//using UnityEngine.UI;
 
 public class LoadingSceneBar : MonoBehaviour
 {
     public string cena;
 
-    public Text text;
+    /*public Text text;
 
     void Start()
     {
         StartCoroutine(AsynchronousLoad(cena));
+    }*/
+
+    void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.Joystick1Button0))
+            SceneManager.LoadScene(cena);
     }
 
-    IEnumerator AsynchronousLoad(string scene)
+    /*IEnumerator AsynchronousLoad(string scene)
     {
         yield return null;
 
@@ -39,5 +45,5 @@ public class LoadingSceneBar : MonoBehaviour
 
             yield return null;
         }
-    }
+    }*/
 }

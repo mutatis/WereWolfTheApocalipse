@@ -176,7 +176,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 100%
+  m_Text: "Aperta A que voc\xEA vai pro jogo XD"
 --- !u!222 &32562143
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -4255,6 +4255,21 @@ Prefab:
         type: 2}
       propertyPath: morreu
       value: event:/Golpes/Land
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000011394856476, guid: 572cce6aac15f5a429aa014116789d4b,
+        type: 2}
+      propertyPath: machado
+      value: event:/Music/Music
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000011394856476, guid: 572cce6aac15f5a429aa014116789d4b,
+        type: 2}
+      propertyPath: sexo
+      value: event:/Music/Stage1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000011394856476, guid: 572cce6aac15f5a429aa014116789d4b,
+        type: 2}
+      propertyPath: viagra
+      value: event:/Golpes/soco_fraco_fmod
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 572cce6aac15f5a429aa014116789d4b, type: 2}
