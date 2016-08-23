@@ -23,7 +23,7 @@ public class PlayerAttackController : MonoBehaviour
     public int attackComboNum = 0, maxCombo;
     public int solta;
 
-    float ataque;
+    public float ataque;
 
     void Update()
     {
@@ -222,7 +222,7 @@ public class PlayerAttackController : MonoBehaviour
                 if (!playerAnim.anim.GetCurrentAnimatorStateInfo(0).IsName("SocoForte"))
                 {
                     playerAnim.anim.SetTrigger("SocoForte");
-                    ataque = 0.12f;
+                    ataque = 0;
                 }
             }
         }

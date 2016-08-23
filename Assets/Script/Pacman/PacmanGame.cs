@@ -11,6 +11,11 @@ public class PacmanGame : MonoBehaviour
 
     public float velocity;
 
+    FMOD.Studio.EventInstance pacmanTap;
+
+    [FMODUnity.EventRef]
+    public string tap, cheiro, morreu;
+
     public GameObject[] obj;
 
     GameObject enemy;
@@ -18,6 +23,8 @@ public class PacmanGame : MonoBehaviour
     float x, z;
 
     int cheirada;
+
+    public bool toca;
 
     bool up, down, right, left, duro, dead, cheirando;
 
@@ -46,8 +53,10 @@ public class PacmanGame : MonoBehaviour
             anim.SetInteger("Cheiro", 3);
         }
 
-        if (Input.GetAxisRaw("DpadXP1") > 0)
+        if (Input.GetAxisRaw("DpadXP1") > 0 && !right)
         {
+            toca = true;
+            PlaySound();
             pos.transform.eulerAngles = new Vector3(0, 0, 0);
             sprite.flipX = false;
             right = true;
@@ -55,8 +64,10 @@ public class PacmanGame : MonoBehaviour
             up = false;
             down = false;
         }
-        else if(Input.GetAxisRaw("DpadXP1") < 0)
+        else if(Input.GetAxisRaw("DpadXP1") < 0 && !left)
         {
+            toca = true;
+            PlaySound();
             pos.transform.eulerAngles = new Vector3(0, 0, 0);
             sprite.flipX = true;
             right = false;
@@ -64,8 +75,10 @@ public class PacmanGame : MonoBehaviour
             up = false;
             down = false;
         }
-        else if (Input.GetAxisRaw("DpadYP1") < 0)
+        else if (Input.GetAxisRaw("DpadYP1") < 0 && !down)
         {
+            toca = true;
+            PlaySound();
             pos.transform.eulerAngles = new Vector3(0, 0, -90);
             sprite.flipX = false;
             right = false;
@@ -73,8 +86,10 @@ public class PacmanGame : MonoBehaviour
             up = false;
             down = true;
         }
-        else if (Input.GetAxisRaw("DpadYP1") > 0)
+        else if (Input.GetAxisRaw("DpadYP1") > 0 && !up)
         {
+            toca = true;
+            PlaySound();
             pos.transform.eulerAngles = new Vector3(0, 0, 90);
             sprite.flipX = false;
             right = false;
@@ -108,6 +123,17 @@ public class PacmanGame : MonoBehaviour
         {
             enemy.GetComponent<Mulher>().transform.position = new Vector3(transform.position.x + 1, transform.position.y + 0.5f, transform.position.z);
             enemy.GetComponent<Mulher>().vel = new Vector2(0, 0);
+        }
+    }
+
+    void PlaySound()
+    {
+        if (toca)
+        {
+            pacmanTap = FMODUnity.RuntimeManager.CreateInstance(tap);
+            pacmanTap.setVolume(PlayerPrefs.GetFloat("VolumeFX"));
+            pacmanTap.start();
+            toca = false;
         }
     }
 
@@ -148,6 +174,9 @@ public class PacmanGame : MonoBehaviour
     {
         if(other.gameObject.tag == "Pozinho")
         {
+            pacmanTap = FMODUnity.RuntimeManager.CreateInstance(cheiro);
+            pacmanTap.setVolume(PlayerPrefs.GetFloat("VolumeFX"));
+            pacmanTap.start();
             anim.SetTrigger("Cheiradinha");
             cheirada++;
             Destroy(other.gameObject);
@@ -170,6 +199,9 @@ public class PacmanGame : MonoBehaviour
             }
             else
             {
+                pacmanTap = FMODUnity.RuntimeManager.CreateInstance(morreu);
+                pacmanTap.setVolume(PlayerPrefs.GetFloat("VolumeFX"));
+                pacmanTap.start();
                 pos.transform.eulerAngles = new Vector3(0, 0, 0);
                 sprite.flipX = false;
                 other.gameObject.GetComponent<Mulher>().transform.position = new Vector3(transform.position.x + 0.5f, transform.position.y + 0.5f, transform.position.z);

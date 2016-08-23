@@ -4231,6 +4231,31 @@ Prefab:
       propertyPath: m_LocalScale.z
       value: 3.0199811
       objectReference: {fileID: 0}
+    - target: {fileID: 114000011394856476, guid: 572cce6aac15f5a429aa014116789d4b,
+        type: 2}
+      propertyPath: velocity
+      value: 0.12
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000011394856476, guid: 572cce6aac15f5a429aa014116789d4b,
+        type: 2}
+      propertyPath: tap
+      value: event:/Golpes/Throw
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000011394856476, guid: 572cce6aac15f5a429aa014116789d4b,
+        type: 2}
+      propertyPath: toca
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000011394856476, guid: 572cce6aac15f5a429aa014116789d4b,
+        type: 2}
+      propertyPath: cheiro
+      value: event:/Golpes/Block
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000011394856476, guid: 572cce6aac15f5a429aa014116789d4b,
+        type: 2}
+      propertyPath: morreu
+      value: event:/Golpes/Land
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 572cce6aac15f5a429aa014116789d4b, type: 2}
   m_IsPrefabParent: 0

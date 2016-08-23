@@ -86,7 +86,8 @@ public class PlayerAnimation : MonoBehaviour
 
     public void SocoForte()
     {
-        playerAttack.mov = false;
+        playerAttack.ataque = 0.12f;
+        playerAttack.mov = true;
     }
 
     public void Cai()
