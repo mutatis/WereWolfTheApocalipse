@@ -35,7 +35,10 @@ public class PlayerMovment : MonoBehaviour
     {
 		if (Time.timeScale != 0)
 		{
-			transform.Translate (new Vector3 ((x * playerStatus.speed), 0, (z * playerStatus.speed)), Space.World);        
+            if (!playerAttack.mov)
+            {
+                transform.Translate(new Vector3((x * playerStatus.speed), 0, (z * playerStatus.speed)), Space.World);
+            }
 
 			if (playerStats.crinos && !sprite.flipX)
 			{

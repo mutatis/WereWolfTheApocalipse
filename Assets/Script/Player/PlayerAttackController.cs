@@ -100,12 +100,12 @@ public class PlayerAttackController : MonoBehaviour
             if (transform.localScale.x > 0)
             {
                 transform.Translate(ataque, 0, 0, Space.World);
-                playerMov.x = ataque;
+                playerMov.x = ataque * 1.5f;
             }
             else
             {
                 transform.Translate(ataque * -1, 0, 0, Space.World);
-                playerMov.x = ataque * -1;
+                playerMov.x = (ataque * 1.5f) * -1;
             }
         }
     }
@@ -172,7 +172,7 @@ public class PlayerAttackController : MonoBehaviour
                             !playerAnim.anim.GetCurrentAnimatorStateInfo(0).IsName("SocoForte"))
                         {
                             playerAnim.anim.SetTrigger("SocoFraco");
-                            ataque = 0.01f;
+                            ataque = 0.02f;
                         }
                         break;
 
@@ -180,7 +180,7 @@ public class PlayerAttackController : MonoBehaviour
                         if (!playerAnim.anim.GetCurrentAnimatorStateInfo(0).IsName("SocoFraco1Andarilho"))
                         {
                             playerAnim.anim.SetTrigger("SocoFraco2");
-                            ataque = 0.01f;
+                            ataque = 0.02f;
                         }
                         break;
 
@@ -188,12 +188,12 @@ public class PlayerAttackController : MonoBehaviour
                         if (!playerAnim.anim.GetCurrentAnimatorStateInfo(0).IsName("SocoFraco2Andarilho") && !playerStats.crinos)
                         {
                             playerAnim.anim.SetTrigger("SocoFraco2");
-                            ataque = 0.01f;
+                            ataque = 0.02f;
                         }
                         else if(!playerAnim.anim.GetCurrentAnimatorStateInfo(0).IsName("SocoFraco2Andarilho"))
                         { 
                             playerAnim.anim.SetTrigger("SocoFraco3");
-                            ataque = 0.01f;
+                            ataque = 0.02f;
                         }
                         break;
 
@@ -201,7 +201,7 @@ public class PlayerAttackController : MonoBehaviour
                         if (!playerAnim.anim.GetCurrentAnimatorStateInfo(0).IsName("SocoFraco2Andarilho"))
                         {
                             playerAnim.anim.SetTrigger("SocoFraco3");
-                            ataque = 0.01f;
+                            ataque = 0.02f;
                         }
                         break;
 
@@ -212,7 +212,7 @@ public class PlayerAttackController : MonoBehaviour
                             !playerAnim.anim.GetCurrentAnimatorStateInfo(0).IsName("SocoForte"))
                         {
                             playerAnim.anim.SetTrigger("SocoFraco");
-                            ataque = 0.01f;
+                            ataque = 0.02f;
                         }
                         break;
                 }
@@ -222,7 +222,7 @@ public class PlayerAttackController : MonoBehaviour
                 if (!playerAnim.anim.GetCurrentAnimatorStateInfo(0).IsName("SocoForte"))
                 {
                     playerAnim.anim.SetTrigger("SocoForte");
-                    ataque = 0.06f;
+                    ataque = 0.12f;
                 }
             }
         }
