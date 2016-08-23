@@ -11,7 +11,8 @@ public class PacmanGame : MonoBehaviour
 
     public float velocity;
 
-    FMOD.Studio.EventInstance pacmanTap, machadoSom, sexoSom;
+    [HideInInspector]
+    public FMOD.Studio.EventInstance pacmanTap, machadoSom, sexoSom;
 
     [FMODUnity.EventRef]
     public string tap, cheiro, morreu, machado, sexo, viagra, sexoEnd;
@@ -24,9 +25,7 @@ public class PacmanGame : MonoBehaviour
 
     int cheirada;
 
-    public bool toca;
-
-    bool up, down, right, left, duro, dead, cheirando;
+    bool up, down, right, left, duro, dead, cheirando, toca;
 
     void Start()
     {
@@ -145,10 +144,8 @@ public class PacmanGame : MonoBehaviour
         pacmanTap = FMODUnity.RuntimeManager.CreateInstance(sexoEnd);
         pacmanTap.setVolume(PlayerPrefs.GetFloat("VolumeFX"));
         pacmanTap.start();
-        sexoSom.stop(FMOD.Studio.STOP_MODE.ALLOWFADEOUT);
-        sexoSom.release();
         enemy.GetComponent<Mulher>().sprite.enabled = true;
-        enemy.gameObject.GetComponent<Mulher>().Sexo();
+        enemy.gameObject.GetComponent<Mulher>().Sexo(gameObject);
     }
 
     void Cheirando()

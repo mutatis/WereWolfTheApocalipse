@@ -3,7 +3,7 @@ using System.Collections;
 
 public class Mulher : MonoBehaviour
 {
-    public GameObject pacman, posInicial;
+    public GameObject pacman, posInicial, objF;
 
     public Animator anim;
 
@@ -32,6 +32,8 @@ public class Mulher : MonoBehaviour
         {
             if(Vector3.Distance(transform.position, posInicial.transform.position) > 1)
             {
+                objF.GetComponent<PacmanGame>().sexoSom.stop(FMOD.Studio.STOP_MODE.IMMEDIATE);
+                objF.GetComponent<PacmanGame>().sexoSom.release();
                 direction = posInicial.transform.position - transform.position;
                 direction.Normalize();
                 transform.Translate(direction, Space.World);
@@ -57,8 +59,11 @@ public class Mulher : MonoBehaviour
         }
 	}
 
-    public void Sexo()
+    public void Sexo(GameObject obj)
     {
+        objF = obj;
+        objF.GetComponent<PacmanGame>().sexoSom.stop(FMOD.Studio.STOP_MODE.ALLOWFADEOUT);
+        objF.GetComponent<PacmanGame>().sexoSom.release();
         transform.position = posInicial.transform.position;
         vel = velInicial;
         target = posInicial;

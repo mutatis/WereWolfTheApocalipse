@@ -3285,7 +3285,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cena: Jogo
-  text: {fileID: 32562142}
 --- !u!81 &1625779423
 AudioListener:
   m_ObjectHideFlags: 0
@@ -4259,17 +4258,22 @@ Prefab:
     - target: {fileID: 114000011394856476, guid: 572cce6aac15f5a429aa014116789d4b,
         type: 2}
       propertyPath: machado
-      value: event:/Music/Music
+      value: event:/Skills/Electrocute
       objectReference: {fileID: 0}
     - target: {fileID: 114000011394856476, guid: 572cce6aac15f5a429aa014116789d4b,
         type: 2}
       propertyPath: sexo
-      value: event:/Music/Stage1
+      value: event:/Music/Music
       objectReference: {fileID: 0}
     - target: {fileID: 114000011394856476, guid: 572cce6aac15f5a429aa014116789d4b,
         type: 2}
       propertyPath: viagra
       value: event:/Golpes/soco_fraco_fmod
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000011394856476, guid: 572cce6aac15f5a429aa014116789d4b,
+        type: 2}
+      propertyPath: sexoEnd
+      value: event:/Skills/Wall of Granite
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 572cce6aac15f5a429aa014116789d4b, type: 2}
