@@ -9,4 +9,9 @@ public class NarigoAnimControll : MonoBehaviour
     {
         pac.Gozo();
     }
+
+    public void Precoce()
+    {
+        pac.Precoce();
+    }
 }

@@ -4238,7 +4238,7 @@ Prefab:
     - target: {fileID: 114000011394856476, guid: 572cce6aac15f5a429aa014116789d4b,
         type: 2}
       propertyPath: tap
-      value: event:/Golpes/Throw
+      value: event:/Pacman/apertarqualquerbotao
       objectReference: {fileID: 0}
     - target: {fileID: 114000011394856476, guid: 572cce6aac15f5a429aa014116789d4b,
         type: 2}
@@ -4248,32 +4248,37 @@ Prefab:
     - target: {fileID: 114000011394856476, guid: 572cce6aac15f5a429aa014116789d4b,
         type: 2}
       propertyPath: cheiro
-      value: event:/Golpes/Block
+      value: event:/Pacman/sniff
       objectReference: {fileID: 0}
     - target: {fileID: 114000011394856476, guid: 572cce6aac15f5a429aa014116789d4b,
         type: 2}
       propertyPath: morreu
-      value: event:/Golpes/Land
+      value: event:/Pacman/death
       objectReference: {fileID: 0}
     - target: {fileID: 114000011394856476, guid: 572cce6aac15f5a429aa014116789d4b,
         type: 2}
       propertyPath: machado
-      value: event:/Skills/Electrocute
+      value: event:/Pacman/machado
       objectReference: {fileID: 0}
     - target: {fileID: 114000011394856476, guid: 572cce6aac15f5a429aa014116789d4b,
         type: 2}
       propertyPath: sexo
-      value: event:/Music/Music
+      value: event:/Pacman/hump
       objectReference: {fileID: 0}
     - target: {fileID: 114000011394856476, guid: 572cce6aac15f5a429aa014116789d4b,
         type: 2}
       propertyPath: viagra
-      value: event:/Golpes/soco_fraco_fmod
+      value: event:/Pacman/gemido
       objectReference: {fileID: 0}
     - target: {fileID: 114000011394856476, guid: 572cce6aac15f5a429aa014116789d4b,
         type: 2}
       propertyPath: sexoEnd
-      value: event:/Skills/Wall of Granite
+      value: event:/Pacman/pontos
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000011394856476, guid: 572cce6aac15f5a429aa014116789d4b,
+        type: 2}
+      propertyPath: tubarao
+      value: event:/Pacman/tubaro
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 572cce6aac15f5a429aa014116789d4b, type: 2}

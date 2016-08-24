@@ -12,10 +12,10 @@ public class PacmanGame : MonoBehaviour
     public float velocity;
 
     [HideInInspector]
-    public FMOD.Studio.EventInstance pacmanTap, machadoSom, sexoSom;
+    public FMOD.Studio.EventInstance pacmanTap, machadoSom, cu;
 
     [FMODUnity.EventRef]
-    public string tap, cheiro, morreu, machado, sexo, viagra, sexoEnd;
+    public string tap, cheiro, morreu, machado, sexo, viagra, sexoEnd, tubarao;
 
     public GameObject[] obj;
 
@@ -25,7 +25,7 @@ public class PacmanGame : MonoBehaviour
 
     int cheirada;
 
-    bool up, down, right, left, duro, dead, cheirando, toca;
+    bool up, down, right, left, duro, dead, cheirando, toca, cheira;
 
     void Start()
     {
@@ -146,13 +146,24 @@ public class PacmanGame : MonoBehaviour
         pacmanTap.start();
         enemy.GetComponent<Mulher>().sprite.enabled = true;
         enemy.gameObject.GetComponent<Mulher>().Sexo(gameObject);
+    } 
+
+    public void Precoce()
+    {
+        cu.stop(FMOD.Studio.STOP_MODE.IMMEDIATE);
+        cu.release();
+        cheira = false;
     }
 
     void Cheirando()
     {
-        sexoSom = FMODUnity.RuntimeManager.CreateInstance(sexo);
-        sexoSom.setVolume(PlayerPrefs.GetFloat("VolumeFX"));
-        sexoSom.start();
+        if (!cheira)
+        {
+            cu = FMODUnity.RuntimeManager.CreateInstance(sexo);
+            cu.setVolume(PlayerPrefs.GetFloat("VolumeFX"));
+            cu.start();
+            cheira = true;
+        }
         anim.SetInteger("Fantasma", enemy.GetComponent<Mulher>().tipo);
         anim.SetTrigger("Comeu");
         enemy.GetComponent<Mulher>().sprite.enabled = false;
@@ -162,6 +173,9 @@ public class PacmanGame : MonoBehaviour
     {
         machadoSom.stop(FMOD.Studio.STOP_MODE.ALLOWFADEOUT);
         machadoSom.release();
+        machadoSom = FMODUnity.RuntimeManager.CreateInstance(tubarao);
+        machadoSom.setVolume(PlayerPrefs.GetFloat("VolumeFX"));
+        machadoSom.start();
         for (int i = 0; i < obj.Length; i++)
         {
             obj[i].GetComponent<Mulher>().anim.SetBool("Sexo", true);
@@ -172,6 +186,8 @@ public class PacmanGame : MonoBehaviour
             obj[i].GetComponent<Mulher>().anim.SetTrigger("Acabando");
         }
         yield return new WaitForSeconds(3);
+        machadoSom.stop(FMOD.Studio.STOP_MODE.ALLOWFADEOUT);
+        machadoSom.release();
         machadoSom = FMODUnity.RuntimeManager.CreateInstance(machado);
         machadoSom.setVolume(PlayerPrefs.GetFloat("VolumeFX"));
         machadoSom.start();
