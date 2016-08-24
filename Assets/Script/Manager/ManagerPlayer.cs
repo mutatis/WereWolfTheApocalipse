@@ -37,12 +37,12 @@ public class ManagerPlayer : MonoBehaviour
     {
         if (podeDpad)
         {
-            if (Input.GetAxisRaw("DpadYP1") < 0)
+            if (Input.GetAxisRaw("DpadYP1") < 0 || Input.GetKeyDown(KeyCode.DownArrow))
             {
                 Proximo();
                 podeDpad = false;
             }
-            else if (Input.GetAxisRaw("DpadYP1") > 0)
+            else if (Input.GetAxisRaw("DpadYP1") > 0 || Input.GetKeyDown(KeyCode.UpArrow))
             {
                 Anterior();
                 podeDpad = false;
@@ -54,7 +54,7 @@ public class ManagerPlayer : MonoBehaviour
             podeDpad = true;
         }
 
-        if(Input.GetKeyDown(KeyCode.Joystick1Button0))
+        if(Input.GetKeyDown(KeyCode.Joystick1Button0) || Input.GetKeyUp(KeyCode.Return))
         {
             switch (x)
             {
@@ -118,7 +118,7 @@ public class ManagerPlayer : MonoBehaviour
     public void Um()
     {
         PlayerPrefs.SetInt("Players", 1);
-        Application.LoadLevel("SelecaoPersonagem");
+        SceneManager.LoadScene("SelecaoPersonagem");
     }
 
     public void Dois()

@@ -27,15 +27,15 @@ public class OpcoesNavigat : MonoBehaviour
     {
         if (podeDpad && !editando)
         {
-            if (Input.GetAxisRaw("DpadYP1") < 0)
+            if (Input.GetAxisRaw("DpadYP1") < 0 || Input.GetKeyDown(KeyCode.DownArrow))
             {
                 Proximo();
             }
-            else if (Input.GetAxisRaw("DpadYP1") > 0)
+            else if (Input.GetAxisRaw("DpadYP1") > 0 || Input.GetKeyDown(KeyCode.UpArrow))
             {
                 Anterior();
             }
-            else if (Input.GetKeyDown(KeyCode.Joystick1Button1))
+            else if (Input.GetKeyDown(KeyCode.Joystick1Button1) || Input.GetKeyDown(KeyCode.Escape))
             {
                 obj.SetActive(true);
                 man.enabled = true;
@@ -43,30 +43,31 @@ public class OpcoesNavigat : MonoBehaviour
             }
         }
 
-        if(!editando && Input.GetKeyDown(KeyCode.Joystick1Button0))
+        if(!editando && (Input.GetKeyDown(KeyCode.Joystick1Button0) || Input.GetKeyDown(KeyCode.Return)))
         {
             editando = true;
         }
 
         if(editando && podeDpad)
         {
-            if(Input.GetAxisRaw("DpadXP1") > 0)
+            if(Input.GetAxisRaw("DpadXP1") > 0 || Input.GetKeyDown(KeyCode.RightArrow))
             {
                 efeito[x].Aumenta();
                 podeDpad = false;
             }
-            else if (Input.GetAxisRaw("DpadXP1") < 0)
+            else if (Input.GetAxisRaw("DpadXP1") < 0 || Input.GetKeyDown(KeyCode.LeftArrow))
             {
                 efeito[x].Diminui();
                 podeDpad = false;
             }
-            else if(Input.GetKeyDown(KeyCode.Joystick1Button1))
+            else if(Input.GetKeyDown(KeyCode.Joystick1Button1) || Input.GetKeyDown(KeyCode.Escape))
             {
                 editando = false;
             }
         }
 
-        if (Input.GetAxisRaw("DpadYP1") == 0 && Input.GetAxisRaw("DpadXP1") == 0)
+        if (Input.GetAxisRaw("DpadYP1") == 0 && Input.GetAxisRaw("DpadXP1") == 0 || Input.GetKeyUp(KeyCode.DownArrow) || Input.GetKeyUp(KeyCode.UpArrow)
+             || Input.GetKeyUp(KeyCode.RightArrow) || Input.GetKeyUp(KeyCode.LeftArrow))
         {
             podeDpad = true;
         }

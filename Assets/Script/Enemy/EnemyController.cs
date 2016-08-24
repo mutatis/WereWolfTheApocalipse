@@ -44,7 +44,7 @@ public class EnemyController : MonoBehaviour
     bool prepare = true;
     bool isIdle = true;
     bool isRun = true;
-    bool taPego, chamei, block, costas, autorizo, denovo;
+    bool taPego, chamei, block, costas, autorizo, denovo, caindo;
 
     Vector3 direction;
     
@@ -114,14 +114,14 @@ public class EnemyController : MonoBehaviour
                     }
                     if (vel1 == 0 && vel2 == 0)
                     {
-                        if (!anim.GetCurrentAnimatorStateInfo(0).IsName("EnemyIdle"))
+                        if (!anim.GetCurrentAnimatorStateInfo(0).IsName("EnemyIdle") && caindo)
                             anim.SetTrigger("Idle");
                     }
-                    else if (!anim.GetCurrentAnimatorStateInfo(0).IsName("EnemyRun") && !costas)
+                    else if (!anim.GetCurrentAnimatorStateInfo(0).IsName("EnemyRun") && !costas && caindo)
                     {
                         anim.SetTrigger("Run");
                     }
-                    else if (!anim.GetCurrentAnimatorStateInfo(0).IsName("EnemyRunCostas") && costas)
+                    else if (!anim.GetCurrentAnimatorStateInfo(0).IsName("EnemyRunCostas") && costas && caindo)
                     {
                         anim.SetTrigger("Run");
                     }
@@ -249,7 +249,7 @@ public class EnemyController : MonoBehaviour
 
     IEnumerator Foi()
     {
-        if (vel1 != 0)
+        if (vel1 != 0 && caindo)
         {
             anim.SetTrigger("Run");
         }
@@ -684,10 +684,18 @@ public class EnemyController : MonoBehaviour
                 vel2 = -0.03f;
             }
         }
+        if(other.gameObject.tag == "Chao")
+        {
+            caindo = true;
+        }
     }
 
     void OnTriggerStay(Collider other)
     {
+        if (other.gameObject.tag == "Chao")
+        {
+            caindo = true;
+        }
         if (other.gameObject.tag == "Parede1")
         {
             vel1 = -0.03f;
