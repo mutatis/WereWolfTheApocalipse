@@ -48,9 +48,17 @@ MonoBehaviour:
   - {fileID: 114000012441219192}
   - {fileID: 114000012493621918}
   - {fileID: 114000011638377300}
+  - {fileID: 114000012270070068}
+  - {fileID: 114000010802780446}
+  - {fileID: 114000010204674370}
+  - {fileID: 114000010822315994}
+  - {fileID: 114000013933202660}
+  - {fileID: 114000012886633288}
+  - {fileID: 114000013387536554}
+  - {fileID: 114000012993672328}
   MasterBankRef: {fileID: 114000010797368824}
   StringsBankRef: {fileID: 114000012578111778}
-  stringsBankWriteTime: 636071180640612420
+  stringsBankWriteTime: 636076379493313680
   cacheVersion: 2
 --- !u!114 &11403528
 MonoBehaviour:
@@ -1714,6 +1722,27 @@ MonoBehaviour:
   Parameters: []
   MinDistance: 1
   MaxDistance: 20
+--- !u!114 &114000010204674370
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: FMODStudioCache
+  m_EditorClassIdentifier: 
+  Path: event:/Pacman/sniff
+  guid: 4331f55b9a80e544b366c679b7785038
+  Banks:
+  - {fileID: 114000010797368824}
+  IsStream: 0
+  Is3D: 1
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
 --- !u!114 &114000010294142100
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1912,6 +1941,36 @@ MonoBehaviour:
   Parameters: []
   MinDistance: 1
   MaxDistance: 20
+--- !u!114 &114000010596380136
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Name: transition_final
+  Min: 0
+  Max: 100
+  Default: 0
+--- !u!114 &114000010689679140
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Name: barulho
+  Min: 0
+  Max: 100
+  Default: 0
 --- !u!114 &114000010726714256
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1960,12 +2019,54 @@ MonoBehaviour:
   m_Name: FMODStudioCache
   m_EditorClassIdentifier: 
   Path: Assets\Audio\werewolf\Build\Desktop\Master Bank.bank
-  lastModified: 636071180640572377
+  lastModified: 636076379493273750
   LoadResult: 0
   FileSizes:
   - Name: Desktop
-    Value: 12418464
+    Value: 12447296
   Exists: 1
+--- !u!114 &114000010802780446
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: FMODStudioCache
+  m_EditorClassIdentifier: 
+  Path: event:/Pacman/gemido
+  guid: 29558f236e976147aac0682a1a251adc
+  Banks:
+  - {fileID: 114000010797368824}
+  IsStream: 0
+  Is3D: 1
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+--- !u!114 &114000010822315994
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: FMODStudioCache
+  m_EditorClassIdentifier: 
+  Path: event:/Pacman/hump
+  guid: 609360a521f24d4e991bad8eef977137
+  Banks:
+  - {fileID: 114000010797368824}
+  IsStream: 0
+  Is3D: 1
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
 --- !u!114 &114000010853084364
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2219,7 +2320,7 @@ MonoBehaviour:
   Is3D: 1
   IsOneShot: 0
   Parameters:
-  - {fileID: 114000013911081892}
+  - {fileID: 114000011947686022}
   MinDistance: 1
   MaxDistance: 20
 --- !u!114 &114000011419792486
@@ -2531,6 +2632,21 @@ MonoBehaviour:
   Parameters: []
   MinDistance: 1
   MaxDistance: 20
+--- !u!114 &114000011947686022
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: FMODStudioCache
+  m_EditorClassIdentifier: 
+  Name: volume
+  Min: 0
+  Max: 1
+  Default: 0
 --- !u!114 &114000012071000232
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2595,6 +2711,27 @@ MonoBehaviour:
   - {fileID: 114000010343622856}
   MinDistance: 1
   MaxDistance: 20
+--- !u!114 &114000012270070068
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: FMODStudioCache
+  m_EditorClassIdentifier: 
+  Path: event:/Pacman/machado
+  guid: 018d90e57cd8e046ae83f8600a8b45e1
+  Banks:
+  - {fileID: 114000010797368824}
+  IsStream: 0
+  Is3D: 1
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
 --- !u!114 &114000012275373220
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2614,7 +2751,7 @@ MonoBehaviour:
   Is3D: 1
   IsOneShot: 0
   Parameters:
-  - {fileID: 114000013267951450}
+  - {fileID: 114000010596380136}
   MinDistance: 1
   MaxDistance: 20
 --- !u!114 &114000012284750388
@@ -2728,11 +2865,11 @@ MonoBehaviour:
   m_Name: FMODStudioCache
   m_EditorClassIdentifier: 
   Path: Assets\Audio\werewolf\Build\Desktop\Master Bank.strings.bank
-  lastModified: 636071180640612420
+  lastModified: 636076379493313680
   LoadResult: 0
   FileSizes:
   - Name: Desktop
-    Value: 2144
+    Value: 2490
   Exists: 1
 --- !u!114 &114000012789439176
 MonoBehaviour:
@@ -2777,6 +2914,27 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Path: event:/Golpes/Throw
   guid: ac88315ab85e33438de1aeaa6f157fc2
+  Banks:
+  - {fileID: 114000010797368824}
+  IsStream: 0
+  Is3D: 1
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+--- !u!114 &114000012886633288
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Path: event:/Pacman/death
+  guid: 9e257e2aaaee7d4db11d0ee9249bb52a
   Banks:
   - {fileID: 114000010797368824}
   IsStream: 0
@@ -2842,6 +3000,27 @@ MonoBehaviour:
   Min: 0
   Max: 100
   Default: 0
+--- !u!114 &114000012993672328
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: FMODStudioCache
+  m_EditorClassIdentifier: 
+  Path: event:/Pacman/musikinhadeath
+  guid: f04dc20bc2d3a74ba4fcac31f72c4059
+  Banks:
+  - {fileID: 114000010797368824}
+  IsStream: 0
+  Is3D: 1
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
 --- !u!114 &114000013073587800
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2893,7 +3072,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
-  m_Name: 
+  m_Name: FMODStudioCache
   m_EditorClassIdentifier: 
   Name: transition_final
   Min: 0
@@ -2927,6 +3106,27 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Path: event:/Golpes/Golpe_forte
   guid: 79d867f4b75dce4aac60b2a1dc1d305f
+  Banks:
+  - {fileID: 114000010797368824}
+  IsStream: 0
+  Is3D: 1
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+--- !u!114 &114000013387536554
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Path: event:/Pacman/apertarqualquerbotao
+  guid: b1c2fa106ea99e43b96670af8e4149f5
   Banks:
   - {fileID: 114000010797368824}
   IsStream: 0
@@ -3033,7 +3233,7 @@ MonoBehaviour:
   Is3D: 1
   IsOneShot: 1
   Parameters:
-  - {fileID: 114000010877535508}
+  - {fileID: 114000010689679140}
   MinDistance: 1
   MaxDistance: 20
 --- !u!114 &114000013868544222
@@ -3066,7 +3266,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
-  m_Name: 
+  m_Name: FMODStudioCache
   m_EditorClassIdentifier: 
   Name: volume
   Min: 0
@@ -3085,6 +3285,27 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Path: event:/Golpes/Block
   guid: 5c16a3a0e11a1f4490019c06a9ba4077
+  Banks:
+  - {fileID: 114000010797368824}
+  IsStream: 0
+  Is3D: 1
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+--- !u!114 &114000013933202660
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: FMODStudioCache
+  m_EditorClassIdentifier: 
+  Path: event:/Pacman/pontos
+  guid: 7aa209bdf0c8934f999b6befed99fbad
   Banks:
   - {fileID: 114000010797368824}
   IsStream: 0
