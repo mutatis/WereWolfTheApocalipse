@@ -58,6 +58,25 @@ public class PlayerDonsAndarilho : MonoBehaviour
 								PressButtonY ("P1");
 							}
 						}
+                        if (Input.GetKey(KeyCode.LeftShift))
+                        {
+                            if (Input.GetKeyDown(KeyCode.Space))
+                            {
+                                PressButtonA("P1");
+                            }
+                            else if (Input.GetKeyDown(KeyCode.C))
+                            {
+                                PressButtonB("P1");
+                            }
+                            else if (Input.GetKeyDown(KeyCode.Z))
+                            {
+                                PressButtonX("P1");
+                            }
+                            else if (Input.GetKeyDown(KeyCode.X))
+                            {
+                                PressButtonY("P1");
+                            }
+                        }
 					break;
 					case PlayerDom.Player2:
 						if (Input.GetKey (KeyCode.Joystick2Button5)) 

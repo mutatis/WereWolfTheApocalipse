@@ -27,7 +27,7 @@ public class PackAtiva : MonoBehaviour
             case 1:
                 sprt[0].sprite = img[0];
                 sprt[1].sprite = null;
-                if(Input.GetKeyDown(KeyCode.Joystick1Button0))
+                if(Input.GetKeyDown(KeyCode.Joystick1Button0) || Input.GetKeyDown(KeyCode.Space))
                 {
                     Acerto(0);
                     x = 10;
@@ -40,7 +40,7 @@ public class PackAtiva : MonoBehaviour
             case 2:
                 sprt[0].sprite = img[1];
                 sprt[1].sprite = null;
-                if (Input.GetKeyDown(KeyCode.Joystick1Button1))
+                if (Input.GetKeyDown(KeyCode.Joystick1Button1) || Input.GetKeyDown(KeyCode.C))
                 {
                     Acerto(0);
                     x = 10;
@@ -53,7 +53,7 @@ public class PackAtiva : MonoBehaviour
             case 3:
                 sprt[0].sprite = img[2];
                 sprt[1].sprite = null;
-                if (Input.GetKeyDown(KeyCode.Joystick1Button2))
+                if (Input.GetKeyDown(KeyCode.Joystick1Button2) || Input.GetKeyDown(KeyCode.Z))
                 {
                     Acerto(0);
                     x = 10;
@@ -66,7 +66,7 @@ public class PackAtiva : MonoBehaviour
             case 4:
                 sprt[0].sprite = img[3];
                 sprt[1].sprite = null;
-                if (Input.GetKeyDown(KeyCode.Joystick1Button3))
+                if (Input.GetKeyDown(KeyCode.Joystick1Button3) || Input.GetKeyDown(KeyCode.X))
                 {
                     Acerto(0);
                     x = 10;

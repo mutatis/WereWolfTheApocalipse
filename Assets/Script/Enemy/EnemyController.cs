@@ -117,11 +117,11 @@ public class EnemyController : MonoBehaviour
                         if (!anim.GetCurrentAnimatorStateInfo(0).IsName("EnemyIdle") && caindo)
                             anim.SetTrigger("Idle");
                     }
-                    else if (!anim.GetCurrentAnimatorStateInfo(0).IsName("EnemyRun") && !costas && caindo)
+                    else if (!anim.GetCurrentAnimatorStateInfo(0).IsName("EnemyRun") && !costas && !anim.GetCurrentAnimatorStateInfo(0).IsName("GangFaliing"))
                     {
                         anim.SetTrigger("Run");
                     }
-                    else if (!anim.GetCurrentAnimatorStateInfo(0).IsName("EnemyRunCostas") && costas && caindo)
+                    else if (!anim.GetCurrentAnimatorStateInfo(0).IsName("EnemyRunCostas") && costas && !anim.GetCurrentAnimatorStateInfo(0).IsName("GangFaliing"))
                     {
                         anim.SetTrigger("Run");
                     }
@@ -686,6 +686,7 @@ public class EnemyController : MonoBehaviour
         }
         if(other.gameObject.tag == "Chao")
         {
+            anim.SetTrigger("Run");
             caindo = true;
         }
     }

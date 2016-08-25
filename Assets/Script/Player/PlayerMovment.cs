@@ -54,11 +54,11 @@ public class PlayerMovment : MonoBehaviour
 				playerAnim.anim.SetInteger ("ContInput", xRun);
 				if (!playerAttack.jumpAttack) 
 				{
-                    if(Input.GetAxisRaw("DpadXP1") > 0)
+                    if(Input.GetAxisRaw("DpadXP1") > 0 || Input.GetKey(KeyCode.RightArrow))
                     {
                         xButton = 0.13f;
                     }
-                    else if(Input.GetAxisRaw("DpadXP1") < 0)
+                    else if(Input.GetAxisRaw("DpadXP1") < 0 || Input.GetKey(KeyCode.LeftArrow))
                     {
                         xButton = -0.13f;
                     }
@@ -74,11 +74,11 @@ public class PlayerMovment : MonoBehaviour
 				}
 				if (!jump && !playerAttack.block && !playerDano.stun) 
 				{
-                    if (Input.GetAxisRaw("DpadYP1") > 0)
+                    if (Input.GetAxisRaw("DpadYP1") > 0 || Input.GetKey(KeyCode.UpArrow))
                     {
                         zButton = 0.38f;
                     }
-                    else if (Input.GetAxisRaw("DpadYP1") < 0)
+                    else if (Input.GetAxisRaw("DpadYP1") < 0 || Input.GetKey(KeyCode.DownArrow))
                     {
                         zButton = -0.38f;
                     }
@@ -87,7 +87,8 @@ public class PlayerMovment : MonoBehaviour
                         zButton = 0;
                     }
                     z = (Input.GetAxis ("VerticalP1") + zButton) * 2 * xRun;
-					if (Input.GetKeyDown (KeyCode.Joystick1Button0) && !Input.GetKey (KeyCode.Joystick1Button5) && !isJump && Time.timeScale != 0 && !playerStats.crinos) 
+					if (((Input.GetKeyDown (KeyCode.Joystick1Button0) && !Input.GetKey(KeyCode.Joystick1Button5)) || 
+                        Input.GetKeyDown(KeyCode.Space) && !Input.GetKey(KeyCode.LeftShift)) && !isJump && Time.timeScale != 0 && !playerStats.crinos) 
 					{
 						Jump (10);
 					}

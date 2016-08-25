@@ -21,22 +21,22 @@ public class ArrancarPelos : MonoBehaviour
                 x = Input.GetAxis("HorizontalP1");
                 if (zero)
                 {
-                    if (x < -0.1f)
+                    if (x < -0.1f || Input.GetKeyDown(KeyCode.LeftArrow))
                     {
                         Anterior();
                     }
-                    else if (x > 0.1f)
+                    else if (x > 0.1f || Input.GetKeyDown(KeyCode.RightArrow))
                     {
                         Proximo();
                     }
                 }
 
-                if(x == 0)
+                if(x == 0 || Input.GetKeyUp(KeyCode.RightArrow) || Input.GetKeyUp(KeyCode.LeftArrow))
                 {
                     zero = true;
                 }
 
-                if(Input.GetKeyDown(KeyCode.Joystick1Button0))
+                if(Input.GetKeyDown(KeyCode.Joystick1Button0) || Input.GetKeyDown(KeyCode.Space))
                 {
                     Manager.manager.enemy[selecionado].GetComponent<EnemyController>().Dano(500, false, gameObject);
                     for (int i = 0; i < Manager.manager.enemy.Length; i++)

@@ -7,7 +7,7 @@ public class Pause : MonoBehaviour
 
     void Update()
     {
-        if(Input.GetKeyDown(KeyCode.Joystick1Button7) || Input.GetKeyDown(KeyCode.Joystick2Button7))
+        if(Input.GetKeyDown(KeyCode.Joystick1Button7) || Input.GetKeyDown(KeyCode.Joystick2Button7) || Input.GetKeyDown(KeyCode.Escape))
         {
             Para();
         }

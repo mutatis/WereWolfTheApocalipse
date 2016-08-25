@@ -21,25 +21,25 @@ public class SetButtonSkill : MonoBehaviour
     {
         if (SelectPersonagem.personagem.select == meuNumero.meuNumero)
         {
-            if(Input.GetKeyDown(KeyCode.Joystick1Button0))
+            if(Input.GetKeyDown(KeyCode.Joystick1Button0) || Input.GetKeyDown(KeyCode.Space))
             {
                 img.sprite = sprt[0];
                 PlayerPrefs.SetInt(meuNumero.nome + "P1ButtonA", gift.skill);
                 StartCoroutine("GO");
             }
-            else if (Input.GetKeyDown(KeyCode.Joystick1Button1))
+            else if (Input.GetKeyDown(KeyCode.Joystick1Button1) || Input.GetKeyDown(KeyCode.C))
             {
                 img.sprite = sprt[1];
                 PlayerPrefs.SetInt(meuNumero.nome + "P1ButtonB", gift.skill);
                 StartCoroutine("GO");
             }
-            else if (Input.GetKeyDown(KeyCode.Joystick1Button2))
+            else if (Input.GetKeyDown(KeyCode.Joystick1Button2) || Input.GetKeyDown(KeyCode.Z))
             {
                 img.sprite = sprt[2];
                 PlayerPrefs.SetInt(meuNumero.nome + "P1ButtonX", gift.skill);
                 StartCoroutine("GO");
             }
-            else if (Input.GetKeyDown(KeyCode.Joystick1Button3))
+            else if (Input.GetKeyDown(KeyCode.Joystick1Button3) || Input.GetKeyDown(KeyCode.X))
             {
                 img.sprite = sprt[3];
                 PlayerPrefs.SetInt(meuNumero.nome + "P1ButtonY", gift.skill);

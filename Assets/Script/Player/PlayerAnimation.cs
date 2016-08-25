@@ -21,7 +21,7 @@ public class PlayerAnimation : MonoBehaviour
     public string socoCrinos;
 
     [FMODUnity.EventRef]
-    public string miss;
+    public string miss, missForte;
 
     [FMODUnity.EventRef]
     public string crit;
@@ -107,6 +107,22 @@ public class PlayerAnimation : MonoBehaviour
         if (!playerStats.crinos)
         {
             audioInstance = FMODUnity.RuntimeManager.CreateInstance(miss);
+            audioInstance.setVolume(PlayerPrefs.GetFloat("VolumeFX"));
+            audioInstance.start();
+        }
+        else
+        {
+            audioInstance = FMODUnity.RuntimeManager.CreateInstance(socoCrinos);
+            audioInstance.setVolume(PlayerPrefs.GetFloat("VolumeFX"));
+            audioInstance.start();
+        }
+    }
+
+    public void MissForte()
+    {
+        if (!playerStats.crinos)
+        {
+            audioInstance = FMODUnity.RuntimeManager.CreateInstance(missForte);
             audioInstance.setVolume(PlayerPrefs.GetFloat("VolumeFX"));
             audioInstance.start();
         }

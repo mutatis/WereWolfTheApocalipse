@@ -28,7 +28,7 @@ public class SetGifts : MonoBehaviour
             {
                 if (SelectPersonagem.personagem.select == meuNumero.meuNumero)
                 {
-                    if ((Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.Joystick1Button0)))
+                    if ((Input.GetKeyDown(KeyCode.Return) || Input.GetKeyDown(KeyCode.Joystick1Button0)))
                     {
                         atributo.enabled = false;
                         select.SetActive(true);
@@ -36,7 +36,7 @@ public class SetGifts : MonoBehaviour
                 }
                 else if (SelectPersonagem.personagem.select2 == meuNumero.meuNumero)
                 {
-                    if ((Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.Joystick2Button0)))
+                    if ((Input.GetKeyDown(KeyCode.Return) || Input.GetKeyDown(KeyCode.Joystick2Button0)))
                     {
                         atributo.enabled = false;
                         select.SetActive(true);
@@ -47,7 +47,7 @@ public class SetGifts : MonoBehaviour
             {
                 if (SelectPersonagem.personagem.select == meuNumero.meuNumero)
                 {
-                    if ((Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.Joystick1Button0)) && value <= PlayerPrefs.GetFloat("XP"))
+                    if ((Input.GetKeyDown(KeyCode.Return) || Input.GetKeyDown(KeyCode.Joystick1Button0)) && value <= PlayerPrefs.GetFloat("XP"))
                     {
                         PlayerPrefs.SetInt(nome, 1);
                         PlayerPrefs.SetFloat("XP", (value * -1));
@@ -58,7 +58,7 @@ public class SetGifts : MonoBehaviour
                 }
                 else if ((SelectPersonagem.personagem.select2 == meuNumero.meuNumero) && value <= PlayerPrefs.GetFloat("XP"))
                 {
-                    if ((Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.Joystick2Button0)) && value <= PlayerPrefs.GetFloat("XP"))
+                    if ((Input.GetKeyDown(KeyCode.Return) || Input.GetKeyDown(KeyCode.Joystick2Button0)) && value <= PlayerPrefs.GetFloat("XP"))
                     {
                         PlayerPrefs.SetInt(nome, 1);
                         PlayerPrefs.SetFloat("XP", (value * -1));

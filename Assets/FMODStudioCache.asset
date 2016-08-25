@@ -56,9 +56,10 @@ MonoBehaviour:
   - {fileID: 114000012886633288}
   - {fileID: 114000013387536554}
   - {fileID: 114000010168919216}
+  - {fileID: 114000013701718410}
   MasterBankRef: {fileID: 114000010797368824}
   StringsBankRef: {fileID: 114000012578111778}
-  stringsBankWriteTime: 636076489967324589
+  stringsBankWriteTime: 636077314470214065
   cacheVersion: 2
 --- !u!114 &11403528
 MonoBehaviour:
@@ -1779,6 +1780,21 @@ MonoBehaviour:
   Parameters: []
   MinDistance: 1
   MaxDistance: 20
+--- !u!114 &114000010206560306
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: FMODStudioCache
+  m_EditorClassIdentifier: 
+  Name: volume
+  Min: 0
+  Max: 1
+  Default: 0
 --- !u!114 &114000010294142100
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2100,11 +2116,11 @@ MonoBehaviour:
   m_Name: FMODStudioCache
   m_EditorClassIdentifier: 
   Path: Assets\Audio\werewolf\Build\Desktop\Master Bank.bank
-  lastModified: 636076489967294564
+  lastModified: 636077314469802961
   LoadResult: 0
   FileSizes:
   - Name: Desktop
-    Value: 12524160
+    Value: 12534880
   Exists: 1
 --- !u!114 &114000010802780446
 MonoBehaviour:
@@ -2310,6 +2326,21 @@ MonoBehaviour:
   Parameters: []
   MinDistance: 1
   MaxDistance: 20
+--- !u!114 &114000011074506520
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Name: transition_final
+  Min: 0
+  Max: 100
+  Default: 0
 --- !u!114 &114000011208788502
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2401,7 +2432,7 @@ MonoBehaviour:
   Is3D: 1
   IsOneShot: 0
   Parameters:
-  - {fileID: 114000013603681532}
+  - {fileID: 114000010206560306}
   MinDistance: 1
   MaxDistance: 20
 --- !u!114 &114000011419792486
@@ -2892,7 +2923,7 @@ MonoBehaviour:
   Is3D: 1
   IsOneShot: 0
   Parameters:
-  - {fileID: 114000010111207848}
+  - {fileID: 114000011074506520}
   MinDistance: 1
   MaxDistance: 20
 --- !u!114 &114000012284750388
@@ -3006,11 +3037,11 @@ MonoBehaviour:
   m_Name: FMODStudioCache
   m_EditorClassIdentifier: 
   Path: Assets\Audio\werewolf\Build\Desktop\Master Bank.strings.bank
-  lastModified: 636076489967324589
+  lastModified: 636077314470214065
   LoadResult: 0
   FileSizes:
   - Name: Desktop
-    Value: 2470
+    Value: 2512
   Exists: 1
 --- !u!114 &114000012599934842
 MonoBehaviour:
@@ -3367,6 +3398,27 @@ MonoBehaviour:
   Parameters: []
   MinDistance: 1
   MaxDistance: 20
+--- !u!114 &114000013701718410
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: FMODStudioCache
+  m_EditorClassIdentifier: 
+  Path: event:/Golpes/forte miss
+  guid: 072684b6b0f2114aab15d61703613d7f
+  Banks:
+  - {fileID: 114000010797368824}
+  IsStream: 0
+  Is3D: 1
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
 --- !u!114 &114000013712001552
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3434,7 +3486,7 @@ MonoBehaviour:
   Is3D: 1
   IsOneShot: 1
   Parameters:
-  - {fileID: 114000012199323446}
+  - {fileID: 114000013978933994}
   MinDistance: 1
   MaxDistance: 20
 --- !u!114 &114000013868544222
@@ -3537,6 +3589,21 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
 --- !u!114 &114000013973834834
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: FMODStudioCache
+  m_EditorClassIdentifier: 
+  Name: barulho
+  Min: 0
+  Max: 100
+  Default: 0
+--- !u!114 &114000013978933994
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
