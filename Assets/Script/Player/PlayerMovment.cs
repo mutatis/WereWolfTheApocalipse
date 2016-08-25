@@ -206,6 +206,11 @@ public class PlayerMovment : MonoBehaviour
 		audioInstanceCreator = FMODUnity.RuntimeManager.CreateInstance(jumpEnd);
 		audioInstanceCreator.setVolume(PlayerPrefs.GetFloat("VolumeFX"));
 		audioInstanceCreator.start();
+        playerAnim.anim.SetTrigger("Falling");
+    }
+
+    public void CaboPulo()
+    {
         playerAttack.jumpAttack = false;
         jump = false;
         playerAnim.anim.SetBool("Jump", jump);

@@ -41,6 +41,11 @@ public class PlayerAnimation : MonoBehaviour
 
     bool idle = true;
     bool run;
+
+    public void CaboPulo()
+    {
+        playerMov.CaboPulo();
+    }
     
     public void GrabIdle()
     {
