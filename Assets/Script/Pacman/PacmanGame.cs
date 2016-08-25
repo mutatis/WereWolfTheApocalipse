@@ -55,7 +55,7 @@ public class PacmanGame : MonoBehaviour
             anim.SetInteger("Cheiro", 3);
         }
 
-        if (Input.GetAxisRaw("DpadXP1") > 0 && !right)
+        if ((Input.GetAxisRaw("DpadXP1") > 0 || Input.GetKeyDown(KeyCode.RightArrow)) && !right)
         {
             toca = true;
             PlaySound();
@@ -66,7 +66,7 @@ public class PacmanGame : MonoBehaviour
             up = false;
             down = false;
         }
-        else if(Input.GetAxisRaw("DpadXP1") < 0 && !left)
+        else if((Input.GetAxisRaw("DpadXP1") < 0 || Input.GetKeyDown(KeyCode.LeftArrow)) && !left)
         {
             toca = true;
             PlaySound();
@@ -77,7 +77,7 @@ public class PacmanGame : MonoBehaviour
             up = false;
             down = false;
         }
-        else if (Input.GetAxisRaw("DpadYP1") < 0 && !down)
+        else if ((Input.GetAxisRaw("DpadYP1") < 0 || Input.GetKeyDown(KeyCode.DownArrow)) && !down)
         {
             toca = true;
             PlaySound();
@@ -88,7 +88,7 @@ public class PacmanGame : MonoBehaviour
             up = false;
             down = true;
         }
-        else if (Input.GetAxisRaw("DpadYP1") > 0 && !up)
+        else if ((Input.GetAxisRaw("DpadYP1") > 0 || Input.GetKeyDown(KeyCode.UpArrow)) && !up)
         {
             toca = true;
             PlaySound();

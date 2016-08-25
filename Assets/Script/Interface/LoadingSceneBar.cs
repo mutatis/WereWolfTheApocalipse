@@ -16,7 +16,7 @@ public class LoadingSceneBar : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Joystick1Button0))
+        if (Input.GetKeyDown(KeyCode.Joystick1Button0) || Input.GetKeyDown(KeyCode.Return))
             SceneManager.LoadScene(cena);
     }
 
