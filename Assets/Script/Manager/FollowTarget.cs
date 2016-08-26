@@ -62,7 +62,7 @@ public class FollowTarget : MonoBehaviour
 			}
 		}
 
-        if (target != null)
+        /*if (target != null)
         {
             if (transform.position.y < 4.1f && target.GetComponent<PlayerMovment>().z > 0 && target.transform.position.z <= 3.76f)
             {
@@ -72,6 +72,6 @@ public class FollowTarget : MonoBehaviour
             {
                 transform.Translate(0, target.GetComponent<PlayerMovment>().z / 17, 0);
             }
-        }
+        }*/
 	}
 }
