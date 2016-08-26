@@ -21,6 +21,11 @@ public class EnemyAnim : MonoBehaviour
 
     [HideInInspector]
     public string nome;
+    
+    public void PodeSalta()
+    {
+        boss.PodeSalta();
+    }
 
     public void Run()
     {

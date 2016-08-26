@@ -119,10 +119,12 @@ public class BossController : MonoBehaviour
             {
                 if (vel1 == 0 && vel2 == 0)
                 {
-                    if (!anim.GetCurrentAnimatorStateInfo(0).IsName("EnemyIdle"))
+                    if (!anim.GetCurrentAnimatorStateInfo(0).IsName("EnemyIdle") && !anim.GetCurrentAnimatorStateInfo(0).IsName("BossPrepareSalto") && 
+                        !anim.GetCurrentAnimatorStateInfo(0).IsName("BossClawInicio"))
                         anim.SetTrigger("Idle");
                 }
-                else if (!anim.GetCurrentAnimatorStateInfo(0).IsName("EnemyRun") && !anim.GetCurrentAnimatorStateInfo(0).IsName("EnemyRunCostas") && !perto)
+                else if (!anim.GetCurrentAnimatorStateInfo(0).IsName("EnemyRun") && !anim.GetCurrentAnimatorStateInfo(0).IsName("EnemyRunCostas") && !perto &&
+                    !anim.GetCurrentAnimatorStateInfo(0).IsName("BossPrepareSalto") && !anim.GetCurrentAnimatorStateInfo(0).IsName("BossClawInicio"))
                 {
                     anim.SetTrigger("Run");
                 }
@@ -334,6 +336,13 @@ public class BossController : MonoBehaviour
             dist = Vector3.Distance(player.transform.position, transform.position);
             yield return new WaitForEndOfFrame();
         }
+        vel1 = 0;
+        vel2 = 0;
+        anim.SetTrigger("SaltoPrepare");
+    }
+
+    public void PodeSalta()
+    {
         sprt.SetActive(true);
         dano = true;
         StartCoroutine("Attack");

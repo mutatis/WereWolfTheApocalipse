@@ -5,9 +5,13 @@ using UnityEngine.SceneManagement;
 
 public class LoadingSceneBar : MonoBehaviour
 {
+    public GameObject congrat;
+
     public PacmanGame pacman;
 
     public string cena;
+
+    GameObject[] obj;
 
     /*public Text text;
 
@@ -16,8 +20,20 @@ public class LoadingSceneBar : MonoBehaviour
         StartCoroutine(AsynchronousLoad(cena));
     }*/
 
+    void Start()
+    {
+        obj = GameObject.FindGameObjectsWithTag("Pozinho");
+    }
+
     void Update()
     {
+        obj = GameObject.FindGameObjectsWithTag("Pozinho");
+
+        if(obj.Length <= 0)
+        {
+            congrat.SetActive(true);
+        }
+
         if (Input.GetKeyDown(KeyCode.Joystick1Button0) || Input.GetKeyDown(KeyCode.Return))
         {
             pacman.ParaSom();
