@@ -3284,6 +3284,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6b8662986fe65974ab467dbe3e3ef418, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  pacman: {fileID: 1821459863}
   cena: Jogo
 --- !u!81 &1625779423
 AudioListener:
@@ -3694,6 +3695,12 @@ GameObject:
   m_PrefabParentObject: {fileID: 1000012378086612, guid: 572cce6aac15f5a429aa014116789d4b,
     type: 2}
   m_PrefabInternal: {fileID: 2088931404}
+--- !u!114 &1821459863 stripped
+MonoBehaviour:
+  m_PrefabParentObject: {fileID: 114000011394856476, guid: 572cce6aac15f5a429aa014116789d4b,
+    type: 2}
+  m_PrefabInternal: {fileID: 2088931404}
+  m_Script: {fileID: 11500000, guid: a51ef40a4490c2c4fae44dd95e8fc27c, type: 3}
 --- !u!1 &1871742490
 GameObject:
   m_ObjectHideFlags: 0

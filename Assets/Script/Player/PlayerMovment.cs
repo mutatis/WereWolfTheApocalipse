@@ -211,6 +211,7 @@ public class PlayerMovment : MonoBehaviour
 
     public void CaboPulo()
     {
+        isMov = false;
         playerAttack.jumpAttack = false;
         jump = false;
         playerAnim.anim.SetBool("Jump", jump);
@@ -221,6 +222,7 @@ public class PlayerMovment : MonoBehaviour
         if(other.gameObject.tag == "Chao" && jump)
         {
             Normal();
+            isMov = true;
             Manager.manager.parede.SetActive(true);
         }
 

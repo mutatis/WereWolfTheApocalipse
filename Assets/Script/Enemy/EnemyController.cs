@@ -265,7 +265,6 @@ public class EnemyController : MonoBehaviour
         int num;
 		if(!stun && dist < 0.75f && combate && !taPego && !combo)//&& !player.GetComponent<PlayerEngage>().playerAttack.playerAnim.levanta
         {
-            var temp = player.GetComponent<PlayerEngage>().playerAttack.transform.position;
             num = probabilidade.ChooseAttack();	
 
             switch (num)

@@ -128,6 +128,12 @@ public class PacmanGame : MonoBehaviour
         }
     }
 
+    public void ParaSom()
+    {
+        machadoSom.stop(FMOD.Studio.STOP_MODE.ALLOWFADEOUT);
+        machadoSom.release();
+    }
+
     void PlaySound()
     {
         if (toca)

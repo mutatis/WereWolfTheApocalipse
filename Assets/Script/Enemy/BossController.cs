@@ -47,7 +47,7 @@ public class BossController : MonoBehaviour
     GameObject obj;
 
     int contTiro = 0;
-    int dir;
+
     int contSalto, contSaltoMax, quantTiro;
 
     float lifeMax;
@@ -150,7 +150,6 @@ public class BossController : MonoBehaviour
         if (player == null && procura)
         {
             var x = Random.Range(0, Manager.manager.posSubBoss.Length);
-            dir = x;
             player = Manager.manager.posSubBoss[x];
 
         }
@@ -236,7 +235,6 @@ public class BossController : MonoBehaviour
 
                 case 2:
                     var esco = Random.Range(0, Manager.manager.posSubBoss.Length);
-                    dir = esco;
                     player = Manager.manager.posSubBoss[esco];
                     StartCoroutine("Engage");
                     print("porra");
@@ -347,7 +345,6 @@ public class BossController : MonoBehaviour
         sprt.SetActive(true);
         StopCoroutine("Pode");
         roamming = false;
-        dir = contTiro;
 
         if(contTiro < Manager.manager.tiroBoss1.Length)
             player = Manager.manager.tiroBoss1[contTiro];
@@ -404,7 +401,6 @@ public class BossController : MonoBehaviour
         StopCoroutine("Pode");
         roamming = false;
         var esco = Random.Range(0, Manager.manager.posSubBoss.Length);
-        dir = esco;
         player = Manager.manager.posSubBoss[esco];
         dist = Vector3.Distance(player.transform.position, transform.position);
         if (contSalto <= contSaltoMax)

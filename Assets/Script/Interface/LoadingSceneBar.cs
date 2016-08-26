@@ -5,6 +5,8 @@ using UnityEngine.SceneManagement;
 
 public class LoadingSceneBar : MonoBehaviour
 {
+    public PacmanGame pacman;
+
     public string cena;
 
     /*public Text text;
@@ -17,7 +19,10 @@ public class LoadingSceneBar : MonoBehaviour
     void Update()
     {
         if (Input.GetKeyDown(KeyCode.Joystick1Button0) || Input.GetKeyDown(KeyCode.Return))
+        {
+            pacman.ParaSom();
             SceneManager.LoadScene(cena);
+        }
     }
 
     /*IEnumerator AsynchronousLoad(string scene)
