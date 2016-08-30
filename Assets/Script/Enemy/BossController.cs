@@ -101,7 +101,8 @@ public class BossController : MonoBehaviour
             anim.SetBool("Costas", false);
         }
 
-        if (!stun)
+        if (!stun && !anim.GetCurrentAnimatorStateInfo(0).IsName("BossPrepareSalto") && !anim.GetCurrentAnimatorStateInfo(0).IsName("BossClawInicio") && 
+                    !anim.GetCurrentAnimatorStateInfo(0).IsName("BossClawAcerto") && !anim.GetCurrentAnimatorStateInfo(0).IsName("BossClawAcertoLoop"))
         {
             if (Manager.manager.player[0].GetComponent<PlayerMovment>().transform.position.x > transform.position.x && transform.localScale.x > 0)
             {

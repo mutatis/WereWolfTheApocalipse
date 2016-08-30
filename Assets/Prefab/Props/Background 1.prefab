@@ -168,6 +168,7 @@ GameObject:
   - 4: {fileID: 4000012988041016}
   - 212: {fileID: 212000013299646566}
   - 95: {fileID: 95000013155826726}
+  - 114: {fileID: 114000010868379272}
   m_Layer: 0
   m_Name: "cenario_anima\xE7\xE3o (luz esquerda)"
   m_TagString: Untagged
@@ -232,8 +233,8 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1000012500005160}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 10.592928, y: 0.025101706, z: 0}
-  m_LocalScale: {x: 0.9942303, y: 0.99423045, z: 0}
+  m_LocalPosition: {x: 10.54, y: -0.003, z: 0}
+  m_LocalScale: {x: 1.0067573, y: 0.99942905, z: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children: []
   m_Father: {fileID: 474024}
@@ -245,8 +246,8 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1000010272143654}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 3.01, y: 0.01, z: 0}
-  m_LocalScale: {x: 1.0067731, y: 1.0067731, z: 0.0000005514756}
+  m_LocalPosition: {x: 3.007, y: -0.01, z: 0}
+  m_LocalScale: {x: 0.99803823, y: 1.0029022, z: 0.0000005514756}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children: []
   m_Father: {fileID: 474024}
@@ -271,8 +272,8 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1000010343806874}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -7.631, y: 0, z: 0}
-  m_LocalScale: {x: 0.9994887, y: 0.9994889, z: 0}
+  m_LocalPosition: {x: -7.625, y: 0, z: 0}
+  m_LocalScale: {x: 1.0003222, y: 0.9994889, z: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children: []
   m_Father: {fileID: 474024}
@@ -358,6 +359,19 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
+--- !u!114 &114000010868379272
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1000010343806874}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0fe74d09ff5f1c441b8216aad1ec08aa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  minMax: {x: 4, y: 8}
+  anim: {fileID: 95000013155826726}
 --- !u!212 &212000010321918294
 SpriteRenderer:
   m_ObjectHideFlags: 1
@@ -520,6 +534,6 @@ SpriteRenderer:
   m_SortingLayerID: 996918415
   m_SortingOrder: 1
   m_Sprite: {fileID: 21300000, guid: 7804d04ab61d1794fb4a48bbd742cf49, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 0.259}
+  m_Color: {r: 1, g: 1, b: 1, a: 0.216}
   m_FlipX: 0
   m_FlipY: 0
