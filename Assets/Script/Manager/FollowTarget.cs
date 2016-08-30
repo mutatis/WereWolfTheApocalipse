@@ -73,5 +73,6 @@ public class FollowTarget : MonoBehaviour
                 transform.Translate(0, target.GetComponent<PlayerMovment>().z / 17, 0);
             }
         }*/
+
 	}
 }
