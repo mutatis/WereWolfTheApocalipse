@@ -120,11 +120,13 @@ public class BossController : MonoBehaviour
                 if (vel1 == 0 && vel2 == 0)
                 {
                     if (!anim.GetCurrentAnimatorStateInfo(0).IsName("EnemyIdle") && !anim.GetCurrentAnimatorStateInfo(0).IsName("BossPrepareSalto") && 
-                        !anim.GetCurrentAnimatorStateInfo(0).IsName("BossClawInicio"))
+                        !anim.GetCurrentAnimatorStateInfo(0).IsName("BossClawInicio") && !anim.GetCurrentAnimatorStateInfo(0).IsName("BossClawAcerto") && 
+                        !anim.GetCurrentAnimatorStateInfo(0).IsName("BossClawAcertoLoop"))
                         anim.SetTrigger("Idle");
                 }
                 else if (!anim.GetCurrentAnimatorStateInfo(0).IsName("EnemyRun") && !anim.GetCurrentAnimatorStateInfo(0).IsName("EnemyRunCostas") && !perto &&
-                    !anim.GetCurrentAnimatorStateInfo(0).IsName("BossPrepareSalto") && !anim.GetCurrentAnimatorStateInfo(0).IsName("BossClawInicio"))
+                    !anim.GetCurrentAnimatorStateInfo(0).IsName("BossPrepareSalto") && !anim.GetCurrentAnimatorStateInfo(0).IsName("BossClawInicio") && 
+                    !anim.GetCurrentAnimatorStateInfo(0).IsName("BossClawAcerto") && !anim.GetCurrentAnimatorStateInfo(0).IsName("BossClawAcertoLoop"))
                 {
                     anim.SetTrigger("Run");
                 }
@@ -239,7 +241,6 @@ public class BossController : MonoBehaviour
                     var esco = Random.Range(0, Manager.manager.posSubBoss.Length);
                     player = Manager.manager.posSubBoss[esco];
                     StartCoroutine("Engage");
-                    print("porra");
                     break;
 
                 case 3:
@@ -433,9 +434,14 @@ public class BossController : MonoBehaviour
             }
             contSalto += 1;
             StartCoroutine("Attack");
+            if (!anim.GetCurrentAnimatorStateInfo(0).IsName("BossClawInicio"))
+            {
+                anim.SetTrigger("ClawNormal");
+            }
         }
         else
         {
+            anim.SetTrigger("Idle");
             vel1 = 0;
             vel2 = 0;
             salto.SetActive(false);
