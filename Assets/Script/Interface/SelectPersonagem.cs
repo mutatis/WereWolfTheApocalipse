@@ -89,7 +89,7 @@ public class SelectPersonagem : MonoBehaviour
             SceneManager.LoadScene(cena);
         }
 
-        if(Input.GetKeyDown(KeyCode.Joystick1Button7))
+        if(Input.GetKeyDown(KeyCode.Joystick1Button7) || Input.GetKeyDown(KeyCode.H))
         {
             startP1 = true;
         }

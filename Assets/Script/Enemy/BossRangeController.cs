@@ -26,7 +26,7 @@ public class BossRangeController : MonoBehaviour
         if (PlayerPrefs.GetInt("Players") > 1)
             dist2 = Vector3.Distance(player[1].transform.position, transform.position);
 
-        if (longe.roamming)
+        if (!longe.isAttack)
         {
             if (dist1 > 4 || dist2 > 4)
             {

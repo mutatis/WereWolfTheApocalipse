@@ -55,7 +55,7 @@ public class BossController : MonoBehaviour
     bool isWalk = true;
     bool procura = true;
     bool prepare = true;
-    public bool regen;
+    public bool regen, isAttack;
 
     Vector3 direction;
 
@@ -114,7 +114,7 @@ public class BossController : MonoBehaviour
             }
         }
 
-        if (!perto)
+        if (!perto && !isAttack)
         {
             if (marcado == 0)
             {
@@ -408,6 +408,7 @@ public class BossController : MonoBehaviour
 
     IEnumerator Attack()
     {
+        isAttack = true;
         salto.SetActive(true);
         StopCoroutine("Pode");
         roamming = false;
@@ -452,6 +453,7 @@ public class BossController : MonoBehaviour
         }
         else
         {
+            isAttack = false;
             anim.SetTrigger("Idle");
             vel1 = 0;
             vel2 = 0;
