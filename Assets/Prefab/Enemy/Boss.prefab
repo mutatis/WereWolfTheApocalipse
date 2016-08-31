@@ -83,7 +83,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 185666}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -7.2, y: 0.9, z: 3.851095}
+  m_LocalPosition: {x: -7.2, y: 0.9, z: -8.2}
   m_LocalScale: {x: 2.9182215, y: 2.918223, z: 2.918223}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children:
@@ -318,6 +318,7 @@ MonoBehaviour:
   sprt: {fileID: 189900}
   salto: {fileID: 139582}
   tiro: {fileID: 178140, guid: 9c1adb1d5b1171444bc6aeed051f51c5, type: 2}
+  garra: {fileID: 1000013933716496}
   probabilidade: {fileID: 11443382}
   probabilidade2: {fileID: 11427554}
   tiroSound: event:/Golpes/Enemy/Pistol
@@ -351,6 +352,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dmg: 300
   anim: {fileID: 9550724}
+  garra: {fileID: 1000013933716496}
 --- !u!114 &11443382
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -364,7 +366,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   attack:
   - attack: Soco
-    probalidade: 0
+    probalidade: 100
   - attack: Defensa
     probalidade: 0
   - attack: Engage
@@ -459,7 +461,7 @@ GameObject:
   - 212: {fileID: 212000012471121868}
   - 95: {fileID: 95000013472687366}
   m_Layer: 0
-  m_Name: EfeitoGarra_0000_1
+  m_Name: Garra
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

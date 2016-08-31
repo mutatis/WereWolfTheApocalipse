@@ -7,7 +7,7 @@ public class BossController : MonoBehaviour
 
     public Rigidbody rig;
 
-    public GameObject sprt, salto, tiro;
+    public GameObject sprt, salto, tiro, garra;
 
     public ProbabilidadeEnemy probabilidade;
 
@@ -81,15 +81,15 @@ public class BossController : MonoBehaviour
 
         if(life > (lifeMax * 0.5f))
         {
-            contSaltoMax = 2;
+            contSaltoMax = 1;
         }
         else if(life > (lifeMax * 0.25f))
         {
-            contSaltoMax = 4;
+            contSaltoMax = 3;
         }
         else
         {
-            contSaltoMax = 6;
+            contSaltoMax = 5;
         }
 
         if ((vel1 > 0 && transform.localScale.x > 0) || (vel1 < 0 && transform.localScale.x < 0))
@@ -412,11 +412,20 @@ public class BossController : MonoBehaviour
         StopCoroutine("Pode");
         roamming = false;
         var esco = Random.Range(0, Manager.manager.posSubBoss.Length);
-        player = Manager.manager.posSubBoss[esco];
+        if (player != Manager.manager.posSubBoss[esco])
+        {
+            player = Manager.manager.posSubBoss[esco];
+        }
+        else
+        {
+            esco = Random.Range(0, Manager.manager.posSubBoss.Length);
+            player = Manager.manager.posSubBoss[esco];
+        }
         dist = Vector3.Distance(player.transform.position, transform.position);
         if (contSalto <= contSaltoMax)
         {
-            while (dist > 0.7f)
+            anim.SetTrigger("ClawNormal");
+            while (dist > 0.4f)
             {
                 direction = player.transform.position - transform.position;
                 direction.Normalize();
@@ -434,10 +443,11 @@ public class BossController : MonoBehaviour
                 yield return new WaitForEndOfFrame();
             }
             contSalto += 1;
-            if (!anim.GetCurrentAnimatorStateInfo(0).IsName("BossClawInicio"))
-            {
-                anim.SetTrigger("ClawNormal");
-            }
+            garra.SetActive(false);
+            anim.SetTrigger("Idle");
+            vel1 = 0;
+            vel2 = 0;
+            yield return new WaitForSeconds(1);
             StartCoroutine("Attack");
         }
         else

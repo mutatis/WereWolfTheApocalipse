@@ -26,23 +26,26 @@ public class BossRangeController : MonoBehaviour
         if (PlayerPrefs.GetInt("Players") > 1)
             dist2 = Vector3.Distance(player[1].transform.position, transform.position);
 
-        if (dist1 > 3f || dist2 > 3f)
+        if (longe.roamming)
         {
-            longe.perto = false;
-        }
-        else if (denovo)
-        {
-            longe.perto = true;
+            if (dist1 > 4 || dist2 > 4)
+            {
+                longe.perto = false;
+            }
+            else if (denovo)
+            {
+                longe.perto = true;
 
-            if (!anim.GetCurrentAnimatorStateInfo(0).IsName("EnemyIdle") && longe.life > 0)
+                if (!anim.GetCurrentAnimatorStateInfo(0).IsName("EnemyIdle") && longe.life > 0)
                     anim.SetTrigger("Idle");
-            
-            if (dist1 < 1f)
-                longe.player = player[0];
-            if (dist2 < 1f && PlayerPrefs.GetInt("Players") > 1)
-                longe.player = player[1];
 
-            StartCoroutine(GO());
+                if (dist1 < 3.5f)
+                    longe.player = player[0];
+                if (dist2 < 3.5f && PlayerPrefs.GetInt("Players") > 1)
+                    longe.player = player[1];
+
+                StartCoroutine(GO());
+            }
         }
     }
 
