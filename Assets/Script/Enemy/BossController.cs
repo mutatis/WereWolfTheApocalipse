@@ -434,11 +434,11 @@ public class BossController : MonoBehaviour
                 yield return new WaitForEndOfFrame();
             }
             contSalto += 1;
-            StartCoroutine("Attack");
             if (!anim.GetCurrentAnimatorStateInfo(0).IsName("BossClawInicio"))
             {
                 anim.SetTrigger("ClawNormal");
             }
+            StartCoroutine("Attack");
         }
         else
         {
