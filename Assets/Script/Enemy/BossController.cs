@@ -42,7 +42,7 @@ public class BossController : MonoBehaviour
 
     public GameObject player;
 
-    public int marcado;
+    public int marcado, esco;
 
     GameObject obj;
 
@@ -239,7 +239,7 @@ public class BossController : MonoBehaviour
                     break;
 
                 case 2:
-                    var esco = Random.Range(0, Manager.manager.posSubBoss.Length);
+                    esco = Random.Range(0, Manager.manager.posSubBoss.Length);
                     player = Manager.manager.posSubBoss[esco];
                     StartCoroutine("Engage");
                     break;
@@ -316,6 +316,7 @@ public class BossController : MonoBehaviour
 
     IEnumerator Engage()
     {
+        isAttack = true;
         contSalto = 0;
         StopCoroutine("Pode");
         roamming = false;
@@ -353,6 +354,7 @@ public class BossController : MonoBehaviour
 
     IEnumerator Tiro()
     {
+        isAttack = true;
         sprt.SetActive(true);
         StopCoroutine("Pode");
         roamming = false;
@@ -412,7 +414,14 @@ public class BossController : MonoBehaviour
         salto.SetActive(true);
         StopCoroutine("Pode");
         roamming = false;
-        var esco = Random.Range(0, Manager.manager.posSubBoss.Length);
+        if (esco < 2)
+        {
+            esco = Random.Range(2, 4);
+        }
+        else
+        {
+            esco = Random.Range(0, 2);
+        }
         if (player != Manager.manager.posSubBoss[esco])
         {
             player = Manager.manager.posSubBoss[esco];
