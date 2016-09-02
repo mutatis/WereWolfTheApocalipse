@@ -47,16 +47,18 @@ public class EnemyRanged : MonoBehaviour
 
     void Update()
     {
-        if (!perto)
+        if (!perto && !anim.GetCurrentAnimatorStateInfo(0).IsName("EnemySlam"))
         {
             if (marcado == 0)
             {
                 if (vel1 == 0 && vel2 == 0)
                 {
-                    if (!anim.GetCurrentAnimatorStateInfo(0).IsName("EnemyIdle") && !anim.GetCurrentAnimatorStateInfo(0).IsName("TiroEnemy"))
+                    if (!anim.GetCurrentAnimatorStateInfo(0).IsName("EnemyIdle") && !anim.GetCurrentAnimatorStateInfo(0).IsName("TiroEnemy") && 
+                        !anim.GetCurrentAnimatorStateInfo(0).IsName("EnemySlam"))
                         anim.SetTrigger("Idle");
                 }
-                else if (!anim.GetCurrentAnimatorStateInfo(0).IsName("EnemyRun") && !anim.GetCurrentAnimatorStateInfo(0).IsName("TiroEnemy"))
+                else if (!anim.GetCurrentAnimatorStateInfo(0).IsName("EnemyRun") && !anim.GetCurrentAnimatorStateInfo(0).IsName("TiroEnemy") && 
+                    !anim.GetCurrentAnimatorStateInfo(0).IsName("EnemySlam"))
                 {
                     anim.SetTrigger("Run");
                 }

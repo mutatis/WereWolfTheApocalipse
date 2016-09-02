@@ -119,8 +119,8 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 174810}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 6.84, y: 1.87, z: 5.86}
-  m_LocalScale: {x: 2.235099, y: 2.2351, z: 2.2351}
+  m_LocalPosition: {x: -12.15, y: 1, z: 3.851095}
+  m_LocalScale: {x: 3.1317637, y: 3.1317637, z: 3.1317637}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children:
   - {fileID: 430426}
@@ -296,7 +296,7 @@ MonoBehaviour:
   roamming: 0
   perto: 0
   text: {fileID: 10293996}
-  tempoResposta: 1.5
+  tempoResposta: 1
   life: 100
   vel1: 0
   vel2: 0
@@ -305,6 +305,7 @@ MonoBehaviour:
   player: {fileID: 0}
   tiro: {fileID: 178140, guid: 9c1adb1d5b1171444bc6aeed051f51c5, type: 2}
   marcado: 0
+  isWalk: 1
 --- !u!114 &11488326
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -318,7 +319,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemy: {fileID: 0}
   enemyR: {fileID: 11483188}
-  subBoss: {fileID: 0}
+  boss: {fileID: 0}
   tipo: 1
 --- !u!136 &13653042
 CapsuleCollider:
@@ -329,10 +330,10 @@ CapsuleCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  m_Radius: 0.33426872
+  m_Radius: 0.24603626
   m_Height: 1.325031
   m_Direction: 1
-  m_Center: {x: 0, y: 0.12, z: 0}
+  m_Center: {x: 0.06, y: 0.05, z: 0}
 --- !u!212 &21211268
 SpriteRenderer:
   m_ObjectHideFlags: 1
@@ -395,7 +396,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 284983089
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: d1c7c70ce5050f9409859d1a6d70bfb9, type: 3}
+  m_Sprite: {fileID: 21300000, guid: e83e065439129764e962aeefdbbf90f4, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 1
   m_FlipY: 0
