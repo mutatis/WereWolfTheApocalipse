@@ -498,6 +498,11 @@ public class BossController : MonoBehaviour
         text.text = "";
     }
 
+    public void Apanha()
+    {
+        dano = true;
+    }
+
     public void Dano(float dmg, bool crit, GameObject obj)
     {
         roamming = false;

@@ -33,7 +33,7 @@ public class EnemyRanged : MonoBehaviour
 
     public int marcado;
 
-    bool isWalk = true;
+    public bool isWalk = true;
     bool procura = true;
     bool prepare = true;
 
@@ -51,16 +51,33 @@ public class EnemyRanged : MonoBehaviour
         {
             if (marcado == 0)
             {
-				transform.Translate(vel1, 0, vel2, Space.World);
+                if (vel1 == 0 && vel2 == 0)
+                {
+                    if (!anim.GetCurrentAnimatorStateInfo(0).IsName("EnemyIdle") && !anim.GetCurrentAnimatorStateInfo(0).IsName("TiroEnemy"))
+                        anim.SetTrigger("Idle");
+                }
+                else if (!anim.GetCurrentAnimatorStateInfo(0).IsName("EnemyRun") && !anim.GetCurrentAnimatorStateInfo(0).IsName("TiroEnemy"))
+                {
+                    anim.SetTrigger("Run");
+                }
+                transform.Translate(vel1, 0, vel2, Space.World);
             }
 
             if (marcado == 1)
             {
-				transform.Translate(new Vector3(0.001f, 0, -0.1f), Space.World);
+                if (!anim.GetCurrentAnimatorStateInfo(0).IsName("EnemyRun"))
+                {
+                    anim.SetTrigger("Run");
+                }   
+                transform.Translate(new Vector3(0.001f, 0, -0.1f), Space.World);
             }
             else if (marcado == 2)
             {
-				transform.Translate(new Vector3(0.001f, 0, 0.1f), Space.World);
+                if (!anim.GetCurrentAnimatorStateInfo(0).IsName("EnemyRun"))
+                {
+                    anim.SetTrigger("Run");
+                }
+                transform.Translate(new Vector3(0.001f, 0, 0.1f), Space.World);
             }
         }
 
@@ -262,6 +279,7 @@ public class EnemyRanged : MonoBehaviour
 
     IEnumerator Engage()
     {
+        anim.SetTrigger("Run");
         roamming = false;
         float x = (transform.position.z - player.transform.position.z);
         if(x < 0)
@@ -327,9 +345,15 @@ public class EnemyRanged : MonoBehaviour
 
     public void DanoAgain()
     {
+        combate = true;
         roamming = false;
         dano = true;
         text.text = "";
+    }
+
+    public void Apanha()
+    {
+        dano = true;
     }
 
     public void Dano(float dmg, bool crit, GameObject obj)

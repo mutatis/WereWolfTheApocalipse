@@ -33,6 +33,10 @@ public class EnemyRangedController : MonoBehaviour
                 podeCombate = true;
             }
             longe.perto = true;
+
+            if (!longe.anim.GetCurrentAnimatorStateInfo(0).IsName("EnemyIdle") && longe.life > 0)
+                longe.anim.SetTrigger("Idle");
+
             if (dist1 < 1f)
                 longe.player = player[0];
             if (dist2 < 1f && PlayerPrefs.GetInt("Players") > 1)

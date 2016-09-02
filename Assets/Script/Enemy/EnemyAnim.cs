@@ -21,6 +21,22 @@ public class EnemyAnim : MonoBehaviour
 
     [HideInInspector]
     public string nome;
+
+    public void Apanha()
+    {
+        if (tipo == 1)
+        {
+            controller2.Apanha();
+        }
+        else if (tipo == 3)
+        {
+            boss.Apanha();
+        }
+        else
+        {
+            controller.Apanha();
+        }
+    }
     
     public void PodeSalta()
     {

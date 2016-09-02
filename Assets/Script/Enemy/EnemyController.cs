@@ -19,7 +19,6 @@ public class EnemyController : MonoBehaviour
     public Vector3 deus;
 
     public bool stun;
-    [HideInInspector]
     public bool dano = true;
     public bool roamming = true;
     public bool combate = true;
@@ -114,14 +113,16 @@ public class EnemyController : MonoBehaviour
                     }
                     if (vel1 == 0 && vel2 == 0)
                     {
-                        if (!anim.GetCurrentAnimatorStateInfo(0).IsName("EnemyIdle") && caindo)
+                        if (!anim.GetCurrentAnimatorStateInfo(0).IsName("EnemyIdle") && caindo && !anim.GetCurrentAnimatorStateInfo(0).IsName("SocoFracoEnemy"))
                             anim.SetTrigger("Idle");
                     }
-                    else if (!anim.GetCurrentAnimatorStateInfo(0).IsName("EnemyRun") && !costas && !anim.GetCurrentAnimatorStateInfo(0).IsName("GangFaliing"))
+                    else if (!anim.GetCurrentAnimatorStateInfo(0).IsName("EnemyRun") && !costas && !anim.GetCurrentAnimatorStateInfo(0).IsName("GangFaliing") && 
+                        !anim.GetCurrentAnimatorStateInfo(0).IsName("SocoFracoEnemy"))
                     {
                         anim.SetTrigger("Run");
                     }
-                    else if (!anim.GetCurrentAnimatorStateInfo(0).IsName("EnemyRunCostas") && costas && !anim.GetCurrentAnimatorStateInfo(0).IsName("GangFaliing"))
+                    else if (!anim.GetCurrentAnimatorStateInfo(0).IsName("EnemyRunCostas") && costas && !anim.GetCurrentAnimatorStateInfo(0).IsName("GangFaliing") && 
+                        !anim.GetCurrentAnimatorStateInfo(0).IsName("SocoFracoEnemy"))
                     {
                         anim.SetTrigger("Run");
                     }
@@ -529,6 +530,11 @@ public class EnemyController : MonoBehaviour
         dano = true;
         chamei = false;
         text.text = "";
+    }
+
+    public void Apanha()
+    {
+        dano = true;
     }
 
     IEnumerator Autorizacao()

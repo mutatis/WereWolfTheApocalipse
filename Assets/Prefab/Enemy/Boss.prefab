@@ -213,8 +213,8 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Size: {x: 2.3374064, y: 1.4539254, z: 1}
+  m_Center: {x: 0.18423454, y: 0.39258412, z: 0}
 --- !u!95 &9550724
 Animator:
   serializedVersion: 3
@@ -338,7 +338,9 @@ MonoBehaviour:
   attack: []
   player: {fileID: 0}
   marcado: 0
+  esco: 0
   regen: 0
+  isAttack: 0
 --- !u!114 &11437676
 MonoBehaviour:
   m_ObjectHideFlags: 1
