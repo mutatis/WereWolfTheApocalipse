@@ -81,6 +81,8 @@ AnimationClip:
       value: {fileID: 21300044, guid: d566cfb6e0d0d90418021f10f3d83eb8, type: 3}
     - time: 0.9583335
       value: {fileID: 21300046, guid: d566cfb6e0d0d90418021f10f3d83eb8, type: 3}
+    - time: 1.0000001
+      value: {fileID: 21300048, guid: d566cfb6e0d0d90418021f10f3d83eb8, type: 3}
     attribute: m_Sprite
     path: 
     classID: 212
@@ -129,12 +131,13 @@ AnimationClip:
     - {fileID: 21300042, guid: d566cfb6e0d0d90418021f10f3d83eb8, type: 3}
     - {fileID: 21300044, guid: d566cfb6e0d0d90418021f10f3d83eb8, type: 3}
     - {fileID: 21300046, guid: d566cfb6e0d0d90418021f10f3d83eb8, type: 3}
+    - {fileID: 21300048, guid: d566cfb6e0d0d90418021f10f3d83eb8, type: 3}
   m_AnimationClipSettings:
     serializedVersion: 2
     m_AdditiveReferencePoseClip: {fileID: 0}
     m_AdditiveReferencePoseTime: 0
     m_StartTime: 0
-    m_StopTime: 1.0000001
+    m_StopTime: 1.0416667
     m_OrientationOffsetY: 0
     m_Level: 0
     m_CycleOffset: 0
@@ -172,6 +175,13 @@ AnimationClip:
   m_Events:
   - time: 0
     functionName: DanoAgain
+    data: 
+    objectReferenceParameter: {fileID: 0}
+    floatParameter: 0
+    intParameter: 0
+    messageOptions: 0
+  - time: 0
+    functionName: NotIdle
     data: 
     objectReferenceParameter: {fileID: 0}
     floatParameter: 0

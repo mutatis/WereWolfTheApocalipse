@@ -11,7 +11,7 @@ public class EnemyAnim : MonoBehaviour
 
     public BossController boss;
 
-    public Animator headAnim;
+    public Animator headAnim, faca;
 
     public GameObject obj;
 
@@ -21,6 +21,16 @@ public class EnemyAnim : MonoBehaviour
 
     [HideInInspector]
     public string nome;
+
+    public void NotIdle()
+    {
+        faca.SetTrigger("NotIdle");
+    }
+
+    public void IdleRanged()
+    {
+        faca.SetTrigger("Idle");
+    }
 
     public void Apanha()
     {
