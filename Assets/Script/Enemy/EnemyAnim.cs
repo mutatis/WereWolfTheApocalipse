@@ -69,7 +69,7 @@ public class EnemyAnim : MonoBehaviour
         {
             controller2.combate = true;
         }
-        else
+        else if(tipo == 0)
         {
             controller.combate = true;
         }

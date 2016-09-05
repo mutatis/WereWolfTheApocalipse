@@ -42,30 +42,6 @@ AnimationClip:
       value: {fileID: 21300020, guid: fac15ab4bb50b3940a4c4b74fa18396c, type: 3}
     - time: 0.45833328
       value: {fileID: 21300022, guid: fac15ab4bb50b3940a4c4b74fa18396c, type: 3}
-    - time: 0.49999994
-      value: {fileID: 21300024, guid: fac15ab4bb50b3940a4c4b74fa18396c, type: 3}
-    - time: 0.5416666
-      value: {fileID: 21300026, guid: fac15ab4bb50b3940a4c4b74fa18396c, type: 3}
-    - time: 0.5833333
-      value: {fileID: 21300028, guid: fac15ab4bb50b3940a4c4b74fa18396c, type: 3}
-    - time: 0.625
-      value: {fileID: 21300030, guid: fac15ab4bb50b3940a4c4b74fa18396c, type: 3}
-    - time: 0.6666667
-      value: {fileID: 21300032, guid: fac15ab4bb50b3940a4c4b74fa18396c, type: 3}
-    - time: 0.7083334
-      value: {fileID: 21300034, guid: fac15ab4bb50b3940a4c4b74fa18396c, type: 3}
-    - time: 0.75000006
-      value: {fileID: 21300036, guid: fac15ab4bb50b3940a4c4b74fa18396c, type: 3}
-    - time: 0.79166675
-      value: {fileID: 21300038, guid: fac15ab4bb50b3940a4c4b74fa18396c, type: 3}
-    - time: 0.83333343
-      value: {fileID: 21300040, guid: fac15ab4bb50b3940a4c4b74fa18396c, type: 3}
-    - time: 0.8750001
-      value: {fileID: 21300042, guid: fac15ab4bb50b3940a4c4b74fa18396c, type: 3}
-    - time: 0.9166668
-      value: {fileID: 21300044, guid: fac15ab4bb50b3940a4c4b74fa18396c, type: 3}
-    - time: 0.9583335
-      value: {fileID: 21300046, guid: fac15ab4bb50b3940a4c4b74fa18396c, type: 3}
     attribute: m_Sprite
     path: 
     classID: 212
@@ -96,24 +72,12 @@ AnimationClip:
     - {fileID: 21300018, guid: fac15ab4bb50b3940a4c4b74fa18396c, type: 3}
     - {fileID: 21300020, guid: fac15ab4bb50b3940a4c4b74fa18396c, type: 3}
     - {fileID: 21300022, guid: fac15ab4bb50b3940a4c4b74fa18396c, type: 3}
-    - {fileID: 21300024, guid: fac15ab4bb50b3940a4c4b74fa18396c, type: 3}
-    - {fileID: 21300026, guid: fac15ab4bb50b3940a4c4b74fa18396c, type: 3}
-    - {fileID: 21300028, guid: fac15ab4bb50b3940a4c4b74fa18396c, type: 3}
-    - {fileID: 21300030, guid: fac15ab4bb50b3940a4c4b74fa18396c, type: 3}
-    - {fileID: 21300032, guid: fac15ab4bb50b3940a4c4b74fa18396c, type: 3}
-    - {fileID: 21300034, guid: fac15ab4bb50b3940a4c4b74fa18396c, type: 3}
-    - {fileID: 21300036, guid: fac15ab4bb50b3940a4c4b74fa18396c, type: 3}
-    - {fileID: 21300038, guid: fac15ab4bb50b3940a4c4b74fa18396c, type: 3}
-    - {fileID: 21300040, guid: fac15ab4bb50b3940a4c4b74fa18396c, type: 3}
-    - {fileID: 21300042, guid: fac15ab4bb50b3940a4c4b74fa18396c, type: 3}
-    - {fileID: 21300044, guid: fac15ab4bb50b3940a4c4b74fa18396c, type: 3}
-    - {fileID: 21300046, guid: fac15ab4bb50b3940a4c4b74fa18396c, type: 3}
   m_AnimationClipSettings:
     serializedVersion: 2
     m_AdditiveReferencePoseClip: {fileID: 0}
     m_AdditiveReferencePoseTime: 0
     m_StartTime: 0
-    m_StopTime: 1.0000001
+    m_StopTime: 0.49999994
     m_OrientationOffsetY: 0
     m_Level: 0
     m_CycleOffset: 0
@@ -141,7 +105,7 @@ AnimationClip:
     floatParameter: 0
     intParameter: 0
     messageOptions: 0
-  - time: 0.41666666
+  - time: 0.33333334
     functionName: Tiro
     data: 
     objectReferenceParameter: {fileID: 0}
