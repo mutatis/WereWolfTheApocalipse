@@ -11,7 +11,7 @@ public class PlayerDano : MonoBehaviour
     public PlayerAttackController playerAttack;
     public Agarra agarra;
     
-    public bool stun;
+    public bool stun, caindo;
 
     [FMODUnity.EventRef]
     public string blockSound;
@@ -31,6 +31,18 @@ public class PlayerDano : MonoBehaviour
             pegador.GetComponent<EnemyController>().Solta();            
             stun = true;
             playerAnim.anim.SetTrigger("Dead");
+        }
+
+        if(caindo)
+        {
+            if(transform.localScale.x > 0)
+            {
+                playerMov.x = -0.1f;
+            }
+            else
+            {
+                playerMov.x = 0.1f;
+            }
         }
     }
 
@@ -80,6 +92,7 @@ public class PlayerDano : MonoBehaviour
                         }
                         playerAnim.anim.SetBool("Stun", true);
                         stun = true;
+                        caindo = true;
                         playerAnim.anim.SetTrigger("Slam");
                         slamCont = 0;
                     }

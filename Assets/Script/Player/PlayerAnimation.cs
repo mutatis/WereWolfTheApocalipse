@@ -61,6 +61,7 @@ public class PlayerAnimation : MonoBehaviour
 
     public void Queda()
     {
+        playerDano.caindo = false;
         audioInstance = FMODUnity.RuntimeManager.CreateInstance(queda);
         audioInstance.setVolume(PlayerPrefs.GetFloat("VolumeFX"));
         audioInstance.start();
@@ -78,14 +79,6 @@ public class PlayerAnimation : MonoBehaviour
 
     public void Levanta()
     {
-        if (playerMov.transform.localScale.x > 0)
-        {
-            playerMov.transform.position = new Vector3(playerMov.transform.position.x - 2f, playerMov.transform.position.y, playerMov.transform.position.z);
-        }
-        else if (playerMov.transform.localScale.x < 0)
-        {
-            playerMov.transform.position = new Vector3(playerMov.transform.position.x + 2f, playerMov.transform.position.y, playerMov.transform.position.z);
-        }
         levanta = false;
     }
 
