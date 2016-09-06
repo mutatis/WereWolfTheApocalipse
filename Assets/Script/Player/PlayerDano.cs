@@ -16,7 +16,7 @@ public class PlayerDano : MonoBehaviour
     [FMODUnity.EventRef]
     public string blockSound;
     [FMODUnity.EventRef]
-    public string socoFracoEnemy;
+    public string socoFracoEnemy, facaHit;
 
     FMOD.Studio.EventInstance audioInstanceCreator;
 
@@ -40,7 +40,7 @@ public class PlayerDano : MonoBehaviour
         slamCont = 0;
     }
     
-    public void Dano(float dmg, GameObject obj)
+    public void Dano(float dmg, GameObject obj, bool faca = false)
     {
         StopCoroutine("GO");
         StartCoroutine("GO");
@@ -62,9 +62,18 @@ public class PlayerDano : MonoBehaviour
                 {
                     if (slamCont > 2 && !playerAttack.block && !playerStats.crinos)
                     {
-                        audioInstanceCreator = FMODUnity.RuntimeManager.CreateInstance(socoFracoEnemy);
-                        audioInstanceCreator.setVolume(PlayerPrefs.GetFloat("VolumeFX"));
-                        audioInstanceCreator.start();
+                        if (!faca)
+                        {
+                            audioInstanceCreator = FMODUnity.RuntimeManager.CreateInstance(socoFracoEnemy);
+                            audioInstanceCreator.setVolume(PlayerPrefs.GetFloat("VolumeFX"));
+                            audioInstanceCreator.start();
+                        }
+                        else
+                        {
+                            audioInstanceCreator = FMODUnity.RuntimeManager.CreateInstance(facaHit);
+                            audioInstanceCreator.setVolume(PlayerPrefs.GetFloat("VolumeFX"));
+                            audioInstanceCreator.start();
+                        }
                         if ((obj.transform.position.x < transform.position.x && transform.localScale.x > 0) || (obj.transform.position.x > transform.position.x && transform.localScale.x < 0))
                         {
                             transform.localScale = new Vector3(transform.localScale.x * -1, transform.localScale.y, transform.localScale.z);
@@ -80,15 +89,24 @@ public class PlayerDano : MonoBehaviour
                         {
                             slamCont = 0;
                         }
-                        if (playerAttack.block)
+                        if (!faca)
                         {
-                            audioInstanceCreator = FMODUnity.RuntimeManager.CreateInstance(blockSound);
-                            audioInstanceCreator.setVolume(PlayerPrefs.GetFloat("VolumeFX"));
-                            audioInstanceCreator.start();
+                            if (playerAttack.block)
+                            {
+                                audioInstanceCreator = FMODUnity.RuntimeManager.CreateInstance(blockSound);
+                                audioInstanceCreator.setVolume(PlayerPrefs.GetFloat("VolumeFX"));
+                                audioInstanceCreator.start();
+                            }
+                            else
+                            {
+                                audioInstanceCreator = FMODUnity.RuntimeManager.CreateInstance(socoFracoEnemy);
+                                audioInstanceCreator.setVolume(PlayerPrefs.GetFloat("VolumeFX"));
+                                audioInstanceCreator.start();
+                            }
                         }
                         else
                         {
-                            audioInstanceCreator = FMODUnity.RuntimeManager.CreateInstance(socoFracoEnemy);
+                            audioInstanceCreator = FMODUnity.RuntimeManager.CreateInstance(facaHit);
                             audioInstanceCreator.setVolume(PlayerPrefs.GetFloat("VolumeFX"));
                             audioInstanceCreator.start();
                         }

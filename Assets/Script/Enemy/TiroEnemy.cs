@@ -46,7 +46,7 @@ public class TiroEnemy : MonoBehaviour
     {
         if (other.gameObject.tag == "Player")
         {
-            other.gameObject.GetComponent<PlayerDano>().Dano(dmg, gameObject);
+            other.gameObject.GetComponent<PlayerDano>().Dano(dmg, gameObject, true);
             Destroy(gameObject);
         }
     }
