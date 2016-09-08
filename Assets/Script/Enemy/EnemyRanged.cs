@@ -14,7 +14,7 @@ public class EnemyRanged : MonoBehaviour
     public bool stun;
     public bool combate = true;
     [HideInInspector]
-    public bool dano = true;
+    public bool dano = true, caindo;
     [HideInInspector]
     public bool roamming = false;
     public bool perto = false;
@@ -47,6 +47,18 @@ public class EnemyRanged : MonoBehaviour
 
     void Update()
     {
+        if(caindo)
+        {
+            if(transform.localScale.x > 0)
+            {
+                transform.Translate(0.1f, 0, 0, Space.World);
+            }
+            else
+            {
+                transform.Translate(-0.1f, 0, 0, Space.World);
+            }
+        }
+
         if (!perto && !anim.GetCurrentAnimatorStateInfo(0).IsName("EnemySlam"))
         {
             if (marcado == 0)
@@ -422,6 +434,7 @@ public class EnemyRanged : MonoBehaviour
         text.text = dmg.ToString();
         StopCoroutine("Pode");
         stun = true;
+        caindo = true;
         anim.SetTrigger("Slam");
     }
 

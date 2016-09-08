@@ -22,6 +22,18 @@ public class EnemyAnim : MonoBehaviour
     [HideInInspector]
     public string nome;
 
+    public void Levantando()
+    {
+        if(tipo == 1)
+        {
+            controller2.caindo = false;
+        }
+        else if(tipo == 0)
+        {
+            controller.caindoSlam = false;
+        }
+    }
+
     public void NotIdle()
     {
         faca.SetTrigger("NotIdle");

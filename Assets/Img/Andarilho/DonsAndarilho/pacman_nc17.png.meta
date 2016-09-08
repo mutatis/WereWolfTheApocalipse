@@ -55,11 +55,11 @@ TextureImporter:
   cubemapConvolutionSteps: 7
   cubemapConvolutionExponent: 1.5
   seamlessCubemap: 0
-  textureFormat: -1
+  textureFormat: 2
   maxTextureSize: 1024
   textureSettings:
     filterMode: -1
-    aniso: 16
+    aniso: 0
     mipBias: -1
     wrapMode: 1
   nPOTScale: 0
@@ -75,11 +75,14 @@ TextureImporter:
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spritePixelsToUnits: 100
   alphaIsTransparency: 1
-  textureType: 8
+  spriteTessellationDetail: -1
+  textureType: 5
   buildTargetSettings: []
   spriteSheet:
+    serializedVersion: 2
     sprites:
-    - name: pacman_nc17_0
+    - serializedVersion: 2
+      name: pacman_nc17_0
       rect:
         serializedVersion: 2
         x: 0
@@ -89,20 +92,10 @@ TextureImporter:
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-      outline:
-      - - {x: 94, y: 29.5}
-        - {x: 94, y: 76.5}
-        - {x: 51, y: 91.5}
-        - {x: -83, y: 91.5}
-        - {x: -115, y: 42.5}
-        - {x: -115, y: -3.5}
-        - {x: -101, y: -53.5}
-        - {x: -38, y: -115.5}
-        - {x: 52, y: -115.5}
-        - {x: 94, y: -85.5}
-        - {x: 94, y: -74.5}
-        - {x: 76, y: -50.5}
-    - name: pacman_nc17_1
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: pacman_nc17_1
       rect:
         serializedVersion: 2
         x: 266
@@ -112,22 +105,10 @@ TextureImporter:
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-      outline:
-      - - {x: 88, y: -5.5}
-        - {x: 97, y: 18.5}
-        - {x: 97, y: 73.5}
-        - {x: 50, y: 93.5}
-        - {x: -80, y: 93.5}
-        - {x: -113, y: 42.5}
-        - {x: -113, y: -9.5}
-        - {x: -76, y: -78.5}
-        - {x: -44, y: -109.5}
-        - {x: -14, y: -114.5}
-        - {x: 40, y: -114.5}
-        - {x: 97, y: -93.5}
-        - {x: 97, y: -87.5}
-        - {x: 76, y: -42.5}
-    - name: pacman_nc17_2
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: pacman_nc17_2
       rect:
         serializedVersion: 2
         x: 532
@@ -137,22 +118,10 @@ TextureImporter:
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-      outline:
-      - - {x: 99, y: 16.5}
-        - {x: 99, y: 59.5}
-        - {x: 70, y: 83.5}
-        - {x: 14, y: 97.5}
-        - {x: -84, y: 97.5}
-        - {x: -111, y: 48.5}
-        - {x: -111, y: -9.5}
-        - {x: -76, y: -82.5}
-        - {x: -31, y: -112.5}
-        - {x: -20, y: -114.5}
-        - {x: 44, y: -114.5}
-        - {x: 94, y: -85.5}
-        - {x: 95, y: -65.5}
-        - {x: 72, y: -1.5}
-    - name: pacman_nc17_3
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: pacman_nc17_3
       rect:
         serializedVersion: 2
         x: 798
@@ -162,24 +131,10 @@ TextureImporter:
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-      outline:
-      - - {x: 100, y: 12.5}
-        - {x: 102, y: 24.5}
-        - {x: 102, y: 53.5}
-        - {x: 86, y: 96.5}
-        - {x: 58, y: 99.5}
-        - {x: -86, y: 99.5}
-        - {x: -109, y: 60.5}
-        - {x: -109, y: 3.5}
-        - {x: -99, y: -34.5}
-        - {x: -109, y: -87.5}
-        - {x: -109, y: -91.5}
-        - {x: -45, y: -114.5}
-        - {x: 68, y: -114.5}
-        - {x: 91, y: -87.5}
-        - {x: 98, y: -60.5}
-        - {x: 53, y: -33.5}
-    - name: pacman_nc17_4
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: pacman_nc17_4
       rect:
         serializedVersion: 2
         x: 1064
@@ -189,23 +144,10 @@ TextureImporter:
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-      outline:
-      - - {x: 103, y: 14.5}
-        - {x: 103, y: 51.5}
-        - {x: 41, y: 95.5}
-        - {x: 5, y: 102.5}
-        - {x: -57, y: 102.5}
-        - {x: -74, y: 90.5}
-        - {x: -106, y: 60.5}
-        - {x: -106, y: -4.5}
-        - {x: -100, y: -40.5}
-        - {x: -69, y: -87.5}
-        - {x: -27, y: -114.5}
-        - {x: 55, y: -114.5}
-        - {x: 103, y: -73.5}
-        - {x: 103, y: -12.5}
-        - {x: 101, y: 8.5}
-    - name: pacman_nc17_5
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: pacman_nc17_5
       rect:
         serializedVersion: 2
         x: 0
@@ -215,22 +157,10 @@ TextureImporter:
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-      outline:
-      - - {x: 106, y: 11.5}
-        - {x: 106, y: 43.5}
-        - {x: 46, y: 94.5}
-        - {x: -24, y: 104.5}
-        - {x: -54, y: 104.5}
-        - {x: -104, y: 59.5}
-        - {x: -104, y: -46.5}
-        - {x: -73, y: -113.5}
-        - {x: 47, y: -113.5}
-        - {x: 106, y: -92.5}
-        - {x: 106, y: -63.5}
-        - {x: 101, y: -48.5}
-        - {x: 56, y: -29.5}
-        - {x: 105, y: 9.5}
-    - name: pacman_nc17_6
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: pacman_nc17_6
       rect:
         serializedVersion: 2
         x: 266
@@ -240,23 +170,10 @@ TextureImporter:
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-      outline:
-      - - {x: 34, y: -20.5}
-        - {x: 29, y: -21.5}
-        - {x: 51, y: -15.5}
-        - {x: 108, y: -9.5}
-        - {x: 108, y: 36.5}
-        - {x: 88, y: 92.5}
-        - {x: -11, y: 107.5}
-        - {x: -57, y: 107.5}
-        - {x: -101, y: 91.5}
-        - {x: -101, y: -37.5}
-        - {x: -73, y: -113.5}
-        - {x: 64, y: -113.5}
-        - {x: 108, y: -79.5}
-        - {x: 108, y: -58.5}
-        - {x: 87, y: -27.5}
-    - name: pacman_nc17_7
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: pacman_nc17_7
       rect:
         serializedVersion: 2
         x: 532
@@ -266,22 +183,10 @@ TextureImporter:
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-      outline:
-      - - {x: 102, y: -9.5}
-        - {x: 109, y: 6.5}
-        - {x: 109, y: 39.5}
-        - {x: 55, y: 89.5}
-        - {x: -12, y: 109.5}
-        - {x: -52, y: 109.5}
-        - {x: -98, y: 66.5}
-        - {x: -98, y: -43.5}
-        - {x: -96, y: -57.5}
-        - {x: -36, y: -113.5}
-        - {x: 32, y: -113.5}
-        - {x: 73, y: -97.5}
-        - {x: 106, y: -62.5}
-        - {x: 101, y: -42.5}
-    - name: pacman_nc17_8
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: pacman_nc17_8
       rect:
         serializedVersion: 2
         x: 798
@@ -291,22 +196,10 @@ TextureImporter:
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-      outline:
-      - - {x: 111, y: -5.5}
-        - {x: 111, y: 35.5}
-        - {x: 85, y: 65.5}
-        - {x: 2, y: 110.5}
-        - {x: -39, y: 110.5}
-        - {x: -94, y: 79.5}
-        - {x: -94, y: -37.5}
-        - {x: -77, y: -75.5}
-        - {x: -58, y: -95.5}
-        - {x: -22, y: -112.5}
-        - {x: 50, y: -112.5}
-        - {x: 111, y: -64.5}
-        - {x: 111, y: -32.5}
-        - {x: 95, y: -27.5}
-    - name: pacman_nc17_9
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: pacman_nc17_9
       rect:
         serializedVersion: 2
         x: 1064
@@ -316,25 +209,10 @@ TextureImporter:
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-      outline:
-      - - {x: 47, y: -22.5}
-        - {x: 50, y: -21.5}
-        - {x: 68, y: -17.5}
-        - {x: 112, y: -20.5}
-        - {x: 112, y: 42.5}
-        - {x: 110, y: 58.5}
-        - {x: -10, y: 112.5}
-        - {x: -41, y: 112.5}
-        - {x: -94, y: 78.5}
-        - {x: -94, y: -76.5}
-        - {x: -62, y: -112.5}
-        - {x: 72, y: -112.5}
-        - {x: 112, y: -73.5}
-        - {x: 112, y: -42.5}
-        - {x: 104, y: -33.5}
-        - {x: 85, y: -24.5}
-        - {x: 58, y: -20.5}
-    - name: pacman_nc17_10
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: pacman_nc17_10
       rect:
         serializedVersion: 2
         x: 0
@@ -344,21 +222,10 @@ TextureImporter:
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-      outline:
-      - - {x: 67, y: 80.5}
-        - {x: 0, y: 113.5}
-        - {x: -29, y: 113.5}
-        - {x: -94, y: 80.5}
-        - {x: -94, y: -46.5}
-        - {x: -65, y: -85.5}
-        - {x: -48, y: -96.5}
-        - {x: -26, y: -108.5}
-        - {x: -8, y: -112.5}
-        - {x: 35, y: -112.5}
-        - {x: 59, y: -108.5}
-        - {x: 113, y: -57.5}
-        - {x: 113, y: 25.5}
-    - name: pacman_nc17_11
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: pacman_nc17_11
       rect:
         serializedVersion: 2
         x: 266
@@ -368,23 +235,10 @@ TextureImporter:
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-      outline:
-      - - {x: 83, y: -20.5}
-        - {x: 77, y: -21.5}
-        - {x: 90, y: -16.5}
-        - {x: 105, y: -25.5}
-        - {x: 114, y: -18.5}
-        - {x: 114, y: 40.5}
-        - {x: 29, y: 114.5}
-        - {x: -52, y: 114.5}
-        - {x: -81, y: 93.5}
-        - {x: -94, y: 43.5}
-        - {x: -94, y: -60.5}
-        - {x: -67, y: -112.5}
-        - {x: 57, y: -112.5}
-        - {x: 112, y: -46.5}
-        - {x: 106, y: -25.5}
-    - name: pacman_nc17_12
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: pacman_nc17_12
       rect:
         serializedVersion: 2
         x: 532
@@ -394,24 +248,10 @@ TextureImporter:
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-      outline:
-      - - {x: 105, y: -20.5}
-        - {x: 100, y: -23.5}
-        - {x: 101, y: -22.5}
-        - {x: 111, y: -15.5}
-        - {x: 115, y: -12.5}
-        - {x: 115, y: 21.5}
-        - {x: 59, y: 102.5}
-        - {x: 33, y: 115.5}
-        - {x: -48, y: 115.5}
-        - {x: -95, y: 75.5}
-        - {x: -95, y: -80.5}
-        - {x: -35, y: -112.5}
-        - {x: 55, y: -112.5}
-        - {x: 63, y: -108.5}
-        - {x: 115, y: -44.5}
-        - {x: 115, y: -32.5}
-    - name: pacman_nc17_13
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: pacman_nc17_13
       rect:
         serializedVersion: 2
         x: 798
@@ -421,24 +261,10 @@ TextureImporter:
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-      outline:
-      - - {x: 115, y: -23.5}
-        - {x: 115, y: 2.5}
-        - {x: 104, y: 47.5}
-        - {x: 18, y: 115.5}
-        - {x: -25, y: 115.5}
-        - {x: -76, y: 93.5}
-        - {x: -95, y: 26.5}
-        - {x: -95, y: -37.5}
-        - {x: -92, y: -58.5}
-        - {x: -61, y: -93.5}
-        - {x: -23, y: -112.5}
-        - {x: 19, y: -112.5}
-        - {x: 49, y: -108.5}
-        - {x: 79, y: -87.5}
-        - {x: 97, y: -63.5}
-        - {x: 113, y: -40.5}
-    - name: pacman_nc17_14
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: pacman_nc17_14
       rect:
         serializedVersion: 2
         x: 1064
@@ -448,23 +274,10 @@ TextureImporter:
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-      outline:
-      - - {x: 105, y: -22.5}
-        - {x: 97, y: -24.5}
-        - {x: 103, y: -22.5}
-        - {x: 114, y: -18.5}
-        - {x: 114, y: 15.5}
-        - {x: 113, y: 30.5}
-        - {x: 76, y: 70.5}
-        - {x: 3, y: 115.5}
-        - {x: -35, y: 115.5}
-        - {x: -94, y: 106.5}
-        - {x: -94, y: -97.5}
-        - {x: -59, y: -112.5}
-        - {x: 75, y: -112.5}
-        - {x: 114, y: -47.5}
-        - {x: 114, y: -37.5}
-    - name: pacman_nc17_15
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: pacman_nc17_15
       rect:
         serializedVersion: 2
         x: 0
@@ -474,31 +287,10 @@ TextureImporter:
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-      outline:
-      - - {x: 85, y: -20.5}
-        - {x: 73, y: -22.5}
-        - {x: 69, y: -27.5}
-        - {x: 65, y: -20.5}
-        - {x: 66, y: -21.5}
-        - {x: 69, y: -22.5}
-        - {x: 74, y: -22.5}
-        - {x: 92, y: -18.5}
-        - {x: 102, y: -19.5}
-        - {x: 114, y: -19.5}
-        - {x: 114, y: 36.5}
-        - {x: 71, y: 114.5}
-        - {x: -48, y: 114.5}
-        - {x: -89, y: 94.5}
-        - {x: -94, y: 64.5}
-        - {x: -94, y: -68.5}
-        - {x: -86, y: -84.5}
-        - {x: -27, y: -112.5}
-        - {x: 50, y: -112.5}
-        - {x: 64, y: -108.5}
-        - {x: 114, y: -48.5}
-        - {x: 114, y: -36.5}
-        - {x: 106, y: -26.5}
-    - name: pacman_nc17_16
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: pacman_nc17_16
       rect:
         serializedVersion: 2
         x: 266
@@ -508,23 +300,10 @@ TextureImporter:
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-      outline:
-      - - {x: 98, y: -29.5}
-        - {x: 86, y: -24.5}
-        - {x: 105, y: -18.5}
-        - {x: 113, y: -12.5}
-        - {x: 113, y: 49.5}
-        - {x: 31, y: 113.5}
-        - {x: -61, y: 113.5}
-        - {x: -94, y: 84.5}
-        - {x: -94, y: -53.5}
-        - {x: -62, y: -98.5}
-        - {x: -23, y: -112.5}
-        - {x: 36, y: -112.5}
-        - {x: 75, y: -95.5}
-        - {x: 111, y: -50.5}
-        - {x: 109, y: -35.5}
-    - name: pacman_nc17_17
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: pacman_nc17_17
       rect:
         serializedVersion: 2
         x: 532
@@ -534,33 +313,10 @@ TextureImporter:
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-      outline:
-      - - {x: 98, y: -33.5}
-        - {x: 73, y: -24.5}
-        - {x: 53, y: -20.5}
-        - {x: 47, y: -22.5}
-        - {x: 50, y: -21.5}
-        - {x: 65, y: -14.5}
-        - {x: 71, y: -16.5}
-        - {x: 74, y: -15.5}
-        - {x: 79, y: -13.5}
-        - {x: 111, y: -12.5}
-        - {x: 112, y: -7.5}
-        - {x: 112, y: 23.5}
-        - {x: 81, y: 71.5}
-        - {x: 12, y: 102.5}
-        - {x: -11, y: 112.5}
-        - {x: -40, y: 112.5}
-        - {x: -93, y: 72.5}
-        - {x: -94, y: 64.5}
-        - {x: -94, y: -57.5}
-        - {x: -83, y: -96.5}
-        - {x: -36, y: -112.5}
-        - {x: 67, y: -112.5}
-        - {x: 112, y: -68.5}
-        - {x: 112, y: -45.5}
-        - {x: 104, y: -35.5}
-    - name: pacman_nc17_18
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: pacman_nc17_18
       rect:
         serializedVersion: 2
         x: 798
@@ -570,22 +326,10 @@ TextureImporter:
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-      outline:
-      - - {x: 85, y: -26.5}
-        - {x: 111, y: -5.5}
-        - {x: 111, y: 26.5}
-        - {x: 88, y: 75.5}
-        - {x: -16, y: 110.5}
-        - {x: -41, y: 110.5}
-        - {x: -95, y: 71.5}
-        - {x: -95, y: -38.5}
-        - {x: -77, y: -84.5}
-        - {x: -32, y: -112.5}
-        - {x: 54, y: -112.5}
-        - {x: 90, y: -89.5}
-        - {x: 111, y: -49.5}
-        - {x: 111, y: -40.5}
-    - name: pacman_nc17_19
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: pacman_nc17_19
       rect:
         serializedVersion: 2
         x: 1064
@@ -595,22 +339,10 @@ TextureImporter:
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-      outline:
-      - - {x: 59, y: 85.5}
-        - {x: 26, y: 90.5}
-        - {x: -17, y: 108.5}
-        - {x: -53, y: 108.5}
-        - {x: -98, y: 73.5}
-        - {x: -98, y: -8.5}
-        - {x: -90, y: -54.5}
-        - {x: -77, y: -78.5}
-        - {x: -28, y: -113.5}
-        - {x: 38, y: -113.5}
-        - {x: 51, y: -111.5}
-        - {x: 108, y: -64.5}
-        - {x: 109, y: -40.5}
-        - {x: 109, y: 35.5}
-    - name: pacman_nc17_20
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: pacman_nc17_20
       rect:
         serializedVersion: 2
         x: 0
@@ -620,22 +352,10 @@ TextureImporter:
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-      outline:
-      - - {x: 78, y: -15.5}
-        - {x: 107, y: 0.5}
-        - {x: 107, y: 46.5}
-        - {x: 51, y: 99.5}
-        - {x: 4, y: 106.5}
-        - {x: -57, y: 106.5}
-        - {x: -101, y: 74.5}
-        - {x: -101, y: -48.5}
-        - {x: -69, y: -93.5}
-        - {x: -14, y: -113.5}
-        - {x: 51, y: -113.5}
-        - {x: 107, y: -75.5}
-        - {x: 107, y: -60.5}
-        - {x: 101, y: -47.5}
-    - name: pacman_nc17_21
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: pacman_nc17_21
       rect:
         serializedVersion: 2
         x: 266
@@ -645,22 +365,10 @@ TextureImporter:
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-      outline:
-      - - {x: 105, y: 12.5}
-        - {x: 105, y: 59.5}
-        - {x: 28, y: 103.5}
-        - {x: 24, y: 104.5}
-        - {x: -64, y: 104.5}
-        - {x: -104, y: 70.5}
-        - {x: -104, y: -7.5}
-        - {x: -90, y: -61.5}
-        - {x: -73, y: -90.5}
-        - {x: -23, y: -113.5}
-        - {x: 47, y: -113.5}
-        - {x: 104, y: -72.5}
-        - {x: 98, y: -51.5}
-        - {x: 89, y: -8.5}
-    - name: pacman_nc17_22
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: pacman_nc17_22
       rect:
         serializedVersion: 2
         x: 532
@@ -670,22 +378,10 @@ TextureImporter:
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-      outline:
-      - - {x: 103, y: 17.5}
-        - {x: 103, y: 47.5}
-        - {x: 52, y: 91.5}
-        - {x: -22, y: 102.5}
-        - {x: -63, y: 102.5}
-        - {x: -107, y: 55.5}
-        - {x: -107, y: 5.5}
-        - {x: -94, y: -69.5}
-        - {x: -34, y: -114.5}
-        - {x: 41, y: -114.5}
-        - {x: 54, y: -110.5}
-        - {x: 99, y: -77.5}
-        - {x: 96, y: -54.5}
-        - {x: 99, y: 5.5}
-    - name: pacman_nc17_23
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: pacman_nc17_23
       rect:
         serializedVersion: 2
         x: 798
@@ -695,23 +391,10 @@ TextureImporter:
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-      outline:
-      - - {x: 101, y: 53.5}
-        - {x: 40, y: 94.5}
-        - {x: -21, y: 99.5}
-        - {x: -66, y: 99.5}
-        - {x: -109, y: 52.5}
-        - {x: -109, y: 1.5}
-        - {x: -101, y: -40.5}
-        - {x: -69, y: -85.5}
-        - {x: -48, y: -101.5}
-        - {x: -28, y: -114.5}
-        - {x: 43, y: -114.5}
-        - {x: 101, y: -87.5}
-        - {x: 101, y: -75.5}
-        - {x: 79, y: -9.5}
-        - {x: 101, y: 10.5}
-    - name: pacman_nc17_24
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: pacman_nc17_24
       rect:
         serializedVersion: 2
         x: 1064
@@ -721,22 +404,8 @@ TextureImporter:
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-      outline:
-      - - {x: 99, y: 53.5}
-        - {x: 80, y: 96.5}
-        - {x: -73, y: 96.5}
-        - {x: -79, y: 89.5}
-        - {x: -111, y: 48.5}
-        - {x: -111, y: -0.5}
-        - {x: -105, y: -28.5}
-        - {x: -59, y: -104.5}
-        - {x: -38, y: -114.5}
-        - {x: 42, y: -114.5}
-        - {x: 99, y: -93.5}
-        - {x: 99, y: -75.5}
-        - {x: 98, y: -65.5}
-        - {x: 43, y: -17.5}
-        - {x: 99, y: 8.5}
+      outline: []
+      tessellationDetail: -1
     outline: []
   spritePackingTag: 
   userData: 

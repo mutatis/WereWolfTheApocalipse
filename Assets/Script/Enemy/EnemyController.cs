@@ -23,7 +23,7 @@ public class EnemyController : MonoBehaviour
     public bool roamming = true;
     public bool combate = true;
     public bool slam;
-    public bool isEngage, procura, ativacao, combo;
+    public bool isEngage, procura, ativacao, combo, caindoSlam;
 
     public TextMesh text;
     
@@ -59,6 +59,18 @@ public class EnemyController : MonoBehaviour
     
     void Update()
     {
+        if(caindoSlam)
+        {
+            if (transform.localScale.x > 0)
+            {
+                transform.Translate(0.1f, 0, 0, Space.World);
+            }
+            else
+            {
+                transform.Translate(-0.1f, 0, 0, Space.World);
+            }
+        }
+
         anim.SetBool("isWalk", isWalk);
 
         if(!anim.GetCurrentAnimatorStateInfo(0).IsName("EnemySlam"))
@@ -370,20 +382,20 @@ public class EnemyController : MonoBehaviour
         int y = Random.Range(1, 3);
         if (y == 1)
         {
-            vel1 = 0.03f;
+            vel1 = 0.015f;
         }
         else
         {
-            vel1 = -0.03f;
+            vel1 = -0.015f;
         }
         int x = Random.Range(1, 3);
         if (x == 1)
         {
-            vel2 = 0.03f;
+            vel2 = 0.015f;
         }
         else
         {
-            vel2 = -0.03f;
+            vel2 = -0.015f;
         }
     }
 
@@ -465,7 +477,7 @@ public class EnemyController : MonoBehaviour
                     direction.Normalize();
                     if (!stun)
                     {
-                        deus = (direction / 7);
+                        deus = (direction / 10);
                         if (Time.timeScale != 0 && !stun)
                         {
 							transform.Translate(deus, Space.World);
@@ -657,6 +669,7 @@ public class EnemyController : MonoBehaviour
         StopCoroutine("Pode");
         chamei = true;
         stun = true;
+        caindoSlam = true;
         Switch();
     }
 
@@ -664,29 +677,29 @@ public class EnemyController : MonoBehaviour
     {
         if (other.gameObject.tag == "Parede1")
         {
-            vel1 = -0.03f;
+            vel1 = -0.015f;
             int x = Random.Range(1, 3);
             if(x == 1)
             {
-                vel2 = 0.03f;
+                vel2 = 0.015f;
             }
             else
             {
-                vel2 = -0.03f;
+                vel2 = -0.015f;
             }
         }
         if (other.gameObject.tag == "Parede2")
         {
             print("P2");
-            vel1 = 0.03f;
+            vel1 = 0.015f;
             int x = Random.Range(1, 3);
             if (x == 1)
             {
-                vel2 = 0.03f;
+                vel2 = 0.015f;
             }
             else
             {
-                vel2 = -0.03f;
+                vel2 = -0.015f;
             }
         }
         if(other.gameObject.tag == "Chao")
@@ -704,28 +717,28 @@ public class EnemyController : MonoBehaviour
         }
         if (other.gameObject.tag == "Parede1")
         {
-            vel1 = -0.03f;
+            vel1 = -0.015f;
             int x = Random.Range(1, 3);
             if (x == 1)
             {
-                vel2 = 0.03f;
+                vel2 = 0.015f;
             }
             else
             {
-                vel2 = -0.03f;
+                vel2 = -0.015f;
             }
         }
         if (other.gameObject.tag == "Parede2")
         {
-            vel1 = 0.03f;
+            vel1 = 0.015f;
             int x = Random.Range(1, 3);
             if (x == 1)
             {
-                vel2 = 0.03f;
+                vel2 = 0.015f;
             }
             else
             {
-                vel2 = -0.03f;
+                vel2 = -0.015f;
             }
         }
     }
