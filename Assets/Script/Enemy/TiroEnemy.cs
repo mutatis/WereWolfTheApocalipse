@@ -5,6 +5,8 @@ public class TiroEnemy : MonoBehaviour
 {
     public GameObject obj;
 
+    public Animator anim;
+
     [FMODUnity.EventRef]
     public string tiro;
 
@@ -12,7 +14,7 @@ public class TiroEnemy : MonoBehaviour
 
     public float velocityX, dmg, range;
 
-    bool foi;
+    bool foi, acerto, subo, desce;
 
     void Start()
     {
@@ -33,7 +35,40 @@ public class TiroEnemy : MonoBehaviour
             }
             foi = true;
         }
-		transform.Translate(new Vector3(velocityX, 0, 0), Space.World);
+        if (!acerto)
+        {
+            transform.Translate(new Vector3(velocityX, 0, 0), Space.World);
+        }
+
+        if(subo)
+        {
+            transform.Translate(new Vector3(0, 0.1f, 0), Space.World);
+        }
+        else if(desce)
+        {
+            transform.Translate(new Vector3(0, -0.13f, 0), Space.World);
+        }
+    }
+
+    public void Para()
+    {
+        desce = false;
+    }
+
+    public void Subo()
+    {
+        subo = true;
+    }
+
+    public void Desce()
+    {
+        subo = false;
+        desce = true;
+    }
+
+    public void Acabo()
+    {
+        Destroy(gameObject);
     }
 
     IEnumerator GO()
@@ -47,7 +82,8 @@ public class TiroEnemy : MonoBehaviour
         if (other.gameObject.tag == "Player")
         {
             other.gameObject.GetComponent<PlayerDano>().Dano(dmg, gameObject, true);
-            Destroy(gameObject);
+            acerto = true;
+            anim.enabled = true;
         }
     }
 }
