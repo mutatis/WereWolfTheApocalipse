@@ -30,7 +30,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!1 &102850
 GameObject:
   m_ObjectHideFlags: 1
@@ -100,7 +100,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 186454}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -96, y: 26.57, z: -3.6875}
+  m_LocalPosition: {x: -100.42, y: 26.57, z: -3.6875}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children: []
@@ -113,7 +113,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100704}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -87.87, y: 14.434884, z: -3.6875}
+  m_LocalPosition: {x: -98.19, y: 14.434884, z: -3.6875}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children: []
@@ -163,6 +163,11 @@ MonoBehaviour:
   isRuntime: 0
   gameObjectToBeCreated:
   - {fileID: 148064, guid: 4c054948faf1e96448f5d0291eab2951, type: 2}
+  - {fileID: 125222, guid: 1ddcb0ff8c60b0d459a5b469f9e4cae6, type: 2}
+  - {fileID: 174810, guid: 275b307e1616b664299297cfae990bcc, type: 2}
+  - {fileID: 148064, guid: 4c054948faf1e96448f5d0291eab2951, type: 2}
+  - {fileID: 174810, guid: 275b307e1616b664299297cfae990bcc, type: 2}
+  - {fileID: 125222, guid: 1ddcb0ff8c60b0d459a5b469f9e4cae6, type: 2}
   howMany: 1
   rowCreatorOptions: 2
   minDistance: 0
@@ -232,14 +237,13 @@ MonoBehaviour:
   creator:
   - {fileID: 11438990}
   - {fileID: 11470076}
-  - {fileID: 11447106}
   quant: 0100000002000000030000000400000005000000
   tempo:
   - 2
-  - 2
-  - 2
-  - 2
-  - 2
+  - 10
+  - 20
+  - 40
+  - 60
   x: 0
   controllerTempo: 0
 --- !u!114 &11470076
@@ -256,6 +260,11 @@ MonoBehaviour:
   isRuntime: 0
   gameObjectToBeCreated:
   - {fileID: 148064, guid: 4c054948faf1e96448f5d0291eab2951, type: 2}
+  - {fileID: 125222, guid: 1ddcb0ff8c60b0d459a5b469f9e4cae6, type: 2}
+  - {fileID: 174810, guid: 275b307e1616b664299297cfae990bcc, type: 2}
+  - {fileID: 148064, guid: 4c054948faf1e96448f5d0291eab2951, type: 2}
+  - {fileID: 174810, guid: 275b307e1616b664299297cfae990bcc, type: 2}
+  - {fileID: 125222, guid: 1ddcb0ff8c60b0d459a5b469f9e4cae6, type: 2}
   howMany: 1
   rowCreatorOptions: 2
   minDistance: 0

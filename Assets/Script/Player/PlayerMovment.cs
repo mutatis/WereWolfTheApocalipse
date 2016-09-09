@@ -24,7 +24,7 @@ public class PlayerMovment : MonoBehaviour
 
     public float x, z, xButton, zButton;
 
-    public int contInput, xRun = 1;
+    public int contInput, xRun = 1, tipo;
 
     void Start()
     {
@@ -40,14 +40,17 @@ public class PlayerMovment : MonoBehaviour
                 transform.Translate(new Vector3((x * playerStatus.speed), 0, (z * playerStatus.speed)), Space.World);
             }
 
-			if (playerStats.crinos && !sprite.flipX)
-			{
-				sprite.flipX = true;
-			} 
-			else if (!playerStats.crinos && sprite.flipX) 
-			{
-				sprite.flipX = false;
-			}
+            if (tipo == 0)
+            {
+                if (playerStats.crinos && !sprite.flipX)
+                {
+                    sprite.flipX = true;
+                }
+                else if (!playerStats.crinos && sprite.flipX)
+                {
+                    sprite.flipX = false;
+                }
+            }
 
 			if (!isMov) 
 			{
