@@ -7,9 +7,17 @@ public class PlayerDonsPresas : MonoBehaviour
 
     public PlayerStats controller;
 
-    public PlayerStatus playerStatus;
+    public PlayerAttackController playerAttack;
+
+    public PlayerDano playerDano;
+
+    public PlayerAnimation playerAnim;
+
+    public PlayerMovment playerMov;
 
     public PlayerDomPresas player;
+
+    public PlayerStatus playerStatus;
 
     public GameObject granite;
 
@@ -19,50 +27,74 @@ public class PlayerDonsPresas : MonoBehaviour
 
     void Update()
     {
-        switch (player)
-        {
-            case PlayerDomPresas.Player1:
-                if (Input.GetKey(KeyCode.Joystick1Button5))
+        if (Time.timeScale != 0)
+        {if (!playerDano.stun && !playerMov.isGrab && !playerAttack.presa && !playerMov.jump && !controller.crinos)
+            {
+                switch (player)
                 {
-                    if (Input.GetKeyDown(KeyCode.Joystick1Button0))
-                    {
-                        PressButtonA("P1");
-                    }
-                    else if (Input.GetKeyDown(KeyCode.Joystick1Button1))
-                    {
-                        PressButtonB("P1");
-                    }
-                    else if (Input.GetKeyDown(KeyCode.Joystick1Button2))
-                    {
-                        PressButtonX("P1");
-                    }
-                    else if (Input.GetKeyDown(KeyCode.Joystick1Button3))
-                    {
-                        PressButtonY("P1");
-                    }
+                    case PlayerDomPresas.Player1:
+                        if (Input.GetKey(KeyCode.Joystick1Button5))
+                        {
+                            if (Input.GetKeyDown(KeyCode.Joystick1Button0))
+                            {
+                                PressButtonA("P1");
+                            }
+                            else if (Input.GetKeyDown(KeyCode.Joystick1Button1))
+                            {
+                                PressButtonB("P1");
+                            }
+                            else if (Input.GetKeyDown(KeyCode.Joystick1Button2))
+                            {
+                                PressButtonX("P1");
+                            }
+                            else if (Input.GetKeyDown(KeyCode.Joystick1Button3))
+                            {
+                                PressButtonY("P1");
+                            }
+                        }
+                        if (Input.GetKey(KeyCode.LeftShift))
+                        {
+                            if (Input.GetKeyDown(KeyCode.Space))
+                            {
+                                PressButtonA("P1");
+                            }
+                            else if (Input.GetKeyDown(KeyCode.C))
+                            {
+                                PressButtonB("P1");
+                            }
+                            else if (Input.GetKeyDown(KeyCode.Z))
+                            {
+                                PressButtonX("P1");
+                            }
+                            else if (Input.GetKeyDown(KeyCode.X))
+                            {
+                                PressButtonY("P1");
+                            }
+                        }
+                        break;
+                    case PlayerDomPresas.Player2:
+                        if (Input.GetKey(KeyCode.Joystick2Button5))
+                        {
+                            if (Input.GetKeyDown(KeyCode.Joystick2Button0))
+                            {
+                                PressButtonA("P2");
+                            }
+                            else if (Input.GetKeyDown(KeyCode.Joystick2Button1))
+                            {
+                                PressButtonB("P2");
+                            }
+                            else if (Input.GetKeyDown(KeyCode.Joystick2Button2))
+                            {
+                                PressButtonX("P2");
+                            }
+                            else if (Input.GetKeyDown(KeyCode.Joystick2Button3))
+                            {
+                                PressButtonY("P2");
+                            }
+                        }
+                        break;
                 }
-                break;
-            case PlayerDomPresas.Player2:
-                if (Input.GetKey(KeyCode.Joystick2Button5))
-                {
-                    if (Input.GetKeyDown(KeyCode.Joystick2Button0))
-                    {
-                        PressButtonA("P2");
-                    }
-                    else if (Input.GetKeyDown(KeyCode.Joystick2Button1))
-                    {
-                        PressButtonB("P2");
-                    }
-                    else if (Input.GetKeyDown(KeyCode.Joystick2Button2))
-                    {
-                        PressButtonX("P2");
-                    }
-                    else if (Input.GetKeyDown(KeyCode.Joystick2Button3))
-                    {
-                        PressButtonY("P2");
-                    }
-                }
-                break;
+            }
         }
     }
 

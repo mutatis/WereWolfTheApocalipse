@@ -124,17 +124,18 @@ public class EnemyController : MonoBehaviour
 						transform.Translate(vel1, 0, vel2, Space.World);
                     }
                     if (vel1 == 0 && vel2 == 0)
-                    {
-                        if (!anim.GetCurrentAnimatorStateInfo(0).IsName("EnemyIdle") && caindo && !anim.GetCurrentAnimatorStateInfo(0).IsName("SocoFracoEnemy"))
+                    {                        
+                        if (!anim.GetCurrentAnimatorStateInfo(0).IsName("EnemyIdle") && caindo && !anim.GetCurrentAnimatorStateInfo(0).IsName("SocoFracoEnemy")
+                            && !anim.GetCurrentAnimatorStateInfo(0).IsName("EnemySlam"))
                             anim.SetTrigger("Idle");
                     }
                     else if (!anim.GetCurrentAnimatorStateInfo(0).IsName("EnemyRun") && !costas && !anim.GetCurrentAnimatorStateInfo(0).IsName("GangFaliing") && 
-                        !anim.GetCurrentAnimatorStateInfo(0).IsName("SocoFracoEnemy"))
+                        !anim.GetCurrentAnimatorStateInfo(0).IsName("SocoFracoEnemy") && !anim.GetCurrentAnimatorStateInfo(0).IsName("EnemySlam"))
                     {
                         anim.SetTrigger("Run");
                     }
                     else if (!anim.GetCurrentAnimatorStateInfo(0).IsName("EnemyRunCostas") && costas && !anim.GetCurrentAnimatorStateInfo(0).IsName("GangFaliing") && 
-                        !anim.GetCurrentAnimatorStateInfo(0).IsName("SocoFracoEnemy"))
+                        !anim.GetCurrentAnimatorStateInfo(0).IsName("SocoFracoEnemy") && !anim.GetCurrentAnimatorStateInfo(0).IsName("EnemySlam"))
                     {
                         anim.SetTrigger("Run");
                     }

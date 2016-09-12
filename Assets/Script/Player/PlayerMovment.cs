@@ -26,6 +26,10 @@ public class PlayerMovment : MonoBehaviour
 
     public int contInput, xRun = 1, tipo;
 
+    float forcaY;
+
+    int pulo;
+
     void Start()
     {
         JumpStart(7, 19);
@@ -193,15 +197,29 @@ public class PlayerMovment : MonoBehaviour
         rig.velocity = new Vector3(forceX, forceY, rig.velocity.z);
     }
 
+    public void JumpUp()
+    {
+        if (pulo > 0)
+        {
+            jump = true;
+            rig.velocity = new Vector3(rig.velocity.x, forcaY, rig.velocity.z);
+        }
+    }
+
     void Jump(float force)
     {
+        pulo++;
         audioInstanceCreator = FMODUnity.RuntimeManager.CreateInstance(jumpSound);
         audioInstanceCreator.setVolume(PlayerPrefs.GetFloat("VolumeFX"));
         audioInstanceCreator.start();
-        jump = true;
         playerAnim.anim.SetTrigger("Pulo");
-        playerAnim.anim.SetBool("Jump", jump);
-        rig.velocity = new Vector3(rig.velocity.x, force, rig.velocity.z);
+        playerAnim.anim.SetBool("Jump", true);
+        forcaY = force;
+        if (tipo != 1)
+        {
+            jump = true;
+            rig.velocity = new Vector3(rig.velocity.x, force, rig.velocity.z);
+        }
     }
 
     void Normal()

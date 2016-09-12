@@ -79,7 +79,7 @@ public class EnemyRanged : MonoBehaviour
 
             if (marcado == 1)
             {
-                if (!anim.GetCurrentAnimatorStateInfo(0).IsName("EnemyRun"))
+                if (!anim.GetCurrentAnimatorStateInfo(0).IsName("EnemyRun") && !anim.GetCurrentAnimatorStateInfo(0).IsName("EnemySlam"))
                 {
                     anim.SetTrigger("Run");
                 }   
@@ -87,7 +87,7 @@ public class EnemyRanged : MonoBehaviour
             }
             else if (marcado == 2)
             {
-                if (!anim.GetCurrentAnimatorStateInfo(0).IsName("EnemyRun"))
+                if (!anim.GetCurrentAnimatorStateInfo(0).IsName("EnemyRun") && !anim.GetCurrentAnimatorStateInfo(0).IsName("EnemySlam"))
                 {
                     anim.SetTrigger("Run");
                 }

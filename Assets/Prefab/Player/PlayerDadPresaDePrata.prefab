@@ -146,12 +146,12 @@ GameObject:
   - 136: {fileID: 13687308}
   - 54: {fileID: 5405390}
   - 114: {fileID: 11451426}
-  - 114: {fileID: 11484554}
   - 114: {fileID: 11494366}
   - 114: {fileID: 11426814}
   - 114: {fileID: 11491822}
   - 114: {fileID: 11461944}
   - 114: {fileID: 11437298}
+  - 114: {fileID: 114000012089520572}
   m_Layer: 8
   m_Name: PlayerDadPresaDePrata
   m_TagString: Player
@@ -216,7 +216,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 167254}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -14.87, y: 0.77, z: 3.766}
+  m_LocalPosition: {x: 0, y: 0.77, z: 3.766}
   m_LocalScale: {x: 2.8803294, y: 2.8803294, z: 2.8803294}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children:
@@ -228,6 +228,7 @@ Transform:
   - {fileID: 472090}
   - {fileID: 4000012634412020}
   - {fileID: 424478}
+  - {fileID: 4000012627760266}
   m_Father: {fileID: 0}
   m_RootOrder: 0
 --- !u!4 &424478
@@ -770,36 +771,6 @@ MonoBehaviour:
   call: 0
   lunar: 0
   crinos: 0
---- !u!114 &11484554
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 167254}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e40d5406c9cb26d4c98944e46b06ad79, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  cost:
-  - 50
-  - 50
-  - 50
-  - 0
-  - 0
-  controller: {fileID: 11461944}
-  playerAttack: {fileID: 11491822}
-  playerDano: {fileID: 11437298}
-  playerAnim: {fileID: 11441958}
-  playerMov: {fileID: 11426814}
-  player: 0
-  invoque: {fileID: 174520, guid: f0ac4d401d998714d86ceb96b5316a0c, type: 2}
-  eletrecute: {fileID: 102888, guid: 71d2e0fce5fcb1649a79cca5a802993b, type: 2}
-  pack: {fileID: 113948}
-  pacman: {fileID: 0}
-  posInvoque: {fileID: 475972}
-  uivo: event:/Skills/Howl
-  nome: Andarilho
 --- !u!114 &11491822
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1075,6 +1046,34 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!1 &1000012977462960
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 4000012627760266}
+  m_Layer: 0
+  m_Name: PosGranite
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4000012627760266
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1000012977462960}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0.66, y: -1.679628, z: -1.3074894}
+  m_LocalScale: {x: 0.3471825, y: 0.3471825, z: 0.3471825}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_Children: []
+  m_Father: {fileID: 403790}
+  m_RootOrder: 8
 --- !u!4 &4000012634412020
 Transform:
   m_ObjectHideFlags: 1
@@ -1102,6 +1101,30 @@ Transform:
   m_Children: []
   m_Father: {fileID: 4000012634412020}
   m_RootOrder: 0
+--- !u!114 &114000012089520572
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 167254}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e5a5d1ef4161a354bb88ba69df2903f9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cost:
+  - 50
+  - 50
+  controller: {fileID: 11461944}
+  playerAttack: {fileID: 11491822}
+  playerDano: {fileID: 11437298}
+  playerAnim: {fileID: 11441958}
+  playerMov: {fileID: 11426814}
+  player: 0
+  playerStatus: {fileID: 11414124}
+  granite: {fileID: 188288, guid: dca17c12b28ed354f9a80316061707dc, type: 2}
+  posGranite: {fileID: 4000012627760266}
+  nome: Presas
 --- !u!212 &212000013886843148
 SpriteRenderer:
   m_ObjectHideFlags: 1
