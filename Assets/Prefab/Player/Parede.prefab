@@ -28,7 +28,8 @@ Transform:
   m_LocalPosition: {x: 0, y: 3.0757608, z: 0}
   m_LocalScale: {x: 0.074881636, y: 0.7492855, z: 9.866801}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_Children: []
+  m_Children:
+  - {fileID: 4000014175632660}
   m_Father: {fileID: 0}
   m_RootOrder: 0
 --- !u!65 &6581940
@@ -88,7 +89,7 @@ SpriteRenderer:
   m_SortingLayerID: 1539759019
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 231b9a1ee6e196944b9c6bf12238dcc2, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0, g: 0, b: 0, a: 1}
   m_FlipX: 0
   m_FlipY: 0
 --- !u!1001 &100100000
@@ -102,3 +103,57 @@ Prefab:
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 188288}
   m_IsPrefabParent: 1
+--- !u!1 &1000010593885566
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 4000014175632660}
+  - 114: {fileID: 114000013065204072}
+  - 65: {fileID: 65000012762428522}
+  m_Layer: 0
+  m_Name: SobeMorre
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4000014175632660
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1000010593885566}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 13.354409, y: 1.3346047, z: 0.10134997}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_Children: []
+  m_Father: {fileID: 497982}
+  m_RootOrder: 0
+--- !u!65 &65000012762428522
+BoxCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1000010593885566}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.94, y: 1.2, z: 10.19}
+  m_Center: {x: 0, y: 3.95, z: 0}
+--- !u!114 &114000013065204072
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1000010593885566}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 69ad3e6da213c9b4fb630a10ceffd3ec, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dano: 0

@@ -24,11 +24,9 @@ public class PlayerMovment : MonoBehaviour
 
     public float x, z, xButton, zButton;
 
-    public int contInput, xRun = 1, tipo;
+    public int contInput, xRun = 1, tipo, pulo;
 
     float forcaY;
-
-    int pulo;
 
     void Start()
     {

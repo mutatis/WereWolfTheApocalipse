@@ -36,7 +36,7 @@ public class PlayerAttackController : MonoBehaviour
             maxCombo = 4;
         }
 
-        if (!Input.GetKey(KeyCode.Joystick1Button5) || Input.GetKey(KeyCode.LeftShift))
+        if (!Input.GetKey(KeyCode.Joystick1Button5) && !Input.GetKey(KeyCode.LeftShift))
         {
             if ((Input.GetKeyDown(KeyCode.Joystick1Button2) || Input.GetKeyDown(KeyCode.Z)) && presa)
             {
@@ -122,6 +122,7 @@ public class PlayerAttackController : MonoBehaviour
     {
         if (!jumpAttack)
         {
+            playerMov.pulo = 0;
             playerAnim.anim.SetTrigger("JumpAttack");
             jumpAttack = true;
         }

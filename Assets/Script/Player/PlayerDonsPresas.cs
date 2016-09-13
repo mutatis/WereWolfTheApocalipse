@@ -27,8 +27,14 @@ public class PlayerDonsPresas : MonoBehaviour
 
     void Update()
     {
+        if (Input.GetKey(KeyCode.LeftShift))
+        {
+            print("Apertando");
+        }
+
         if (Time.timeScale != 0)
-        {if (!playerDano.stun && !playerMov.isGrab && !playerAttack.presa && !playerMov.jump && !controller.crinos)
+        {
+            if (!playerDano.stun && !playerMov.isGrab && !playerAttack.presa && !playerMov.jump && !controller.crinos)
             {
                 switch (player)
                 {
@@ -115,7 +121,8 @@ public class PlayerDonsPresas : MonoBehaviour
 
     void WallofGranite()
     {
-        print(posGranite.position);
+        playerDano.stun = true;
+        playerAnim.anim.SetTrigger("SummonGranite");
         Instantiate(granite, posGranite.position, transform.rotation);
     }
 
