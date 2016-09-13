@@ -222,6 +222,7 @@ public class PlayerAttackController : MonoBehaviour
             {
                 if (!playerAnim.anim.GetCurrentAnimatorStateInfo(0).IsName("SocoForte"))
                 {
+                    playerAnim.anim.SetInteger("SocoForteEscolha", Random.Range(0, 3));
                     playerAnim.anim.SetTrigger("SocoForte");
                     ataque = 0;
                 }
