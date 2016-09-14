@@ -9,7 +9,7 @@ public class SelectPersonagem : MonoBehaviour
 
     public MusicaManager musica;
 
-    public Animator[] player;
+    public Image[] player;
 
     public GameObject[] atributos;
     public GameObject loading;

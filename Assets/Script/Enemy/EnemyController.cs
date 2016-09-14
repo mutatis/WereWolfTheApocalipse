@@ -140,7 +140,8 @@ public class EnemyController : MonoBehaviour
                         anim.SetTrigger("Run");
                     }
                 }
-				else if(distOportunidade < 4.5f && !anim.GetCurrentAnimatorStateInfo(0).IsName("SocoFracoEnemy"))
+				else if(distOportunidade < 4.5f && !anim.GetCurrentAnimatorStateInfo(0).IsName("SocoFracoEnemy")
+                    && !anim.GetCurrentAnimatorStateInfo(0).IsName("EnemySlam"))
                 {
                     anim.SetTrigger("SocoFraco0");
 					oportunidade++;
@@ -426,29 +427,38 @@ public class EnemyController : MonoBehaviour
 
     void Soco2()
     {
-        roamming = false;
-        combate = false;
-		anim.SetTrigger("SocoFraco1");
-		StartCoroutine (Combo ());
+        if (!anim.GetCurrentAnimatorStateInfo(0).IsName("EnemySlam"))
+        {
+            roamming = false;
+            combate = false;
+            anim.SetTrigger("SocoFraco1");
+            StartCoroutine(Combo());
+        }
     }
 
     void Soco()
     {
-        roamming = false;
-        combate = false;
-        anim.SetTrigger("SocoFraco0");
-		StartCoroutine(Combo());
+        if (!anim.GetCurrentAnimatorStateInfo(0).IsName("EnemySlam"))
+        {
+            roamming = false;
+            combate = false;
+            anim.SetTrigger("SocoFraco0");
+            StartCoroutine(Combo());
+        }
     }
 
 	IEnumerator Combo()
 	{
 		combo = true;
 		yield return new WaitForSeconds (0.7f);
-		anim.SetTrigger("SocoFraco0");
+        if (!anim.GetCurrentAnimatorStateInfo(0).IsName("EnemySlam"))
+            anim.SetTrigger("SocoFraco0");
 		yield return new WaitForSeconds (0.3f);
-		anim.SetTrigger("SocoFraco0");
+        if (!anim.GetCurrentAnimatorStateInfo(0).IsName("EnemySlam"))
+            anim.SetTrigger("SocoFraco0");
 		yield return new WaitForSeconds (0.3f);
-		anim.SetTrigger("SocoFraco1");
+        if (!anim.GetCurrentAnimatorStateInfo(0).IsName("EnemySlam"))
+            anim.SetTrigger("SocoFraco1");
 		yield return new WaitForSeconds (2f);
 		combo = false;
 	}
