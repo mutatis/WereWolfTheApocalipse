@@ -60,9 +60,15 @@ MonoBehaviour:
   - {fileID: 114000013407468114}
   - {fileID: 114000014184979206}
   - {fileID: 114000011641266238}
+  - {fileID: 114000012909729170}
+  - {fileID: 114000012788421918}
+  - {fileID: 114000010049241958}
+  - {fileID: 114000013565165532}
+  - {fileID: 114000013605394244}
+  - {fileID: 114000011580711506}
   MasterBankRef: {fileID: 114000010797368824}
   StringsBankRef: {fileID: 114000012578111778}
-  stringsBankWriteTime: 636086912500000000
+  stringsBankWriteTime: 636095460991572301
   cacheVersion: 2
 --- !u!114 &11403528
 MonoBehaviour:
@@ -1648,6 +1654,27 @@ MonoBehaviour:
   Parameters: []
   MinDistance: 1
   MaxDistance: 20
+--- !u!114 &114000010049241958
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Path: event:/Scenario/sludge
+  guid: 285675207307d841ad2a389ae95ca26d
+  Banks:
+  - {fileID: 114000010797368824}
+  IsStream: 1
+  Is3D: 1
+  IsOneShot: 0
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
 --- !u!114 &114000010111207848
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2119,11 +2146,11 @@ MonoBehaviour:
   m_Name: FMODStudioCache
   m_EditorClassIdentifier: 
   Path: Assets\Audio\werewolf\Build\Desktop\Master Bank.bank
-  lastModified: 636086912500000000
+  lastModified: 636095460991272087
   LoadResult: 0
   FileSizes:
   - Name: Desktop
-    Value: 14292352
+    Value: 15433632
   Exists: 1
 --- !u!114 &114000010802780446
 MonoBehaviour:
@@ -2308,6 +2335,21 @@ MonoBehaviour:
   Parameters: []
   MinDistance: 1
   MaxDistance: 20
+--- !u!114 &114000010981599814
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Name: volume
+  Min: 0
+  Max: 1
+  Default: 0
 --- !u!114 &114000011004529390
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2395,6 +2437,21 @@ MonoBehaviour:
   Min: 0
   Max: 100
   Default: 0
+--- !u!114 &114000011285897450
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Name: barulho
+  Min: 0
+  Max: 100
+  Default: 0
 --- !u!114 &114000011299390028
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2450,7 +2507,7 @@ MonoBehaviour:
   Is3D: 1
   IsOneShot: 0
   Parameters:
-  - {fileID: 114000012785416770}
+  - {fileID: 114000011449771488}
   MinDistance: 1
   MaxDistance: 20
 --- !u!114 &114000011419792486
@@ -2489,6 +2546,21 @@ MonoBehaviour:
   Parameters: []
   MinDistance: 1
   MaxDistance: 20
+--- !u!114 &114000011449771488
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Name: volume
+  Min: 0
+  Max: 1
+  Default: 0
 --- !u!114 &114000011451372340
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2609,6 +2681,27 @@ MonoBehaviour:
   Min: 0
   Max: 100
   Default: 0
+--- !u!114 &114000011580711506
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Path: event:/Interface/Menu
+  guid: daae7793bd5aea45ae0d94ba3b7f480e
+  Banks:
+  - {fileID: 114000010797368824}
+  IsStream: 0
+  Is3D: 1
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
 --- !u!114 &114000011621084930
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3007,7 +3100,7 @@ MonoBehaviour:
   Is3D: 1
   IsOneShot: 0
   Parameters:
-  - {fileID: 114000012334745592}
+  - {fileID: 114000014034628704}
   MinDistance: 1
   MaxDistance: 20
 --- !u!114 &114000012284750388
@@ -3136,11 +3229,11 @@ MonoBehaviour:
   m_Name: FMODStudioCache
   m_EditorClassIdentifier: 
   Path: Assets\Audio\werewolf\Build\Desktop\Master Bank.strings.bank
-  lastModified: 636086912500000000
+  lastModified: 636095460991572301
   LoadResult: 0
   FileSizes:
   - Name: Desktop
-    Value: 2654
+    Value: 2914
   Exists: 1
 --- !u!114 &114000012599934842
 MonoBehaviour:
@@ -3187,6 +3280,27 @@ MonoBehaviour:
   Min: 0
   Max: 1
   Default: 0
+--- !u!114 &114000012788421918
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Path: event:/Golpes/Enemy/toxicclaw
+  guid: 1f031712d3e300448b9b338704c79be4
+  Banks:
+  - {fileID: 114000010797368824}
+  IsStream: 0
+  Is3D: 1
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
 --- !u!114 &114000012789439176
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3251,6 +3365,27 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Path: event:/Pacman/death
   guid: 9e257e2aaaee7d4db11d0ee9249bb52a
+  Banks:
+  - {fileID: 114000010797368824}
+  IsStream: 0
+  Is3D: 1
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+--- !u!114 &114000012909729170
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Path: event:/Golpes/Enemy/Fomorup
+  guid: 101ca83ec63ce445ad62b0156d8c3773
   Banks:
   - {fileID: 114000010797368824}
   IsStream: 0
@@ -3328,6 +3463,21 @@ MonoBehaviour:
   m_Name: FMODStudioCache
   m_EditorClassIdentifier: 
   Name: transition_final
+  Min: 0
+  Max: 100
+  Default: 0
+--- !u!114 &114000012958911298
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Name: barulho
   Min: 0
   Max: 100
   Default: 0
@@ -3527,6 +3677,27 @@ MonoBehaviour:
   - {fileID: 114000014121631238}
   MinDistance: 1
   MaxDistance: 20
+--- !u!114 &114000013565165532
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Path: event:/Golpes/Enemy/Fomordown
+  guid: 4740fec64195e848bd83d5fe4db62de4
+  Banks:
+  - {fileID: 114000010797368824}
+  IsStream: 0
+  Is3D: 1
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
 --- !u!114 &114000013603681532
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3542,6 +3713,27 @@ MonoBehaviour:
   Min: 0
   Max: 1
   Default: 0
+--- !u!114 &114000013605394244
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Path: event:/Golpes/Enemy/Lifebreak
+  guid: a8a944306526c147b9d5ff401660ae72
+  Banks:
+  - {fileID: 114000010797368824}
+  IsStream: 0
+  Is3D: 1
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
 --- !u!114 &114000013650904652
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3614,6 +3806,21 @@ MonoBehaviour:
   Min: 0
   Max: 1
   Default: 0
+--- !u!114 &114000013748562774
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Name: transition_final
+  Min: 0
+  Max: 100
+  Default: 0
 --- !u!114 &114000013803257990
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3651,7 +3858,7 @@ MonoBehaviour:
   Is3D: 1
   IsOneShot: 1
   Parameters:
-  - {fileID: 114000011054722296}
+  - {fileID: 114000012958911298}
   MinDistance: 1
   MaxDistance: 20
 --- !u!114 &114000013868544222
@@ -3825,6 +4032,21 @@ MonoBehaviour:
   Parameters: []
   MinDistance: 1
   MaxDistance: 20
+--- !u!114 &114000014034628704
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Name: transition_final
+  Min: 0
+  Max: 100
+  Default: 0
 --- !u!114 &114000014121631238
 MonoBehaviour:
   m_ObjectHideFlags: 0

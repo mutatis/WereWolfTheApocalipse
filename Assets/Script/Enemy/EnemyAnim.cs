@@ -19,8 +19,27 @@ public class EnemyAnim : MonoBehaviour
 
     public float dmg;
 
+    FMOD.Studio.EventInstance fomorSound;
+
+    [FMODUnity.EventRef]
+    public string fomorDescida, fomorSubida;
+
     [HideInInspector]
     public string nome;
+
+    public void FomorSobe()
+    {
+        fomorSound = FMODUnity.RuntimeManager.CreateInstance(fomorSubida);
+        fomorSound.setVolume(PlayerPrefs.GetFloat("VolumeFX"));
+        fomorSound.start();
+    }
+
+    public void FomorDesce()
+    {
+        fomorSound = FMODUnity.RuntimeManager.CreateInstance(fomorDescida);
+        fomorSound.setVolume(PlayerPrefs.GetFloat("VolumeFX"));
+        fomorSound.start();
+    }
 
     public void Levantando()
     {

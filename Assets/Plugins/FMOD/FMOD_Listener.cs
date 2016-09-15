@@ -1,4 +1,8 @@
 /* This class is now legacy. Keep the definition here for the migration script to work */
+#if FMOD_LIVEUPDATE
+#define RUN_IN_BACKGROUND
+#endif
+
 using UnityEngine;
 
 [AddComponentMenu("")]

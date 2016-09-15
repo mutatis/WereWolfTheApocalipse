@@ -96,17 +96,17 @@ AnimationClip:
       value: {fileID: 21300000, guid: 4dc31537d46701545acac6a1707e3f7f, type: 3}
     - time: 1.7083334
       value: {fileID: 21300000, guid: 6c074d4199419ce44b58c22e1b4e6a3f, type: 3}
-    - time: 1.7916666
+    - time: 1.75
       value: {fileID: 21300000, guid: 788e12207d2930d40afb7a2f8abc36cd, type: 3}
-    - time: 1.875
+    - time: 1.7916666
       value: {fileID: 21300000, guid: 12f101524e27a0a49a392c6b25d3e85e, type: 3}
-    - time: 1.9583334
+    - time: 1.8333334
       value: {fileID: 21300000, guid: 8f9b7c06bd9699c478d81c21daa0dec8, type: 3}
-    - time: 2.0416667
+    - time: 1.9166666
       value: {fileID: 21300000, guid: 822237d4bc012f843b1a5b23c66808a8, type: 3}
-    - time: 2.125
+    - time: 2
       value: {fileID: 21300000, guid: ca32915ab463d0f469017c93aab2e233, type: 3}
-    - time: 2.2083333
+    - time: 2.0833333
       value: {fileID: 21300000, guid: 6d12f3baab302d84a801e4b676d60130, type: 3}
     attribute: m_Sprite
     path: 
@@ -172,7 +172,7 @@ AnimationClip:
     m_AdditiveReferencePoseClip: {fileID: 0}
     m_AdditiveReferencePoseTime: 0
     m_StartTime: 0
-    m_StopTime: 2.25
+    m_StopTime: 2.125
     m_OrientationOffsetY: 0
     m_Level: 0
     m_CycleOffset: 0
@@ -220,14 +220,28 @@ AnimationClip:
     floatParameter: 0
     intParameter: 0
     messageOptions: 0
-  - time: 2.1666667
+  - time: 0.875
+    functionName: FomorDesce
+    data: 
+    objectReferenceParameter: {fileID: 0}
+    floatParameter: 0
+    intParameter: 0
+    messageOptions: 0
+  - time: 1.7083334
+    functionName: FomorSobe
+    data: 
+    objectReferenceParameter: {fileID: 0}
+    floatParameter: 0
+    intParameter: 0
+    messageOptions: 0
+  - time: 2.0416667
     functionName: Return
     data: 
     objectReferenceParameter: {fileID: 0}
     floatParameter: 0
     intParameter: 0
     messageOptions: 0
-  - time: 2.1666667
+  - time: 2.0416667
     functionName: DanoAgain
     data: 
     objectReferenceParameter: {fileID: 0}
