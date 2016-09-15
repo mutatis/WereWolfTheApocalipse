@@ -10,7 +10,9 @@ public class PlayerRage : MonoBehaviour
 
     public int tipo;
 
-    public Slider sli;
+    public GameObject[] lua;
+
+    float rageMaxTemp;
 
     void Update()
     {
@@ -20,7 +22,52 @@ public class PlayerRage : MonoBehaviour
         }
         else
         {
-            sli.value = temp.GetComponent<PlayerStats>().rage;
+            rageMaxTemp = temp.GetComponent<PlayerStats>().playerStatus.rageMax;
+        }
+        if ((rageMaxTemp / 6) * 1 > temp.GetComponent<PlayerStats>().rage)
+        {
+            print("dshfsdhsjdsjfposkfoijso");
+            lua[1].SetActive(true);
+        }
+        else
+        {
+            lua[1].GetComponent<Animator>().SetBool("Normal", true);
+        }
+
+        if ((rageMaxTemp / 6) * 2 > temp.GetComponent<PlayerStats>().rage && (rageMaxTemp / 6) * 1 < temp.GetComponent<PlayerStats>().rage)
+        {
+            lua[2].SetActive(true);
+        }
+        else
+        {
+            lua[2].GetComponent<Animator>().SetBool("Normal", true);
+        }
+
+        if ((rageMaxTemp / 6) * 3 > temp.GetComponent<PlayerStats>().rage && (rageMaxTemp / 6) * 2 < temp.GetComponent<PlayerStats>().rage)
+        {
+            lua[3].SetActive(true);
+        }
+        else
+        {
+            lua[3].GetComponent<Animator>().SetBool("Normal", true);
+        }
+
+        if ((rageMaxTemp / 6) * 4 > temp.GetComponent<PlayerStats>().rage && (rageMaxTemp / 6) * 3 < temp.GetComponent<PlayerStats>().rage)
+        {
+            lua[4].SetActive(true);
+        }
+        else
+        {
+            lua[4].GetComponent<Animator>().SetBool("Normal", true);
+        }
+
+        if ((rageMaxTemp / 6) * 5 > temp.GetComponent<PlayerStats>().rage && (rageMaxTemp / 6) * 4 < temp.GetComponent<PlayerStats>().rage)
+        {
+            lua[5].SetActive(true);
+        }
+        else
+        {
+            lua[5].GetComponent<Animator>().SetBool("Normal", true);
         }
     }
 
@@ -46,6 +93,5 @@ public class PlayerRage : MonoBehaviour
                     break;
             }
         }
-        sli.maxValue = temp.GetComponent<PlayerStats>().playerStatus.rageMax;
     }
 }

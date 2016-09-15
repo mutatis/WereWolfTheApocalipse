@@ -568,76 +568,79 @@ public class EnemyController : MonoBehaviour
 
     public void Dano(float dmg, bool crit, GameObject obj)
     {
-        if (taPego)
+        if (!anim.GetCurrentAnimatorStateInfo(0).IsName("EnemySlam"))
         {
-            Solta();
-        }
-        roamming = false;
-        anim.SetBool("isSlam", true);
-        autorizo = true;
-        StopCoroutine("Autorizacao");
-        StartCoroutine("Autorizacao");
-        if (peguei == null)
-        {
-            if (danoEscolha >= 2)
+            if (taPego)
             {
-                danoEscolha = 0;
+                Solta();
             }
-            danoEscolha++;
-        }
-        else
-        {
-            anim.gameObject.SetActive(true);
-            danoEscolha = 3;
-        }
-        anim.SetInteger("DanoEscolha", danoEscolha);
-        if (dano)
-        {
-            if (!block)
+            roamming = false;
+            anim.SetBool("isSlam", true);
+            autorizo = true;
+            StopCoroutine("Autorizacao");
+            StartCoroutine("Autorizacao");
+            if (peguei == null)
             {
-                life -= dmg;
-                if (crit == true)
+                if (danoEscolha >= 2)
                 {
-                    text.color = Color.red;
-                    text.text = dmg.ToString() + " CRIT";
+                    danoEscolha = 0;
                 }
-                else
-                {
-					text.color = Color.black;
-                    text.text = dmg.ToString();
-                }
+                danoEscolha++;
             }
             else
             {
-                life -= (dmg / 2);
-                if (crit == true)
+                anim.gameObject.SetActive(true);
+                danoEscolha = 3;
+            }
+            anim.SetInteger("DanoEscolha", danoEscolha);
+            if (dano)
+            {
+                if (!block)
                 {
-                    text.color = Color.red;
-                    text.text = (dmg / 2).ToString() + " CRIT";
+                    life -= dmg;
+                    if (crit == true)
+                    {
+                        text.color = Color.red;
+                        text.text = dmg.ToString() + " CRIT";
+                    }
+                    else
+                    {
+                        text.color = Color.black;
+                        text.text = dmg.ToString();
+                    }
                 }
                 else
                 {
-                    text.color = Color.white;
-                    text.text = (dmg / 2).ToString();
+                    life -= (dmg / 2);
+                    if (crit == true)
+                    {
+                        text.color = Color.red;
+                        text.text = (dmg / 2).ToString() + " CRIT";
+                    }
+                    else
+                    {
+                        text.color = Color.white;
+                        text.text = (dmg / 2).ToString();
+                    }
                 }
-            }           
-            stun = true;
-            isWalk = false;
-            chamei = true;
-            StopCoroutine("Pode");
-            if (!block)
-            {
-                if(danoEscolha == 3)
+                stun = true;
+                isWalk = false;
+                chamei = true;
+                StopCoroutine("Pode");
+                if (!block)
                 {
-                    animHead.SetTrigger("Dano");
+                    if (danoEscolha == 3)
+                    {
+                        animHead.SetTrigger("Dano");
+                    }
+                    anim.SetTrigger("Dano");
                 }
-                anim.SetTrigger("Dano");
+                else
+                {
+                    anim.SetTrigger("BlockDmg");
+                }
+                dano = false;
             }
-            else
-            {
-                anim.SetTrigger("BlockDmg");
-            }
-            dano = false;
         }
     }
 
