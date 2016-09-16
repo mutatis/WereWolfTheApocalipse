@@ -26,7 +26,8 @@ public class PlayerStats : MonoBehaviour
 
     void Update()
     {
-        if (rage >= playerStatus.rageMax && (Input.GetKeyDown(KeyCode.Joystick1Button5) || Input.GetKeyDown(KeyCode.LeftControl)) && !crinos && !playerMov.isGrab && !anim.levanta)
+        if (rage >= playerStatus.rageMax && (Input.GetKeyDown(KeyCode.Joystick1Button5) || Input.GetKeyDown(KeyCode.LeftControl)) && 
+            !crinos && !playerMov.isGrab && !anim.levanta)
         {
             playerStatus.pode = true;
             crinos = true;
