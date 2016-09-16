@@ -9,14 +9,13 @@ public class SelectPersonagem : MonoBehaviour
 
     public MusicaManager musica;
 
-    public Image[] player;
+    public GameObject[] player;
 
     public GameObject[] atributos;
     public GameObject loading;
-
-    [HideInInspector]
+    public GameObject[] pos;
+    
     public int select;
-    [HideInInspector]
     public int select2 = 1;
 
     public string cena;
@@ -37,15 +36,15 @@ public class SelectPersonagem : MonoBehaviour
     {
         if(PlayerPrefs.GetInt("Players") == 1)
         {
-            player[0].enabled = true;
-            player[1].enabled = false;
+            player[0].SetActive(true);
+            player[1].SetActive(false);
             select = 0;
             select2 = 999;
         }
         else if (PlayerPrefs.GetInt("Players") == 2)
         {
-            player[0].enabled = true;
-            player[1].enabled = true;
+            player[0].SetActive(true);
+            player[1].SetActive(true);
             select2 = 1;
         }
 
@@ -105,11 +104,11 @@ public class SelectPersonagem : MonoBehaviour
             {
 				if (Input.GetKeyDown(KeyCode.RightArrow) || Input.GetAxisRaw("DpadXP1") > 0 || Input.GetKeyDown(KeyCode.JoystickButton5))
                 {
-                    Muda();
+                    Muda(true);
                 }
 				else if (Input.GetKeyDown(KeyCode.LeftArrow) || Input.GetAxisRaw("DpadXP1") < 0 || Input.GetKeyDown(KeyCode.JoystickButton4))
                 {
-                    Muda();
+                    Muda(false);
                 }
                 else if (Input.GetKeyDown(KeyCode.Return) || Input.GetKeyDown(KeyCode.Joystick1Button0))
                 {
@@ -197,7 +196,7 @@ public class SelectPersonagem : MonoBehaviour
     {
         if (podeDpad2)
         {
-            if (select2 == 0 && select != 1)
+            /*if (select2 == 0 && select != 1)
             {
                 player[1].enabled = true;
                 player[0].enabled = false;
@@ -208,15 +207,65 @@ public class SelectPersonagem : MonoBehaviour
                 player[0].enabled = true;
                 player[1].enabled = false;
                 select2 = 0;
-            }
+            }*/
             podeDpad2 = false;
         }
     }
 
-    void Muda()
+    void Muda(bool positivo)
     {
         if (podeDpad)
         {
+            if (positivo)
+            {
+                select++;
+                if (select == select2 || select > 3 && select2 == 0)
+                {
+                    if (select2 == 3)
+                    {
+                        select = 0;
+                    }
+                    else if (select2 == 0)
+                    {
+                        select = 1;
+                    }
+                    else
+                    {
+                        select++;
+                    }
+                }
+                if (select > 3)
+                {
+                    select = 0;
+                }
+            }
+            else
+            {
+                select--;
+                if(select == select2)
+                {
+                    if(select2 == 3)
+                    {
+                        select = 0;
+                    }
+                    else if (select2 == 0)
+                    {
+                        select = 3;
+                    }
+                    else
+                    {
+                        select--;
+                    }
+                }
+                if(select < 0)
+                {
+                    select = 3;
+                }
+            }
+        }
+
+        player[0].transform.position = pos[select].transform.position;
+            /*
             if (select == 0 && select2 != 1)
             {
                 player[1].enabled = true;
@@ -228,8 +277,8 @@ public class SelectPersonagem : MonoBehaviour
                 player[0].enabled = true;
                 player[1].enabled = false;
                 select = 0;
-            }
+            }*/
             podeDpad = false;
         }
-    }
+    
 }
