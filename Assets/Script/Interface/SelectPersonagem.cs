@@ -12,6 +12,7 @@ public class SelectPersonagem : MonoBehaviour
     public GameObject[] player;
 
     public GameObject[] atributos;
+    public GameObject[] atributosDesliga;
     public GameObject loading;
     public GameObject[] pos;
     
@@ -51,6 +52,7 @@ public class SelectPersonagem : MonoBehaviour
         for(int i = 0; i < atributos.Length; i++)
         {
             atributos[i].SetActive(false);
+            atributosDesliga[i].SetActive(true);
         }
     }
 
@@ -118,6 +120,7 @@ public class SelectPersonagem : MonoBehaviour
             else if (Input.GetKeyDown(KeyCode.Escape) || Input.GetKeyDown(KeyCode.Joystick1Button1))
             {
                 atributos[select].SetActive(false);
+                atributosDesliga[select].SetActive(true);
                 podeP1 = true;
             }
         }
@@ -128,15 +131,15 @@ public class SelectPersonagem : MonoBehaviour
             {
                 if (podeP2)
                 {
-                    if (Input.GetKeyDown(KeyCode.RightArrow) || Input.GetAxisRaw("DpadXP2") > 0)
+                    if (Input.GetAxisRaw("DpadXP2") > 0)
                     {
                         Muda2();
                     }
-                    else if (Input.GetKeyDown(KeyCode.LeftArrow) || Input.GetAxisRaw("DpadXP2") < 0)
+                    else if (Input.GetAxisRaw("DpadXP2") < 0)
                     {
                         Muda2();
                     }
-                    else if (Input.GetKeyDown(KeyCode.Return) || Input.GetKeyDown(KeyCode.Joystick2Button0))
+                    else if (Input.GetKeyDown(KeyCode.Joystick2Button0))
                     {
                         Select2();
                     }
@@ -144,6 +147,7 @@ public class SelectPersonagem : MonoBehaviour
                 else if (Input.GetKeyDown(KeyCode.Escape) || Input.GetKeyDown(KeyCode.Joystick2Button1))
                 {
                     atributos[select2].SetActive(false);
+                    atributosDesliga[select2].SetActive(true);
                     podeP2 = true;
                 }
             }
@@ -165,12 +169,14 @@ public class SelectPersonagem : MonoBehaviour
         if (select2 == 0)
         {
             atributos[select2].SetActive(true);
+            atributosDesliga[select2].SetActive(false);
             podeP2 = false;
             return;
         }
         else if (select2 == 1)
         {
             atributos[select2].SetActive(true);
+            atributosDesliga[select2].SetActive(false);
             podeP2 = false;
             return;
         }
@@ -181,12 +187,14 @@ public class SelectPersonagem : MonoBehaviour
         if (select == 0)
         {
             atributos[select].SetActive(true);
+            atributosDesliga[select].SetActive(false);
             podeP1 = false;
             return;
         }
         else if (select == 1)
         {
             atributos[select].SetActive(true);
+            atributosDesliga[select].SetActive(false);
             podeP1 = false;
             return;
         }
