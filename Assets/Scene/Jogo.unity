@@ -217,7 +217,7 @@ Material:
       second:
         m_Texture: {fileID: 2800000, guid: be477d66adbc0454485c35dfe2f43629, type: 3}
         m_Scale: {x: 0.10652111, y: 0.29675874}
-        m_Offset: {x: 1.8170707, y: -1.7424573}
+        m_Offset: {x: 1.8170707, y: -1.1373519}
     - first:
         name: _MainTex
       second:
@@ -464,7 +464,7 @@ Material:
       second:
         m_Texture: {fileID: 2800000, guid: f8b71ab9af41f1a4984e8896bc7c4810, type: 3}
         m_Scale: {x: 0.10652111, y: 0.29675874}
-        m_Offset: {x: 1.8170707, y: -1.7425444}
+        m_Offset: {x: 1.8170707, y: -1.1374393}
     - first:
         name: _MainTex
       second:
@@ -868,7 +868,7 @@ Material:
       second:
         m_Texture: {fileID: 2800000, guid: be477d66adbc0454485c35dfe2f43629, type: 3}
         m_Scale: {x: 0.10652111, y: 0.29675874}
-        m_Offset: {x: 1.8170707, y: -1.7424573}
+        m_Offset: {x: 1.8170707, y: -1.1373519}
     - first:
         name: _MainTex
       second:
@@ -1375,6 +1375,15 @@ Prefab:
     - target: {fileID: 22412984, guid: 0b075b9c12da14449aff84690836a025, type: 2}
       propertyPath: m_SizeDelta.y
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000011573025084, guid: 0b075b9c12da14449aff84690836a025,
+        type: 2}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1000010663350284, guid: 0b075b9c12da14449aff84690836a025, type: 2}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 0b075b9c12da14449aff84690836a025, type: 2}

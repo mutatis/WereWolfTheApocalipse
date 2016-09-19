@@ -12,9 +12,11 @@ public class PlayerRage : MonoBehaviour
 
     public GameObject[] lua;
 
-    float rageMaxTemp;
+    float rageMaxTemp, rage;
 
-    void Update()
+    int x = 0;
+
+    void FixedUpdate()
     {
         if (obj.Length <= 0)
         {
@@ -24,50 +26,54 @@ public class PlayerRage : MonoBehaviour
         {
             rageMaxTemp = temp.GetComponent<PlayerStats>().playerStatus.rageMax;
         }
-        if ((rageMaxTemp / 6) * 1 > temp.GetComponent<PlayerStats>().rage)
-        {
-            print("dshfsdhsjdsjfposkfoijso");
-            lua[1].SetActive(true);
-        }
-        else
-        {
-            lua[1].GetComponent<Animator>().SetBool("Normal", true);
-        }
 
-        if ((rageMaxTemp / 6) * 2 > temp.GetComponent<PlayerStats>().rage && (rageMaxTemp / 6) * 1 < temp.GetComponent<PlayerStats>().rage)
-        {
-            lua[2].SetActive(true);
-        }
-        else
-        {
-            lua[2].GetComponent<Animator>().SetBool("Normal", true);
-        }
+        rage = temp.GetComponent<PlayerStats>().rage;
 
-        if ((rageMaxTemp / 6) * 3 > temp.GetComponent<PlayerStats>().rage && (rageMaxTemp / 6) * 2 < temp.GetComponent<PlayerStats>().rage)
+        if (x == 0)
         {
-            lua[3].SetActive(true);
+            if (((rageMaxTemp / 6) * 1) > rage)
+            {
+                lua[1].SetActive(true);
+                x = 1;
+            }
         }
-        else
+        else if (x == 1)
         {
-            lua[3].GetComponent<Animator>().SetBool("Normal", true);
+            if ((rageMaxTemp / 6) * 2 > temp.GetComponent<PlayerStats>().rage && (rageMaxTemp / 6) * 1 < rage)
+            {
+                lua[1].GetComponent<Animator>().SetBool("Normal", true);
+                lua[2].SetActive(true);
+                x = 2;
+            }
         }
-
-        if ((rageMaxTemp / 6) * 4 > temp.GetComponent<PlayerStats>().rage && (rageMaxTemp / 6) * 3 < temp.GetComponent<PlayerStats>().rage)
+        else if (x == 2)
         {
-            lua[4].SetActive(true);
+            if ((rageMaxTemp / 6) * 3 > temp.GetComponent<PlayerStats>().rage && (rageMaxTemp / 6) * 2 < rage)
+            {
+                lua[2].GetComponent<Animator>().SetBool("Normal", true);
+                lua[3].SetActive(true);
+                x = 3;
+            }
         }
-        else
+        else if (x == 3)
         {
-            lua[4].GetComponent<Animator>().SetBool("Normal", true);
+            if ((rageMaxTemp / 6) * 4 > temp.GetComponent<PlayerStats>().rage && (rageMaxTemp / 6) * 3 < rage)
+            {
+                lua[3].GetComponent<Animator>().SetBool("Normal", true);
+                lua[4].SetActive(true);
+                x = 4;
+            }
         }
-
-        if ((rageMaxTemp / 6) * 5 > temp.GetComponent<PlayerStats>().rage && (rageMaxTemp / 6) * 4 < temp.GetComponent<PlayerStats>().rage)
+        else if (x == 4)
         {
-            lua[5].SetActive(true);
-        }
-        else
-        {
-            lua[5].GetComponent<Animator>().SetBool("Normal", true);
+            if ((rageMaxTemp / 6) * 5 > temp.GetComponent<PlayerStats>().rage && (rageMaxTemp / 6) * 4 < rage)
+            {
+                lua[5].SetActive(true);
+            }
+            else
+            {
+                lua[5].GetComponent<Animator>().SetBool("Normal", true);
+            }
         }
     }
 

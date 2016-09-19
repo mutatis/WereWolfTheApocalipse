@@ -139,6 +139,9 @@ public class PlayerDano : MonoBehaviour
             }
             else
             {
+                audioInstanceCreator = FMODUnity.RuntimeManager.CreateInstance(socoFracoEnemy);
+                audioInstanceCreator.setVolume(PlayerPrefs.GetFloat("VolumeFX"));
+                audioInstanceCreator.start();
                 pegador.GetComponent<EnemyController>().anim.SetTrigger("Dano");
             }
             slamCont++;
