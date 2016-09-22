@@ -16,7 +16,7 @@ public class SelectPersonagem : MonoBehaviour
     public GameObject loading;
     public GameObject[] pos;
 
-    public Animator[] animFoto, animFotoImg;
+    public Animator[] animFoto, animFotoImg, animFotoText;
     
     public int select;
     public int select2 = 1;
@@ -124,6 +124,7 @@ public class SelectPersonagem : MonoBehaviour
                 atributos[select].SetActive(false);
                 animFoto[select].SetTrigger("Entra");
                 animFotoImg[select].SetTrigger("Entra");
+                animFotoText[select].SetTrigger("Entra");
                 atributosDesliga[select].SetActive(true);
                 podeP1 = true;
             }
@@ -153,6 +154,7 @@ public class SelectPersonagem : MonoBehaviour
                     atributos[select2].SetActive(false);
                     animFoto[select2].SetTrigger("Entra");
                     animFotoImg[select2].SetTrigger("Entra");
+                    animFotoText[select2].SetTrigger("Entra");
                     atributosDesliga[select2].SetActive(true);
                     podeP2 = true;
                 }
@@ -177,6 +179,7 @@ public class SelectPersonagem : MonoBehaviour
             atributos[select2].SetActive(true);
             animFoto[select2].SetTrigger("Sai");
             animFotoImg[select2].SetTrigger("Sai");
+            animFotoText[select2].SetTrigger("Sai");
             atributosDesliga[select2].SetActive(false);
             podeP2 = false;
             return;
@@ -186,6 +189,7 @@ public class SelectPersonagem : MonoBehaviour
             atributos[select2].SetActive(true);
             animFoto[select2].SetTrigger("Sai");
             animFotoImg[select2].SetTrigger("Sai");
+            animFotoText[select2].SetTrigger("Sai");
             atributosDesliga[select2].SetActive(false);
             podeP2 = false;
             return;
@@ -199,6 +203,7 @@ public class SelectPersonagem : MonoBehaviour
             atributos[select].SetActive(true);
             animFoto[select].SetTrigger("Sai");
             animFotoImg[select].SetTrigger("Sai");
+            animFotoText[select].SetTrigger("Sai");
             atributosDesliga[select].SetActive(false);
             podeP1 = false;
             return;
@@ -208,6 +213,7 @@ public class SelectPersonagem : MonoBehaviour
             atributos[select].SetActive(true);
             animFoto[select].SetTrigger("Sai");
             animFotoImg[select].SetTrigger("Sai");
+            animFotoText[select].SetTrigger("Sai");
             atributosDesliga[select].SetActive(false);
             podeP1 = false;
             return;

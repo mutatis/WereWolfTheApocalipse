@@ -137,6 +137,7 @@ public class PlayerAttackController : MonoBehaviour
         }
         else
         {
+            playerAnim.anim.SetInteger("AttackEscolha", Random.Range(0, 3));
             attackComboNum = 0;
         }
     }
@@ -149,6 +150,7 @@ public class PlayerAttackController : MonoBehaviour
             { 
                 if (attackComboNum >= maxCombo)
                 {
+                    playerAnim.anim.SetInteger("AttackEscolha", Random.Range(0, 3));
                     attackComboNum = 0;
                 }
                 if (attackComboNum < maxCombo)
@@ -157,6 +159,7 @@ public class PlayerAttackController : MonoBehaviour
                 }
                 else
                 {
+                    playerAnim.anim.SetInteger("AttackEscolha", Random.Range(0, 3));
                     attackComboNum = 0;
                 }
                 if (obj == null || attackComboNum > maxCombo)
