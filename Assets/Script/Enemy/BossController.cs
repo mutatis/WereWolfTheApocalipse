@@ -71,22 +71,22 @@ public class BossController : MonoBehaviour
 
     void Update()
     {
-        if ((lifeMax / 4) * 3 >= life && (lifeMax / 4) * 2 < life)
+        if ((lifeMax / 4) * 3 > life && (lifeMax / 4) * 2 < life && estagio == 4)
         {
             estagio = 3;
             anim.runtimeAnimatorController = t2.GetComponent<Animator>().runtimeAnimatorController;
         }
-        else if((lifeMax / 4) * 2 >= life && (lifeMax / 4) * 1 < life)
+        else if((lifeMax / 4) * 2 > life && (lifeMax / 4) * 1 < life && estagio == 3)
         {
             estagio = 2;
             anim.runtimeAnimatorController = t3.GetComponent<Animator>().runtimeAnimatorController;
         }
-        else if ((lifeMax / 4) * 1 >= life)
+        else if ((lifeMax / 4) * 1 > life && estagio == 2)
         {
             estagio = 1;
             anim.runtimeAnimatorController = t4.GetComponent<Animator>().runtimeAnimatorController;
         }
-
+        print((lifeMax / 4) * estagio);
         if (player != null)
             dist = Vector3.Distance(player.transform.position, transform.position);
 
