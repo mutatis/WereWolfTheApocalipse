@@ -3,7 +3,7 @@ using System.Collections;
 
 public class BossController : MonoBehaviour
 {
-    public Animator anim;
+    public Animator anim, t2, t3, t4;
 
     public Rigidbody rig;
 
@@ -71,6 +71,19 @@ public class BossController : MonoBehaviour
 
     void Update()
     {
+        if ((lifeMax / 4) * 3 >= life && (lifeMax / 4) * 2 < life)
+        {
+            anim.runtimeAnimatorController = t2.GetComponent<Animator>().runtimeAnimatorController;
+        }
+        else if((lifeMax / 4) * 2 >= life && (lifeMax / 4) * 1 < life)
+        {
+            anim.runtimeAnimatorController = t3.GetComponent<Animator>().runtimeAnimatorController;
+        }
+        else if ((lifeMax / 4) * 1 >= life)
+        {
+            anim.runtimeAnimatorController = t4.GetComponent<Animator>().runtimeAnimatorController;
+        }
+
         if (player != null)
             dist = Vector3.Distance(player.transform.position, transform.position);
 
