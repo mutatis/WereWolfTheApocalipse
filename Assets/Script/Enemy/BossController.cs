@@ -135,12 +135,14 @@ public class BossController : MonoBehaviour
                 {
                     if (!anim.GetCurrentAnimatorStateInfo(0).IsName("EnemyIdle") && !anim.GetCurrentAnimatorStateInfo(0).IsName("BossPrepareSalto") && 
                         !anim.GetCurrentAnimatorStateInfo(0).IsName("BossClawInicio") && !anim.GetCurrentAnimatorStateInfo(0).IsName("BossClawAcerto") && 
-                        !anim.GetCurrentAnimatorStateInfo(0).IsName("BossClawAcertoLoop"))
+                        !anim.GetCurrentAnimatorStateInfo(0).IsName("BossClawAcertoLoop") &&
+                        !anim.GetCurrentAnimatorStateInfo(0).IsName("EnemyDano") && !anim.GetCurrentAnimatorStateInfo(0).IsName("EnemyDano2"))
                         anim.SetTrigger("Idle");
                 }
                 else if (!anim.GetCurrentAnimatorStateInfo(0).IsName("EnemyRun") && !anim.GetCurrentAnimatorStateInfo(0).IsName("EnemyRunCostas") && !perto &&
                     !anim.GetCurrentAnimatorStateInfo(0).IsName("BossPrepareSalto") && !anim.GetCurrentAnimatorStateInfo(0).IsName("BossClawInicio") && 
-                    !anim.GetCurrentAnimatorStateInfo(0).IsName("BossClawAcerto") && !anim.GetCurrentAnimatorStateInfo(0).IsName("BossClawAcertoLoop"))
+                    !anim.GetCurrentAnimatorStateInfo(0).IsName("BossClawAcerto") && !anim.GetCurrentAnimatorStateInfo(0).IsName("BossClawAcertoLoop") &&
+                        !anim.GetCurrentAnimatorStateInfo(0).IsName("EnemyDano") && !anim.GetCurrentAnimatorStateInfo(0).IsName("EnemyDano2"))
                 {
                     anim.SetTrigger("Run");
                 }
