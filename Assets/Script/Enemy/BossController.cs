@@ -48,7 +48,7 @@ public class BossController : MonoBehaviour
 
     int contTiro = 0;
 
-    int contSalto, contSaltoMax, quantTiro;
+    int contSalto, contSaltoMax, quantTiro, estagio = 4;
 
     float lifeMax;
 
@@ -73,21 +73,24 @@ public class BossController : MonoBehaviour
     {
         if ((lifeMax / 4) * 3 >= life && (lifeMax / 4) * 2 < life)
         {
+            estagio = 3;
             anim.runtimeAnimatorController = t2.GetComponent<Animator>().runtimeAnimatorController;
         }
         else if((lifeMax / 4) * 2 >= life && (lifeMax / 4) * 1 < life)
         {
+            estagio = 2;
             anim.runtimeAnimatorController = t3.GetComponent<Animator>().runtimeAnimatorController;
         }
         else if ((lifeMax / 4) * 1 >= life)
         {
+            estagio = 1;
             anim.runtimeAnimatorController = t4.GetComponent<Animator>().runtimeAnimatorController;
         }
 
         if (player != null)
             dist = Vector3.Distance(player.transform.position, transform.position);
 
-        if(lifeMax > life && regen)
+        if((lifeMax / 4) * estagio > life && regen)
         {
             life += 0.05f;
         }

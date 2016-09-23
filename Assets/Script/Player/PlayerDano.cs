@@ -52,7 +52,7 @@ public class PlayerDano : MonoBehaviour
         slamCont = 0;
     }
     
-    public void Dano(float dmg, GameObject obj, bool faca = false)
+    public void Dano(float dmg, GameObject obj, bool faca = false, bool cai = false)
     {
         StopCoroutine("GO");
         StartCoroutine("GO");
@@ -72,7 +72,7 @@ public class PlayerDano : MonoBehaviour
             {
                 if (!playerMov.jump)
                 {
-                    if (slamCont > 2 && !playerAttack.block && !playerStats.crinos)
+                    if ((slamCont > 2 && !playerAttack.block && !playerStats.crinos) || cai == true)
                     {
                         if (!faca)
                         {

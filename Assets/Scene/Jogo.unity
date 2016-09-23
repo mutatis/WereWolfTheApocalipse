@@ -217,7 +217,7 @@ Material:
       second:
         m_Texture: {fileID: 2800000, guid: be477d66adbc0454485c35dfe2f43629, type: 3}
         m_Scale: {x: 0.10658315, y: 0.29693162}
-        m_Offset: {x: 1.8174677, y: -1.7430176}
+        m_Offset: {x: 1.8174677, y: -1.1379122}
     - first:
         name: _MainTex
       second:
@@ -464,7 +464,7 @@ Material:
       second:
         m_Texture: {fileID: 2800000, guid: f8b71ab9af41f1a4984e8896bc7c4810, type: 3}
         m_Scale: {x: 0.10658315, y: 0.29693162}
-        m_Offset: {x: 1.8174677, y: -1.7431047}
+        m_Offset: {x: 1.8174677, y: -1.1379994}
     - first:
         name: _MainTex
       second:
@@ -620,6 +620,11 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: bc7f2737a86586b40b05fa449aadf981, type: 2}
   m_IsPrefabParent: 0
+--- !u!1 &965569384 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1000013933716496, guid: 3bfc9775421f9e145916af49a73e8e77,
+    type: 2}
+  m_PrefabInternal: {fileID: 1299936976}
 --- !u!1001 &969366402
 Prefab:
   m_ObjectHideFlags: 0
@@ -758,6 +763,14 @@ Prefab:
     - target: {fileID: 438690, guid: 3bfc9775421f9e145916af49a73e8e77, type: 2}
       propertyPath: m_RootOrder
       value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 11435248, guid: 3bfc9775421f9e145916af49a73e8e77, type: 2}
+      propertyPath: garra
+      value: 
+      objectReference: {fileID: 965569384}
+    - target: {fileID: 1000013933716496, guid: 3bfc9775421f9e145916af49a73e8e77, type: 2}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 3bfc9775421f9e145916af49a73e8e77, type: 2}
@@ -910,7 +923,7 @@ Material:
       second:
         m_Texture: {fileID: 2800000, guid: be477d66adbc0454485c35dfe2f43629, type: 3}
         m_Scale: {x: 0.10658315, y: 0.29693162}
-        m_Offset: {x: 1.8174677, y: -1.7430176}
+        m_Offset: {x: 1.8174677, y: -1.1379122}
     - first:
         name: _MainTex
       second:
@@ -1416,7 +1429,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 22412984, guid: 0b075b9c12da14449aff84690836a025, type: 2}
       propertyPath: m_SizeDelta.y
-      value: 556
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 0b075b9c12da14449aff84690836a025, type: 2}
