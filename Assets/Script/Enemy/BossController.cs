@@ -86,7 +86,7 @@ public class BossController : MonoBehaviour
             estagio = 1;
             anim.runtimeAnimatorController = t4.GetComponent<Animator>().runtimeAnimatorController;
         }
-        print((lifeMax / 4) * estagio);
+
         if (player != null)
             dist = Vector3.Distance(player.transform.position, transform.position);
 
@@ -257,8 +257,6 @@ public class BossController : MonoBehaviour
                     break;
 
                 case 2:
-                    esco = Random.Range(0, Manager.manager.posSubBoss.Length);
-                    player = Manager.manager.posSubBoss[esco];
                     StartCoroutine("Engage");
                     break;
 
@@ -334,6 +332,8 @@ public class BossController : MonoBehaviour
 
     IEnumerator Engage()
     {
+        esco = Random.Range(0, Manager.manager.posSubBoss.Length);
+        player = Manager.manager.posSubBoss[esco];
         isAttack = true;
         contSalto = 0;
         StopCoroutine("Pode");

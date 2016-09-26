@@ -38,9 +38,15 @@ public class PlayerAnimation : MonoBehaviour
     public bool levanta;
 
     GameObject obj;
+    public GameObject[] x;
 
     bool idle = true;
     bool run;
+
+    void Start()
+    {
+        x = GameObject.FindGameObjectsWithTag("Manager");
+    }
 
     public void JumpStart()
     {
@@ -146,6 +152,7 @@ public class PlayerAnimation : MonoBehaviour
 
     public void Liberated()
     {
+        levanta = false;
         playerAttack.obj = obj;
         playerAttack.Libero();
         playerAttack.mov = false;
@@ -158,7 +165,8 @@ public class PlayerAnimation : MonoBehaviour
     {
         if (playerStatus.vidas < 2)
         {
-            SceneManager.LoadScene("Dead");
+            x[0].GetComponent<ManagerStartGame>().continueGame.SetActive(true);
+            Destroy(playerStats.gameObject);
         }
         else
         {

@@ -18,7 +18,7 @@ public class PlayerRage : MonoBehaviour
 
     void FixedUpdate()
     {
-        if (obj.Length <= 0)
+        if (obj.Length <= 0 || obj[0] == null)
         {
             Procura();
         }
