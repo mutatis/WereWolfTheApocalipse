@@ -96,7 +96,7 @@ public class PlayerAttackController : MonoBehaviour
 			block = false;
 		}
 
-        if(mov && !playerDano.stun && !playerMov.isGrab && !playerStats.crinos)
+        if(mov && !playerDano.stun && !playerMov.isGrab && !playerStats.crinos && Time.timeScale != 0)
         {
             if (transform.localScale.x > 0)
             {
