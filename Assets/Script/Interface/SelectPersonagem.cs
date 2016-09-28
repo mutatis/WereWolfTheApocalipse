@@ -138,11 +138,11 @@ public class SelectPersonagem : MonoBehaviour
                 {
                     if (Input.GetAxisRaw("DpadXP2") > 0)
                     {
-                        Muda2();
+                        Muda2(true);
                     }
                     else if (Input.GetAxisRaw("DpadXP2") < 0)
                     {
-                        Muda2();
+                        Muda2(false);
                     }
                     else if (Input.GetKeyDown(KeyCode.Joystick2Button0))
                     {
@@ -220,24 +220,73 @@ public class SelectPersonagem : MonoBehaviour
         }
     }
 
-    void Muda2()
+    void Muda2(bool positivo)
     {
         if (podeDpad2)
         {
-            /*if (select2 == 0 && select != 1)
+            if (positivo)
             {
-                player[1].enabled = true;
-                player[0].enabled = false;
-                select2 = 1;
+                select2++;
+                if (select2 == select || select2 > 3 && select == 0)
+                {
+                    if (select == 3)
+                    {
+                        select2 = 0;
+                    }
+                    else if (select == 0)
+                    {
+                        select2 = 1;
+                    }
+                    else
+                    {
+                        select2++;
+                    }
+                }
+                if (select2 > 3)
+                {
+                    select2 = 0;
+                }
             }
-            else if (select2 == 1 && select != 0)
+            else
             {
-                player[0].enabled = true;
-                player[1].enabled = false;
-                select2 = 0;
-            }*/
-            podeDpad2 = false;
+                select2--;
+                if (select2 == select)
+                {
+                    if (select == 3)
+                    {
+                        select2 = 0;
+                    }
+                    else if (select == 0)
+                    {
+                        select2 = 3;
+                    }
+                    else
+                    {
+                        select2--;
+                    }
+                }
+                if (select2 < 0)
+                {
+                    select2 = 3;
+                }
+            }
         }
+
+        player[1].transform.position = pos[select2].transform.position;
+        /*
+        if (select == 0 && select2 != 1)
+        {
+            player[1].enabled = true;
+            player[0].enabled = false;
+            select = 1;
+        }
+        else if (select == 1 && select2 != 0)
+        {
+            player[0].enabled = true;
+            player[1].enabled = false;
+            select = 0;
+        }*/
+        podeDpad2 = false;
     }
 
     void Muda(bool positivo)
@@ -308,5 +357,4 @@ public class SelectPersonagem : MonoBehaviour
             }*/
             podeDpad = false;
         }
-    
 }

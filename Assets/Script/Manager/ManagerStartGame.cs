@@ -33,8 +33,8 @@ public class ManagerStartGame : MonoBehaviour
         }
         else
         {
-            Instantiate(andarilho, new Vector3(0, 0, 0), transform.rotation);
-            temp = Instantiate(presas, new Vector3(-5, 0, 0), transform.rotation) as GameObject;
+            Instantiate(andarilho, new Vector3(-25, 0, 0), transform.rotation);
+            temp = Instantiate(presas, new Vector3(-25, 0, 0), transform.rotation) as GameObject;
             temp.GetComponent<PlayerStats>().player = Player.Player2;
             temp.GetComponent<PlayerDonsPresas>().player = PlayerDomPresas.Player2;
         }

@@ -27,7 +27,7 @@ public class PlayerAttackController : MonoBehaviour
 
     void Update()
     {
-        if(playerStats.crinos)
+        if (playerStats.crinos)
         {
             maxCombo = 3;
         }
@@ -36,65 +36,128 @@ public class PlayerAttackController : MonoBehaviour
             maxCombo = 4;
         }
 
-        if (!Input.GetKey(KeyCode.Joystick1Button5) && !Input.GetKey(KeyCode.LeftShift))
+        switch (playerStats.player)
         {
-            if ((Input.GetKeyDown(KeyCode.Joystick1Button2) || Input.GetKeyDown(KeyCode.Z)) && presa)
-            {
-                solta++;
-            }
-
-            if (!playerMov.jump)
-            {
-                if ((Input.GetKeyDown(KeyCode.Joystick1Button1) || Input.GetKeyDown(KeyCode.C)) && !mov)
+            case Player.Player1:
+                if (!Input.GetKey(KeyCode.Joystick1Button5) && !Input.GetKey(KeyCode.LeftShift))
                 {
-                    playerAnim.anim.SetTrigger("Block");
-                    playerAnim.anim.SetBool("isBlock", true);
-                    block = true;
+                    if ((Input.GetKeyDown(KeyCode.Joystick1Button2) || Input.GetKeyDown(KeyCode.Z)) && presa)
+                    {
+                        solta++;
+                    }
+                    if (!playerMov.jump)
+                    {
+                        if ((Input.GetKeyDown(KeyCode.Joystick1Button1) || Input.GetKeyDown(KeyCode.C)) && !mov)
+                        {
+                            playerAnim.anim.SetTrigger("Block");
+                            playerAnim.anim.SetBool("isBlock", true);
+                            block = true;
+                        }
+                        else if (Input.GetKeyUp(KeyCode.Joystick1Button1) || Input.GetKeyUp(KeyCode.C))
+                        {
+                            playerAnim.anim.SetBool("isBlock", false);
+                            block = false;
+                        }
+                        else if ((Input.GetKeyDown(KeyCode.Joystick1Button2) || Input.GetKeyDown(KeyCode.Z)) && !presa &&
+                            !playerAnim.anim.GetCurrentAnimatorStateInfo(0).IsName("SocoFraco2Andarilho") && !block)
+                        {
+                            bate = true;
+                            if (((!playerAnim.anim.GetCurrentAnimatorStateInfo(0).IsName("SocoFracoAndarilho")) && (attackComboNum == 0 || attackComboNum > 4)) ||
+                                playerMov.isGrab && !playerAnim.anim.GetCurrentAnimatorStateInfo(0).IsName("GrabAttackAndarilho") &&
+                                    !playerAnim.anim.GetCurrentAnimatorStateInfo(0).IsName("SocoForte"))
+                            {
+                                SocoFraco();
+                            }
+                        }
+                        else if ((Input.GetKeyDown(KeyCode.Joystick1Button3) || Input.GetKeyDown(KeyCode.X)) && !presa && !playerAnim.anim.GetCurrentAnimatorStateInfo(0).IsName("SocoFraco2Andarilho") && !block)
+                        {
+                            if (((!playerAnim.anim.GetCurrentAnimatorStateInfo(0).IsName("SocoFracoAndarilho"))) ||
+                                 playerMov.isGrab && !playerAnim.anim.GetCurrentAnimatorStateInfo(0).IsName("GrabAttackAndarilho") &&
+                                     !playerAnim.anim.GetCurrentAnimatorStateInfo(0).IsName("SocoForte"))
+                            {
+                                SocoFraco(true);
+                            }
+                        }
+                        else if ((Input.GetKeyDown(KeyCode.Joystick1Button3) || Input.GetKeyDown(KeyCode.X)) && !presa && playerMov.isGrab)
+                        {
+                            GrabThrow();
+                        }
+                    }
+                    else if (playerMov.jump)
+                    {
+                        if (Input.GetKeyDown(KeyCode.Joystick1Button2) || Input.GetKeyDown(KeyCode.Z))
+                        {
+                            JumpAttack();
+                        }
+                    }
                 }
-                else if (Input.GetKeyUp(KeyCode.Joystick1Button1) || Input.GetKeyUp(KeyCode.C))
+                if (Input.GetKeyUp(KeyCode.Joystick1Button1) || Input.GetKeyUp(KeyCode.C))
                 {
                     playerAnim.anim.SetBool("isBlock", false);
                     block = false;
                 }
-                else if ((Input.GetKeyDown(KeyCode.Joystick1Button2) || Input.GetKeyDown(KeyCode.Z)) && !presa && 
-                    !playerAnim.anim.GetCurrentAnimatorStateInfo(0).IsName("SocoFraco2Andarilho") && !block)
+                break;
+            case Player.Player2:
+                if (!Input.GetKey(KeyCode.Joystick2Button5))
                 {
-                    bate = true;
-                    if (((!playerAnim.anim.GetCurrentAnimatorStateInfo(0).IsName("SocoFracoAndarilho")) && (attackComboNum == 0 || attackComboNum > 4)) || 
-                        playerMov.isGrab && !playerAnim.anim.GetCurrentAnimatorStateInfo(0).IsName("GrabAttackAndarilho") &&
-                            !playerAnim.anim.GetCurrentAnimatorStateInfo(0).IsName("SocoForte"))
+                    if ((Input.GetKeyDown(KeyCode.Joystick2Button2)) && presa)
                     {
-                        SocoFraco();
+                        solta++;
+                    }
+                    if (!playerMov.jump)
+                    {
+                        if ((Input.GetKeyDown(KeyCode.Joystick2Button1)) && !mov)
+                        {
+                            playerAnim.anim.SetTrigger("Block");
+                            playerAnim.anim.SetBool("isBlock", true);
+                            block = true;
+                        }
+                        else if (Input.GetKeyUp(KeyCode.Joystick2Button1))
+                        {
+                            playerAnim.anim.SetBool("isBlock", false);
+                            block = false;
+                        }
+                        else if ((Input.GetKeyDown(KeyCode.Joystick2Button2)) && !presa &&
+                            !playerAnim.anim.GetCurrentAnimatorStateInfo(0).IsName("SocoFraco2Andarilho") && !block)
+                        {
+                            bate = true;
+                            if (((!playerAnim.anim.GetCurrentAnimatorStateInfo(0).IsName("SocoFracoAndarilho")) && (attackComboNum == 0 || attackComboNum > 4)) ||
+                                playerMov.isGrab && !playerAnim.anim.GetCurrentAnimatorStateInfo(0).IsName("GrabAttackAndarilho") &&
+                                    !playerAnim.anim.GetCurrentAnimatorStateInfo(0).IsName("SocoForte"))
+                            {
+                                SocoFraco();
+                            }
+                        }
+                        else if ((Input.GetKeyDown(KeyCode.Joystick2Button3)) && !presa && !playerAnim.anim.GetCurrentAnimatorStateInfo(0).IsName("SocoFraco2Andarilho") && !block)
+                        {
+                            if (((!playerAnim.anim.GetCurrentAnimatorStateInfo(0).IsName("SocoFracoAndarilho"))) ||
+                                 playerMov.isGrab && !playerAnim.anim.GetCurrentAnimatorStateInfo(0).IsName("GrabAttackAndarilho") &&
+                                     !playerAnim.anim.GetCurrentAnimatorStateInfo(0).IsName("SocoForte"))
+                            {
+                                SocoFraco(true);
+                            }
+                        }
+                        else if ((Input.GetKeyDown(KeyCode.Joystick2Button3)) && !presa && playerMov.isGrab)
+                        {
+                            GrabThrow();
+                        }
+                    }
+                    else if (playerMov.jump)
+                    {
+                        if (Input.GetKeyDown(KeyCode.Joystick2Button2))
+                        {
+                            JumpAttack();
+                        }
                     }
                 }
-                else if((Input.GetKeyDown(KeyCode.Joystick1Button3) || Input.GetKeyDown(KeyCode.X)) && !presa && !playerAnim.anim.GetCurrentAnimatorStateInfo(0).IsName("SocoFraco2Andarilho") && !block)
+                if (Input.GetKeyUp(KeyCode.Joystick2Button1))
                 {
-                    if (((!playerAnim.anim.GetCurrentAnimatorStateInfo(0).IsName("SocoFracoAndarilho"))) ||
-                         playerMov.isGrab && !playerAnim.anim.GetCurrentAnimatorStateInfo(0).IsName("GrabAttackAndarilho") &&
-                             !playerAnim.anim.GetCurrentAnimatorStateInfo(0).IsName("SocoForte"))
-                    {
-                        SocoFraco(true);
-                    }
+                    playerAnim.anim.SetBool("isBlock", false);
+                    block = false;
                 }
-                else if((Input.GetKeyDown(KeyCode.Joystick1Button3) || Input.GetKeyDown(KeyCode.X)) && !presa && playerMov.isGrab)
-                {
-                    GrabThrow();
-                }
-            }
-            else if (playerMov.jump)
-            {
-                if (Input.GetKeyDown(KeyCode.Joystick1Button2) || Input.GetKeyDown(KeyCode.Z))
-                {
-                    JumpAttack();
-                }
-            }
+                break;
         }
 
-		if (Input.GetKeyUp(KeyCode.Joystick1Button1) || Input.GetKeyUp(KeyCode.C))
-		{
-			playerAnim.anim.SetBool("isBlock", false);
-			block = false;
-		}
 
         if(mov && !playerDano.stun && !playerMov.isGrab && !playerStats.crinos && Time.timeScale != 0)
         {

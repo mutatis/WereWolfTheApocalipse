@@ -26,13 +26,29 @@ public class PlayerStats : MonoBehaviour
 
     void Update()
     {
-        if (rage >= playerStatus.rageMax && (Input.GetKeyDown(KeyCode.Joystick1Button5) || Input.GetKeyDown(KeyCode.LeftControl)) && 
-            !crinos && !playerMov.isGrab && !anim.levanta)
+        switch (player)
         {
-            playerStatus.pode = true;
-            crinos = true;
-            anim.anim.runtimeAnimatorController = crinosAnim.GetComponent<Animator>().runtimeAnimatorController;
-            StartCoroutine("Crinos");
+            case Player.Player1:
+                if (rage >= playerStatus.rageMax && (Input.GetKeyDown(KeyCode.Joystick1Button5) || Input.GetKeyDown(KeyCode.LeftControl)) &&
+                    !crinos && !playerMov.isGrab && !anim.levanta)
+                {
+                    playerStatus.pode = true;
+                    crinos = true;
+                    anim.anim.runtimeAnimatorController = crinosAnim.GetComponent<Animator>().runtimeAnimatorController;
+                    StartCoroutine("Crinos");
+                }
+                break;
+
+            case Player.Player2:
+                if (rage >= playerStatus.rageMax && (Input.GetKeyDown(KeyCode.Joystick2Button5)) &&
+                    !crinos && !playerMov.isGrab && !anim.levanta)
+                {
+                    playerStatus.pode = true;
+                    crinos = true;
+                    anim.anim.runtimeAnimatorController = crinosAnim.GetComponent<Animator>().runtimeAnimatorController;
+                    StartCoroutine("Crinos");
+                }
+                break;
         }
     }
 
