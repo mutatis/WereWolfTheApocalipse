@@ -157,27 +157,32 @@ public class PackAtiva : MonoBehaviour
         Instantiate(slam);
         ParaTudo();
         pode = false;
-        Erro();
+        Erro(true);
     }
 
     void Acerto(int player)
     {
-        if(temp < 6)
+        Manager.manager.player[1].GetComponent<PlayerStats>().playerAnim.SetBool("SlamDunk", true);
+        Manager.manager.player[1].GetComponent<PlayerStats>().playerAnim.SetTrigger("StartSlam");
+        if (temp < 6)
         {
             temp++;
         }
         sprt[player].sprite = img[4];
     }
 
-    void Erro()
+    void Erro(bool erro = false)
     {
+        if (!erro)
+        {
+            for (int i = 0; i < Manager.manager.player.Length; i++)
+            {
+                Manager.manager.player[i].GetComponent<PlayerStats>().playerAnim.SetBool("SlamDunk", false);
+            }
+        }
         for (int i = 0; i < Manager.manager.enemy.Length; i++)
         {
             Manager.manager.enemy[i].GetComponent<EnemyController>().enabled = true;
-        }
-        for (int i = 0; i < Manager.manager.player.Length; i++)
-        {
-            Manager.manager.player[i].GetComponent<PlayerStats>().playerAnim.SetBool("SlamDunk", false);
         }
         StopCoroutine("GO");
         temp = 0;
