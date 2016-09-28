@@ -58,7 +58,17 @@ public class FollowTarget : MonoBehaviour
 				target.GetComponent<PlayerMovment> ().x > 0 && transform.position.x > 4.2f ||
 			    target.GetComponent<PlayerMovment> ().x < 0 && transform.position.x < -6.3f) 
 			{
-				segue = false;
+                if(transform.position.x > 4.2f)
+                {
+                    transform.position = new Vector3(4.2f, transform.position.y, transform.position.z);
+                }
+
+                if (transform.position.x < -6.3f)
+                {
+                    transform.position = new Vector3(-6.3f, transform.position.y, transform.position.z);
+                }
+
+                segue = false;
 			}
 		}
 
