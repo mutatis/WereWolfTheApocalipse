@@ -152,6 +152,8 @@ public class PackAtiva : MonoBehaviour
 
     void Slam()
     {
+        Manager.manager.player[0].GetComponent<PlayerStats>().playerAnim.SetTrigger("AcertoSlam");
+        Manager.manager.player[1].GetComponent<PlayerStats>().playerAnim.SetTrigger("AcertoSlam");
         Instantiate(slam);
         ParaTudo();
         pode = false;
@@ -172,6 +174,10 @@ public class PackAtiva : MonoBehaviour
         for (int i = 0; i < Manager.manager.enemy.Length; i++)
         {
             Manager.manager.enemy[i].GetComponent<EnemyController>().enabled = true;
+        }
+        for (int i = 0; i < Manager.manager.player.Length; i++)
+        {
+            Manager.manager.player[i].GetComponent<PlayerStats>().playerAnim.SetBool("SlamDunk", false);
         }
         StopCoroutine("GO");
         temp = 0;
@@ -259,6 +265,8 @@ public class PackAtiva : MonoBehaviour
     {
         if(other.gameObject.tag == "Player")
         {
+            Manager.manager.player[1].GetComponent<PlayerStats>().playerAnim.SetBool("SlamDunk", true);
+            Manager.manager.player[1].GetComponent<PlayerStats>().playerAnim.SetTrigger("StartSlam");            
             StartCoroutine("GO");
             pode = true;
         }

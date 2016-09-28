@@ -643,10 +643,10 @@ MonoBehaviour:
   - {fileID: 21227326}
   - {fileID: 21201112}
   img:
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 21300006, guid: 90788b1bdf1ba674593b3232ff9aed2b, type: 3}
+  - {fileID: 21300004, guid: 90788b1bdf1ba674593b3232ff9aed2b, type: 3}
   - {fileID: 21300000, guid: 90788b1bdf1ba674593b3232ff9aed2b, type: 3}
-  - {fileID: 0}
+  - {fileID: 21300002, guid: 90788b1bdf1ba674593b3232ff9aed2b, type: 3}
   - {fileID: 21300000, guid: a58be8d6302ba9a4d955ca4cfd28caa9, type: 3}
   temp: 0
   qual: 0
@@ -699,6 +699,7 @@ MonoBehaviour:
   queda: event:/Golpes/queda
   socoForte: event:/Golpes/golpe_forte
   levanta: 0
+  x: []
 --- !u!114 &11451426
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1116,6 +1117,8 @@ MonoBehaviour:
   cost:
   - 50
   - 50
+  - 50
+  - 50
   controller: {fileID: 11461944}
   playerAttack: {fileID: 11491822}
   playerDano: {fileID: 11437298}
@@ -1124,6 +1127,7 @@ MonoBehaviour:
   player: 0
   playerStatus: {fileID: 11414124}
   granite: {fileID: 188288, guid: dca17c12b28ed354f9a80316061707dc, type: 2}
+  pack: {fileID: 113948}
   posGranite: {fileID: 4000012627760266}
   nome: Presas
 --- !u!212 &212000013886843148

@@ -623,6 +623,8 @@ MonoBehaviour:
   zButton: 0
   contInput: 0
   xRun: 1
+  tipo: 0
+  pulo: 0
 --- !u!114 &11427724
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -665,6 +667,7 @@ MonoBehaviour:
   playerAttack: {fileID: 11491822}
   agarra: {fileID: 11423662}
   stun: 0
+  caindo: 0
   blockSound: event:/Golpes/Block
   socoFracoEnemy: event:/Golpes/soco_fraco_fmod
   facaHit: event:/Golpes/Enemy/Faca Hit
@@ -695,6 +698,7 @@ MonoBehaviour:
   queda: event:/Golpes/queda
   socoForte: event:/Golpes/golpe_forte
   levanta: 0
+  x: []
 --- !u!114 &11451426
 MonoBehaviour:
   m_ObjectHideFlags: 1

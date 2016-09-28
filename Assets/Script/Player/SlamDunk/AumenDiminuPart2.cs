@@ -28,6 +28,10 @@ public class AumenDiminuPart2 : MonoBehaviour
             {
                 Manager.manager.enemy[i].GetComponent<EnemyController>().enabled = true;
             }
+            for (int i = 0; i < Manager.manager.player.Length; i++)
+            {
+                Manager.manager.player[i].GetComponent<PlayerStats>().playerAnim.SetBool("SlamDunk", false);
+            }
             Manager.manager.player[1].AddComponent<PlayerGoSlamDunk>();
             Manager.manager.player[1].GetComponent<PlayerGoSlamDunk>().selecionado = selecionado;
             Manager.manager.player[1].GetComponent<PlayerGoSlamDunk>().obj = Manager.manager.enemy[selecionado];

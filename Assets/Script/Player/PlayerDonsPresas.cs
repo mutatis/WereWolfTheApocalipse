@@ -19,7 +19,7 @@ public class PlayerDonsPresas : MonoBehaviour
 
     public PlayerStatus playerStatus;
 
-    public GameObject granite;
+    public GameObject granite, pack;
 
     public Transform posGranite;
 
@@ -104,6 +104,14 @@ public class PlayerDonsPresas : MonoBehaviour
         }
     }
 
+    void SlamDunk()
+    {
+        playerAnim.anim.SetBool("SlamDunk", true);
+        playerAnim.anim.SetTrigger("StartSlam");
+        pack.SetActive(true);
+        pack.GetComponent<PackAtiva>().qual = 2;
+    }
+
     void LunarArmor()
     {
         playerStatus.lunar = true;
@@ -138,6 +146,11 @@ public class PlayerDonsPresas : MonoBehaviour
             WallofGranite();
             controller.gnose -= cost[1];
         }
+        else if (PlayerPrefs.GetInt(nome + player + "ButtonA") == 2 && controller.gnose >= cost[2] && Manager.manager.player.Length > 1)
+        {
+            SlamDunk();
+            controller.gnose -= cost[2];
+        }
     }
 
     void PressButtonB(string player)
@@ -151,6 +164,11 @@ public class PlayerDonsPresas : MonoBehaviour
         {
             WallofGranite();
             controller.gnose -= cost[1];
+        }
+        else if (PlayerPrefs.GetInt(nome + player + "ButtonB") == 2 && controller.gnose >= cost[2] && Manager.manager.player.Length > 1)
+        {
+            SlamDunk();
+            controller.gnose -= cost[2];
         }
     }
 
@@ -166,6 +184,11 @@ public class PlayerDonsPresas : MonoBehaviour
             WallofGranite();
             controller.gnose -= cost[1];
         }
+        else if (PlayerPrefs.GetInt(nome + player + "ButtonX") == 2 && controller.gnose >= cost[2] && Manager.manager.player.Length > 1)
+        {
+            SlamDunk();
+            controller.gnose -= cost[2];
+        }
     }
 
     void PressButtonY(string player)
@@ -179,6 +202,11 @@ public class PlayerDonsPresas : MonoBehaviour
         {
             WallofGranite();
             controller.gnose -= cost[1];
+        }
+        else if (PlayerPrefs.GetInt(nome + player + "ButtonY") == 2 && controller.gnose >= cost[2] && Manager.manager.player.Length > 1)
+        {
+            SlamDunk();
+            controller.gnose -= cost[2];
         }
     }
 }

@@ -20,6 +20,7 @@ public class SelectEnemySlam : MonoBehaviour
     {
         if (Manager.manager.player[1].GetComponent<Rigidbody>().velocity.y < 0)
         {
+            Manager.manager.player[0].GetComponent<PlayerStats>().playerAnim.SetTrigger("EsperandoSlam");
             Manager.manager.player[1].GetComponent<Rigidbody>().velocity = new Vector3(0, 0, 0);
         }
         x = Input.GetAxis("HorizontalP2");
