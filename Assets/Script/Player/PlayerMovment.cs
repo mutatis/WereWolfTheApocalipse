@@ -20,13 +20,13 @@ public class PlayerMovment : MonoBehaviour
 
     public bool run, toca, toca2;
     [HideInInspector]
-    public bool isMov, jump, isGrab, isJump;
+    public bool isMov, jump, isGrab, isJump, acerto, completo;
 
     public float x, z, xButton, zButton;
 
     public int contInput, xRun = 1, tipo, pulo;
 
-    float forcaY, dist;
+    float forcaY, dist, distTemp;
 
     Vector3 dir;
 
@@ -38,11 +38,55 @@ public class PlayerMovment : MonoBehaviour
     void Update()
     {
         dist = Vector3.Distance(transform.position, Manager.manager.player[0].transform.position);
-        if(playerAnim.anim.GetCurrentAnimatorStateInfo(0).IsName("StartSlamDunkLILI") && dist > 0.2f)
+        if(playerAnim.anim.GetCurrentAnimatorStateInfo(0).IsName("StartSlamDunkLILI") && dist > 0.2f && !acerto)
         {
+            distTemp = dist;
+        }
+        else if((playerAnim.anim.GetCurrentAnimatorStateInfo(0).IsName("StartSlamDunkLILI") || playerAnim.anim.GetCurrentAnimatorStateInfo(0).IsName("SlamLiliPulo") ||
+            playerAnim.anim.GetCurrentAnimatorStateInfo(0).IsName("SlamLiliPulo2") || playerAnim.anim.GetCurrentAnimatorStateInfo(0).IsName("SlamLiliPulo3")) &&
+            dist > 0.2f && acerto)
+        {
+            if (dist <= distTemp/1.5f)
+            {
+                playerAnim.anim.SetTrigger("PuloSlam2");
+            }
             dir = Manager.manager.player[0].transform.position - transform.position;
             dir.Normalize();
-            transform.Translate(dir/40);
+            transform.Translate(dir/10, Space.World);
+        }
+        else if ((playerAnim.anim.GetCurrentAnimatorStateInfo(0).IsName("StartSlamDunkLILI") || playerAnim.anim.GetCurrentAnimatorStateInfo(0).IsName("SlamLiliPulo") ||
+            playerAnim.anim.GetCurrentAnimatorStateInfo(0).IsName("SlamLiliPulo2") || playerAnim.anim.GetCurrentAnimatorStateInfo(0).IsName("SlamLiliPulo3") || 
+            playerAnim.anim.GetCurrentAnimatorStateInfo(0).IsName("ErroSlamLili")))
+        {
+            if (completo)
+            {
+                Manager.manager.player[0].GetComponent<PlayerStats>().playerAnim.SetTrigger("DesceSlam");
+                playerAnim.anim.SetTrigger("AcertoSlam");
+            }
+            else
+            {
+                if(!playerAnim.anim.GetCurrentAnimatorStateInfo(0).IsName("ErroSlamLili"))
+                {
+                    playerAnim.anim.SetTrigger("ErroSlam");
+                }
+                if(dist < 1.5f)
+                {
+                    transform.Translate(0.03f, 0, 0, Space.World);
+                }
+                else if (dist < 5)
+                {
+                    transform.Translate(0.1f, 0, 0, Space.World);
+                }
+                else
+                {
+                    acerto = false;
+                    for (int i = 0; i < Manager.manager.player.Length; i++)
+                    {
+                        Manager.manager.player[i].GetComponent<PlayerStats>().playerAnim.SetBool("SlamDunk", false);
+                    }
+                    completo = false;
+                }
+            }
         }
 
 		if (Time.timeScale != 0)

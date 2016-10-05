@@ -15,7 +15,10 @@ public class PlayerGoSlamDunk : MonoBehaviour
 
     void Update()
     {
-        dist = Vector3.Distance(obj.transform.position, transform.position);
+        if (obj != null)
+        {
+            dist = Vector3.Distance(obj.transform.position, transform.position);
+        }
 
         if (dist > 2)
         {

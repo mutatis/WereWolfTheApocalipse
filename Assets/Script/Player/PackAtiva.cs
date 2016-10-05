@@ -154,7 +154,9 @@ public class PackAtiva : MonoBehaviour
     {
         Time.timeScale = 1;
         Manager.manager.player[0].GetComponent<PlayerStats>().playerAnim.SetTrigger("AcertoSlam");
-        Manager.manager.player[1].GetComponent<PlayerStats>().playerAnim.SetTrigger("AcertoSlam");
+        Manager.manager.player[1].GetComponent<PlayerStats>().playerAnim.SetTrigger("PuloSlam");
+        Manager.manager.player[1].GetComponent<PlayerMovment>().acerto = true;
+        Manager.manager.player[1].GetComponent<PlayerMovment>().completo = true;
         Instantiate(slam);
         ParaTudo();
         pode = false;
@@ -177,10 +179,13 @@ public class PackAtiva : MonoBehaviour
         Time.timeScale = 1;
         if (!erro)
         {
-            for (int i = 0; i < Manager.manager.player.Length; i++)
+            Manager.manager.player[0].GetComponent<PlayerStats>().playerAnim.SetTrigger("AcertoSlam");
+            Manager.manager.player[1].GetComponent<PlayerStats>().playerAnim.SetTrigger("PuloSlam");
+            Manager.manager.player[1].GetComponent<PlayerMovment>().acerto = true;
+            /*for (int i = 0; i < Manager.manager.player.Length; i++)
             {
                 Manager.manager.player[i].GetComponent<PlayerStats>().playerAnim.SetBool("SlamDunk", false);
-            }
+            }*/
         }
         for (int i = 0; i < Manager.manager.enemy.Length; i++)
         {
@@ -272,9 +277,11 @@ public class PackAtiva : MonoBehaviour
     {
         if(other.gameObject.tag == "Player")
         {
+            Manager.manager.player[0].GetComponent<PlayerMovment>().isMov = true;
+            Manager.manager.player[1].GetComponent<PlayerMovment>().isMov = true;
             Manager.manager.player[1].GetComponent<PlayerStats>().playerAnim.SetBool("SlamDunk", true);
             Manager.manager.player[1].GetComponent<PlayerStats>().playerAnim.SetTrigger("StartSlam");
-            Manager.manager.player[1].GetComponent<Rigidbody>().velocity = new Vector3(0, 10, 0);
+            //Manager.manager.player[1].GetComponent<Rigidbody>().velocity = new Vector3(0, 13, 0);
             Time.timeScale = 0.1f;
             StartCoroutine("GO");
             pode = true;
