@@ -26,7 +26,9 @@ public class PlayerMovment : MonoBehaviour
 
     public int contInput, xRun = 1, tipo, pulo;
 
-    float forcaY;
+    float forcaY, dist;
+
+    Vector3 dir;
 
     void Start()
     {
@@ -35,6 +37,14 @@ public class PlayerMovment : MonoBehaviour
 
     void Update()
     {
+        dist = Vector3.Distance(transform.position, Manager.manager.player[0].transform.position);
+        if(playerAnim.anim.GetCurrentAnimatorStateInfo(0).IsName("StartSlamDunkLILI") && dist > 0.2f)
+        {
+            dir = Manager.manager.player[0].transform.position - transform.position;
+            dir.Normalize();
+            transform.Translate(dir/40);
+        }
+
 		if (Time.timeScale != 0)
 		{
             if (!playerAttack.mov)

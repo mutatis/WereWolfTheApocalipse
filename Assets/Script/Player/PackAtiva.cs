@@ -271,7 +271,9 @@ public class PackAtiva : MonoBehaviour
         if(other.gameObject.tag == "Player")
         {
             Manager.manager.player[1].GetComponent<PlayerStats>().playerAnim.SetBool("SlamDunk", true);
-            Manager.manager.player[1].GetComponent<PlayerStats>().playerAnim.SetTrigger("StartSlam");            
+            Manager.manager.player[1].GetComponent<PlayerStats>().playerAnim.SetTrigger("StartSlam");
+            //Manager.manager.player[1].GetComponent<Rigidbody>().velocity = new Vector3(0, 15, 0);
+            //Time.timeScale = 0.1f;
             StartCoroutine("GO");
             pode = true;
         }
