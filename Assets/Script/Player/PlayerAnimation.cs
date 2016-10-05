@@ -40,12 +40,20 @@ public class PlayerAnimation : MonoBehaviour
     GameObject obj;
     public GameObject[] x;
 
+    public GameObject pack;
+
     bool idle = true;
     bool run;
 
     void Start()
     {
         x = GameObject.FindGameObjectsWithTag("Manager");
+    }
+
+    public void StartSlam()
+    {
+        pack.SetActive(true);
+        pack.GetComponent<PackAtiva>().qual = 2;
     }
 
     public void JumpStart()

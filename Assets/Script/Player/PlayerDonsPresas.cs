@@ -108,8 +108,6 @@ public class PlayerDonsPresas : MonoBehaviour
     {
         playerAnim.anim.SetBool("SlamDunk", true);
         playerAnim.anim.SetTrigger("StartSlam");
-        pack.SetActive(true);
-        pack.GetComponent<PackAtiva>().qual = 2;
     }
 
     void LunarArmor()

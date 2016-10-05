@@ -152,6 +152,7 @@ public class PackAtiva : MonoBehaviour
 
     void Slam()
     {
+        Time.timeScale = 1;
         Manager.manager.player[0].GetComponent<PlayerStats>().playerAnim.SetTrigger("AcertoSlam");
         Manager.manager.player[1].GetComponent<PlayerStats>().playerAnim.SetTrigger("AcertoSlam");
         Instantiate(slam);
@@ -173,6 +174,7 @@ public class PackAtiva : MonoBehaviour
 
     void Erro(bool erro = false)
     {
+        Time.timeScale = 1;
         if (!erro)
         {
             for (int i = 0; i < Manager.manager.player.Length; i++)
@@ -206,9 +208,9 @@ public class PackAtiva : MonoBehaviour
     {
         ParaTudo();
         temp = 0;
-        yield return new WaitForSeconds(1);
+        yield return new WaitForSeconds(0.1f);
         x = Random.Range(1, 4);
-        yield return new WaitForSeconds(1);
+        yield return new WaitForSeconds(0.1f);
         if (y == 10)
         {
             y = Random.Range(-4, -1);
@@ -217,7 +219,7 @@ public class PackAtiva : MonoBehaviour
         {
             Erro();
         }
-        yield return new WaitForSeconds(1);
+        yield return new WaitForSeconds(0.1f);
         if (x == 10)
         {
             x = Random.Range(1, 4);
@@ -226,7 +228,7 @@ public class PackAtiva : MonoBehaviour
         {
             Erro();
         }
-        yield return new WaitForSeconds(1);
+        yield return new WaitForSeconds(0.1f);
         if (y == 10)
         {
             y = Random.Range(-4, -1);
@@ -235,7 +237,7 @@ public class PackAtiva : MonoBehaviour
         {
             Erro();
         }
-        yield return new WaitForSeconds(1);
+        yield return new WaitForSeconds(0.1f);
         if (x == 10)
         {
             x = Random.Range(1, 4);
@@ -244,7 +246,7 @@ public class PackAtiva : MonoBehaviour
         {
             Erro();
         }
-        yield return new WaitForSeconds(1);
+        yield return new WaitForSeconds(0.1f);
         if (y == 10)
         {
             y = Random.Range(-4, -1);
@@ -272,8 +274,8 @@ public class PackAtiva : MonoBehaviour
         {
             Manager.manager.player[1].GetComponent<PlayerStats>().playerAnim.SetBool("SlamDunk", true);
             Manager.manager.player[1].GetComponent<PlayerStats>().playerAnim.SetTrigger("StartSlam");
-            //Manager.manager.player[1].GetComponent<Rigidbody>().velocity = new Vector3(0, 15, 0);
-            //Time.timeScale = 0.1f;
+            Manager.manager.player[1].GetComponent<Rigidbody>().velocity = new Vector3(0, 10, 0);
+            Time.timeScale = 0.1f;
             StartCoroutine("GO");
             pode = true;
         }
