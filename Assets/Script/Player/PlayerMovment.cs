@@ -48,13 +48,13 @@ public class PlayerMovment : MonoBehaviour
             playerAnim.anim.GetCurrentAnimatorStateInfo(0).IsName("SlamLiliPulo2") || playerAnim.anim.GetCurrentAnimatorStateInfo(0).IsName("SlamLiliPulo3")) &&
             dist > 0.2f && acerto)
         {
-            if (dist <= distTemp/1.5f)
+            if (dist <= distTemp/1.8f)
             {
                 playerAnim.anim.SetTrigger("PuloSlam2");
             }
             dir = Manager.manager.player[0].transform.position - transform.position;
             dir.Normalize();
-            transform.Translate(dir/10, Space.World);
+            transform.Translate(dir/7, Space.World);
         }
         else if ((playerAnim.anim.GetCurrentAnimatorStateInfo(0).IsName("StartSlamDunkLILI") || playerAnim.anim.GetCurrentAnimatorStateInfo(0).IsName("SlamLiliPulo") ||
             playerAnim.anim.GetCurrentAnimatorStateInfo(0).IsName("SlamLiliPulo2") || playerAnim.anim.GetCurrentAnimatorStateInfo(0).IsName("SlamLiliPulo3") || 
