@@ -11,6 +11,8 @@ public class PlayerMovment : MonoBehaviour
 
     public Rigidbody rig;
 
+    public Animator gotinha;
+
     public SpriteRenderer sprite;
 
     FMOD.Studio.EventInstance audioInstanceCreator;
@@ -67,6 +69,7 @@ public class PlayerMovment : MonoBehaviour
             {
                 if(!playerAnim.anim.GetCurrentAnimatorStateInfo(0).IsName("ErroSlamLili"))
                 {
+                    gotinha.SetTrigger("Erro");
                     playerAnim.anim.SetTrigger("ErroSlam");
                 }
                 if(dist < 1.5f)
