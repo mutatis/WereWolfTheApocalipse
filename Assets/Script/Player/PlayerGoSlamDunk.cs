@@ -33,6 +33,7 @@ public class PlayerGoSlamDunk : MonoBehaviour
                 Manager.manager.player[i].GetComponent<PlayerController>().enabled = true;
             }
             Manager.manager.enemy[selecionado].GetComponent<EnemyController>().Dano(500, false, gameObject);
+            Destroy(obj);
             Destroy(gameObject.GetComponent<PlayerGoSlamDunk>());
         }
     }
