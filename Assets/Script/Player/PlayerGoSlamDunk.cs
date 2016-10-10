@@ -28,12 +28,12 @@ public class PlayerGoSlamDunk : MonoBehaviour
         }
         else
         {
+            obj.GetComponent<SlamArea>().Matador();
             for (int i = 0; i < Manager.manager.player.Length; i++)
             {
-                Manager.manager.player[i].GetComponent<PlayerController>().enabled = true;
+                Manager.manager.player[i].GetComponent<PlayerStats>().playerAnim.SetBool("SlamDunk", false);
             }
-            Manager.manager.enemy[selecionado].GetComponent<EnemyController>().Dano(500, false, gameObject);
-            Destroy(obj);
+            //Destroy(obj);
             Destroy(gameObject.GetComponent<PlayerGoSlamDunk>());
         }
     }

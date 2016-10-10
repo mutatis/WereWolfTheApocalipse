@@ -40,6 +40,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 4000010749192290}
   - 212: {fileID: 212000012692419396}
+  - 65: {fileID: 65000010946883214}
   m_Layer: 15
   m_Name: New Sprite
   m_TagString: Untagged
@@ -125,6 +126,18 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 112
   m_CollisionDetection: 0
+--- !u!65 &65000010946883214
+BoxCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1000011800673566}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 0
+  serializedVersion: 2
+  m_Size: {x: 20, y: 12, z: 12}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!65 &65000011477311412
 BoxCollider:
   m_ObjectHideFlags: 1
@@ -149,6 +162,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: 1
+  objColiider: {fileID: 65000010946883214}
   x: 0
   z: 0
 --- !u!212 &212000012692419396

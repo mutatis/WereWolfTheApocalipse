@@ -5,6 +5,8 @@ public class SlamArea : MonoBehaviour
 {
     public PlayerSlamArea player;
 
+    public BoxCollider objColiider;
+
     public float x, z;
 
     void Update()
@@ -33,6 +35,11 @@ public class SlamArea : MonoBehaviour
                 }
                 break;
         }
+    }
+
+    public void Matador()
+    {
+        objColiider.enabled = true;
     }
 }
 
