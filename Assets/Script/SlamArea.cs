@@ -16,11 +16,21 @@ public class SlamArea : MonoBehaviour
             case PlayerSlamArea.Player1:
                 x = Input.GetAxis("HorizontalP1");
                 z = Input.GetAxis("VerticalP1");
+
+                if(Input.GetKeyDown(KeyCode.Joystick1Button0))
+                {
+
+                }
                 break;
 
             case PlayerSlamArea.Player2:
                 x = Input.GetAxis("HorizontalP2");
                 z = Input.GetAxis("VerticalP2");
+
+                if (Input.GetKeyDown(KeyCode.Joystick2Button0))
+                {
+
+                }
                 break;
         }
     }

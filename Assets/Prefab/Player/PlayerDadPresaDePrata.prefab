@@ -216,7 +216,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 167254}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.77, z: 3.766}
+  m_LocalPosition: {x: -2.39, y: 0.77, z: 3.766}
   m_LocalScale: {x: 2.8803294, y: 2.8803294, z: 2.8803294}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children:
@@ -359,7 +359,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 118452}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -5.75, y: 1.3330001, z: 0}
+  m_LocalPosition: {x: -5.75, y: 1.61, z: 0}
   m_LocalScale: {x: 1.0285234, y: 0.44740728, z: 0.44740728}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children: []
@@ -372,7 +372,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 132524}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.094252944, y: 1.3330001, z: 0}
+  m_LocalPosition: {x: 0.094252944, y: 1.61, z: 0}
   m_LocalScale: {x: 1.0285234, y: 0.44740728, z: 0.44740728}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children: []
@@ -608,6 +608,7 @@ MonoBehaviour:
   playerAttack: {fileID: 11491822}
   playerDano: {fileID: 11437298}
   rig: {fileID: 5405390}
+  gotinha: {fileID: 0}
   sprite: {fileID: 21222000}
   jumpSound: event:/Golpes/Jump
   jumpEnd: event:/Golpes/Land
@@ -618,6 +619,8 @@ MonoBehaviour:
   jump: 0
   isGrab: 0
   isJump: 0
+  acerto: 0
+  completo: 0
   x: 0
   z: 0
   xButton: 0
@@ -868,7 +871,7 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
+  m_SortingLayerID: 1539759019
   m_SortingOrder: 0
   m_Sprite: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -967,7 +970,7 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
+  m_SortingLayerID: 1539759019
   m_SortingOrder: 0
   m_Sprite: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
