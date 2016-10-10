@@ -620,7 +620,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 100734, guid: bc7f2737a86586b40b05fa449aadf981, type: 2}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: bc7f2737a86586b40b05fa449aadf981, type: 2}
@@ -1393,7 +1393,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 22412984, guid: 0b075b9c12da14449aff84690836a025, type: 2}
       propertyPath: m_SizeDelta.y
-      value: 0
+      value: 556
       objectReference: {fileID: 0}
     - target: {fileID: 22342896, guid: 0b075b9c12da14449aff84690836a025, type: 2}
       propertyPath: m_RenderMode
@@ -1405,7 +1405,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 22342896, guid: 0b075b9c12da14449aff84690836a025, type: 2}
       propertyPath: m_PixelPerfect
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 22487306, guid: 0b075b9c12da14449aff84690836a025, type: 2}
       propertyPath: m_LocalScale.x
@@ -1488,6 +1488,28 @@ Prefab:
         type: 2}
       propertyPath: m_AnchoredPosition.y
       value: -61.261
+      objectReference: {fileID: 0}
+    - target: {fileID: 135566, guid: 0b075b9c12da14449aff84690836a025, type: 2}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 224000011588031446, guid: 0b075b9c12da14449aff84690836a025,
+        type: 2}
+      propertyPath: m_AnchorMax.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 224000011588031446, guid: 0b075b9c12da14449aff84690836a025,
+        type: 2}
+      propertyPath: m_AnchorMax.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 22487732, guid: 0b075b9c12da14449aff84690836a025, type: 2}
+      propertyPath: m_AnchorMax.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 22487732, guid: 0b075b9c12da14449aff84690836a025, type: 2}
+      propertyPath: m_AnchorMax.y
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 0b075b9c12da14449aff84690836a025, type: 2}

@@ -7,6 +7,8 @@ public class SlamArea : MonoBehaviour
 
     public BoxCollider objColiider;
 
+    public SpriteRenderer sprt;
+
     public float x, z;
 
     void Update()
@@ -39,6 +41,7 @@ public class SlamArea : MonoBehaviour
 
     public void Matador()
     {
+        sprt.enabled = false;
         objColiider.enabled = true;
     }
 }

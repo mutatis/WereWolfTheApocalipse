@@ -13,6 +13,8 @@ public class PlayerGoSlamDunk : MonoBehaviour
 
     float dist;
 
+    bool temp;
+
     void Update()
     {
         if (obj != null)
@@ -20,21 +22,34 @@ public class PlayerGoSlamDunk : MonoBehaviour
             dist = Vector3.Distance(obj.transform.position, transform.position);
         }
 
-        if (dist > 2)
+        if (dist > 2f)
         {
             direction = obj.transform.position - transform.position;
             direction.Normalize();
-            transform.Translate((direction.x), (direction.y / 4), direction.z / 4);
+            transform.Translate((direction.x), (direction.y / 2), direction.z / 4);
         }
-        else
+        else if(!temp)
         {
-            obj.GetComponent<SlamArea>().Matador();
-            for (int i = 0; i < Manager.manager.player.Length; i++)
-            {
-                Manager.manager.player[i].GetComponent<PlayerStats>().playerAnim.SetBool("SlamDunk", false);
-            }
-            //Destroy(obj);
-            Destroy(gameObject.GetComponent<PlayerGoSlamDunk>());
+            StartCoroutine("GO");
         }
+    }
+
+    IEnumerator GO()
+    {
+        temp = true;
+        obj.GetComponent<SlamArea>().Matador();
+        Time.timeScale = 0.1f;
+        gameObject.GetComponent<PlayerDonsAndarilho>().FlashSlam();
+        gameObject.GetComponent<PlayerStats>().playerAnim.SetTrigger("SlamBateu");
+        yield return new WaitForSeconds(0.07f);
+        gameObject.GetComponent<PlayerStats>().playerAnim.SetTrigger("Akuma");
+        yield return new WaitForSeconds(0.08f);
+        for (int i = 0; i < Manager.manager.player.Length; i++)
+        {
+            Manager.manager.player[i].GetComponent<PlayerStats>().playerAnim.SetBool("SlamDunk", false);
+        }
+        Time.timeScale = 1;
+        Destroy(obj);
+        Destroy(gameObject.GetComponent<PlayerGoSlamDunk>());
     }
 }

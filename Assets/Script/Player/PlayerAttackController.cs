@@ -14,7 +14,7 @@ public class PlayerAttackController : MonoBehaviour
     public bool mov;
 
     [HideInInspector]
-    public bool bate, presa, jumpAttack, block, pulaBate;
+    public bool bate, presa, jumpAttack, block, pulaBate, pode;
 
     public GameObject enemy;
 
@@ -45,7 +45,7 @@ public class PlayerAttackController : MonoBehaviour
                     {
                         solta++;
                     }
-                    if (!playerMov.jump)
+                    if (!playerMov.jump && !pode)
                     {
                         if ((Input.GetKeyDown(KeyCode.Joystick1Button1) || Input.GetKeyDown(KeyCode.C)) && !mov)
                         {
@@ -104,7 +104,7 @@ public class PlayerAttackController : MonoBehaviour
                     {
                         solta++;
                     }
-                    if (!playerMov.jump)
+                    if (!playerMov.jump && !pode)
                     {
                         if ((Input.GetKeyDown(KeyCode.Joystick2Button1)) && !mov)
                         {

@@ -50,6 +50,16 @@ public class PlayerAnimation : MonoBehaviour
         x = GameObject.FindGameObjectsWithTag("Manager");
     }
 
+    public void EndSlam()
+    {
+        playerAttack.pode = false;
+    }
+
+    public void TrueSlam()
+    {
+        playerAttack.pode = true;
+    }
+
     public void StartSlam()
     {
         pack.SetActive(true);

@@ -17,7 +17,7 @@ public class PlayerDonsAndarilho : MonoBehaviour
 
     public PlayerDom player;
 
-    public GameObject invoque, eletrecute, pack, pacman;
+    public GameObject invoque, eletrecute, pack, pacman, flash;
 
     public Transform posInvoque;
 
@@ -102,6 +102,11 @@ public class PlayerDonsAndarilho : MonoBehaviour
 				}
 			}
 		}
+    }
+
+    public void FlashSlam()
+    {
+        Instantiate(flash);
     }
 
     void CalloftheWyld()
