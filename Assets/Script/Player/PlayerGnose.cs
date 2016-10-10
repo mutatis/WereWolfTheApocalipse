@@ -14,7 +14,7 @@ public class PlayerGnose : MonoBehaviour
 
     void Update()
     {
-        if (obj.Length <= 0 || obj[0] == null)
+        if (obj.Length <= 0)
         {
             Procura();
         }

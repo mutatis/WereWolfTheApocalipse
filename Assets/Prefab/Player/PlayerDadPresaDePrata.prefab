@@ -61,7 +61,7 @@ GameObject:
   - 54: {fileID: 5442992}
   - 212: {fileID: 21203132}
   - 114: {fileID: 11427724}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: PackTac
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -216,7 +216,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 167254}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -2.39, y: 0.77, z: 3.766}
+  m_LocalPosition: {x: 0, y: 0.77, z: 3.766}
   m_LocalScale: {x: 2.8803294, y: 2.8803294, z: 2.8803294}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children:
@@ -292,7 +292,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 113948}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 2.4, y: -0.63, z: 0}
+  m_LocalPosition: {x: 1.698, y: -0.455, z: 0}
   m_LocalScale: {x: 0.4349998, y: 1, z: 1}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children:
@@ -359,7 +359,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 118452}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -5.75, y: 1.61, z: 0}
+  m_LocalPosition: {x: -3.8137949, y: 1.3330001, z: 0}
   m_LocalScale: {x: 1.0285234, y: 0.44740728, z: 0.44740728}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children: []
@@ -372,7 +372,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 132524}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.094252944, y: 1.61, z: 0}
+  m_LocalPosition: {x: 0.094252944, y: 1.3330001, z: 0}
   m_LocalScale: {x: 1.0285234, y: 0.44740728, z: 0.44740728}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children: []
@@ -543,7 +543,7 @@ MonoBehaviour:
   dodgeCooldown: 100
   rangedSpeed: 100
   rangedDmg: 100
-  life: 10
+  life: 99999
   lifeMax: 0
   vidas: 2
   regen: 2
@@ -608,7 +608,6 @@ MonoBehaviour:
   playerAttack: {fileID: 11491822}
   playerDano: {fileID: 11437298}
   rig: {fileID: 5405390}
-  gotinha: {fileID: 0}
   sprite: {fileID: 21222000}
   jumpSound: event:/Golpes/Jump
   jumpEnd: event:/Golpes/Land
@@ -619,8 +618,6 @@ MonoBehaviour:
   jump: 0
   isGrab: 0
   isJump: 0
-  acerto: 0
-  completo: 0
   x: 0
   z: 0
   xButton: 0
@@ -646,10 +643,10 @@ MonoBehaviour:
   - {fileID: 21227326}
   - {fileID: 21201112}
   img:
-  - {fileID: 21300006, guid: 90788b1bdf1ba674593b3232ff9aed2b, type: 3}
-  - {fileID: 21300004, guid: 90788b1bdf1ba674593b3232ff9aed2b, type: 3}
+  - {fileID: 0}
+  - {fileID: 0}
   - {fileID: 21300000, guid: 90788b1bdf1ba674593b3232ff9aed2b, type: 3}
-  - {fileID: 21300002, guid: 90788b1bdf1ba674593b3232ff9aed2b, type: 3}
+  - {fileID: 0}
   - {fileID: 21300000, guid: a58be8d6302ba9a4d955ca4cfd28caa9, type: 3}
   temp: 0
   qual: 0
@@ -702,8 +699,6 @@ MonoBehaviour:
   queda: event:/Golpes/queda
   socoForte: event:/Golpes/golpe_forte
   levanta: 0
-  x: []
-  pack: {fileID: 113948}
 --- !u!114 &11451426
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -770,7 +765,7 @@ MonoBehaviour:
   anim: {fileID: 11441958}
   player: 0
   crinosAnim: {fileID: 9570054}
-  playerAnim: {fileID: 9544136}
+  playerAnim: {fileID: 9548642}
   nome: Andarilho
   rage: 0
   gnose: 0
@@ -871,7 +866,7 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 1539759019
+  m_SortingLayerID: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -970,7 +965,7 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 1539759019
+  m_SortingLayerID: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -1087,7 +1082,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1000012579680048}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.101, y: -0.685, z: 0}
+  m_LocalPosition: {x: -0.029, y: -0.581, z: 0}
   m_LocalScale: {x: 0.074949734, y: 0.015766447, z: 0.33857235}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children:
@@ -1121,8 +1116,6 @@ MonoBehaviour:
   cost:
   - 50
   - 50
-  - 50
-  - 50
   controller: {fileID: 11461944}
   playerAttack: {fileID: 11491822}
   playerDano: {fileID: 11437298}
@@ -1131,7 +1124,6 @@ MonoBehaviour:
   player: 0
   playerStatus: {fileID: 11414124}
   granite: {fileID: 188288, guid: dca17c12b28ed354f9a80316061707dc, type: 2}
-  pack: {fileID: 113948}
   posGranite: {fileID: 4000012627760266}
   nome: Presas
 --- !u!212 &212000013886843148

@@ -14,8 +14,6 @@ public class SliAumenDimi : MonoBehaviour
     {
         if(Input.GetKeyDown(KeyCode.Joystick2Button0) && transform.localScale.x < maxSli)
         {
-            Manager.manager.player[0].GetComponent<PlayerStats>().playerAnim.SetTrigger("JogaSlam");
-            Manager.manager.player[1].GetComponent<PlayerStats>().playerAnim.SetTrigger("JogaSlam");
             Manager.manager.player[1].GetComponent<Rigidbody>().velocity = new Vector3(0, 35, 0);
             slam.enabled = true;
             sli.SetActive(false);
@@ -25,10 +23,6 @@ public class SliAumenDimi : MonoBehaviour
             for (int i = 0; i < Manager.manager.enemy.Length; i++)
             {
                 Manager.manager.enemy[i].GetComponent<EnemyController>().enabled = true;
-            }
-            for (int i = 0; i < Manager.manager.player.Length; i++)
-            {
-                Manager.manager.player[i].GetComponent<PlayerStats>().playerAnim.SetBool("SlamDunk", false);
             }
             sli.SetActive(false);
         }

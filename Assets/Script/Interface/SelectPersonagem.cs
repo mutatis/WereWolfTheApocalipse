@@ -16,7 +16,7 @@ public class SelectPersonagem : MonoBehaviour
     public GameObject loading;
     public GameObject[] pos;
 
-    public Animator[] animFoto, animFotoImg, animFotoText;
+    public Animator[] animFoto, animFotoImg;
     
     public int select;
     public int select2 = 1;
@@ -124,7 +124,6 @@ public class SelectPersonagem : MonoBehaviour
                 atributos[select].SetActive(false);
                 animFoto[select].SetTrigger("Entra");
                 animFotoImg[select].SetTrigger("Entra");
-                animFotoText[select].SetTrigger("Entra");
                 atributosDesliga[select].SetActive(true);
                 podeP1 = true;
             }
@@ -138,11 +137,11 @@ public class SelectPersonagem : MonoBehaviour
                 {
                     if (Input.GetAxisRaw("DpadXP2") > 0)
                     {
-                        Muda2(true);
+                        Muda2();
                     }
                     else if (Input.GetAxisRaw("DpadXP2") < 0)
                     {
-                        Muda2(false);
+                        Muda2();
                     }
                     else if (Input.GetKeyDown(KeyCode.Joystick2Button0))
                     {
@@ -154,7 +153,6 @@ public class SelectPersonagem : MonoBehaviour
                     atributos[select2].SetActive(false);
                     animFoto[select2].SetTrigger("Entra");
                     animFotoImg[select2].SetTrigger("Entra");
-                    animFotoText[select2].SetTrigger("Entra");
                     atributosDesliga[select2].SetActive(true);
                     podeP2 = true;
                 }
@@ -179,7 +177,6 @@ public class SelectPersonagem : MonoBehaviour
             atributos[select2].SetActive(true);
             animFoto[select2].SetTrigger("Sai");
             animFotoImg[select2].SetTrigger("Sai");
-            animFotoText[select2].SetTrigger("Sai");
             atributosDesliga[select2].SetActive(false);
             podeP2 = false;
             return;
@@ -189,7 +186,6 @@ public class SelectPersonagem : MonoBehaviour
             atributos[select2].SetActive(true);
             animFoto[select2].SetTrigger("Sai");
             animFotoImg[select2].SetTrigger("Sai");
-            animFotoText[select2].SetTrigger("Sai");
             atributosDesliga[select2].SetActive(false);
             podeP2 = false;
             return;
@@ -203,7 +199,6 @@ public class SelectPersonagem : MonoBehaviour
             atributos[select].SetActive(true);
             animFoto[select].SetTrigger("Sai");
             animFotoImg[select].SetTrigger("Sai");
-            animFotoText[select].SetTrigger("Sai");
             atributosDesliga[select].SetActive(false);
             podeP1 = false;
             return;
@@ -213,80 +208,30 @@ public class SelectPersonagem : MonoBehaviour
             atributos[select].SetActive(true);
             animFoto[select].SetTrigger("Sai");
             animFotoImg[select].SetTrigger("Sai");
-            animFotoText[select].SetTrigger("Sai");
             atributosDesliga[select].SetActive(false);
             podeP1 = false;
             return;
         }
     }
 
-    void Muda2(bool positivo)
+    void Muda2()
     {
         if (podeDpad2)
         {
-            if (positivo)
+            /*if (select2 == 0 && select != 1)
             {
-                select2++;
-                if (select2 == select || select2 > 3 && select == 0)
-                {
-                    if (select == 3)
-                    {
-                        select2 = 0;
-                    }
-                    else if (select == 0)
-                    {
-                        select2 = 1;
-                    }
-                    else
-                    {
-                        select2++;
-                    }
-                }
-                if (select2 > 3)
-                {
-                    select2 = 0;
-                }
+                player[1].enabled = true;
+                player[0].enabled = false;
+                select2 = 1;
             }
-            else
+            else if (select2 == 1 && select != 0)
             {
-                select2--;
-                if (select2 == select)
-                {
-                    if (select == 3)
-                    {
-                        select2 = 0;
-                    }
-                    else if (select == 0)
-                    {
-                        select2 = 3;
-                    }
-                    else
-                    {
-                        select2--;
-                    }
-                }
-                if (select2 < 0)
-                {
-                    select2 = 3;
-                }
-            }
+                player[0].enabled = true;
+                player[1].enabled = false;
+                select2 = 0;
+            }*/
+            podeDpad2 = false;
         }
-
-        player[1].transform.position = pos[select2].transform.position;
-        /*
-        if (select == 0 && select2 != 1)
-        {
-            player[1].enabled = true;
-            player[0].enabled = false;
-            select = 1;
-        }
-        else if (select == 1 && select2 != 0)
-        {
-            player[0].enabled = true;
-            player[1].enabled = false;
-            select = 0;
-        }*/
-        podeDpad2 = false;
     }
 
     void Muda(bool positivo)
@@ -357,4 +302,5 @@ public class SelectPersonagem : MonoBehaviour
             }*/
             podeDpad = false;
         }
+    
 }

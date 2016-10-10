@@ -17,7 +17,7 @@ public class PlayerDonsAndarilho : MonoBehaviour
 
     public PlayerDom player;
 
-    public GameObject invoque, eletrecute, pack, pacman, flash;
+    public GameObject invoque, eletrecute, pack, pacman;
 
     public Transform posInvoque;
 
@@ -104,11 +104,6 @@ public class PlayerDonsAndarilho : MonoBehaviour
 		}
     }
 
-    public void FlashSlam()
-    {
-        Instantiate(flash);
-    }
-
     void CalloftheWyld()
     {
         playerDano.stun = true;
@@ -171,6 +166,12 @@ public class PlayerDonsAndarilho : MonoBehaviour
         pack.GetComponent<PackAtiva>().qual = 1;
     }
 
+    void SlamDunk()
+    {
+        pack.SetActive(true);
+        pack.GetComponent<PackAtiva>().qual = 2;
+    }
+
     void PressButtonA(string player)
     {
         if(PlayerPrefs.GetInt(nome + player + "ButtonA") == 0 && controller.gnose >= cost[0])
@@ -191,6 +192,11 @@ public class PlayerDonsAndarilho : MonoBehaviour
         {
             ArrancarPelos();
             controller.gnose -= cost[3];
+        }
+        else if (PlayerPrefs.GetInt(nome + player + "ButtonA") == 4 && controller.gnose >= cost[4] && Manager.manager.player.Length > 1)
+        {
+            SlamDunk();
+            controller.gnose -= cost[4];
         }
     }
 
@@ -215,6 +221,11 @@ public class PlayerDonsAndarilho : MonoBehaviour
             ArrancarPelos();
             controller.gnose -= cost[3];
         }
+        else if (PlayerPrefs.GetInt(nome + player + "ButtonB") == 4 && controller.gnose >= cost[4] && Manager.manager.player.Length > 1)
+        {
+            SlamDunk();
+            controller.gnose -= cost[4];
+        }
     }
 
     void PressButtonX(string player)
@@ -238,6 +249,11 @@ public class PlayerDonsAndarilho : MonoBehaviour
             ArrancarPelos();
             controller.gnose -= cost[3];
         }
+        else if (PlayerPrefs.GetInt(nome + player + "ButtonX") == 4 && controller.gnose >= cost[4] && Manager.manager.player.Length > 1)
+        {
+            SlamDunk();
+            controller.gnose -= cost[4];
+        }
     }
 
     void PressButtonY(string player)
@@ -260,6 +276,11 @@ public class PlayerDonsAndarilho : MonoBehaviour
         {
             ArrancarPelos();
             controller.gnose -= cost[3];
+        }
+        else if (PlayerPrefs.GetInt(nome + player + "ButtonY") == 4 && controller.gnose >= cost[4] && Manager.manager.player.Length > 1)
+        {
+            SlamDunk();
+            controller.gnose -= cost[4];
         }
     }
 }

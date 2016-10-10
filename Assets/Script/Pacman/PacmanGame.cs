@@ -132,6 +132,10 @@ public class PacmanGame : MonoBehaviour
     {
         machadoSom.stop(FMOD.Studio.STOP_MODE.ALLOWFADEOUT);
         machadoSom.release();
+        cu.stop(FMOD.Studio.STOP_MODE.ALLOWFADEOUT);
+        cu.release();
+        pacmanTap.stop(FMOD.Studio.STOP_MODE.ALLOWFADEOUT);
+        pacmanTap.release();
     }
 
     void PlaySound()

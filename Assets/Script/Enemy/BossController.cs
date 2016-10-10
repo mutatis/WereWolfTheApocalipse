@@ -3,7 +3,7 @@ using System.Collections;
 
 public class BossController : MonoBehaviour
 {
-    public Animator anim, t2, t3, t4;
+    public Animator anim;
 
     public Rigidbody rig;
 
@@ -48,7 +48,7 @@ public class BossController : MonoBehaviour
 
     int contTiro = 0;
 
-    int contSalto, contSaltoMax, quantTiro, estagio = 4;
+    int contSalto, contSaltoMax, quantTiro;
 
     float lifeMax;
 
@@ -71,113 +71,92 @@ public class BossController : MonoBehaviour
 
     void Update()
     {
-        if (Time.timeScale != 0)
+        if (player != null)
+            dist = Vector3.Distance(player.transform.position, transform.position);
+
+        if(lifeMax > life && regen)
         {
-            if ((lifeMax / 4) * 3 > life && (lifeMax / 4) * 2 < life && estagio == 4)
-            {
-                estagio = 3;
-                anim.runtimeAnimatorController = t2.GetComponent<Animator>().runtimeAnimatorController;
-            }
-            else if ((lifeMax / 4) * 2 > life && (lifeMax / 4) * 1 < life && estagio == 3)
-            {
-                estagio = 2;
-                anim.runtimeAnimatorController = t3.GetComponent<Animator>().runtimeAnimatorController;
-            }
-            else if ((lifeMax / 4) * 1 > life && estagio == 2)
-            {
-                estagio = 1;
-                anim.runtimeAnimatorController = t4.GetComponent<Animator>().runtimeAnimatorController;
-            }
+            life += 0.05f;
+        }
 
-            if (player != null)
-                dist = Vector3.Distance(player.transform.position, transform.position);
+        if(life > (lifeMax * 0.5f))
+        {
+            contSaltoMax = 1;
+        }
+        else if(life > (lifeMax * 0.25f))
+        {
+            contSaltoMax = 3;
+        }
+        else
+        {
+            contSaltoMax = 5;
+        }
 
-            if ((lifeMax / 4) * estagio > life && regen)
-            {
-                life += 0.05f;
-            }
+        if ((vel1 > 0 && transform.localScale.x > 0) || (vel1 < 0 && transform.localScale.x < 0))
+        {
+            anim.SetBool("Costas", true);
+        }
+        else
+        {
+            anim.SetBool("Costas", false);
+        }
 
-            if (life > (lifeMax * 0.5f))
+        if (!stun && !anim.GetCurrentAnimatorStateInfo(0).IsName("BossPrepareSalto") && !anim.GetCurrentAnimatorStateInfo(0).IsName("BossClawInicio") && 
+                    !anim.GetCurrentAnimatorStateInfo(0).IsName("BossClawAcerto") && !anim.GetCurrentAnimatorStateInfo(0).IsName("BossClawAcertoLoop"))
+        {
+            if (Manager.manager.player[0].GetComponent<PlayerMovment>().transform.position.x > transform.position.x && transform.localScale.x > 0)
             {
-                contSaltoMax = 1;
+                transform.localScale = new Vector3(transform.localScale.x * -1, transform.localScale.y, transform.localScale.z);
             }
-            else if (life > (lifeMax * 0.25f))
+            else if (Manager.manager.player[0].GetComponent<PlayerMovment>().transform.position.x < transform.position.x && transform.localScale.x < 0)
             {
-                contSaltoMax = 3;
+                transform.localScale = new Vector3(transform.localScale.x * -1, transform.localScale.y, transform.localScale.z);
             }
-            else
-            {
-                contSaltoMax = 5;
-            }
+        }
 
-            if ((vel1 > 0 && transform.localScale.x > 0) || (vel1 < 0 && transform.localScale.x < 0))
+        if (!perto && !isAttack)
+        {
+            if (marcado == 0)
             {
-                anim.SetBool("Costas", true);
-            }
-            else
-            {
-                anim.SetBool("Costas", false);
-            }
-
-            if (!stun && !anim.GetCurrentAnimatorStateInfo(0).IsName("BossPrepareSalto") && !anim.GetCurrentAnimatorStateInfo(0).IsName("BossClawInicio") &&
-                        !anim.GetCurrentAnimatorStateInfo(0).IsName("BossClawAcerto") && !anim.GetCurrentAnimatorStateInfo(0).IsName("BossClawAcertoLoop"))
-            {
-                if (Manager.manager.player[0].GetComponent<PlayerMovment>().transform.position.x > transform.position.x && transform.localScale.x > 0)
+                if (vel1 == 0 && vel2 == 0)
                 {
-                    transform.localScale = new Vector3(transform.localScale.x * -1, transform.localScale.y, transform.localScale.z);
+                    if (!anim.GetCurrentAnimatorStateInfo(0).IsName("EnemyIdle") && !anim.GetCurrentAnimatorStateInfo(0).IsName("BossPrepareSalto") && 
+                        !anim.GetCurrentAnimatorStateInfo(0).IsName("BossClawInicio") && !anim.GetCurrentAnimatorStateInfo(0).IsName("BossClawAcerto") && 
+                        !anim.GetCurrentAnimatorStateInfo(0).IsName("BossClawAcertoLoop"))
+                        anim.SetTrigger("Idle");
                 }
-                else if (Manager.manager.player[0].GetComponent<PlayerMovment>().transform.position.x < transform.position.x && transform.localScale.x < 0)
+                else if (!anim.GetCurrentAnimatorStateInfo(0).IsName("EnemyRun") && !anim.GetCurrentAnimatorStateInfo(0).IsName("EnemyRunCostas") && !perto &&
+                    !anim.GetCurrentAnimatorStateInfo(0).IsName("BossPrepareSalto") && !anim.GetCurrentAnimatorStateInfo(0).IsName("BossClawInicio") && 
+                    !anim.GetCurrentAnimatorStateInfo(0).IsName("BossClawAcerto") && !anim.GetCurrentAnimatorStateInfo(0).IsName("BossClawAcertoLoop"))
                 {
-                    transform.localScale = new Vector3(transform.localScale.x * -1, transform.localScale.y, transform.localScale.z);
+                    anim.SetTrigger("Run");
                 }
+				transform.Translate(vel1, 0, vel2, Space.World);
             }
 
-            if (!perto && !isAttack)
+            if (marcado == 1)
             {
-                if (marcado == 0)
-                {
-                    if (vel1 == 0 && vel2 == 0)
-                    {
-                        if (!anim.GetCurrentAnimatorStateInfo(0).IsName("EnemyIdle") && !anim.GetCurrentAnimatorStateInfo(0).IsName("BossPrepareSalto") &&
-                            !anim.GetCurrentAnimatorStateInfo(0).IsName("BossClawInicio") && !anim.GetCurrentAnimatorStateInfo(0).IsName("BossClawAcerto") &&
-                            !anim.GetCurrentAnimatorStateInfo(0).IsName("BossClawAcertoLoop") &&
-                            !anim.GetCurrentAnimatorStateInfo(0).IsName("EnemyDano") && !anim.GetCurrentAnimatorStateInfo(0).IsName("EnemyDano2"))
-                            anim.SetTrigger("Idle");
-                    }
-                    else if (!anim.GetCurrentAnimatorStateInfo(0).IsName("EnemyRun") && !anim.GetCurrentAnimatorStateInfo(0).IsName("EnemyRunCostas") && !perto &&
-                        !anim.GetCurrentAnimatorStateInfo(0).IsName("BossPrepareSalto") && !anim.GetCurrentAnimatorStateInfo(0).IsName("BossClawInicio") &&
-                        !anim.GetCurrentAnimatorStateInfo(0).IsName("BossClawAcerto") && !anim.GetCurrentAnimatorStateInfo(0).IsName("BossClawAcertoLoop") &&
-                            !anim.GetCurrentAnimatorStateInfo(0).IsName("EnemyDano") && !anim.GetCurrentAnimatorStateInfo(0).IsName("EnemyDano2"))
-                    {
-                        anim.SetTrigger("Run");
-                    }
-                    transform.Translate(vel1, 0, vel2, Space.World);
-                }
-
-                if (marcado == 1)
-                {
-                    transform.Translate(new Vector3(0.001f, 0, -0.1f), Space.World);
-                }
-                else if (marcado == 2)
-                {
-                    transform.Translate(new Vector3(0.001f, 0, 0.1f), Space.World);
-                }
+				transform.Translate(new Vector3(0.001f, 0, -0.1f), Space.World);
             }
-
-            if (life <= 0)
+            else if (marcado == 2)
             {
-                StopAllCoroutines();
-                anim.SetTrigger("Dead");
-                dano = false;
-                gameObject.GetComponent<BossController>().enabled = false;
+				transform.Translate(new Vector3(0.001f, 0, 0.1f), Space.World);
             }
+        }
 
-            if (player == null && procura)
-            {
-                var x = Random.Range(0, Manager.manager.posSubBoss.Length);
-                player = Manager.manager.posSubBoss[x];
+        if (life <= 0)
+        {
+            StopAllCoroutines();
+            anim.SetTrigger("Dead");
+            dano = false;
+			gameObject.GetComponent<BossController>().enabled = false;
+        }
 
-            }
+        if (player == null && procura)
+        {
+            var x = Random.Range(0, Manager.manager.posSubBoss.Length);
+            player = Manager.manager.posSubBoss[x];
+
         }
     }
 
@@ -260,6 +239,8 @@ public class BossController : MonoBehaviour
                     break;
 
                 case 2:
+                    esco = Random.Range(0, Manager.manager.posSubBoss.Length);
+                    player = Manager.manager.posSubBoss[esco];
                     StartCoroutine("Engage");
                     break;
 
@@ -335,8 +316,6 @@ public class BossController : MonoBehaviour
 
     IEnumerator Engage()
     {
-        esco = Random.Range(0, Manager.manager.posSubBoss.Length);
-        player = Manager.manager.posSubBoss[esco];
         isAttack = true;
         contSalto = 0;
         StopCoroutine("Pode");

@@ -11,8 +11,6 @@ public class PlayerMovment : MonoBehaviour
 
     public Rigidbody rig;
 
-    public Animator gotinha;
-
     public SpriteRenderer sprite;
 
     FMOD.Studio.EventInstance audioInstanceCreator;
@@ -22,15 +20,13 @@ public class PlayerMovment : MonoBehaviour
 
     public bool run, toca, toca2;
     [HideInInspector]
-    public bool isMov, jump, isGrab, isJump, acerto, completo;
+    public bool isMov, jump, isGrab, isJump;
 
     public float x, z, xButton, zButton;
 
     public int contInput, xRun = 1, tipo, pulo;
 
-    float forcaY, dist, distTemp;
-
-    Vector3 dir;
+    float forcaY;
 
     void Start()
     {
@@ -39,59 +35,6 @@ public class PlayerMovment : MonoBehaviour
 
     void Update()
     {
-        dist = Vector3.Distance(transform.position, Manager.manager.player[0].transform.position);
-        if(playerAnim.anim.GetCurrentAnimatorStateInfo(0).IsName("StartSlamDunkLILI") && dist > 0.2f && !acerto)
-        {
-            distTemp = dist;
-        }
-        else if((playerAnim.anim.GetCurrentAnimatorStateInfo(0).IsName("StartSlamDunkLILI") || playerAnim.anim.GetCurrentAnimatorStateInfo(0).IsName("SlamLiliPulo") ||
-            playerAnim.anim.GetCurrentAnimatorStateInfo(0).IsName("SlamLiliPulo2") || playerAnim.anim.GetCurrentAnimatorStateInfo(0).IsName("SlamLiliPulo3")) &&
-            dist > 0.2f && acerto)
-        {
-            if (dist <= distTemp/1.8f)
-            {
-                playerAnim.anim.SetTrigger("PuloSlam2");
-            }
-            dir = Manager.manager.player[0].transform.position - transform.position;
-            dir.Normalize();
-            transform.Translate(dir/7, Space.World);
-        }
-        else if ((playerAnim.anim.GetCurrentAnimatorStateInfo(0).IsName("StartSlamDunkLILI") || playerAnim.anim.GetCurrentAnimatorStateInfo(0).IsName("SlamLiliPulo") ||
-            playerAnim.anim.GetCurrentAnimatorStateInfo(0).IsName("SlamLiliPulo2") || playerAnim.anim.GetCurrentAnimatorStateInfo(0).IsName("SlamLiliPulo3") || 
-            playerAnim.anim.GetCurrentAnimatorStateInfo(0).IsName("ErroSlamLili")))
-        {
-            if (completo)
-            {
-                Manager.manager.player[0].GetComponent<PlayerStats>().playerAnim.SetTrigger("DesceSlam");
-                playerAnim.anim.SetTrigger("AcertoSlam");
-            }
-            else
-            {
-                if(!playerAnim.anim.GetCurrentAnimatorStateInfo(0).IsName("ErroSlamLili"))
-                {
-                    gotinha.SetTrigger("Erro");
-                    playerAnim.anim.SetTrigger("ErroSlam");
-                }
-                if(dist < 1.5f)
-                {
-                    transform.Translate(0.03f, 0, 0, Space.World);
-                }
-                else if (dist < 5)
-                {
-                    transform.Translate(0.1f, 0, 0, Space.World);
-                }
-                else
-                {
-                    acerto = false;
-                    for (int i = 0; i < Manager.manager.player.Length; i++)
-                    {
-                        Manager.manager.player[i].GetComponent<PlayerStats>().playerAnim.SetBool("SlamDunk", false);
-                    }
-                    completo = false;
-                }
-            }
-        }
-
 		if (Time.timeScale != 0)
 		{
             if (!playerAttack.mov)
@@ -111,138 +54,67 @@ public class PlayerMovment : MonoBehaviour
                 }
             }
 
-            switch (playerStats.player)
-            {
-                case Player.Player1:
-                    if (!isMov)
+			if (!isMov) 
+			{
+				playerAnim.anim.SetInteger ("ContInput", xRun);
+				if (!playerAttack.jumpAttack) 
+				{
+                    if(Input.GetAxisRaw("DpadXP1") > 0 || Input.GetKey(KeyCode.RightArrow))
                     {
-                        playerAnim.anim.SetInteger("ContInput", xRun);
-                        if (!playerAttack.jumpAttack)
-                        {
-                            if (Input.GetAxisRaw("DpadXP1") > 0 || Input.GetKey(KeyCode.RightArrow))
-                            {
-                                xButton = 0.13f;
-                            }
-                            else if (Input.GetAxisRaw("DpadXP1") < 0 || Input.GetKey(KeyCode.LeftArrow))
-                            {
-                                xButton = -0.13f;
-                            }
-                            else
-                            {
-                                xButton = 0;
-                            }
-                            x = (Input.GetAxis("HorizontalP1") + xButton) * xRun;
-                            if ((x > 0 || x < 0) && !run && contInput == 0 && playerStats.crinos)
-                            {
-                                StartCoroutine("Run");
-                            }
-                        }
-                        if (!jump && !playerAttack.block && !playerDano.stun)
-                        {
-                            if (Input.GetAxisRaw("DpadYP1") > 0 || Input.GetKey(KeyCode.UpArrow))
-                            {
-                                zButton = 0.38f;
-                            }
-                            else if (Input.GetAxisRaw("DpadYP1") < 0 || Input.GetKey(KeyCode.DownArrow))
-                            {
-                                zButton = -0.38f;
-                            }
-                            else
-                            {
-                                zButton = 0;
-                            }
-                            z = (Input.GetAxis("VerticalP1") + zButton) * 2 * xRun;
-                            if (((Input.GetKeyDown(KeyCode.Joystick1Button0) && !Input.GetKey(KeyCode.Joystick1Button5)) ||
-                                Input.GetKeyDown(KeyCode.Space) && !Input.GetKey(KeyCode.LeftShift)) && !isJump && Time.timeScale != 0 && !playerStats.crinos)
-                            {
-                                Jump(10);
-                            }
-                            playerAnim.anim.SetFloat("RigVel", 0);
-                        }
-                        else if (jump && !playerAttack.block && !playerDano.stun)
-                        {
-                            z = 0;
-                            playerAnim.anim.SetFloat("RigVel", rig.velocity.y);
-                        }
-                        else if (playerAttack.block || playerDano.stun)
-                        {
-                            x = 0;
-                            z = 0;
-                        }
+                        xButton = 0.13f;
+                    }
+                    else if(Input.GetAxisRaw("DpadXP1") < 0 || Input.GetKey(KeyCode.LeftArrow))
+                    {
+                        xButton = -0.13f;
                     }
                     else
                     {
-                        x = 0;
-                        z = 0;
+                        xButton = 0;
                     }
-                    break;
-
-                case Player.Player2:
-                    if (!isMov)
+					x = (Input.GetAxis ("HorizontalP1") + xButton) * xRun;
+					if ((x > 0 || x < 0) && !run && contInput == 0 && playerStats.crinos) 
+					{
+						StartCoroutine ("Run");
+					}
+				}
+				if (!jump && !playerAttack.block && !playerDano.stun) 
+				{
+                    if (Input.GetAxisRaw("DpadYP1") > 0 || Input.GetKey(KeyCode.UpArrow))
                     {
-                        playerAnim.anim.SetInteger("ContInput", xRun);
-                        if (!playerAttack.jumpAttack)
-                        {
-                            if (Input.GetAxisRaw("DpadXP2") > 0 || Input.GetKey(KeyCode.RightArrow))
-                            {
-                                xButton = 0.13f;
-                            }
-                            else if (Input.GetAxisRaw("DpadXP2") < 0 || Input.GetKey(KeyCode.LeftArrow))
-                            {
-                                xButton = -0.13f;
-                            }
-                            else
-                            {
-                                xButton = 0;
-                            }
-                            x = (Input.GetAxis("HorizontalP2") + xButton) * xRun;
-                            if ((x > 0 || x < 0) && !run && contInput == 0 && playerStats.crinos)
-                            {
-                                StartCoroutine("Run");
-                            }
-                        }
-                        if (!jump && !playerAttack.block && !playerDano.stun)
-                        {
-                            if (Input.GetAxisRaw("DpadYP2") > 0 || Input.GetKey(KeyCode.UpArrow))
-                            {
-                                zButton = 0.38f;
-                            }
-                            else if (Input.GetAxisRaw("DpadYP2") < 0 || Input.GetKey(KeyCode.DownArrow))
-                            {
-                                zButton = -0.38f;
-                            }
-                            else
-                            {
-                                zButton = 0;
-                            }
-                            z = (Input.GetAxis("VerticalP2") + zButton) * 2 * xRun;
-                            if (((Input.GetKeyDown(KeyCode.Joystick2Button0) && !Input.GetKey(KeyCode.Joystick2Button5)) ||
-                                Input.GetKeyDown(KeyCode.Space) && !Input.GetKey(KeyCode.LeftShift)) && !isJump && Time.timeScale != 0 && !playerStats.crinos)
-                            {
-                                Jump(10);
-                            }
-                            playerAnim.anim.SetFloat("RigVel", 0);
-                        }
-                        else if (jump && !playerAttack.block && !playerDano.stun)
-                        {
-                            z = 0;
-                            playerAnim.anim.SetFloat("RigVel", rig.velocity.y);
-                        }
-                        else if (playerAttack.block || playerDano.stun)
-                        {
-                            x = 0;
-                            z = 0;
-                        }
+                        zButton = 0.38f;
+                    }
+                    else if (Input.GetAxisRaw("DpadYP1") < 0 || Input.GetKey(KeyCode.DownArrow))
+                    {
+                        zButton = -0.38f;
                     }
                     else
                     {
-                        x = 0;
-                        z = 0;
+                        zButton = 0;
                     }
-                    break;
-            }
-
-			
+                    z = (Input.GetAxis ("VerticalP1") + zButton) * 2 * xRun;
+					if (((Input.GetKeyDown (KeyCode.Joystick1Button0) && !Input.GetKey(KeyCode.Joystick1Button5)) || 
+                        Input.GetKeyDown(KeyCode.Space) && !Input.GetKey(KeyCode.LeftShift)) && !isJump && Time.timeScale != 0 && !playerStats.crinos) 
+					{
+						Jump (10);
+					}
+					playerAnim.anim.SetFloat ("RigVel", 0);
+				} 
+				else if (jump && !playerAttack.block && !playerDano.stun) 
+				{
+					z = 0;
+					playerAnim.anim.SetFloat ("RigVel", rig.velocity.y);
+				} 
+				else if (playerAttack.block || playerDano.stun) 
+				{
+					x = 0;
+					z = 0;
+				}
+			} 
+			else 
+			{
+				x = 0;
+				z = 0;
+			}
 
 			if (playerAnim.anim.GetCurrentAnimatorStateInfo (0).IsName ("GrabWalkAndarilho")) 
 			{

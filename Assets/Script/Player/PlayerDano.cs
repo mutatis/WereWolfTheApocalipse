@@ -52,7 +52,7 @@ public class PlayerDano : MonoBehaviour
         slamCont = 0;
     }
     
-    public void Dano(float dmg, GameObject obj, bool faca = false, bool cai = false)
+    public void Dano(float dmg, GameObject obj, bool faca = false)
     {
         StopCoroutine("GO");
         StartCoroutine("GO");
@@ -72,7 +72,7 @@ public class PlayerDano : MonoBehaviour
             {
                 if (!playerMov.jump)
                 {
-                    if ((slamCont > 2 && !playerAttack.block && !playerStats.crinos) || cai == true)
+                    if (slamCont > 2 && !playerAttack.block && !playerStats.crinos)
                     {
                         if (!faca)
                         {
@@ -139,9 +139,6 @@ public class PlayerDano : MonoBehaviour
             }
             else
             {
-                audioInstanceCreator = FMODUnity.RuntimeManager.CreateInstance(socoFracoEnemy);
-                audioInstanceCreator.setVolume(PlayerPrefs.GetFloat("VolumeFX"));
-                audioInstanceCreator.start();
                 pegador.GetComponent<EnemyController>().anim.SetTrigger("Dano");
             }
             slamCont++;

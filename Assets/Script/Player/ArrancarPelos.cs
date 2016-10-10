@@ -46,36 +46,6 @@ public class ArrancarPelos : MonoBehaviour
                     Destroy(gameObject.GetComponent<ArrancarPelos>());
                 }
                 break;
-
-            case Player.Player2:
-                x = Input.GetAxis("HorizontalP2");
-                if (zero)
-                {
-                    if (x < -0.1f || Input.GetKeyDown(KeyCode.LeftArrow))
-                    {
-                        Anterior();
-                    }
-                    else if (x > 0.1f || Input.GetKeyDown(KeyCode.RightArrow))
-                    {
-                        Proximo();
-                    }
-                }
-
-                if (x == 0 || Input.GetKeyUp(KeyCode.RightArrow) || Input.GetKeyUp(KeyCode.LeftArrow))
-                {
-                    zero = true;
-                }
-
-                if (Input.GetKeyDown(KeyCode.Joystick2Button0) || Input.GetKeyDown(KeyCode.Space))
-                {
-                    Manager.manager.enemy[selecionado].GetComponent<EnemyController>().Dano(500, false, gameObject);
-                    for (int i = 0; i < Manager.manager.enemy.Length; i++)
-                    {
-                        Manager.manager.enemy[i].GetComponent<EnemyController>().enabled = true;
-                    }
-                    Destroy(gameObject.GetComponent<ArrancarPelos>());
-                }
-                break;
         }
     }
 

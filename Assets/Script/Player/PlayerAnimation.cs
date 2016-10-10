@@ -38,33 +38,9 @@ public class PlayerAnimation : MonoBehaviour
     public bool levanta;
 
     GameObject obj;
-    public GameObject[] x;
-
-    public GameObject pack;
 
     bool idle = true;
     bool run;
-
-    void Start()
-    {
-        x = GameObject.FindGameObjectsWithTag("Manager");
-    }
-
-    public void EndSlam()
-    {
-        playerAttack.pode = false;
-    }
-
-    public void TrueSlam()
-    {
-        playerAttack.pode = true;
-    }
-
-    public void StartSlam()
-    {
-        pack.SetActive(true);
-        pack.GetComponent<PackAtiva>().qual = 2;
-    }
 
     public void JumpStart()
     {
@@ -170,7 +146,6 @@ public class PlayerAnimation : MonoBehaviour
 
     public void Liberated()
     {
-        levanta = false;
         playerAttack.obj = obj;
         playerAttack.Libero();
         playerAttack.mov = false;
@@ -183,8 +158,7 @@ public class PlayerAnimation : MonoBehaviour
     {
         if (playerStatus.vidas < 2)
         {
-            x[0].GetComponent<ManagerStartGame>().continueGame.SetActive(true);
-            Destroy(playerStats.gameObject);
+            SceneManager.LoadScene("Dead");
         }
         else
         {

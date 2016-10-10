@@ -3,23 +3,12 @@ using System.Collections;
 
 public class ManagerStartGame : MonoBehaviour
 {
-    public GameObject andarilho, presas, parede, continueGame;
+    public GameObject andarilho, presas;
 
     GameObject temp;
 
-    Vector3 cameraPos;
-
     void Start()
     {
-        cameraPos = Camera.main.transform.position;
-        Comeca();
-    }
-
-    public void Comeca()
-    {
-        parede.SetActive(false);
-        Camera.main.transform.position = cameraPos;
-
         if (PlayerPrefs.GetInt("Players") <= 1)
         {
             if (PlayerPrefs.GetInt("Escolha") == 1)
@@ -28,15 +17,15 @@ public class ManagerStartGame : MonoBehaviour
             }
             else if (PlayerPrefs.GetInt("Escolha") == 2)
             {
-                Instantiate(presas, new Vector3(-25, 2, 0), transform.rotation);
+				Instantiate(presas, new Vector3(-25, 2, 0), transform.rotation);
             }
         }
         else
         {
-            Instantiate(andarilho, new Vector3(-25, 0, 0), transform.rotation);
-            temp = Instantiate(presas, new Vector3(-25, 0, 0), transform.rotation) as GameObject;
+            Instantiate(andarilho, new Vector3(0, 0, 0), transform.rotation);
+            temp = Instantiate(presas, new Vector3(-5, 0, 0), transform.rotation) as GameObject;
             temp.GetComponent<PlayerStats>().player = Player.Player2;
-            temp.GetComponent<PlayerDonsAndarilho>().player = PlayerDom.Player2;
+            temp.GetComponent<PlayerDonsPresas>().player = PlayerDomPresas.Player2;
         }
     }
 }

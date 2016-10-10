@@ -152,41 +152,23 @@ public class PackAtiva : MonoBehaviour
 
     void Slam()
     {
-        Time.timeScale = 1;
-        Manager.manager.player[0].GetComponent<PlayerStats>().playerAnim.SetTrigger("AcertoSlam");
-        Manager.manager.player[1].GetComponent<PlayerStats>().playerAnim.SetTrigger("PuloSlam");
-        Manager.manager.player[1].GetComponent<PlayerMovment>().acerto = true;
-        Manager.manager.player[1].GetComponent<PlayerMovment>().completo = true;
         Instantiate(slam);
         ParaTudo();
         pode = false;
-        Erro(true);
+        Erro();
     }
 
     void Acerto(int player)
     {
-        Manager.manager.player[1].GetComponent<PlayerStats>().playerAnim.SetBool("SlamDunk", true);
-        Manager.manager.player[1].GetComponent<PlayerStats>().playerAnim.SetTrigger("StartSlam");
-        if (temp < 6)
+        if(temp < 6)
         {
             temp++;
         }
         sprt[player].sprite = img[4];
     }
 
-    void Erro(bool erro = false)
+    void Erro()
     {
-        Time.timeScale = 1;
-        if (!erro)
-        {
-            Manager.manager.player[0].GetComponent<PlayerStats>().playerAnim.SetTrigger("AcertoSlam");
-            Manager.manager.player[1].GetComponent<PlayerStats>().playerAnim.SetTrigger("PuloSlam");
-            Manager.manager.player[1].GetComponent<PlayerMovment>().acerto = true;
-            /*for (int i = 0; i < Manager.manager.player.Length; i++)
-            {
-                Manager.manager.player[i].GetComponent<PlayerStats>().playerAnim.SetBool("SlamDunk", false);
-            }*/
-        }
         for (int i = 0; i < Manager.manager.enemy.Length; i++)
         {
             Manager.manager.enemy[i].GetComponent<EnemyController>().enabled = true;
@@ -213,9 +195,9 @@ public class PackAtiva : MonoBehaviour
     {
         ParaTudo();
         temp = 0;
-        yield return new WaitForSeconds(0.1f);
+        yield return new WaitForSeconds(1);
         x = Random.Range(1, 4);
-        yield return new WaitForSeconds(0.1f);
+        yield return new WaitForSeconds(1);
         if (y == 10)
         {
             y = Random.Range(-4, -1);
@@ -224,7 +206,7 @@ public class PackAtiva : MonoBehaviour
         {
             Erro();
         }
-        yield return new WaitForSeconds(0.1f);
+        yield return new WaitForSeconds(1);
         if (x == 10)
         {
             x = Random.Range(1, 4);
@@ -233,7 +215,7 @@ public class PackAtiva : MonoBehaviour
         {
             Erro();
         }
-        yield return new WaitForSeconds(0.1f);
+        yield return new WaitForSeconds(1);
         if (y == 10)
         {
             y = Random.Range(-4, -1);
@@ -242,7 +224,7 @@ public class PackAtiva : MonoBehaviour
         {
             Erro();
         }
-        yield return new WaitForSeconds(0.1f);
+        yield return new WaitForSeconds(1);
         if (x == 10)
         {
             x = Random.Range(1, 4);
@@ -251,7 +233,7 @@ public class PackAtiva : MonoBehaviour
         {
             Erro();
         }
-        yield return new WaitForSeconds(0.1f);
+        yield return new WaitForSeconds(1);
         if (y == 10)
         {
             y = Random.Range(-4, -1);
@@ -277,12 +259,6 @@ public class PackAtiva : MonoBehaviour
     {
         if(other.gameObject.tag == "Player")
         {
-            Manager.manager.player[0].GetComponent<PlayerMovment>().isMov = true;
-            Manager.manager.player[1].GetComponent<PlayerMovment>().isMov = true;
-            Manager.manager.player[1].GetComponent<PlayerStats>().playerAnim.SetBool("SlamDunk", true);
-            Manager.manager.player[1].GetComponent<PlayerStats>().playerAnim.SetTrigger("StartSlam");
-            //Manager.manager.player[1].GetComponent<Rigidbody>().velocity = new Vector3(0, 13, 0);
-            Time.timeScale = 0.1f;
             StartCoroutine("GO");
             pode = true;
         }
